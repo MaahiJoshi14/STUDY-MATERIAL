@@ -1,0 +1,65 @@
+Created At: 2026-07-02T09:40:02Z
+Completed At: 2026-07-02T09:40:02Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1637
+Total Bytes: 70237
+Showing lines 1204 to 1260
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1204: export const nonBtechCourses: NonBtechCourse[] = [
+1205:   {
+1206:     id: 'bba',
+1207:     name: 'BBA',
+1208:     emoji: '💼',
+1209:     years: [
+1210:       {
+1211:         year: 1,
+1212:         subjects: [
+1213:           {
+1214:             id: 'bba-pom',
+1215:             name: 'Principles of Management',
+1216:             shortName: 'POM',
+1217:             emoji: '👔',
+1218:             code: 'BB-101',
+1219:             description: 'Core concepts of planning, organizing, leading, and controlling.',
+1220:             resourceCount: 15,
+1221:             studyMaterials: [
+1222:               { title: 'POM Unit 1-4 Complete Notes', url: 'https://drive.google.com/file/d/bba_pom_notes', type: 'pdf' }
+1223:             ],
+1224:             pyqs: [
+1225:               { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/bba_pom_pyq24', type: 'pdf' }
+1226:             ],
+1227:             ytResources: [
+1228:               { title: 'Management Concepts Playlist', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'Study MBA', thumbnailId: 'dQw4w9WgXcQ' }
+1229:             ]
+1230:           },
+1231:           {
+1232:             id: 'bba-fa',
+1233:             name: 'Financial Accounting',
+1234:             shortName: 'Accounting',
+1235:             emoji: '📊',
+1236:             code: 'BB-102',
+1237:             description: 'Double-entry bookkeeping, ledger accounts, and balance sheets.',
+1238:             resourceCount: 18,
+1239:             studyMaterials: [
+1240:               { title: 'Financial Accounting Ledger Guide', url: 'https://drive.google.com/file/d/bba_fa_notes', type: 'pdf' }
+1241:             ],
+1242:             pyqs: [
+1243:               { title: 'Sessional 1 2024', url: 'https://drive.google.com/file/d/bba_fa_pyq24', type: 'pdf' }
+1244:             ],
+1245:             ytResources: [
+1246:               { title: 'Accounting for Beginners', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'Accounting Stuff', thumbnailId: 'dQw4w9WgXcQ' }
+1247:             ]
+1248:           }
+1249:         ]
+1250:       },
+1251:       {
+1252:         year: 2,
+1253:         subjects: [
+1254:           {
+1255:             id: 'bba-ob',
+1256:             name: 'Organizational Behavior',
+1257:             shortName: 'Org. Behavior',
+1258:             emoji: '👥',
+1259:             code: 'BB-201',
+1260:             description: 'Individual and group behavior in organizations, culture, and motivation.',
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

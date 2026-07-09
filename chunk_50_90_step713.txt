@@ -1,0 +1,49 @@
+Created At: 2026-07-02T15:36:52Z
+Completed At: 2026-07-02T15:36:52Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1637
+Total Bytes: 70237
+Showing lines 50 to 90
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+50:   description: string;
+51:   subjects: Subject[];
+52: }
+53: 
+54: // ────────────────────────────────────────────────────────────
+55: // YEAR 1 — CYCLES
+56: // ────────────────────────────────────────────────────────────
+57: 
+58: export const year1Cycles: Cycle[] = [
+59:   {
+60:     id: 'physics-cycle',
+61:     name: 'Physics Cycle',
+62:     emoji: '🔬',
+63:     color: '#4f46e5',
+64:     gradient: 'from-indigo-500 to-blue-600',
+65:     description: 'Eng. Physics, Computational Mathematics, PSUC, WCS, EVS, Biology for Engineers, and MATLAB.',
+66:     subjectPreview: '12 Subjects',
+67:     subjects: [
+68:       {
+69:         id: 'engineering-physics',
+70:         name: 'Engineering Physics',
+71:         shortName: 'Eng. Physics',
+72:         emoji: '⚛️',
+73:         code: 'EP-101',
+74:         description: 'Classical mechanics, optics, and quantum fundamentals.',
+75:         resourceCount: 42,
+76:         studyMaterials: [
+77:           { title: 'Module 1 — Wave Optics Notes', url: 'https://drive.google.com/drive/folders/1example_physics_notes', type: 'pdf' },
+78:           { title: 'Module 2 — Quantum Mechanics', url: 'https://drive.google.com/drive/folders/1example_physics_qm', type: 'pdf' },
+79:           { title: 'Module 3 — Semiconductors', url: 'https://drive.google.com/drive/folders/1example_physics_semi', type: 'pdf' },
+80:           { title: 'Complete Textbook (H.K. Malik)', url: 'https://drive.google.com/file/d/1example_physics_book', type: 'pdf' },
+81:         ],
+82:         pyqs: [
+83:           { title: 'End Term 2024', url: 'https://drive.google.com/file/d/1example_physics_pyq24e', type: 'pdf' },
+84:           { title: 'Sessional 1 — 2023', url: 'https://drive.google.com/file/d/1example_physics_pyq23s1', type: 'pdf' },
+85:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_physics_pyq23e', type: 'pdf' },
+86:           { title: 'End Semester 2022', url: 'https://drive.google.com/file/d/1example_physics_pyq22e', type: 'pdf' },
+87:         ],
+88:         ytResources: [
+89:           { title: 'Engineering Physics Full Course', url: 'https://youtube.com/watch?v=6GG6T0YHFEY', channelName: 'NPTEL', thumbnailId: '6GG6T0YHFEY' },
+90:           { title: 'Wave Optics — Complete Chapter', url: 'https://youtube.com/watch?v=Iuv6hY6zsd0', channelName: 'Physics Wallah', thumbnailId: 'Iuv6hY6zsd0' },
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

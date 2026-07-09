@@ -1,0 +1,8 @@
+{
+  "step_index": 1368,
+  "source": "MODEL",
+  "type": "VIEW_FILE",
+  "status": "DONE",
+  "created_at": "2026-07-09T10:29:18Z",
+  "content": "Created At: 2026-07-09T10:29:18Z\nCompleted At: 2026-07-09T10:29:18Z\nFile Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`\nTotal Lines: 1637\nTotal Bytes: 71873\nShowing lines 1470 to 1495\nThe following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.\n1470:   }\r\n1471:   for (const course of nonBtechCourses) {\r\n1472:     for (const yr of course.years) {\r\n1473:       const found = yr.subjects.find(s => s.id === id);\r\n1474:       if (found) return found;\r\n1475:     }\r\n1476:   }\r\n1477:   return undefined;\r\n1478: }\r\n1479: \r\n1480: export function getYouTubeThumbnail(videoId: string): string {\r\n1481:   return `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;\r\n1482: }\r\n1483: \r\n1484: // ── Shared Questions Database for Master Arena ──\r\n1485: export interface Question {\r\n1486:   id: string;\r\n1487:   topic: string;\r\n1488:   year: string;\r\n1489:   marks: number;\r\n1490:   text: string;\r\n1491:   options: string[];\r\n1492:   correct: number;\r\n1493:   explanation: string;\r\n1494: }\r\n1495: \r\nThe above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.\n"
+}

@@ -1,0 +1,84 @@
+Created At: 2026-07-09T09:38:30Z
+Completed At: 2026-07-09T09:38:31Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1637
+Total Bytes: 71873
+Showing lines 1485 to 1560
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1485: export interface Question {
+1486:   id: string;
+1487:   topic: string;
+1488:   year: string;
+1489:   marks: number;
+1490:   text: string;
+1491:   options: string[];
+1492:   correct: number;
+1493:   explanation: string;
+1494: }
+1495: 
+1496: export const QUESTIONS_DB: Record<string, Question[]> = {
+1497:   'engineering-physics': [
+1498:     {
+1499:       id: 'ep1', topic: 'Quantum Mechanics', year: 'End-Term 2024', marks: 6,
+1500:       text: 'Which experiment directly proves the wave nature of electrons?',
+1501:       options: ['Photoelectric Effect', 'Davisson-Germer Experiment', 'Blackbody Radiation', 'Compton Scattering'],
+1502:       correct: 1,
+1503:       explanation: 'The Davisson-Germer Experiment (1927) demonstrated electron diffraction on a Nickel crystal, confirming de Broglie\'s hypothesis.'
+1504:     },
+1505:     {
+1506:       id: 'ep2', topic: 'Laser Technology', year: 'Mid-Term 2023', marks: 4,
+1507:       text: 'What condition is necessary for laser action to occur?',
+1508:       options: ['Thermal Equilibrium', 'Population Inversion', 'High Temperature', 'Ground State Dominance'],
+1509:       correct: 1,
+1510:       explanation: 'Population inversion — having more atoms in excited state than ground state — is essential for stimulated emission to dominate.'
+1511:     },
+1512:     {
+1513:       id: 'ep3', topic: 'Wave Optics', year: 'End-Term 2023', marks: 4,
+1514:       text: 'In Young\'s double slit experiment, fringe width β is proportional to:',
+1515:       options: ['d/λD', 'λD/d', 'λd/D', 'D/λd'],
+1516:       correct: 1,
+1517:       explanation: 'Fringe width β = λD/d, where λ is wavelength, D is screen distance, and d is slit separation.'
+1518:     },
+1519:   ],
+1520:   'computational-mathematics': [
+1521:     {
+1522:       id: 'cm1', topic: 'Linear Algebra', year: 'End-Term 2024', marks: 6,
+1523:       text: 'If A is a 3×3 matrix with eigenvalues 1, 2, and -1, what is Trace(A)?',
+1524:       options: ['2', '3', '6', '-2'],
+1525:       correct: 0,
+1526:       explanation: 'Trace = sum of eigenvalues = 1 + 2 + (-1) = 2.'
+1527:     },
+1528:     {
+1529:       id: 'cm2', topic: 'Numerical Methods', year: 'Mid-Term 2024', marks: 4,
+1530:       text: 'Which iterative method has quadratic rate of convergence?',
+1531:       options: ['Bisection Method', 'Regula-Falsi Method', 'Newton-Raphson Method', 'Secant Method'],
+1532:       correct: 2,
+1533:       explanation: 'Newton-Raphson has order of convergence = 2 (quadratic), making it the fastest among standard root-finding methods.'
+1534:     },
+1535:   ],
+1536:   'psuc': [
+1537:     {
+1538:       id: 'psuc1', topic: 'Pointers & Memory', year: 'End-Term 2023', marks: 10,
+1539:       text: 'What is sizeof(char*) on a 64-bit system?',
+1540:       options: ['1', '4', '8', 'Compiler dependent'],
+1541:       correct: 2,
+1542:       explanation: 'On 64-bit systems, all pointer types are 8 bytes regardless of what they point to.'
+1543:     },
+1544:     {
+1545:       id: 'psuc2', topic: 'Data Structures', year: 'Mid-Term 2024', marks: 6,
+1546:       text: 'Which data structure follows the Last In First Out (LIFO) order?',
+1547:       options: ['Queue', 'Stack', 'Binary Search Tree', 'Singly Linked List'],
+1548:       correct: 1,
+1549:       explanation: 'A stack follows LIFO — elements are pushed and popped from the same end (top).'
+1550:     },
+1551:   ],
+1552:   'digital-systems': [
+1553:     {
+1554:       id: 'ds1', topic: 'Boolean Algebra', year: 'End-Term 2024', marks: 6,
+1555:       text: 'Simplify the expression: A + A\'B',
+1556:       options: ['A + B', 'A', 'B', 'A\'B'],
+1557:       correct: 0,
+1558:       explanation: 'By absorption law: A + A\'B = A + B. This can be verified using truth tables or Boolean algebra identities.'
+1559:     },
+1560:   ],
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

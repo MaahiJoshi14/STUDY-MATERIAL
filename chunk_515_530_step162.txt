@@ -1,0 +1,24 @@
+Created At: 2026-07-01T18:56:45Z
+Completed At: 2026-07-01T18:56:45Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1637
+Total Bytes: 70237
+Showing lines 515 to 530
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+515: export const branches: Branch[] = [
+516:   {
+517:     id: 'aiml',
+518:     name: 'Artificial Intelligence & ML',
+519:     shortName: 'AIML',
+520:     emoji: '🤖',
+521:     icon: 'Brain',
+522:     gradient: 'from-purple-500 to-violet-600',
+523:     color: '#7c3aed',
+524:     description: 'Intelligence systems & Neural Nets',
+525:     subjects: [
+526:       {
+527:         id: 'aiml-ase',
+528:         name: 'Agile Software Engineering',
+529:         shortName: 'Agile SE',
+530:         emoji: '🔄',
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

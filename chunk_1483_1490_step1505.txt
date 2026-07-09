@@ -1,0 +1,16 @@
+Created At: 2026-07-09T11:42:24Z
+Completed At: 2026-07-09T11:42:25Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1637
+Total Bytes: 71873
+Showing lines 1483 to 1490
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1483: 
+1484: // ── Shared Questions Database for Master Arena ──
+1485: export interface Question {
+1486:   id: string;
+1487:   topic: string;
+1488:   year: string;
+1489:   marks: number;
+1490:   text: string;
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

@@ -1,0 +1,8 @@
+{
+  "step_index": 1180,
+  "source": "MODEL",
+  "type": "GREP_SEARCH",
+  "status": "DONE",
+  "created_at": "2026-07-09T09:38:21Z",
+  "content": "Created At: 2026-07-09T09:38:21Z\nCompleted At: 2026-07-09T09:38:21Z\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":1485,\"LineContent\":\"export interface Question {\"}"
+}

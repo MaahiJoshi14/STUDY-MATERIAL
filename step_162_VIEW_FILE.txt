@@ -1,0 +1,8 @@
+{
+  "step_index": 162,
+  "source": "MODEL",
+  "type": "VIEW_FILE",
+  "status": "DONE",
+  "created_at": "2026-07-01T18:56:45Z",
+  "content": "Created At: 2026-07-01T18:56:45Z\nCompleted At: 2026-07-01T18:56:45Z\nFile Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`\nTotal Lines: 1637\nTotal Bytes: 70237\nShowing lines 515 to 530\nThe following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.\n515: export const branches: Branch[] = [\n516:   {\n517:     id: 'aiml',\n518:     name: 'Artificial Intelligence & ML',\n519:     shortName: 'AIML',\n520:     emoji: '🤖',\n521:     icon: 'Brain',\n522:     gradient: 'from-purple-500 to-violet-600',\n523:     color: '#7c3aed',\n524:     description: 'Intelligence systems & Neural Nets',\n525:     subjects: [\n526:       {\n527:         id: 'aiml-ase',\n528:         name: 'Agile Software Engineering',\n529:         shortName: 'Agile SE',\n530:         emoji: '🔄',\nThe above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.\n"
+}

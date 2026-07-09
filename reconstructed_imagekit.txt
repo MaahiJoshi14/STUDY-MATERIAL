@@ -1,0 +1,150 @@
+// ============================================================
+// MUJ BTech Study Material — Central Data Source
+// ============================================================
+
+export interface ResourceLink {
+  title: string;
+  url: string;
+  type: 'pdf' | 'ppt' | 'pptx' | 'doc' | 'docx' | 'xls' | 'xlsx' | 'other';
+}
+
+export interface YouTubeResource {
+  title: string;
+  url: string;
+  channelName: string;
+  thumbnailId?: string;
+}
+
+export interface Subject {
+  id: string;
+  name: string;
+  shortName: string;
+  emoji: string;
+  code: string;
+  description: string;
+  resourceCount: number;
+  studyMaterials: ResourceLink[];
+  pyqs: ResourceLink[];
+  ytResources: YouTubeResource[];
+}
+
+export interface Cycle {
+  id: string;
+  name: string;
+  emoji: string;
+  color: string;
+  gradient: string;
+  description: string;
+  subjectPreview: string;
+  subjects: Subject[];
+}
+
+export interface Branch {
+  id: string;
+  name: string;
+  shortName: string;
+  emoji: string;
+  icon: string;
+  gradient: string;
+  color: string;
+  description: string;
+  subjects: Subject[];
+}
+
+// ────────────────────────────────────────────────────────────
+// YEAR 1 — CYCLES
+// ────────────────────────────────────────────────────────────
+
+export const year1Cycles: Cycle[] = [
+  {
+    id: 'chemistry-cycle',
+    name: 'Chemistry Cycle',
+    emoji: '🧪',
+    color: '#0ea5e9',
+    gradient: 'from-cyan-500 to-teal-600',
+    description: 'Chemistry Cycle study materials and previous year question papers.',
+    subjectPreview: '15 Subjects',
+    subjects: [
+      {
+        id: 'applied-mathematics',
+        name: 'Applied Mathematics',
+        shortName: 'Applied Mathematics',
+        emoji: '📖',
+        code: 'APPLIE',
+        description: 'Study materials and PYQs for Applied Mathematics.',
+        resourceCount: 4,
+        studyMaterials: [
+        ],
+        pyqs: [
+          { title: 'AM-1_ETE_MakeupFEB2025', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/applied-mathematics/pyqs/AM-1_ETE_MakeupFEB2025.pdf', type: 'pdf' },
+          { title: 'AM-1_ETE_Sem-I_2024-25', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/applied-mathematics/pyqs/AM-1_ETE_Sem-I_2024-25.pdf', type: 'pdf' },
+          { title: 'AM-1_MTE_Sem-I_2024-25', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/applied-mathematics/pyqs/AM-1_MTE_Sem-I_2024-25.pdf', type: 'pdf' },
+          { title: 'Course Handout_MA1109_BTech-1Sem', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/applied-mathematics/pyqs/Course%20Handout_MA1109_BTech-1Sem.pdf', type: 'pdf' },
+        ],
+        ytResources: [],
+      },
+      {
+        id: 'basic-mechanical-engineering',
+        name: 'Basic Mechanical Engineering',
+        shortName: 'Basic Mechanical Eng...',
+        emoji: '📖',
+        code: 'BASICM',
+        description: 'Study materials and PYQs for Basic Mechanical Engineering.',
+        resourceCount: 29,
+        studyMaterials: [
+          { title: '2nd Law  Of Thermodymc', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/2nd%20Law%20%20Of%20Thermodymc.pptx', type: 'ppt' },
+          { title: '2nd Law SLOT Problems', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/2nd%20Law%20SLOT%20Problems.pdf', type: 'pdf' },
+          { title: 'BME LECTURE 4 and 5', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/BME%20LECTURE%204%20and%205.pdf', type: 'pdf' },
+          { title: 'BME LECTURE-1&2', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/BME%20LECTURE-1&2.pdf', type: 'pdf' },
+          { title: 'BME LECTURE-3', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/BME%20LECTURE-3.pdf', type: 'pdf' },
+          { title: 'BME LECTURE-4', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/BME%20LECTURE-4.pdf', type: 'pdf' },
+          { title: 'Casting & Lathe BME', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Casting%20&%20Lathe%20BME.pdf', type: 'pdf' },
+          { title: 'Casting (New)', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Casting%20(New).pdf', type: 'pdf' },
+          { title: 'FLOT', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/FLOT.pptx', type: 'ppt' },
+          { title: 'IC Engines BME', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/IC%20Engines%20BME.pdf', type: 'pdf' },
+          { title: 'IC Engines Vol 1', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/IC%20Engines%20Vol%201.pdf', type: 'pdf' },
+          { title: 'IC Engines Vol 2', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/IC%20Engines%20Vol%202.pdf', type: 'pdf' },
+          { title: 'Lathe', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Lathe.pdf', type: 'pdf' },
+          { title: 'Lecture 1&2', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Lecture%201&2.pptx', type: 'ppt' },
+          { title: 'Lecture 3', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Lecture%203.pptx', type: 'ppt' },
+          { title: 'Lecture 6', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Lecture%206.pdf', type: 'pdf' },
+          { title: 'Non-Traditional Machining Methods', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Non-Traditional%20Machining%20Methods.pdf', type: 'pdf' },
+          { title: 'Power Transmission BME', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Power%20Transmission%20BME.pdf', type: 'pdf' },
+          { title: 'RAC Ppt', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/RAC%20Ppt.pdf', type: 'pdf' },
+          { title: 'Rapid_Prototyping', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Rapid_Prototyping.pdf', type: 'pdf' },
+          { title: 'Refrigeration RAC', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Refrigeration%20RAC.pptx', type: 'ppt' },
+          { title: 'SECOND  Law  Of Thermodymc', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/SECOND%20%20Law%20%20Of%20Thermodymc.pptx', type: 'ppt' },
+          { title: 'Steady Flow Energy Equation', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Steady%20Flow%20Energy%20Equation.pdf', type: 'pdf' },
+          { title: 'Thermodynamics BME', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/study-material/Thermodynamics%20BME.pdf', type: 'pdf' },
+        ],
+        pyqs: [
+          { title: 'BME_ETE_Sem-I_2025-26', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/pyqs/BME_ETE_Sem-I_2025-26.pdf', type: 'pdf' },
+          { title: 'BME_Make-up_Sem-I_2025-26', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/pyqs/BME_Make-up_Sem-I_2025-26.pdf', type: 'pdf' },
+          { title: 'BME_MTE_Re-sess_Sem-II_2025-26', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/pyqs/BME_MTE_Re-sess_Sem-II_2025-26.pdf', type: 'pdf' },
+          { title: 'BME_MTE_Re-sess_Sem-I_2025-26', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/pyqs/BME_MTE_Re-sess_Sem-I_2025-26.pdf', type: 'pdf' },
+          { title: 'BME_MTE_Sem-II_2025-26', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/basic-mechanical-engineering/pyqs/BME_MTE_Sem-II_2025-26.pdf', type: 'pdf' },
+        ],
+        ytResources: [],
+      },
+      {
+        id: 'calculus-and-matrices',
+        name: 'Calculus And Matrices',
+        shortName: 'Calculus And Matrice...',
+        emoji: '📖',
+        code: 'CALCUL',
+        description: 'Study materials and PYQs for Calculus And Matrices.',
+        resourceCount: 24,
+        studyMaterials: [
+          { title: '0.MAS1001_Calculus & Matrices_Course Handout', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/0.MAS1001_Calculus%20&%20Matrices_Course%20Handout.pdf', type: 'pdf' },
+          { title: '1_cayley hamilton theorem + exam questions', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/1_cayley%20hamilton%20theorem%20+%20exam%20questions.pdf', type: 'pdf' },
+          { title: '1_rank of matrix', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/1_rank%20of%20matrix.pdf', type: 'pdf' },
+          { title: '3_soln of simultaneous linear eqn', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/3_soln%20of%20simultaneous%20linear%20eqn.pdf', type: 'pdf' },
+          { title: '4_Curvature CAM_merged', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/4_Curvature%20CAM_merged.pdf', type: 'pdf' },
+          { title: '5_Partial Differentiation', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/5_Partial%20Differentiation.pdf', type: 'pdf' },
+          { title: '6_partial differentiation Question Bank', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/6_partial%20differentiation%20Question%20Bank.pdf', type: 'pdf' },
+          { title: 'Change_of_Order', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/Change_of_Order.pdf', type: 'pdf' },
+          { title: 'Double and Tripple Integration_notes', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/Double%20and%20Tripple%20Integration_notes.pdf', type: 'pdf' },
+          { title: 'integrating factor ', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/integrating%20factor%20.pdf', type: 'pdf' },
+          { title: 'Maxima Minima_Notes', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/Maxima%20Minima_Notes.pdf', type: 'pdf' },
+          { title: 'surface integral', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/surface%20integral.pdf', type: 'pdf' },
+          { title: 'TRIPLE_INTEGRATION', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/calculus-and-matrices/study-material/TRIPLE_INTEGRATION.pdf', type: 'pdf' },

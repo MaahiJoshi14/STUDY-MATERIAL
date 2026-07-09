@@ -1,0 +1,8 @@
+{
+  "step_index": 1827,
+  "source": "MODEL",
+  "type": "RUN_COMMAND",
+  "status": "DONE",
+  "created_at": "2026-07-09T12:31:06Z",
+  "content": "Created At: 2026-07-09T12:31:06Z\nCompleted At: 2026-07-09T12:31:13Z\n\n\t\t\t\tThe command failed with exit code: 1\n\t\t\t\tOutput:\n\t\t\t\t\n> study-material@0.0.0 build\n> tsc -b && vite build\n\nsrc/data/studyMaterial.ts(306,9): error TS1136: Property assignment expected.\r\n\n"
+}

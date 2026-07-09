@@ -1,0 +1,8 @@
+{
+  "step_index": 74,
+  "source": "MODEL",
+  "type": "GREP_SEARCH",
+  "status": "DONE",
+  "created_at": "2026-07-01T17:56:37Z",
+  "content": "Created At: 2026-07-01T17:56:37Z\nCompleted At: 2026-07-01T17:56:37Z\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":1204,\"LineContent\":\"export const nonBtechCourses: NonBtechCourse[] = [\"}\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":1471,\"LineContent\":\"  for (const course of nonBtechCourses) {\"}"
+}

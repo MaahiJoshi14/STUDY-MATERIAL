@@ -1,0 +1,69 @@
+Created At: 2026-07-08T10:38:45Z
+Completed At: 2026-07-08T10:38:46Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 2110
+Total Bytes: 159811
+Showing lines 1920 to 1980
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1920: }
+1921: 
+1922: export const QUESTIONS_DB: Record<string, TopicCategory[]> = {
+1923:   'engineering-physics': [
+1924:     {
+1925:       name: 'Quantum Mechanics',
+1926:       questions: [
+1927:         {
+1928:           id: 'ep1', topic: 'Quantum Mechanics', yearsAppeared: ['2022', '2023', '2024'],
+1929:           marksRange: '4-6', frequency: 3,
+1930:           type: 'theory',
+1931:           text: 'Explain the Davisson-Germer Experiment and how it proves the wave nature of electrons.',
+1932:           keywords: ['electron diffraction', 'Nickel crystal', 'de Broglie hypothesis', 'wave-particle duality'],
+1933:           correctAnswer: 'The Davisson-Germer Experiment demonstrated that electrons undergo diffraction when scattered from a Nickel crystal, confirming de Broglie\'s hypothesis.',
+1934:           points: 6
+1935:         },
+1936:         {
+1937:           id: 'ep2', topic: 'Quantum Mechanics', yearsAppeared: ['2023', '2024'],
+1938:           marksRange: '4-5', frequency: 2,
+1939:           type: 'numerical',
+1940:           text: 'Calculate the de Broglie wavelength of an electron accelerated through a potential difference of 100 V.',
+1941:           formula: 'λ = h / √(2meV)',
+1942:           formulaExplanation: {
+1943:             'λ': 'de Broglie wavelength',
+1944:             'h': 'Planck\'s constant (6.626 × 10⁻³⁴ J·s)',
+1945:             'm': 'mass of electron (9.1 × 10⁻³¹ kg)',
+1946:             'e': 'charge of electron (1.6 × 10⁻¹⁹ C)',
+1947:             'V': 'potential difference'
+1948:           },
+1949:           correctAnswer: 'λ ≈ 1.23 Å',
+1950:           points: 5
+1951:         }
+1952:       ]
+1953:     },
+1954:     {
+1955:       name: 'Laser Technology',
+1956:       questions: [
+1957:         {
+1958:           id: 'ep3', topic: 'Laser Technology', yearsAppeared: ['2021', '2023', '2024'],
+1959:           marksRange: '4-6', frequency: 3,
+1960:           type: 'theory',
+1961:           text: 'What is population inversion and why is it essential for laser action?',
+1962:           keywords: ['population inversion', 'stimulated emission', 'excited state', 'ground state', 'laser'],
+1963:           correctAnswer: 'Population inversion is a state where more atoms are in an excited state than in the ground state, essential for laser action.',
+1964:           points: 6
+1965:         }
+1966:       ]
+1967:     },
+1968:     {
+1969:       name: 'Wave Optics',
+1970:       questions: [
+1971:         {
+1972:           id: 'ep4', topic: 'Wave Optics', yearsAppeared: ['2022', '2024'],
+1973:           marksRange: '4-6', frequency: 2,
+1974:           type: 'numerical',
+1975:           text: 'In Young\'s double slit experiment, calculate the fringe width if λ=600 nm, D=1 m, d=1 mm.',
+1976:           formula: 'β = λD / d',
+1977:           formulaExplanation: {
+1978:             'β': 'fringe width',
+1979:             'λ': 'wavelength of light',
+1980:             'D': 'distance between slits and screen',
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

@@ -1,0 +1,258 @@
+Created At: 2026-07-09T11:59:21Z
+Completed At: 2026-07-09T11:59:22Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1865
+Total Bytes: 86007
+Showing lines 1 to 250
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: // ============================================================
+2: // MUJ BTech Study Material â€” Central Data Source
+3: // ============================================================
+4: 
+5: export interface ResourceLink {
+6:   title: string;
+7:   url: string;
+8:   type: 'drive' | 'pdf' | 'doc' | 'slides';
+9: }
+10: 
+11: export interface YouTubeResource {
+12:   title: string;
+13:   url: string;
+14:   channelName: string;
+15:   thumbnailId?: string;
+16: }
+17: 
+18: export interface Subject {
+19:   id: string;
+20:   name: string;
+21:   shortName: string;
+22:   emoji: string;
+23:   code: string;
+24:   description: string;
+25:   resourceCount: number;
+26:   studyMaterials: ResourceLink[];
+27:   pyqs: ResourceLink[];
+28:   ytResources: YouTubeResource[];
+29: }
+30: 
+31: export interface Cycle {
+32:   id: string;
+33:   name: string;
+34:   emoji: string;
+35:   color: string;
+36:   gradient: string;
+37:   description: string;
+38:   subjectPreview: string;
+39:   subjects: Subject[];
+40: }
+41: 
+42: export interface Branch {
+43:   id: string;
+44:   name: string;
+45:   shortName: string;
+46:   emoji: string;
+47:   icon: string;
+48:   gradient: string;
+49:   color: string;
+50:   description: string;
+51:   subjects: Subject[];
+52: }
+53: 
+54: // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+55: // YEAR 1 â€” CYCLES
+56: // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+57: 
+58: export const year1Cycles: Cycle[] = [
+59:   {
+60:     id: 'physics-cycle',
+61:     name: 'Physics Cycle',
+62:     emoji: 'ðŸ”¬',
+63:     color: '#4f46e5',
+64:     gradient: 'from-indigo-500 to-blue-600',
+65:     description: 'Eng. Physics, Computational Mathematics, PSUC, WCS, EVS, Biology for Engineers, and MATLAB.',
+66:     subjectPreview: '12 Subjects',
+67:     subjects: [
+68:       {
+69:         id: 'engineering-physics',
+70:         name: 'Engineering Physics',
+71:         shortName: 'Eng. Physics',
+72:         emoji: 'âš›ï¸',
+73:         code: 'EP-101',
+74:         description: 'Classical mechanics, optics, and quantum fundamentals.',
+75:         resourceCount: 42,
+76:         studyMaterials: [
+77:           { title: 'Module 1 â€” Wave Optics Notes', url: 'https://drive.google.com/drive/folders/1example_physics_notes', type: 'pdf' },
+78:           { title: 'Module 2 â€” Quantum Mechanics', url: 'https://drive.google.com/drive/folders/1example_physics_qm', type: 'pdf' },
+79:           { title: 'Module 3 â€” Semiconductors', url: 'https://drive.google.com/drive/folders/1example_physics_semi', type: 'pdf' },
+80:           { title: 'Complete Textbook (H.K. Malik)', url: 'https://drive.google.com/file/d/1example_physics_book', type: 'pdf' },
+81:         ],
+82:         pyqs: [
+83:           { title: 'End Term 2024', url: 'https://drive.google.com/file/d/1example_physics_pyq24e', type: 'pdf' },
+84:           { title: 'Sessional 1 â€” 2023', url: 'https://drive.google.com/file/d/1example_physics_pyq23s1', type: 'pdf' },
+85:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_physics_pyq23e', type: 'pdf' },
+86:           { title: 'End Semester 2022', url: 'https://drive.google.com/file/d/1example_physics_pyq22e', type: 'pdf' },
+87:         ],
+88:         ytResources: [
+89:           { title: 'Engineering Physics Full Course', url: 'https://youtube.com/watch?v=6GG6T0YHFEY', channelName: 'NPTEL', thumbnailId: '6GG6T0YHFEY' },
+90:           { title: 'Wave Optics â€” Complete Chapter', url: 'https://youtube.com/watch?v=Iuv6hY6zsd0', channelName: 'Physics Wallah', thumbnailId: 'Iuv6hY6zsd0' },
+91:         ],
+92:       },
+93:       {
+94:         id: 'computational-mathematics',
+95:         name: 'Computational Mathematics',
+96:         shortName: 'Comp. Mathematics',
+97:         emoji: 'ðŸ“',
+98:         code: 'MA-101',
+99:         description: 'Calculus, matrices, and differential equation modeling.',
+100:         resourceCount: 38,
+101:         studyMaterials: [
+102:           { title: 'Unit 1 â€” Matrices & Linear Algebra', url: 'https://drive.google.com/file/d/1example_cm_u1', type: 'pdf' },
+103:           { title: 'Unit 2 â€” Differential Equations', url: 'https://drive.google.com/file/d/1example_cm_u2', type: 'pdf' },
+104:           { title: 'Unit 3 â€” Numerical Methods', url: 'https://drive.google.com/file/d/1example_cm_u3', type: 'pdf' },
+105:           { title: 'Formula Sheet â€” Complete', url: 'https://drive.google.com/file/d/1example_cm_formula', type: 'pdf' },
+106:         ],
+107:         pyqs: [
+108:           { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/1example_cm_pyq24', type: 'pdf' },
+109:           { title: 'Sessional 2 â€” 2023', url: 'https://drive.google.com/file/d/1example_cm_pyq23s2', type: 'pdf' },
+110:         ],
+111:         ytResources: [
+112:           { title: 'Numerical Methods Full Playlist', url: 'https://youtube.com/watch?v=v9bSZKLc1qY', channelName: 'NPTEL', thumbnailId: 'v9bSZKLc1qY' },
+113:           { title: 'Differential Equations Crash Course', url: 'https://youtube.com/watch?v=p_di4Zn4wz4', channelName: '3Blue1Brown', thumbnailId: 'p_di4Zn4wz4' },
+114:         ],
+115:       },
+116:       {
+117:         id: 'psuc',
+118:         name: 'PSUC',
+119:         shortName: 'PSUC',
+120:         emoji: 'ðŸ’»',
+121:         code: 'CS-101',
+122:         description: 'C programming, logic building, and basic algorithm design.',
+123:         resourceCount: 56,
+124:         studyMaterials: [
+125:           { title: 'PSUC Complete Notes', url: 'https://drive.google.com/file/d/1example_psuc_notes', type: 'pdf' },
+126:           { title: 'Unit Wise Study Material', url: 'https://drive.google.com/file/d/1example_psuc_units', type: 'pdf' },
+127:         ],
+128:         pyqs: [
+129:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_psuc_pyq23', type: 'pdf' },
+130:         ],
+131:         ytResources: [
+132:           { title: 'C Programming Full Course', url: 'https://youtube.com/watch?v=KJgsSFOSQv0', channelName: 'freeCodeCamp', thumbnailId: 'KJgsSFOSQv0' },
+133:         ],
+134:       },
+135:       {
+136:         id: 'wcs',
+137:         name: 'WCS',
+138:         shortName: 'WCS',
+139:         emoji: 'ðŸ”§',
+140:         code: 'ES-101',
+141:         description: 'Workshop practice, manufacturing, and basic fabrication.',
+142:         resourceCount: 24,
+143:         studyMaterials: [
+144:           { title: 'WCS Notes â€” All Units', url: 'https://drive.google.com/file/d/1example_wcs_notes', type: 'pdf' },
+145:         ],
+146:         pyqs: [
+147:           { title: 'Sessional 1 â€” 2024', url: 'https://drive.google.com/file/d/1example_wcs_pyq24', type: 'pdf' },
+148:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_wcs_pyq23', type: 'pdf' },
+149:         ],
+150:         ytResources: [
+151:           { title: 'Workshop Practice Tutorials', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'Engineering Hub', thumbnailId: 'dQw4w9WgXcQ' },
+152:         ],
+153:       },
+154:       {
+155:         id: 'evs',
+156:         name: 'EVS',
+157:         shortName: 'EVS',
+158:         emoji: 'ðŸŒ¿',
+159:         code: 'HS-101',
+160:         description: 'Environmental science, ecology, and sustainability.',
+161:         resourceCount: 18,
+162:         studyMaterials: [
+163:           { title: 'EVS â€” Environment & Ecology Notes', url: 'https://drive.google.com/file/d/1example_evs_notes', type: 'pdf' },
+164:           { title: 'Important Q&A Compilation', url: 'https://drive.google.com/file/d/1example_evs_qa', type: 'pdf' },
+165:         ],
+166:         pyqs: [
+167:           { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/1example_evs_pyq24', type: 'pdf' },
+168:         ],
+169:         ytResources: [
+170:           { title: 'EVS Complete Playlist', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'EduHub', thumbnailId: 'dQw4w9WgXcQ' },
+171:         ],
+172:       },
+173:       {
+174:         id: 'biology-for-engineers',
+175:         name: 'Biology for Engineers',
+176:         shortName: 'Bio. for Eng.',
+177:         emoji: 'ðŸ§¬',
+178:         code: 'BS-101',
+179:         description: 'Biochemistry, genetics, and biomedical fundamentals.',
+180:         resourceCount: 22,
+181:         studyMaterials: [
+182:           { title: 'Cell Biology & Genetics Notes', url: 'https://drive.google.com/file/d/1example_bio_u1', type: 'pdf' },
+183:           { title: 'Biotechnology Module', url: 'https://drive.google.com/file/d/1example_bio_u2', type: 'pdf' },
+184:         ],
+185:         pyqs: [
+186:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_bio_pyq23', type: 'pdf' },
+187:         ],
+188:         ytResources: [
+189:           { title: 'Biology for Engineers â€” NPTEL', url: 'https://youtube.com/watch?v=H3bfBQI_OeQ', channelName: 'NPTEL', thumbnailId: 'H3bfBQI_OeQ' },
+190:         ],
+191:       },
+192:       {
+193:         id: 'matlab',
+194:         name: 'MATLAB',
+195:         shortName: 'MATLAB',
+196:         emoji: 'ðŸ“Š',
+197:         code: 'MA-102',
+198:         description: 'Numerical computing, simulation, and data visualization.',
+199:         resourceCount: 15,
+200:         studyMaterials: [
+201:           { title: 'MATLAB Basics â€” Complete Guide', url: 'https://drive.google.com/file/d/1example_matlab_notes', type: 'pdf' },
+202:           { title: 'Lab Programs â€” All Experiments', url: 'https://drive.google.com/file/d/1example_matlab_lab', type: 'pdf' },
+203:         ],
+204:         pyqs: [
+205:           { title: 'Lab Viva Questions 2023', url: 'https://drive.google.com/file/d/1example_matlab_viva', type: 'pdf' },
+206:         ],
+207:         ytResources: [
+208:           { title: 'MATLAB for Beginners â€” Full Course', url: 'https://youtube.com/watch?v=nsGFdZSmrlg', channelName: 'MATLAB Official', thumbnailId: 'nsGFdZSmrlg' },
+209:         ],
+210:       },
+211:       {
+212:         id: 'engineering-materials-mechanics',
+213:         name: 'Engineering Materials & Mechanics',
+214:         shortName: 'Eng. Materials',
+215:         emoji: 'âš™ï¸',
+216:         code: 'ME-101',
+217:         description: 'Properties of materials, stress, strain, and thermodynamics basics.',
+218:         resourceCount: 31,
+219:         studyMaterials: [
+220:           { title: 'Stress & Strain â€” Unit 1', url: 'https://drive.google.com/file/d/1example_emm_u1', type: 'pdf' },
+221:           { title: 'Thermodynamics Basics', url: 'https://drive.google.com/file/d/1example_emm_u2', type: 'pdf' },
+222:         ],
+223:         pyqs: [
+224:           { title: 'Sessional 1 & 2 â€” 2024', url: 'https://drive.google.com/file/d/1example_emm_pyq24', type: 'pdf' },
+225:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_emm_pyq23', type: 'pdf' },
+226:         ],
+227:         ytResources: [
+228:           { title: 'Engineering Mechanics Full Course', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'NPTEL', thumbnailId: 'dQw4w9WgXcQ' },
+229:         ],
+230:       },
+231:       {
+232:         id: 'data-visualization',
+233:         name: 'Data Visualization',
+234:         shortName: 'Data Viz',
+235:         emoji: 'ðŸ“ˆ',
+236:         code: 'CS-102',
+237:         description: 'Charts, data storytelling, and visual analytics tools.',
+238:         resourceCount: 19,
+239:         studyMaterials: [
+240:           { title: 'Data Visualization Using Python', url: 'https://drive.google.com/file/d/1example_dv_notes', type: 'pdf' },
+241:         ],
+242:         pyqs: [
+243:           { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/1example_dv_pyq24', type: 'pdf' },
+244:         ],
+245:         ytResources: [
+246:           { title: 'Data Visualization with Python', url: 'https://youtube.com/watch?v=a9UrKTVEeZA', channelName: 'Corey Schafer', thumbnailId: 'a9UrKTVEeZA' },
+247:         ],
+248:       },
+249:       {
+250:         id: 'fundamentals-data-structures',
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

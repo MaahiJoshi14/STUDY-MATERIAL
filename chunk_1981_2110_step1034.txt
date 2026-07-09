@@ -1,0 +1,138 @@
+Created At: 2026-07-08T10:38:51Z
+Completed At: 2026-07-08T10:38:51Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 2110
+Total Bytes: 159811
+Showing lines 1981 to 2110
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1981:             'd': 'distance between slits'
+1982:           },
+1983:           correctAnswer: 'β = 0.6 mm',
+1984:           points: 6
+1985:         }
+1986:       ]
+1987:     }
+1988:   ],
+1989:   'computational-mathematics': [
+1990:     {
+1991:       name: 'Linear Algebra',
+1992:       questions: [
+1993:         {
+1994:           id: 'cm1', topic: 'Linear Algebra', yearsAppeared: ['2022', '2023', '2024'],
+1995:           marksRange: '4-6', frequency: 3,
+1996:           type: 'theory',
+1997:           text: 'Define Trace of a matrix and find the trace of a matrix with eigenvalues 1, 2, -1.',
+1998:           keywords: ['trace', 'sum of eigenvalues', 'diagonal elements'],
+1999:           correctAnswer: 'Trace is the sum of diagonal elements. For eigenvalues 1,2,-1, trace = 1+2+(-1)=2.',
+2000:           points: 6
+2001:         },
+2002:         {
+2003:           id: 'cm2', topic: 'Linear Algebra', yearsAppeared: ['2023', '2024'],
+2004:           marksRange: '4-5', frequency: 2,
+2005:           type: 'numerical',
+2006:           text: 'Find the determinant of a 2x2 matrix [[1, 2], [3, 4]]',
+2007:           formula: 'det = ad - bc',
+2008:           formulaExplanation: {
+2009:             'a': 'element at (1,1)',
+2010:             'b': 'element at (1,2)',
+2011:             'c': 'element at (2,1)',
+2012:             'd': 'element at (2,2)'
+2013:           },
+2014:           correctAnswer: 'det = (1)(4)-(2)(3) = -2',
+2015:           points: 5
+2016:         }
+2017:       ]
+2018:     },
+2019:     {
+2020:       name: 'Numerical Methods',
+2021:       questions: [
+2022:         {
+2023:           id: 'cm3', topic: 'Numerical Methods', yearsAppeared: ['2021', '2023', '2024'],
+2024:           marksRange: '4-6', frequency: 3,
+2025:           type: 'theory',
+2026:           text: 'Explain why Newton-Raphson method has a quadratic rate of convergence.',
+2027:           keywords: ['quadratic convergence', 'Newton-Raphson', 'Taylor series', 'derivative'],
+2028:           correctAnswer: 'Newton-Raphson uses the first derivative leading to quadratic convergence.',
+2029:           points: 6
+2030:         }
+2031:       ]
+2032:     }
+2033:   ],
+2034:   'psuc': [
+2035:     {
+2036:       name: 'Pointers & Memory',
+2037:       questions: [
+2038:         {
+2039:           id: 'ps1', topic: 'Pointers & Memory', yearsAppeared: ['2022', '2023', '2024'],
+2040:           marksRange: '4-10', frequency: 3,
+2041:           type: 'theory',
+2042:           text: 'What is the size of a char pointer on a 64-bit system and why?',
+2043:           keywords: ['pointer', '64-bit', '8 bytes', 'memory address'],
+2044:           correctAnswer: 'On 64-bit systems, all pointer types are 8 bytes to store 64-bit addresses.',
+2045:           points: 10
+2046:         }
+2047:       ]
+2048:     },
+2049:     {
+2050:       name: 'Data Structures',
+2051:       questions: [
+2052:         {
+2053:           id: 'ps2', topic: 'Data Structures', yearsAppeared: ['2022', '2023', '2024'],
+2054:           marksRange: '4-6', frequency: 3,
+2055:           type: 'theory',
+2056:           text: 'Explain the Last In First Out (LIFO) principle with an example.',
+2057:           keywords: ['LIFO', 'stack', 'push', 'pop'],
+2058:           correctAnswer: 'LIFO means last element added is first removed, like stacking plates.',
+2059:           points: 6
+2060:         }
+2061:       ]
+2062:     }
+2063:   ],
+2064:   'digital-systems': [
+2065:     {
+2066:       name: 'Boolean Algebra',
+2067:       questions: [
+2068:         {
+2069:           id: 'ds1', topic: 'Boolean Algebra', yearsAppeared: ['2022', '2023', '2024'],
+2070:           marksRange: '4-6', frequency: 3,
+2071:           type: 'numerical',
+2072:           text: 'Simplify the Boolean expression: A + A\'B',
+2073:           formula: 'A + A\'B = A + B',
+2074:           formulaExplanation: {
+2075:             'A': 'Boolean variable',
+2076:             'A\'': 'complement of A'
+2077:           },
+2078:           correctAnswer: 'Using absorption law, A + A\'B = A + B',
+2079:           points: 6
+2080:         }
+2081:       ]
+2082:     }
+2083:   ],
+2084:   'aiml-machine-learning': [
+2085:     {
+2086:       name: 'Supervised Learning',
+2087:       questions: [
+2088:         {
+2089:           id: 'ml1', topic: 'Supervised Learning', yearsAppeared: ['2022', '2023', '2024'],
+2090:           marksRange: '4-6', frequency: 3,
+2091:           type: 'theory',
+2092:           text: 'Explain Linear Regression and what it minimizes.',
+2093:           keywords: ['linear regression', 'mean squared error', 'ordinary least squares'],
+2094:           correctAnswer: 'Linear Regression models relationships between variables and minimizes mean squared error.',
+2095:           points: 6
+2096:         },
+2097:         {
+2098:           id: 'ml2', topic: 'Supervised Learning', yearsAppeared: ['2023', '2024'],
+2099:           marksRange: '4-5', frequency: 2,
+2100:           type: 'theory',
+2101:           text: 'What does the Softmax function output and why is it used?',
+2102:           keywords: ['Softmax', 'probability distribution', 'classification'],
+2103:           correctAnswer: 'Softmax outputs a probability distribution over classes summing to 1.',
+2104:           points: 5
+2105:         }
+2106:       ]
+2107:     }
+2108:   ]
+2109: };
+2110: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

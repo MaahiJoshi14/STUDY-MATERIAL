@@ -1,0 +1,94 @@
+Created At: 2026-07-02T09:39:54Z
+Completed At: 2026-07-02T09:39:54Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1637
+Total Bytes: 70237
+Showing lines 515 to 600
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+515: export const branches: Branch[] = [
+516:   {
+517:     id: 'aiml',
+518:     name: 'Artificial Intelligence & ML',
+519:     shortName: 'AIML',
+520:     emoji: '🤖',
+521:     icon: 'Brain',
+522:     gradient: 'from-purple-500 to-violet-600',
+523:     color: '#7c3aed',
+524:     description: 'Intelligence systems & Neural Nets',
+525:     subjects: [
+526:       {
+527:         id: 'aiml-ase',
+528:         name: 'Agile Software Engineering',
+529:         shortName: 'Agile SE',
+530:         emoji: '🔄',
+531:         code: 'AI-201',
+532:         description: 'Agile software development frameworks, methodologies, and project management.',
+533:         resourceCount: 15,
+534:         studyMaterials: [{ title: 'Agile Methodologies Notes', url: 'https://drive.google.com/file/d/aiml_ase_notes', type: 'pdf' }],
+535:         pyqs: [{ title: 'End Semester 2024', url: 'https://drive.google.com/file/d/aiml_ase_pyq24', type: 'pdf' }],
+536:         ytResources: [{ title: 'Agile Software Development Lectures', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'NPTEL', thumbnailId: 'dQw4w9WgXcQ' }]
+537:       },
+538:       {
+539:         id: 'aiml-cc',
+540:         name: 'Cloud Computing',
+541:         shortName: 'Cloud',
+542:         emoji: '☁️',
+543:         code: 'AI-202',
+544:         description: 'Virtualization, deployment models, SaaS, PaaS, IaaS, and cloud architecture.',
+545:         resourceCount: 18,
+546:         studyMaterials: [{ title: 'Cloud Models and Virtualization', url: 'https://drive.google.com/file/d/aiml_cc_notes', type: 'pdf' }],
+547:         pyqs: [{ title: 'Sessional 1 2024', url: 'https://drive.google.com/file/d/aiml_cc_pyq24', type: 'pdf' }],
+548:         ytResources: [{ title: 'Cloud Computing Playlist', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'Gate Smashers', thumbnailId: 'dQw4w9WgXcQ' }]
+549:       },
+550:       {
+551:         id: 'aiml-coa',
+552:         name: 'Computer Organization & Architecture',
+553:         shortName: 'COA',
+554:         emoji: '💾',
+555:         code: 'AI-203',
+556:         description: 'Processor organization, memory hierarchies, pipelining, and instruction sets.',
+557:         resourceCount: 20,
+558:         studyMaterials: [{ title: 'COA Complete Lecture Notes', url: 'https://drive.google.com/file/d/aiml_coa_notes', type: 'pdf' }],
+559:         pyqs: [{ title: 'Mid Semester 2024', url: 'https://drive.google.com/file/d/aiml_coa_pyq24', type: 'pdf' }],
+560:         ytResources: [{ title: 'COA Playlist — Neso Academy', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'Neso Academy', thumbnailId: 'dQw4w9WgXcQ' }]
+561:       },
+562:       {
+563:         id: 'aiml-daa',
+564:         name: 'Design and Analysis of Algorithms',
+565:         shortName: 'DAA',
+566:         emoji: '🧮',
+567:         code: 'AI-204',
+568:         description: 'Algorithm complexity, sorting, search trees, and dynamic programming.',
+569:         resourceCount: 22,
+570:         studyMaterials: [{ title: 'DAA Sorting & Search Guides', url: 'https://drive.google.com/file/d/aiml_daa_notes', type: 'pdf' }],
+571:         pyqs: [{ title: 'End Semester 2024', url: 'https://drive.google.com/file/d/aiml_daa_pyq24', type: 'pdf' }],
+572:         ytResources: [{ title: 'DAA Gate Preparation', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'Gate Smashers', thumbnailId: 'dQw4w9WgXcQ' }]
+573:       },
+574:       {
+575:         id: 'aiml-dsa',
+576:         name: 'Data Structures and Algorithms',
+577:         shortName: 'DSA',
+578:         emoji: '🧬',
+579:         code: 'AI-205',
+580:         description: 'Arrays, lists, stacks, queues, trees, graphs, and basic traversals.',
+581:         resourceCount: 30,
+582:         studyMaterials: [{ title: 'Complete Data Structures Booklet', url: 'https://drive.google.com/file/d/aiml_dsa_notes', type: 'pdf' }],
+583:         pyqs: [{ title: 'End Semester 2023', url: 'https://drive.google.com/file/d/aiml_dsa_pyq23', type: 'pdf' }],
+584:         ytResources: [{ title: 'DSA Tutorials', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'freeCodeCamp', thumbnailId: 'dQw4w9WgXcQ' }]
+585:       },
+586:       {
+587:         id: 'aiml-eco',
+588:         name: 'Economics',
+589:         shortName: 'Economics',
+590:         emoji: '📈',
+591:         code: 'HS-201',
+592:         description: 'Macroeconomics, microeconomics, and financial modeling for business systems.',
+593:         resourceCount: 12,
+594:         studyMaterials: [{ title: 'Engineering Economics Notes', url: 'https://drive.google.com/file/d/aiml_eco_notes', type: 'pdf' }],
+595:         pyqs: [{ title: 'Sessional 1 2024', url: 'https://drive.google.com/file/d/aiml_eco_pyq24', type: 'pdf' }],
+596:         ytResources: [{ title: 'Economics for Managers', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'NPTEL', thumbnailId: 'dQw4w9WgXcQ' }]
+597:       },
+598:       {
+599:         id: 'aiml-mot',
+600:         name: 'Management & Organizational Theory',
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

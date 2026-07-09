@@ -1,0 +1,88 @@
+Created At: 2026-07-09T09:38:12Z
+Completed At: 2026-07-09T09:38:13Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1637
+Total Bytes: 71873
+Showing lines 1 to 80
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: // ============================================================
+2: // MUJ BTech Study Material — Central Data Source
+3: // ============================================================
+4: 
+5: export interface ResourceLink {
+6:   title: string;
+7:   url: string;
+8:   type: 'drive' | 'pdf' | 'doc' | 'slides';
+9: }
+10: 
+11: export interface YouTubeResource {
+12:   title: string;
+13:   url: string;
+14:   channelName: string;
+15:   thumbnailId?: string;
+16: }
+17: 
+18: export interface Subject {
+19:   id: string;
+20:   name: string;
+21:   shortName: string;
+22:   emoji: string;
+23:   code: string;
+24:   description: string;
+25:   resourceCount: number;
+26:   studyMaterials: ResourceLink[];
+27:   pyqs: ResourceLink[];
+28:   ytResources: YouTubeResource[];
+29: }
+30: 
+31: export interface Cycle {
+32:   id: string;
+33:   name: string;
+34:   emoji: string;
+35:   color: string;
+36:   gradient: string;
+37:   description: string;
+38:   subjectPreview: string;
+39:   subjects: Subject[];
+40: }
+41: 
+42: export interface Branch {
+43:   id: string;
+44:   name: string;
+45:   shortName: string;
+46:   emoji: string;
+47:   icon: string;
+48:   gradient: string;
+49:   color: string;
+50:   description: string;
+51:   subjects: Subject[];
+52: }
+53: 
+54: // ────────────────────────────────────────────────────────────
+55: // YEAR 1 — CYCLES
+56: // ────────────────────────────────────────────────────────────
+57: 
+58: export const year1Cycles: Cycle[] = [
+59:   {
+60:     id: 'physics-cycle',
+61:     name: 'Physics Cycle',
+62:     emoji: '🔬',
+63:     color: '#4f46e5',
+64:     gradient: 'from-indigo-500 to-blue-600',
+65:     description: 'Eng. Physics, Computational Mathematics, PSUC, WCS, EVS, Biology for Engineers, and MATLAB.',
+66:     subjectPreview: '12 Subjects',
+67:     subjects: [
+68:       {
+69:         id: 'engineering-physics',
+70:         name: 'Engineering Physics',
+71:         shortName: 'Eng. Physics',
+72:         emoji: '⚛️',
+73:         code: 'EP-101',
+74:         description: 'Classical mechanics, optics, and quantum fundamentals.',
+75:         resourceCount: 42,
+76:         studyMaterials: [
+77:           { title: 'Module 1 — Wave Optics Notes', url: 'https://drive.google.com/drive/folders/1example_physics_notes', type: 'pdf' },
+78:           { title: 'Module 2 — Quantum Mechanics', url: 'https://drive.google.com/drive/folders/1example_physics_qm', type: 'pdf' },
+79:           { title: 'Module 3 — Semiconductors', url: 'https://drive.google.com/drive/folders/1example_physics_semi', type: 'pdf' },
+80:           { title: 'Complete Textbook (H.K. Malik)', url: 'https://drive.google.com/file/d/1example_physics_book', type: 'pdf' },
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

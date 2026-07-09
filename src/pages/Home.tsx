@@ -1,688 +1,694 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
-  BookOpen, Zap, ArrowRight, ChevronRight, Play, Download,
-  ArrowLeft, RefreshCw, Star
+  BookOpen, Zap, ArrowRight, ChevronRight, Bell, X, Trophy, Search
 } from 'lucide-react';
 import {
-  year1Cycles, branches, nonBtechCourses, QUESTIONS_DB,
-  type Subject, type NonBtechCourse, type Question
+  year1Cycles, branches, QUESTIONS_DB,
+  type Subject
 } from '@/data/studyMaterial';
 
-import FloatingDock from '@/components/ui/FloatingDock';
-import BentoCard from '@/components/ui/BentoCard';
-import FolderTab from '@/components/ui/FolderTab';
-
-type ResourceTab = 'notes' | 'pyqs' | 'yt';
-
 export default function Home() {
-  // ── NON-B.TECH WIZARD STATE ──
-  const [nbCourse, setNbCourse] = useState<NonBtechCourse | null>(null);
-  const [nbYear, setNbYear] = useState<number | null>(null);
-  const [nbSubject, setNbSubject] = useState<Subject | null>(null);
-  const [nbTab, setNbTab] = useState<ResourceTab>('notes');
+  const navigate = useNavigate();
 
-  // ── MASTER ARENA STATE ──
-  const [arenaOpen, setArenaOpen] = useState(false);
-  const [arenaStep, setArenaStep] = useState<'course' | 'year' | 'branch' | 'subject' | 'play'>('course');
-  const [arenaCourse, setArenaCourse] = useState<string>('');
-  const [arenaYear, setArenaYear] = useState<number>(0);
-  const [arenaBranchOrCycle, setArenaBranchOrCycle] = useState<string>('');
-  const [arenaSubject, setArenaSubject] = useState<Subject | null>(null);
-  const [arenaScore, setArenaScore] = useState(0);
-  const [arenaAnswers, setArenaAnswers] = useState<Record<string, number>>({});
-  const [arenaSubmitted, setArenaSubmitted] = useState<Record<string, boolean>>({});
+  // Setup form states inside B&W modal (accessible from header/practice arena)
+  const [isArenaModalOpen, setIsArenaModalOpen] = useState(false);
+  const [setupYear, setSetupYear] = useState<number>(1);
+  const [setupBranch, setSetupBranch] = useState<string>('physics-cycle');
+  const [setupSubject, setSetupSubject] = useState<Subject | null>(null);
+  const [isSubjectDropdownOpen, setIsSubjectDropdownOpen] = useState(false);
+  const [subjectSearch, setSubjectSearch] = useState('');
 
-  // ── Scroll Helper ──
-  const scrollToId = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // Hero Preference selection states
+  const [selectedYear, setSelectedYear] = useState<number>(1);
+  const [selectedBranch, setSelectedBranch] = useState<string>('physics-cycle');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  // ── Helpers for Master Arena ──
-  const getArenaBranchList = () => {
-    if (arenaCourse === 'B.Tech') {
-      if (arenaYear === 1) {
-        return year1Cycles.map(c => ({ id: c.id, name: c.name, emoji: c.emoji }));
-      }
-      return branches.map(b => ({ id: b.id, name: b.name, emoji: b.emoji }));
-    }
-    return [];
-  };
-
-  const getArenaSubjectList = (): Subject[] => {
-    if (arenaCourse === 'B.Tech') {
-      if (arenaYear === 1) {
-        const cycle = year1Cycles.find(c => c.id === arenaBranchOrCycle);
-        return cycle ? cycle.subjects : [];
-      }
-      const branch = branches.find(b => b.id === arenaBranchOrCycle);
-      return branch ? branch.subjects : [];
+  const handleHeroYearChange = (yr: number) => {
+    setSelectedYear(yr);
+    if (yr === 1) {
+      setSelectedBranch('physics-cycle');
     } else {
-      const course = nonBtechCourses.find(c => c.id === arenaCourse.toLowerCase());
-      if (course) {
-        const yr = course.years.find(y => y.year === arenaYear);
-        return yr ? yr.subjects : [];
-      }
-    }
-    return [];
-  };
-
-  const currentQuestions: Question[] = arenaSubject ? (QUESTIONS_DB[arenaSubject.id] || []) : [];
-
-  const questionsByTopic: Record<string, Question[]> = {};
-  currentQuestions.forEach(q => {
-    if (!questionsByTopic[q.topic]) {
-      questionsByTopic[q.topic] = [];
-    }
-    questionsByTopic[q.topic].push(q);
-  });
-
-  const handleArenaAnswer = (qId: string, optIdx: number, correctIdx: number, marks: number) => {
-    if (arenaSubmitted[qId]) return;
-    setArenaAnswers(p => ({ ...p, [qId]: optIdx }));
-    setArenaSubmitted(p => ({ ...p, [qId]: true }));
-    if (optIdx === correctIdx) {
-      setArenaScore(p => p + marks);
+      setSelectedBranch('cse');
     }
   };
+
+
+  // Handle year change in sessional setup modal
+  const handleSetupYearChange = (yr: number) => {
+    setSetupYear(yr);
+    if (yr === 1) {
+      setSetupBranch('physics-cycle');
+      const list = year1Cycles.find(c => c.id === 'physics-cycle')?.subjects || [];
+      setSetupSubject(list[0] || null);
+    } else {
+      setSetupBranch('cse');
+      const list = branches.find(b => b.id === 'cse')?.subjects || [];
+      setSetupSubject(list[0] || null);
+    }
+  };
+
+  const getSetupSubjectList = (): Subject[] => {
+    if (setupYear === 1) {
+      const cycle = year1Cycles.find(c => c.id === setupBranch);
+      return cycle ? cycle.subjects : [];
+    }
+    const branch = branches.find(b => b.id === setupBranch);
+    return branch ? branch.subjects : [];
+  };
+
+  const setupSubjectsList = getSetupSubjectList();
+  const filteredSetupSubjects = setupSubjectsList.filter(s =>
+    s.name.toLowerCase().includes(subjectSearch.toLowerCase()) ||
+    s.code.toLowerCase().includes(subjectSearch.toLowerCase())
+  );
+
+  const startPractice = () => {
+    if (setupSubject) {
+      sessionStorage.setItem('setup_year', setupYear.toString());
+      sessionStorage.setItem('setup_branch', setupBranch);
+      sessionStorage.setItem('setup_subject_id', setupSubject.id);
+      setIsArenaModalOpen(false);
+      navigate('/quiz');
+    }
+  };
+
 
   return (
-    <div className="min-h-screen bg-graph-paper text-[#1E1E1E] antialiased pb-28">
-      {/* Playful Floating Elements/Doodles for Gen Z Vibe */}
-      <div className="absolute top-20 left-10 w-12 h-12 border-3 border-[#1E1E1E] bg-[#FFB236] rounded-xl rotate-12 animate-float pointer-events-none hidden md:block" />
-      <div className="absolute top-48 right-16 w-10 h-10 border-3 border-[#1E1E1E] bg-[#FF7EB9] rounded-full animate-float-delayed pointer-events-none hidden md:block" />
-      <div className="absolute top-[600px] left-8 w-8 h-8 border-3 border-[#1E1E1E] bg-[#3CD070] rotate-45 animate-float-side pointer-events-none hidden md:block" />
-
-      {/* Header / Brand */}
-      <header className="max-w-6xl mx-auto px-6 pt-6 flex justify-between items-center">
-        <div className="flex items-center gap-2.5 bg-white border-3 border-[#1E1E1E] px-4 py-2 rounded-2xl shadow-[3px_3px_0px_0px_#1E1E1E]">
-          <div className="w-7 h-7 bg-[#FF6B6B] border-2 border-[#1E1E1E] rounded-lg flex items-center justify-center">
+    <div className="min-h-screen bg-[#FAF9F5] text-[#1E1E1E] font-sans antialiased pb-24">
+      
+      {/* ── HEADER NAVIGATION (Clean, Thin Borders, Soft Shadows) ── */}
+      <header className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        <Link to="/" className="flex items-center gap-2.5">
+          <div className="w-8.5 h-8.5 bg-[#FF5252] rounded-xl flex items-center justify-center border border-slate-200 shadow-sm">
             <BookOpen className="w-4 h-4 text-white" />
           </div>
-          <span className="font-display font-bold text-[#1E1E1E] text-lg tracking-tight">MUJSTUDY</span>
+          <span className="font-display font-black text-[#1E1E1E] text-lg tracking-tight uppercase">MUJ SPACE</span>
+        </Link>
+
+        {/* Navigation Middle Pill Bar */}
+        <div className="flex items-center gap-1 bg-white border border-slate-200/80 px-1.5 py-1 rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.03)]">
+          <Link
+            to="/"
+            className="px-5 py-1.5 rounded-full text-xs font-black bg-[#1E1E1E] text-white shadow-sm transition-all"
+          >
+            Home
+          </Link>
+          <Link
+            to="/explore"
+            className="px-5 py-1.5 rounded-full text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all"
+          >
+            Library
+          </Link>
+          <button
+            onClick={() => {
+              handleSetupYearChange(1);
+              setIsArenaModalOpen(true);
+            }}
+            className="px-5 py-1.5 rounded-full text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all cursor-pointer"
+          >
+            Practice Arena
+          </button>
         </div>
 
+        {/* Profile / Notification Bar */}
         <div className="flex items-center gap-3">
-          <Link
-            to="/quiz"
-            className="bg-white border-2 border-[#1E1E1E] px-4 py-2 rounded-xl text-xs font-bold shadow-[2px_2px_0px_0px_#1E1E1E] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_0px_#1E1E1E] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_#1E1E1E] transition-all"
-          >
-            📋 Standard Quiz
-          </Link>
-          <a
-            href="https://github.com/MaahiJoshi14/STUDY-MATERIAL"
-            target="_blank"
-            rel="noreferrer"
-            className="w-9 h-9 bg-white border-2 border-[#1E1E1E] rounded-xl flex items-center justify-center shadow-[2px_2px_0px_0px_#1E1E1E] hover:bg-slate-50"
-          >
-            <Star className="w-4 h-4 text-[#FFB236] fill-[#FFB236]" />
-          </a>
+          <button className="w-9 h-9 bg-white border border-slate-200 rounded-xl flex items-center justify-center shadow-sm hover:bg-slate-50 transition-all">
+            <Bell className="w-4 h-4 text-[#1E1E1E]" />
+          </button>
+          <div className="flex items-center gap-2">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120"
+              alt="Maahi"
+              className="w-9 h-9 rounded-full border border-slate-200 object-cover shadow-sm"
+            />
+            <span className="hidden lg:inline text-xs font-black text-[#1E1E1E] tracking-tight">Hi, Maahi 👋</span>
+          </div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center relative z-10">
-        <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: 'spring', duration: 0.5 }}
-          className="inline-flex items-center gap-2 bg-[#FAF6F0] border-2 border-[#1E1E1E] text-xs font-bold px-4 py-1.5 rounded-full shadow-[2.5px_2.5px_0px_0px_#1E1E1E] mb-6"
-        >
-          <Star className="w-3.5 h-3.5 text-[#FFB236] fill-[#FFB236]" />
-          <span>NEVER STUDY BORING AGAIN</span>
-        </motion.div>
+      {/* ── HERO SECTION ── */}
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-8 lg:py-14">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Hero Left Content */}
+          <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="space-y-4">
+              <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-[72px] text-[#1E1E1E] leading-[0.9] tracking-tight uppercase">
+                Study Smarter.<br />
+                <span className="text-[#5D5FEF]">Score Higher.</span>
+              </h1>
+            </div>
 
-        <h1 className="font-display font-extrabold text-5xl md:text-7xl text-[#1E1E1E] tracking-tight leading-[0.95] mb-6 uppercase">
-          STUDY <span className="bg-[#4FA3F7] px-3 py-1 border-3 border-[#1E1E1E] inline-block rotate-[-2deg] rounded-2xl shadow-[4px_4px_0px_0px_#1E1E1E]">SMARTER</span><br />
-          SCORE <span className="bg-[#FF7EB9] px-3 py-1 border-3 border-[#1E1E1E] inline-block rotate-[3deg] rounded-2xl shadow-[4px_4px_0px_0px_#1E1E1E] font-display">HIGHER</span>
-        </h1>
+            {/* Selection Filters — compact */}
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-[0_4px_16px_rgb(0,0,0,0.02)] space-y-3.5">
+              {/* Row 1: Course & Year Selectors */}
+              <div className="flex flex-wrap items-center gap-3 pb-3 border-b border-slate-100">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[9px] font-black uppercase text-slate-400">Course:</span>
+                  <span className="px-2.5 py-1 bg-[#FAF9F5] border border-slate-200 text-[10px] font-bold rounded-lg text-[#1E1E1E]">B.Tech</span>
+                </div>
 
-        <p className="text-[#1E1E1E] text-sm md:text-base font-bold max-w-lg mx-auto leading-relaxed mb-8 opacity-80">
-          Unlock premium study guides, folderized PYQs, and interactive topic play arenas designed for Manipal students.
-        </p>
+                <div className="w-px h-4 bg-slate-200 hidden sm:block" />
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <button
-            onClick={() => scrollToId('btech-division')}
-            className="px-6 py-3.5 bg-[#FF6B6B] border-3 border-[#1E1E1E] text-white rounded-2xl font-display font-bold text-sm shadow-[4px_4px_0px_0px_#1E1E1E] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#1E1E1E] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_#1E1E1E] transition-all cursor-pointer"
-          >
-            🔥 B.Tech Folders
-          </button>
-          <button
-            onClick={() => scrollToId('other-streams')}
-            className="px-6 py-3.5 bg-white border-3 border-[#1E1E1E] text-[#1E1E1E] rounded-2xl font-display font-bold text-sm shadow-[4px_4px_0px_0px_#1E1E1E] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_#1E1E1E] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_#1E1E1E] transition-all cursor-pointer"
-          >
-            ⚡ Other Streams
-          </button>
+                {/* Year Selection Pills */}
+                <div className="flex items-center gap-1">
+                  <span className="text-[9px] font-black uppercase text-slate-400 mr-1.5">Year:</span>
+                  {[1, 2, 3, 4].map((y) => (
+                    <button
+                      key={y}
+                      onClick={() => handleHeroYearChange(y)}
+                      className={`px-2.5 py-1 rounded-lg text-[10px] font-bold border transition-all cursor-pointer ${
+                        selectedYear === y
+                          ? 'bg-[#1E1E1E] text-white border-[#1E1E1E] shadow-sm'
+                          : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'
+                      }`}
+                    >
+                      {y === 1 ? '1st' : y === 2 ? '2nd' : y === 3 ? '3rd' : '4th'}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Row 2: Branch/Cycle Selection */}
+              <div className="space-y-1.5">
+                <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">
+                  {selectedYear === 1 ? 'Cycle' : 'Branch'}
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {selectedYear === 1 ? (
+                    year1Cycles.map((c) => (
+                      <button
+                        key={c.id}
+                        onClick={() => setSelectedBranch(c.id)}
+                        className={`px-3 py-1.5 rounded-lg text-[10px] font-bold border transition-all cursor-pointer ${
+                          selectedBranch === c.id
+                            ? 'bg-[#5D5FEF] text-white border-[#5D5FEF] shadow-sm'
+                            : 'bg-[#FAF9F5] text-slate-700 border-slate-200 hover:border-slate-300'
+                        }`}
+                      >
+                        {c.name}
+                      </button>
+                    ))
+                  ) : (
+                    branches.map((b) => (
+                      <button
+                        key={b.id}
+                        onClick={() => setSelectedBranch(b.id)}
+                        className={`px-3 py-1.5 rounded-lg text-[10px] font-bold border transition-all cursor-pointer ${
+                          selectedBranch === b.id
+                            ? 'bg-[#5D5FEF] text-white border-[#5D5FEF] shadow-sm'
+                            : 'bg-[#FAF9F5] text-slate-700 border-slate-200 hover:border-slate-300'
+                        }`}
+                      >
+                        {b.shortName}
+                      </button>
+                    ))
+                  )}
+                </div>
+              </div>
+
+              {/* Row 3: Search + Button */}
+              <div className="flex gap-2 pt-1">
+                <div className="relative flex-1 bg-[#FAF9F5] border border-slate-200 rounded-xl flex items-center">
+                  <span className="pl-3 text-slate-400 text-sm shrink-0">🔍</span>
+                  <input
+                    type="text"
+                    placeholder="Search subject..."
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                    className="w-full h-9 pl-2 pr-3 text-[10px] font-bold text-[#1E1E1E] bg-transparent focus:outline-none placeholder-slate-400"
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    const cycleQuery = selectedYear === 1 ? `&cycle=${selectedBranch}` : `&branch=${selectedBranch}`;
+                    const searchQueryString = searchQuery ? `&q=${encodeURIComponent(searchQuery)}` : '';
+                    navigate(`/explore?year=${selectedYear}${cycleQuery}${searchQueryString}`);
+                  }}
+                  className="px-4 h-9 bg-[#1E1E1E] text-white font-black text-[10px] uppercase tracking-wider rounded-xl flex items-center justify-center gap-1.5 hover:bg-black transition-all shadow-sm cursor-pointer shrink-0"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Hero Right: 3D Standing Books */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center relative select-none">
+            <div className="relative w-full max-w-[460px] h-[380px] flex items-center justify-center perspective-[1200px]">
+              
+              {/* Left book: Physics Cycle */}
+              <div className="absolute transition-transform duration-500 hover:translate-y-[-10px] z-10" style={{ transform: 'translate3d(-100px, 10px, -80px) rotateY(-25deg) rotateZ(-4deg)' }}>
+                <div className="relative w-[160px] h-[230px] preserve-3d rounded-r-lg shadow-[-20px_20px_30px_rgba(0,0,0,0.2)]" style={{ transformStyle: 'preserve-3d' }}>
+                  {/* Front Cover */}
+                  <div className="absolute inset-0 bg-cover bg-center rounded-r-lg rounded-l-sm z-20 border border-white/20" style={{ backgroundImage: 'url("/bookcovers/physics-cycle.png")', transform: 'translateZ(10px)' }} />
+                  {/* Back Cover */}
+                  <div className="absolute inset-0 bg-[#E64A79] rounded-r-lg rounded-l-sm z-0 border border-black/10" style={{ transform: 'translateZ(-10px)' }} />
+                  {/* Spine (Left side) */}
+                  <div className="absolute top-0 left-0 h-full w-[20px] bg-[#C2355F] z-10" style={{ transform: 'rotateY(-90deg) translateZ(10px)', transformOrigin: 'left' }} />
+                  {/* Pages (Right, Top, Bottom) - Not really visible from this angle, but adds depth */}
+                  <div className="absolute top-[2px] right-0 h-[226px] w-[20px] bg-slate-100 z-10" style={{ transform: 'rotateY(90deg) translateZ(160px)', transformOrigin: 'left' }} />
+                  <div className="absolute top-0 left-[2px] w-[156px] h-[20px] bg-slate-200 z-10" style={{ transform: 'rotateX(90deg) translateZ(10px)', transformOrigin: 'top' }} />
+                </div>
+              </div>
+
+              {/* Right book: CSE Stack */}
+              <div className="absolute transition-transform duration-500 hover:translate-y-[-10px] z-10" style={{ transform: 'translate3d(100px, 10px, -80px) rotateY(25deg) rotateZ(4deg)' }}>
+                <div className="relative w-[160px] h-[230px] preserve-3d rounded-l-lg shadow-[20px_20px_30px_rgba(0,0,0,0.2)]" style={{ transformStyle: 'preserve-3d' }}>
+                  {/* Front Cover */}
+                  <div className="absolute inset-0 bg-cover bg-center rounded-l-lg rounded-r-sm z-20 border border-white/20" style={{ backgroundImage: 'url("/bookcovers/cse.png")', transform: 'translateZ(10px)' }} />
+                  {/* Back Cover */}
+                  <div className="absolute inset-0 bg-[#154AA1] rounded-l-lg rounded-r-sm z-0 border border-black/10" style={{ transform: 'translateZ(-10px)' }} />
+                  {/* Spine (Right side because of angle) -> Actually spine is on left, pages are on right. Since it's rotated right, we see the pages side! */}
+                  <div className="absolute top-[2px] right-0 h-[226px] w-[20px] bg-gradient-to-r from-slate-200 to-white z-10 border-y border-r border-slate-300" style={{ transform: 'rotateY(90deg) translateZ(160px)', transformOrigin: 'left' }}>
+                    {/* Page lines texture */}
+                    <div className="w-full h-full opacity-30" style={{ backgroundImage: 'repeating-linear-gradient(to right, transparent, transparent 1px, rgba(0,0,0,0.1) 1px, rgba(0,0,0,0.1) 2px)' }} />
+                  </div>
+                  {/* Spine (Left side) - Not really visible */}
+                  <div className="absolute top-0 left-0 h-full w-[20px] bg-[#113C82] z-10" style={{ transform: 'rotateY(-90deg) translateZ(10px)', transformOrigin: 'left' }} />
+                  {/* Top Pages */}
+                  <div className="absolute top-0 left-[2px] w-[156px] h-[20px] bg-slate-200 z-10 border-x border-t border-slate-300" style={{ transform: 'rotateX(90deg) translateZ(10px)', transformOrigin: 'top' }} />
+                </div>
+              </div>
+
+              {/* Center book: Chemistry Cycle */}
+              <div className="absolute transition-transform duration-500 hover:translate-y-[-12px] z-20" style={{ transform: 'translate3d(0, -5px, 0) scale(1.05)' }}>
+                <div className="relative w-[180px] h-[260px] preserve-3d rounded-r-lg shadow-[0_30px_40px_rgba(0,0,0,0.3)]" style={{ transformStyle: 'preserve-3d' }}>
+                  {/* Front Cover */}
+                  <div className="absolute inset-0 bg-cover bg-center rounded-r-lg rounded-l-sm z-20 border border-white/30" style={{ backgroundImage: 'url("/bookcovers/chemistry-cycle.png")', transform: 'translateZ(12px)' }} />
+                  {/* Back Cover */}
+                  <div className="absolute inset-0 bg-[#28923F] rounded-r-lg rounded-l-sm z-0 border border-black/10" style={{ transform: 'translateZ(-12px)' }} />
+                  {/* Spine (Left side) */}
+                  <div className="absolute top-0 left-0 h-full w-[24px] bg-gradient-to-r from-[#1E7430] to-[#28923F] z-10 border-y border-l border-black/20" style={{ transform: 'rotateY(-90deg) translateZ(12px)', transformOrigin: 'left' }} />
+                  {/* Pages (Right side) - Slightly visible if looking straight, mostly bottom shadow */}
+                  <div className="absolute top-[2px] right-0 h-[256px] w-[24px] bg-slate-100 z-10" style={{ transform: 'rotateY(90deg) translateZ(180px)', transformOrigin: 'left' }} />
+                  {/* Top Pages */}
+                  <div className="absolute top-0 left-[2px] w-[176px] h-[24px] bg-slate-200 z-10" style={{ transform: 'rotateX(90deg) translateZ(12px)', transformOrigin: 'top' }} />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* SECTION 1: Select Academic Year (B.Tech Folder Grid) */}
-      <section id="btech-division" className="max-w-6xl mx-auto px-6 py-12">
-        <div className="flex flex-col items-center mb-10">
-          <span className="text-[10px] font-extrabold uppercase bg-[#FAF6F0] border-2 border-[#1E1E1E] px-3 py-1 rounded-full shadow-[2px_2px_0px_0px_#1E1E1E] mb-3">
-            B.TECH DIVISION
-          </span>
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-[#1E1E1E] uppercase text-center">
-            Select Academic Year
-          </h2>
+      {/* ── CONTINUE STUDYING SECTION ── */}
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-12 border-t border-slate-200/60">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">Continue Studying</h2>
+          <Link to="/explore" className="text-xs font-black uppercase text-[#5D5FEF] hover:underline flex items-center gap-1">
+            View all <ChevronRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
-              y: 1,
-              title: 'Year 01',
-              subtitle: 'FOUNDATION',
-              emoji: '🔬',
-              color: 'blue' as const,
-              bullets: ['Physics Cycle', 'Chemistry Cycle'],
+              title: 'Physics Cycle',
+              year: 'BTech 1st Year',
+              progress: 73,
+              cover: '/bookcovers/physics-cycle.png',
+              explorePath: '/explore?year=1&cycle=physics-cycle'
             },
             {
-              y: 2,
-              title: 'Year 02',
-              subtitle: 'SPECIALIZED',
-              emoji: '🚀',
-              color: 'purple' as const,
-              bullets: ['Core Subjects', 'Labs'],
+              title: 'BTech 2nd Year',
+              year: 'All Subjects',
+              progress: 42,
+              cover: '/bookcovers/second-year.png',
+              explorePath: '/explore?year=2'
             },
             {
-              y: 3,
-              title: 'Year 03',
-              subtitle: 'ELECTIVES',
-              emoji: '⚡',
-              color: 'pink' as const,
-              bullets: ['Mini Projects', 'Electives'],
+              title: 'Data Structures',
+              year: 'BTech 2nd Year',
+              progress: 15,
+              cover: '/bookcovers/cse.png',
+              explorePath: '/explore?year=2'
             },
             {
-              y: 4,
-              title: 'Year 04',
-              subtitle: 'GRADUATION',
-              emoji: '🎓',
-              color: 'mint' as const,
-              bullets: ['Capstone Project', 'Placements'],
-            },
-          ].map(({ y, title, subtitle, emoji, color, bullets }) => (
-            <Link key={y} to={`/explore?year=${y}`}>
-              <FolderTab
-                title={title}
-                subtitle={subtitle}
-                emoji={emoji}
-                color={color}
-              >
-                {/* Custom animated paper list inside the folder */}
-                <div className="w-[85%] h-36 bg-white border-2 border-[#1E1E1E] rounded-xl shadow-[3px_3px_0px_0px_#1E1E1E] rotate-[-2deg] p-4 flex flex-col justify-between">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xl">{emoji}</span>
-                    <span className="text-[9px] font-extrabold uppercase bg-slate-100 border border-[#1E1E1E] px-1.5 py-0.5 rounded">MUJ</span>
-                  </div>
-                  <div className="space-y-1">
-                    {bullets.map(b => (
-                      <div key={b} className="flex items-center gap-1.5 text-[9px] font-extrabold text-slate-500">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B6B]" />
-                        {b}
-                      </div>
-                    ))}
-                  </div>
+              title: 'Chemistry Cycle',
+              year: 'BTech 1st Year',
+              progress: 65,
+              cover: '/bookcovers/chemistry-cycle.png',
+              explorePath: '/explore?year=1&cycle=chemistry-cycle'
+            }
+          ].map((item, idx) => (
+            <div 
+              key={idx}
+              className="bg-white border border-slate-200/80 rounded-[32px] p-6 shadow-[0_4px_24px_rgba(0,0,0,0.015)] flex flex-col justify-between h-[320px] hover:translate-y-[-4px] hover:shadow-md transition-all group text-left"
+            >
+              <div className="flex gap-5">
+                <div 
+                  className="w-28 h-40 rounded-2xl bg-cover bg-center shrink-0 shadow-md group-hover:scale-[1.03] transition-transform"
+                  style={{ backgroundImage: `url(${item.cover})`, boxShadow: '0 8px 20px rgba(0,0,0,0.18)', border: '2px solid rgba(255,255,255,0.5)', outline: '1px solid rgba(0,0,0,0.1)' }}
+                />
+                <div className="flex-1 min-w-0 space-y-2 pt-1">
+                  <span className="text-[9px] font-extrabold uppercase bg-slate-100 px-2 py-0.5 rounded text-slate-500">{item.year}</span>
+                  <h4 className="font-display font-bold text-lg text-[#1E1E1E] leading-tight line-clamp-2">{item.title}</h4>
                 </div>
-              </FolderTab>
-            </Link>
+              </div>
+              
+              <div className="space-y-3 pt-4 border-t border-slate-100">
+                <div className="flex justify-between items-center text-[10px] font-black uppercase text-[#1E1E1E]">
+                  <span>Progress</span>
+                  <span>{item.progress}%</span>
+                </div>
+                <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-[#5D5FEF] rounded-full transition-all duration-500" style={{ width: `${item.progress}%` }} />
+                </div>
+                <button
+                  onClick={() => navigate(item.explorePath)}
+                  className="w-full mt-2 py-2.5 bg-[#FAF9F5] border border-slate-200 text-[#1E1E1E] font-black text-[10px] uppercase rounded-xl flex items-center justify-center gap-1 cursor-pointer hover:bg-[#1E1E1E] hover:text-white hover:border-[#1E1E1E] transition-all"
+                >
+                  Continue notebook <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* SECTION 2: BEYOND ENGINEERING & MASTER ARENA (Side-by-Side Bento) */}
-      <section id="other-streams" className="max-w-6xl mx-auto px-6 py-12 border-t-3 border-dashed border-[#1E1E1E]/20">
-        <div className="grid md:grid-cols-2 gap-10 items-stretch">
-          
-          {/* Left Column: Non-Btech Explorer */}
-          <BentoCard bgColor="cream" hoverScale={false} className="flex flex-col justify-between gap-6">
-            <div>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-3xl font-display font-extrabold bg-[#FFB236] border-2 border-[#1E1E1E] px-3 py-1 rounded-xl rotate-[-2deg] shadow-[2.5px_2.5px_0px_0px_#1E1E1E]">BEYOND</span>
-                <span className="text-3xl font-display font-bold text-slate-500 italic">ENGINEERING</span>
-              </div>
-              <p className="text-xs font-bold leading-relaxed text-slate-600 max-w-md">
-                We've built specialized portals for Commerce, Management, and Law students to ensure excellence across all faculties.
-              </p>
-            </div>
+      {/* ── TECH STACKS SECTION ── */}
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">Tech Stacks</h2>
+        </div>
 
-            {/* Dynamic Interactive Mini Flow for Non-Btech */}
-            <div className="w-full mt-4">
-              {!nbCourse ? (
-                <div className="bg-white border-3 border-[#1E1E1E] rounded-3xl shadow-[4px_4px_0px_0px_#1E1E1E] overflow-hidden">
-                  {[
-                    { id: 'bba', name: '💼 BBA STREAM', color: 'bg-[#FF7EB9]/10 hover:bg-[#FF7EB9]/25' },
-                    { id: 'bcom', name: '📈 B.COM STREAM', color: 'bg-[#4FA3F7]/10 hover:bg-[#4FA3F7]/25' },
-                    { id: 'llb', name: '⚖️ LLB STREAM', color: 'bg-[#3CD070]/10 hover:bg-[#3CD070]/25' },
-                  ].map((item, idx, arr) => {
-                    const courseData = nonBtechCourses.find(c => c.id === item.id);
-                    return (
-                      <button
-                        key={item.id}
-                        onClick={() => {
-                          if (courseData) {
-                            setNbCourse(courseData);
-                            setNbYear(null);
-                            setNbSubject(null);
-                          }
-                        }}
-                        className={`w-full flex items-center justify-between px-5 py-4.5 text-left font-display font-bold text-xs tracking-wider transition-colors cursor-pointer ${item.color} ${
-                          idx < arr.length - 1 ? 'border-b-3 border-[#1E1E1E]' : ''
-                        }`}
-                      >
-                        <span>{item.name}</span>
-                        <ChevronRight className="w-4 h-4 text-[#1E1E1E]" />
-                      </button>
-                    );
-                  })}
-                </div>
-              ) : (
-                <motion.div 
-                  initial={{ scale: 0.95, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  className="bg-white border-3 border-[#1E1E1E] rounded-3xl p-5 shadow-[4px_4px_0px_0px_#1E1E1E]"
-                >
-                  {/* Year Select Screen */}
-                  {!nbYear && (
-                    <div>
-                      <button 
-                        onClick={() => setNbCourse(null)} 
-                        className="flex items-center gap-1 text-[10px] text-slate-500 hover:text-slate-900 font-extrabold mb-4 uppercase bg-slate-50 border-2 border-[#1E1E1E] px-2.5 py-1 rounded-full shadow-[1.5px_1.5px_0px_0px_#1E1E1E]"
-                      >
-                        <ArrowLeft className="w-3.5 h-3.5" /> Back to Streams
-                      </button>
-                      <h4 className="font-display font-bold text-sm text-[#1E1E1E] mb-3 uppercase">Select Year for {nbCourse.name}</h4>
-                      <div className="grid grid-cols-3 gap-2.5">
-                        {nbCourse.years.map(y => (
-                          <button
-                            key={y.year}
-                            onClick={() => setNbYear(y.year)}
-                            className="py-3 px-4 bg-white border-2 border-[#1E1E1E] hover:bg-[#FFB236] rounded-xl text-center font-display font-bold text-xs text-[#1E1E1E] cursor-pointer shadow-[2px_2px_0px_0px_#1E1E1E] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_#1E1E1E] transition-all"
-                          >
-                            Year 0{y.year}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Subject Select Screen */}
-                  {nbYear && !nbSubject && (
-                    <div>
-                      <button 
-                        onClick={() => setNbYear(null)} 
-                        className="flex items-center gap-1 text-[10px] text-slate-500 hover:text-slate-900 font-extrabold mb-4 uppercase bg-slate-50 border-2 border-[#1E1E1E] px-2.5 py-1 rounded-full shadow-[1.5px_1.5px_0px_0px_#1E1E1E]"
-                      >
-                        <ArrowLeft className="w-3.5 h-3.5" /> Back to Years
-                      </button>
-                      <h4 className="font-display font-bold text-sm text-[#1E1E1E] mb-3 uppercase">{nbCourse.name} — Year 0{nbYear}</h4>
-                      <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1">
-                        {nbCourse.years.find(y => y.year === nbYear)?.subjects.map(s => (
-                          <button
-                            key={s.id}
-                            onClick={() => { setNbSubject(s); setNbTab('notes'); }}
-                            className="w-full p-3 bg-white hover:bg-slate-50 border-2 border-[#1E1E1E] rounded-xl text-left transition-all flex items-center justify-between cursor-pointer shadow-[2px_2px_0px_0px_#1E1E1E] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_#1E1E1E]"
-                          >
-                            <div className="flex items-center gap-2.5">
-                              <span className="text-base">{s.emoji}</span>
-                              <div>
-                                <span className="font-bold text-xs text-[#1E1E1E] block leading-tight">{s.name}</span>
-                                <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider">{s.code}</span>
-                              </div>
-                            </div>
-                            <ChevronRight className="w-4 h-4 text-[#1E1E1E]" />
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Resource Viewer Screen */}
-                  {nbYear && nbSubject && (
-                    <div>
-                      <button 
-                        onClick={() => setNbSubject(null)} 
-                        className="flex items-center gap-1 text-[10px] text-slate-500 hover:text-slate-900 font-extrabold mb-4 uppercase bg-slate-50 border-2 border-[#1E1E1E] px-2.5 py-1 rounded-full shadow-[1.5px_1.5px_0px_0px_#1E1E1E]"
-                      >
-                        <ArrowLeft className="w-3.5 h-3.5" /> Back to Subjects
-                      </button>
-                      <div className="mb-4">
-                        <span className="text-[9px] text-[#FF6B6B] font-extrabold tracking-wider block uppercase">{nbSubject.code}</span>
-                        <h4 className="font-display font-bold text-base text-[#1E1E1E]">{nbSubject.emoji} {nbSubject.name}</h4>
-                      </div>
-
-                      {/* Custom folder index tab style selectors */}
-                      <div className="flex gap-1.5 mb-4 border-b-2 border-[#1E1E1E] pb-2">
-                        {(['notes', 'pyqs', 'yt'] as ResourceTab[]).map(t => (
-                          <button
-                            key={t}
-                            onClick={() => setNbTab(t)}
-                            className={`px-3 py-1.5 rounded-t-xl font-display font-bold text-[10px] uppercase border-2 border-b-0 border-[#1E1E1E] transition-all cursor-pointer ${
-                              nbTab === t 
-                                ? 'bg-[#FFB236] translate-y-[2px] shadow-[0px_2px_0px_0px_#FFB236]' 
-                                : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                            }`}
-                          >
-                            {t === 'yt' ? 'Playlists' : t === 'pyqs' ? 'PYQs' : 'Notes'}
-                          </button>
-                        ))}
-                      </div>
-
-                      <div className="space-y-2 max-h-[180px] overflow-y-auto pr-1">
-                        {nbTab === 'notes' && nbSubject.studyMaterials.map((sm, idx) => (
-                          <a 
-                            key={idx} 
-                            href={sm.url} 
-                            target="_blank" 
-                            rel="noreferrer" 
-                            className="flex items-center justify-between p-3 bg-white border-2 border-[#1E1E1E] hover:bg-slate-50 rounded-xl transition-all text-xs font-bold text-[#1E1E1E] shadow-[2px_2px_0px_0px_#1E1E1E]"
-                          >
-                            <span className="truncate">{sm.title}</span>
-                            <Download className="w-3.5 h-3.5 text-slate-400" />
-                          </a>
-                        ))}
-                        {nbTab === 'pyqs' && nbSubject.pyqs.map((pq, idx) => (
-                          <a 
-                            key={idx} 
-                            href={pq.url} 
-                            target="_blank" 
-                            rel="noreferrer" 
-                            className="flex items-center justify-between p-3 bg-white border-2 border-[#1E1E1E] hover:bg-slate-50 rounded-xl transition-all text-xs font-bold text-[#1E1E1E] shadow-[2px_2px_0px_0px_#1E1E1E]"
-                          >
-                            <span className="truncate">{pq.title}</span>
-                            <Download className="w-3.5 h-3.5 text-slate-400" />
-                          </a>
-                        ))}
-                        {nbTab === 'yt' && nbSubject.ytResources.map((yt, idx) => (
-                          <a 
-                            key={idx} 
-                            href={yt.url} 
-                            target="_blank" 
-                            rel="noreferrer" 
-                            className="flex items-center justify-between p-3 bg-white border-2 border-[#1E1E1E] hover:bg-slate-50 rounded-xl transition-all text-xs font-bold text-[#1E1E1E] shadow-[2px_2px_0px_0px_#1E1E1E]"
-                          >
-                            <span className="truncate">{yt.title}</span>
-                            <Play className="w-3.5 h-3.5 text-red-500 fill-current" />
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </motion.div>
-              )}
-            </div>
-          </BentoCard>
-
-          {/* Right Column: Master Arena Active Play Interface */}
-          {!arenaOpen ? (
-            <BentoCard bgColor="white" className="flex flex-col justify-between items-start min-h-[340px] relative overflow-hidden group">
-              {/* Crossed Swords background icon */}
-              <div className="absolute right-0 bottom-4 opacity-5 text-[#1E1E1E] pointer-events-none group-hover:scale-105 transition-transform duration-500">
-                <svg className="w-64 h-64 fill-current" viewBox="0 0 24 24">
-                  <path d="M19 3L21 5L8.5 17.5L5.5 18.5L6.5 15.5L19 3Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                  <path d="M5 19L3 21L15.5 8.5L18.5 5.5L17.5 8.5L5 19Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                </svg>
-              </div>
-
-              <div className="relative z-10 space-y-3">
-                <span className="text-[#FF6B6B] text-[10px] font-extrabold uppercase tracking-widest bg-[#FF6B6B]/10 border-2 border-[#FF6B6B] px-2.5 py-1 rounded-full">
-                  ⚡ GAMIFIED PREP
-                </span>
-                <h3 className="text-4xl font-display font-extrabold text-[#1E1E1E] leading-[0.95] uppercase">
-                  MASTER<br />ARENA
-                </h3>
-                <p className="text-slate-500 text-xs font-bold leading-relaxed max-w-[280px]">
-                  Take diagnostic test matches. Test your logic block-by-block, not in static PDFs.
-                </p>
-              </div>
-
-              <button
-                onClick={() => {
-                  setArenaOpen(true);
-                  setArenaStep('course');
-                  setArenaCourse('');
-                  setArenaYear(0);
-                  setArenaSubject(null);
-                }}
-                className="relative z-10 flex items-center gap-1.5 text-xs font-display font-bold text-[#1E1E1E] tracking-wider hover:gap-3 transition-all bg-transparent border-0 border-b-3 border-[#1E1E1E] pb-1.5 cursor-pointer outline-none uppercase"
-              >
-                <span>LAUNCH PORTAL</span> <ArrowRight className="w-4 h-4" />
-              </button>
-            </BentoCard>
-          ) : (
-            <motion.div 
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="bg-[#1E1E1E] border-4 border-[#1E1E1E] rounded-3xl p-6 text-white shadow-[6px_6px_0px_0px_#FFB236]"
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            { y: 1, title: 'First Year',   color: 'bg-[#EDE7F6]', cover: '/bookcovers/first-year.png' },
+            { y: 2, title: 'Second Year',  color: 'bg-[#FFF3E0]', cover: '/bookcovers/second-year.png' },
+            { y: 3, title: 'Third Year',   color: 'bg-[#E3F2FD]', cover: '/bookcovers/third-year.png' },
+            { y: 4, title: 'Fourth Year',  color: 'bg-[#E8F5E9]', cover: '/bookcovers/fourth-year.png' },
+          ].map((item) => (
+            <div 
+              key={item.y}
+              onClick={() => navigate(`/explore?year=${item.y}`)}
+              className={`group cursor-pointer rounded-3xl border border-slate-200/80 p-5 shadow-[0_6px_20px_rgba(0,0,0,0.02)] hover:translate-y-[-2px] transition-all flex flex-col justify-between h-80 ${item.color}`}
             >
-              {/* Active Arena Workspace */}
-              <div className="flex items-center justify-between border-b-2 border-white/10 pb-4 mb-6">
-                <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-[#FFB236] fill-[#FFB236]" />
-                  <span className="font-display font-bold text-sm uppercase tracking-wider">MASTER ARENA</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  {arenaStep === 'play' && (
-                    <span className="text-[10px] font-extrabold bg-[#FFB236] text-[#1E1E1E] border-2 border-[#1E1E1E] px-2 py-0.5 rounded-full">
-                      {arenaScore} XP
-                    </span>
-                  )}
-                  <button 
-                    onClick={() => setArenaOpen(false)} 
-                    className="text-[10px] font-extrabold text-slate-400 hover:text-white bg-white/10 border-2 border-white/20 hover:border-white px-2.5 py-1 rounded-full cursor-pointer transition-all"
-                  >
-                    Exit
-                  </button>
-                </div>
+              {/* Book cover — big, centred, takes most of the card */}
+              <div className="flex-1 flex items-center justify-center py-2">
+                <div 
+                  className="w-32 h-44 rounded-2xl bg-cover bg-center group-hover:scale-105 transition-transform"
+                  style={{ backgroundImage: `url(${item.cover})`, boxShadow: '0 10px 28px rgba(0,0,0,0.22)', border: '2px solid rgba(255,255,255,0.5)', outline: '1px solid rgba(0,0,0,0.1)' }}
+                />
               </div>
 
-              {/* Steps inside Arena Workspace */}
-              {arenaStep === 'course' && (
-                <div className="space-y-4">
-                  <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">Choose Program</h4>
-                  <div className="grid grid-cols-2 gap-3">
-                    {['B.Tech', 'BBA', 'B.Com', 'LLB'].map(c => (
+              <div className="pt-3 border-t border-slate-200/20 flex justify-between items-center">
+                <div className="text-left">
+                  <span className="text-[9px] font-extrabold uppercase text-slate-400 tracking-widest">Year 0{item.y}</span>
+                  <h3 className="font-display font-extrabold text-base text-[#1E1E1E] uppercase leading-tight">
+                    {item.title}
+                  </h3>
+                </div>
+                <span className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm group-hover:bg-[#1E1E1E] group-hover:border-[#1E1E1E] transition-all">
+                  <ChevronRight className="w-4 h-4 text-[#1E1E1E] group-hover:text-white transition-colors" />
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── PRACTICE ARENA / NON-BTECH BANNERS ── */}
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60 grid md:grid-cols-2 gap-8">
+        <div className="bg-gradient-to-br from-[#FF6B6B] to-[#FFB236] rounded-[32px] border border-slate-200 p-6 sm:p-8 shadow-md relative overflow-hidden flex flex-col justify-between h-52 text-left group">
+          <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
+          <div>
+            <span className="text-[9px] font-extrabold uppercase bg-white/20 border border-white/40 px-3 py-1 rounded-full text-white tracking-widest">
+              PYQs · Mock Tests
+            </span>
+            <h3 className="font-display font-black text-3xl text-white uppercase mt-2 tracking-wide leading-none">
+              PRACTICE ARENA
+            </h3>
+            <p className="text-white/80 text-xs font-bold mt-1">
+              Test sessional skills with sessional sessional questions.
+            </p>
+          </div>
+          <button
+            onClick={() => {
+              handleSetupYearChange(1);
+              setIsArenaModalOpen(true);
+            }}
+            className="w-fit bg-white border border-slate-200 text-[#1E1E1E] font-black px-5 py-2.5 rounded-2xl text-xs uppercase tracking-wider shadow-sm hover:bg-slate-50 transition-all cursor-pointer flex items-center gap-1.5"
+          >
+            Enter Arena <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        <div className="bg-gradient-to-br from-[#5D5FEF] to-[#7F00FF] rounded-[32px] border border-slate-200 p-6 sm:p-8 shadow-md relative overflow-hidden flex flex-col justify-between h-52 text-left group cursor-not-allowed">
+          <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
+          <div>
+            <span className="text-[9px] font-extrabold uppercase bg-white/20 border border-white/40 px-3 py-1 rounded-full text-white tracking-widest">
+              BBA · BCA · MBA
+            </span>
+            <h3 className="font-display font-black text-3xl text-white uppercase mt-2 tracking-wide leading-none">
+              NON-BTECH STACKS
+            </h3>
+            <p className="text-white/80 text-xs font-bold mt-1">
+              Business, Computer Applications, Law notes archive.
+            </p>
+          </div>
+          <button
+            disabled
+            className="w-fit bg-white/50 border border-slate-200/50 text-slate-500 font-black px-5 py-2.5 rounded-2xl text-xs uppercase tracking-wider shadow-sm cursor-not-allowed flex items-center gap-1.5"
+          >
+            Coming Soon <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-400 uppercase">
+        <span className="font-display font-extrabold text-[#1E1E1E] text-base">MUJSTUDY</span>
+        <span>© 2026 MANIPAL UNIVERSITY JAIPUR ARCHIVE</span>
+      </footer>
+
+
+
+      {/* ── SETUP DIALOG MODAL (Clean B&W overlay modal) ── */}
+      <AnimatePresence>
+        {isArenaModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E1E1E]/40 backdrop-blur-sm">
+            <motion.div
+              initial={{ scale: 0.96, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.96, opacity: 0 }}
+              className="bg-white border border-slate-250 rounded-[28px] w-full max-w-md overflow-hidden shadow-xl"
+            >
+              {/* Header */}
+              <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-[#1E1E1E] rounded-lg flex items-center justify-center">
+                    <Trophy className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-black text-sm text-[#1E1E1E] uppercase">Enter sessional arena</h3>
+                    <p className="text-[9px] font-black uppercase text-slate-400">Select details to start</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setIsArenaModalOpen(false)}
+                  className="w-8 h-8 rounded-lg border border-slate-200 hover:bg-slate-100 flex items-center justify-center transition-all cursor-pointer"
+                >
+                  <X className="w-4 h-4 text-[#1E1E1E]" />
+                </button>
+              </div>
+
+              {/* Form Controls */}
+              <div className="p-6 space-y-5 text-left bg-white">
+                {/* Course Stream */}
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Course Stream</label>
+                  <div className="flex flex-wrap gap-2">
+                    {['B.Tech', 'BBA (Soon)', 'B.Com (Soon)'].map((c, idx) => (
                       <button
                         key={c}
-                        onClick={() => { setArenaCourse(c); setArenaStep('year'); }}
-                        className="p-4 bg-white/5 hover:bg-white/10 border-2 border-white/10 hover:border-[#4FA3F7] rounded-2xl text-left text-xs font-bold cursor-pointer transition-all"
+                        disabled={idx > 0}
+                        className={`px-4 py-2 rounded-full text-xs font-black border transition-all ${
+                          idx === 0
+                            ? 'bg-[#1E1E1E] border-[#1E1E1E] text-white'
+                            : 'bg-white border-slate-205 text-slate-350 cursor-not-allowed opacity-50'
+                        }`}
                       >
-                        {c === 'B.Tech' ? '🎓 ' : c === 'BBA' ? '💼 ' : c === 'B.Com' ? '📈 ' : '⚖️ '}
                         {c}
                       </button>
                     ))}
                   </div>
                 </div>
-              )}
 
-              {arenaStep === 'year' && (
-                <div className="space-y-4">
-                  <button onClick={() => setArenaStep('course')} className="flex items-center gap-1 text-[10px] text-slate-400 hover:text-white uppercase font-bold">
-                    <ArrowLeft className="w-3.5 h-3.5" /> Back
-                  </button>
-                  <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">Select Academic Year</h4>
-                  <div className="grid grid-cols-3 gap-2.5">
-                    {[1, 2, 3, 4].map(y => {
-                      if (arenaCourse !== 'B.Tech' && y === 4) return null;
-                      return (
-                        <button
-                          key={y}
-                          onClick={() => {
-                            setArenaYear(y);
-                            if (arenaCourse === 'B.Tech') {
-                              setArenaStep('branch');
-                            } else {
-                              setArenaStep('subject');
-                            }
-                          }}
-                          className="py-3 px-2 bg-white/5 hover:bg-white/10 border-2 border-white/10 hover:border-[#FF7EB9] rounded-2xl text-xs font-bold cursor-pointer text-center transition-all"
-                        >
-                          Year 0{y}
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {arenaStep === 'branch' && (
-                <div className="space-y-4">
-                  <button onClick={() => setArenaStep('year')} className="flex items-center gap-1 text-[10px] text-slate-400 hover:text-white uppercase font-bold">
-                    <ArrowLeft className="w-3.5 h-3.5" /> Back
-                  </button>
-                  <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">Select Cycle / Branch</h4>
-                  <div className="grid grid-cols-2 gap-2.5 max-h-[220px] overflow-y-auto pr-1 scrollbar-thin">
-                    {getArenaBranchList().map(b => (
+                {/* Academic Year */}
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Academic Year</label>
+                  <div className="grid grid-cols-4 gap-2">
+                    {[1, 2, 3, 4].map((y) => (
                       <button
-                        key={b.id}
-                        onClick={() => { setArenaBranchOrCycle(b.id); setArenaStep('subject'); }}
-                        className="p-3 bg-white/5 hover:bg-white/10 border-2 border-white/10 hover:border-[#3CD070] rounded-2xl text-left text-xs font-bold cursor-pointer transition-all truncate"
+                        key={y}
+                        onClick={() => handleSetupYearChange(y)}
+                        className={`py-2 rounded-xl text-xs font-black border transition-all cursor-pointer ${
+                          setupYear === y
+                            ? 'bg-[#1E1E1E] border-[#1E1E1E] text-white'
+                            : 'bg-white border-slate-200 text-[#1E1E1E] hover:bg-slate-50'
+                        }`}
                       >
-                        {b.emoji} {b.name}
+                        {y === 1 ? '1st' : y === 2 ? '2nd' : y === 3 ? '3rd' : '4th'} Yr
                       </button>
                     ))}
                   </div>
                 </div>
-              )}
 
-              {arenaStep === 'subject' && (
-                <div className="space-y-4">
-                  <button onClick={() => setArenaStep(arenaCourse === 'B.Tech' ? 'branch' : 'year')} className="flex items-center gap-1 text-[10px] text-slate-400 hover:text-white uppercase font-bold">
-                    <ArrowLeft className="w-3.5 h-3.5" /> Back
-                  </button>
-                  <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">Choose Subject</h4>
-                  <div className="space-y-2 max-h-[220px] overflow-y-auto pr-1 scrollbar-thin">
-                    {getArenaSubjectList().map(s => {
-                      const qty = (QUESTIONS_DB[s.id] || []).length;
-                      return (
+                {/* Cycle / Branch */}
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">
+                    {setupYear === 1 ? 'Cycle Selection' : 'Branch Specialization'}
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {setupYear === 1 ? (
+                      year1Cycles.map((c) => (
                         <button
-                          key={s.id}
+                          key={c.id}
                           onClick={() => {
-                            setArenaSubject(s);
-                            setArenaAnswers({});
-                            setArenaSubmitted({});
-                            setArenaScore(0);
-                            setArenaStep('play');
+                            setSetupBranch(c.id);
+                            const list = c.subjects;
+                            setSetupSubject(list[0] || null);
                           }}
-                          className="w-full p-3.5 bg-white/5 hover:bg-white/10 border-2 border-white/10 hover:border-[#FFB236] rounded-2xl text-left flex items-center justify-between cursor-pointer transition-all"
+                          className={`px-4 py-2 rounded-full text-xs font-black border transition-all cursor-pointer ${
+                            setupBranch === c.id
+                              ? 'bg-[#1E1E1E] border-[#1E1E1E] text-white'
+                              : 'bg-white border-slate-200 text-[#1E1E1E] hover:bg-slate-50'
+                          }`}
                         >
-                          <span className="text-xs font-bold text-slate-200">{s.emoji} {s.name}</span>
-                          <span className="text-[9px] bg-white/15 px-2 py-0.5 rounded border border-white/10 text-slate-350">{qty} Qs</span>
+                          {c.name}
                         </button>
-                      );
-                    })}
+                      ))
+                    ) : (
+                      branches.map((b) => (
+                        <button
+                          key={b.id}
+                          onClick={() => {
+                            setSetupBranch(b.id);
+                            const list = b.subjects;
+                            setSetupSubject(list[0] || null);
+                          }}
+                          className={`px-4 py-2 rounded-full text-xs font-black border transition-all cursor-pointer ${
+                            setupBranch === b.id
+                              ? 'bg-[#1E1E1E] border-[#1E1E1E] text-white'
+                              : 'bg-white border-slate-200 text-[#1E1E1E] hover:bg-slate-50'
+                          }`}
+                        >
+                          {b.shortName}
+                        </button>
+                      ))
+                    )}
                   </div>
                 </div>
-              )}
 
-              {arenaStep === 'play' && arenaSubject && (
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <button onClick={() => setArenaStep('subject')} className="flex items-center gap-1 text-[10px] text-slate-400 hover:text-white uppercase font-bold">
-                      <ArrowLeft className="w-3.5 h-3.5" /> Back
-                    </button>
+                {/* Select Subject searchable dropdown */}
+                <div className="space-y-2" ref={subjectDropdownRef => {
+                  if (!subjectDropdownRef) return;
+                  const handler = (e: MouseEvent) => {
+                    if (!subjectDropdownRef.contains(e.target as Node)) {
+                      setIsSubjectDropdownOpen(false);
+                    }
+                  };
+                  document.addEventListener('mousedown', handler);
+                  return () => document.removeEventListener('mousedown', handler);
+                }}>
+                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Select Subject</label>
+                  <div className="relative">
                     <button
-                      onClick={() => { setArenaAnswers({}); setArenaSubmitted({}); setArenaScore(0); }}
-                      className="text-[9px] font-extrabold text-red-400 hover:text-red-300 flex items-center gap-1 bg-transparent border-0 cursor-pointer uppercase"
+                      onClick={() => setIsSubjectDropdownOpen(!isSubjectDropdownOpen)}
+                      className="w-full h-12 px-4 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs font-black text-[#1E1E1E] hover:bg-slate-50 transition-all cursor-pointer"
                     >
-                      <RefreshCw className="w-3.5 h-3.5 animate-spin-hover" /> Reset Board
+                      <span className="flex items-center gap-2">
+                        {setupSubject ? (
+                          <>
+                            <span>{setupSubject.emoji}</span>
+                            <span>{setupSubject.name} ({setupSubject.code})</span>
+                          </>
+                        ) : (
+                          <span className="text-slate-400">Choose Subject...</span>
+                        )}
+                      </span>
+                      <ChevronRight className={`w-4 h-4 text-[#1E1E1E] transition-transform ${isSubjectDropdownOpen ? 'rotate-90' : ''}`} />
                     </button>
-                  </div>
-                  <h5 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400">{arenaSubject.name}</h5>
 
-                  <div className="space-y-4 max-h-[300px] overflow-y-auto pr-1 scrollbar-thin">
-                    {Object.entries(questionsByTopic).map(([topic, qList]) => (
-                      <div key={topic} className="border-2 border-white/10 bg-white/2 rounded-2xl p-4 space-y-4">
-                        <span className="text-[10px] font-extrabold text-[#4FA3F7] tracking-wider uppercase block">📂 {topic}</span>
-                        {qList.map((q, qi) => {
-                          const isSubmitted = arenaSubmitted[q.id];
-                          const selectedOpt = arenaAnswers[q.id];
-                          return (
-                            <div key={q.id} className="bg-black/25 border border-white/5 rounded-xl p-3 space-y-3">
-                              <div className="flex justify-between text-[9px] font-extrabold text-slate-400">
-                                <span>{q.year}</span>
-                                <span className="text-[#FFB236]">+{q.marks} Marks</span>
-                              </div>
-                              <p className="text-xs font-bold leading-relaxed text-slate-100">
-                                <span className="text-slate-500 font-bold mr-1">Q{qi + 1}.</span> {q.text}
-                              </p>
-                              <div className="grid grid-cols-1 gap-2">
-                                {q.options.map((opt, oi) => {
-                                  const isSelected = selectedOpt === oi;
-                                  const isCorrect = q.correct === oi;
-                                  
-                                  let btnCls = "w-full text-left p-3 rounded-xl text-xs font-bold border-2 transition-all flex items-center bubble-tr-bl-sharp ";
-                                  
-                                  if (isSubmitted) {
-                                    if (isCorrect) {
-                                      btnCls += "bg-emerald-500/10 border-emerald-500/50 text-emerald-400";
-                                    } else if (isSelected) {
-                                      btnCls += "bg-red-500/10 border-red-500/50 text-red-400";
-                                    } else {
-                                      btnCls += "bg-white/2 border-white/5 text-slate-500 opacity-50";
-                                    }
-                                  } else {
-                                    btnCls += "bg-white/5 border-white/10 hover:border-white hover:bg-white/10 text-slate-300 cursor-pointer shadow-[2px_2px_0px_0px_rgba(255,255,255,0.05)] active:translate-x-[1px] active:translate-y-[1px]";
-                                  }
-                                  return (
-                                    <button
-                                      key={oi}
-                                      disabled={isSubmitted}
-                                      onClick={() => handleArenaAnswer(q.id, oi, q.correct, q.marks)}
-                                      className={btnCls}
-                                    >
-                                      {opt}
-                                    </button>
-                                  );
-                                })}
-                              </div>
+                    <AnimatePresence>
+                      {isSubjectDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -8 }}
+                          className="absolute z-50 w-full mt-1 bg-white border border-slate-200 rounded-xl shadow-lg overflow-hidden max-h-52 flex flex-col"
+                        >
+                          <div className="p-2 border-b border-slate-100 flex items-center gap-2">
+                            <Search className="w-3.5 h-3.5 text-slate-400 ml-2" />
+                            <input
+                              type="text"
+                              value={subjectSearch}
+                              onChange={(e) => setSubjectSearch(e.target.value)}
+                              placeholder="Search subjects..."
+                              className="w-full bg-transparent border-none text-xs font-bold focus:outline-none py-1 text-neutral-800 placeholder-neutral-400"
+                            />
+                          </div>
 
-                              {isSubmitted && (
-                                <motion.div 
-                                  initial={{ opacity: 0, y: 10 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  className={`p-3 rounded-xl text-[10px] leading-relaxed border-2 ${
-                                    selectedOpt === q.correct
-                                      ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30'
-                                      : 'bg-red-500/10 text-red-350 border-red-500/30'
-                                  }`}
-                                >
-                                  <p className="font-extrabold uppercase mb-0.5">{selectedOpt === q.correct ? '🎉 Passed' : '❌ Failed'}</p>
-                                  <p className="opacity-80 font-medium">{q.explanation}</p>
-                                </motion.div>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    ))}
+                          <div className="overflow-y-auto flex-1 no-scrollbar">
+                            {filteredSetupSubjects.length > 0 ? (
+                              filteredSetupSubjects.map((s) => {
+                                const hasQ = (QUESTIONS_DB[s.id] || []).length > 0;
+                                return (
+                                  <button
+                                    key={s.id}
+                                    disabled={!hasQ}
+                                    onClick={() => {
+                                      setSetupSubject(s);
+                                      setIsSubjectDropdownOpen(false);
+                                      setSubjectSearch('');
+                                    }}
+                                    className={`w-full text-left px-4 py-2.5 text-xs font-black transition-colors flex items-center justify-between border-b border-slate-50 last:border-none cursor-pointer ${
+                                      !hasQ
+                                        ? 'opacity-35 cursor-not-allowed text-slate-450'
+                                        : 'hover:bg-slate-50 text-neutral-800'
+                                    }`}
+                                  >
+                                    <span className="flex items-center gap-2">
+                                      <span>{s.emoji}</span>
+                                      <span>{s.name}</span>
+                                    </span>
+                                    {hasQ ? (
+                                      <span className="text-[9px] font-black bg-[#1E1E1E] text-white px-2 py-0.5 rounded-full uppercase tracking-wider">Active</span>
+                                    ) : (
+                                      <span className="text-[9px] font-bold bg-neutral-100 text-neutral-450 px-2 py-0.5 rounded-full">Soon</span>
+                                    )}
+                                  </button>
+                                );
+                              })
+                            ) : (
+                              <div className="p-4 text-center text-xs text-slate-400 font-bold">No matching subjects</div>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
-              )}
+
+                {/* Submit button */}
+                <button
+                  disabled={!setupSubject || (QUESTIONS_DB[setupSubject.id] || []).length === 0}
+                  onClick={startPractice}
+                  className="w-full py-3.5 bg-[#1E1E1E] text-white font-black text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer hover:bg-black transition-all shadow-sm"
+                >
+                  <Zap className="w-4 h-4 fill-white" />
+                  Enter Practice Arena
+                </button>
+              </div>
             </motion.div>
-          )}
-        </div>
-      </section>
-
-      {/* Playful Footer */}
-      <footer className="border-t-3 border-dashed border-[#1E1E1E]/20 mt-16 py-8">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-slate-500 uppercase">
-          <span className="font-display font-extrabold text-[#1E1E1E] text-base">MUJSTUDY</span>
-          <span>© 2026 MANIPAL UNIVERSITY JAIPUR ARCHIVE</span>
-          <div className="flex gap-4">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-[#1E1E1E] transition-colors">Instagram</a>
-            <a href="https://github.com/MaahiJoshi14/STUDY-MATERIAL" target="_blank" rel="noreferrer" className="hover:text-[#1E1E1E] transition-colors">GitHub</a>
           </div>
-        </div>
-      </footer>
-
-      {/* Floating Bottom Navigation Pill Dock */}
-      <FloatingDock />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

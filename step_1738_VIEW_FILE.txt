@@ -1,0 +1,8 @@
+{
+  "step_index": 1738,
+  "source": "MODEL",
+  "type": "VIEW_FILE",
+  "status": "DONE",
+  "created_at": "2026-07-09T12:19:19Z",
+  "content": "Created At: 2026-07-09T12:19:19Z\nCompleted At: 2026-07-09T12:19:19Z\nFile Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`\nTotal Lines: 1865\nTotal Bytes: 86007\nShowing lines 54 to 65\nThe following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.\n54: // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\r\n55: // YEAR 1 â€” CYCLES\r\n56: // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\r\n57: \r\n58: export const year1Cycles: Cycle[] = [\r\n59:   {\r\n60:     id: 'physics-cycle',\r\n61:     name: 'Physics Cycle',\r\n62:     emoji: 'ðŸ”¬',\r\n63:     color: '#4f46e5',\r\n64:     gradient: 'from-indigo-500 to-blue-600',\r\n65:     description: 'Eng. Physics, Computational Mathematics, PSUC, WCS, EVS, Biology for Engineers, and MATLAB.',\r\nThe above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.\n"
+}

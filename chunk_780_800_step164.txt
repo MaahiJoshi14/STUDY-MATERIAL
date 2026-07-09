@@ -1,0 +1,29 @@
+Created At: 2026-07-01T18:56:50Z
+Completed At: 2026-07-01T18:56:51Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1637
+Total Bytes: 70237
+Showing lines 780 to 800
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+780:     ],
+781:   },
+782:   {
+783:     id: 'cse',
+784:     name: 'Computer Science Engineering',
+785:     shortName: 'CSE',
+786:     emoji: '🖥️',
+787:     icon: 'Code',
+788:     gradient: 'from-blue-500 to-indigo-600',
+789:     color: '#2563eb',
+790:     description: 'Software, OS & Computation',
+791:     subjects: [
+792:       {
+793:         id: 'cse-os',
+794:         name: 'Operating Systems',
+795:         shortName: 'OS',
+796:         emoji: '⚙️',
+797:         code: 'CS-301',
+798:         description: 'Process management, memory, file systems, and scheduling.',
+799:         resourceCount: 52,
+800:         studyMaterials: [
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

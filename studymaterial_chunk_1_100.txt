@@ -1,0 +1,108 @@
+Created At: 2026-07-09T12:03:51Z
+Completed At: 2026-07-09T12:03:51Z
+File Path: `file:///c:/Users/Admin/study-material/step_1036_content.txt`
+Total Lines: 159
+Total Bytes: 13668
+Showing lines 1 to 100
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: Created At: 2026-07-08T10:39:02Z
+2: Completed At: 2026-07-08T10:39:02Z
+3: File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+4: Total Lines: 2110
+5: Total Bytes: 159811
+6: Showing lines 1 to 150
+7: The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+8: 1: // ============================================================
+9: 2: // MUJ BTech Study Material — Central Data Source
+10: 3: // ============================================================
+11: 4: 
+12: 5: export interface ResourceLink {
+13: 6:   title: string;
+14: 7:   url: string;
+15: 8:   type: 'pdf' | 'ppt' | 'pptx' | 'doc' | 'docx' | 'xls' | 'xlsx' | 'other';
+16: 9: }
+17: 10: 
+18: 11: export interface YouTubeResource {
+19: 12:   title: string;
+20: 13:   url: string;
+21: 14:   channelName: string;
+22: 15:   thumbnailId?: string;
+23: 16: }
+24: 17: 
+25: 18: export interface Subject {
+26: 19:   id: string;
+27: 20:   name: string;
+28: 21:   shortName: string;
+29: 22:   emoji: string;
+30: 23:   code: string;
+31: 24:   description: string;
+32: 25:   resourceCount: number;
+33: 26:   studyMaterials: ResourceLink[];
+34: 27:   pyqs: ResourceLink[];
+35: 28:   ytResources: YouTubeResource[];
+36: 29: }
+37: 30: 
+38: 31: export interface Cycle {
+39: 32:   id: string;
+40: 33:   name: string;
+41: 34:   emoji: string;
+42: 35:   color: string;
+43: 36:   gradient: string;
+44: 37:   description: string;
+45: 38:   subjectPreview: string;
+46: 39:   subjects: Subject[];
+47: 40: }
+48: 41: 
+49: 42: export interface Branch {
+50: 43:   id: string;
+51: 44:   name: string;
+52: 45:   shortName: string;
+53: 46:   emoji: string;
+54: 47:   icon: string;
+55: 48:   gradient: string;
+56: 49:   color: string;
+57: 50:   description: string;
+58: 51:   subjects: Subject[];
+59: 52: }
+60: 53: 
+61: 54: // ────────────────────────────────────────────────────────────
+62: 55: // YEAR 1 — CYCLES
+63: 56: // ────────────────────────────────────────────────────────────
+64: 57: 
+65: 58: export const year1Cycles: Cycle[] = [
+66: 59:   {
+67: 60:     id: 'chemistry-cycle',
+68: 61:     name: 'Chemistry Cycle',
+69: 62:     emoji: '🧪',
+70: 63:     color: '#0ea5e9',
+71: 64:     gradient: 'from-cyan-500 to-teal-600',
+72: 65:     description: 'Chemistry Cycle study materials and previous year question papers.',
+73: 66:     subjectPreview: '15 Subjects',
+74: 67:     subjects: [
+75: 68:       {
+76: 69:         id: 'applied-mathematics',
+77: 70:         name: 'Applied Mathematics',
+78: 71:         shortName: 'Applied Mathematics',
+79: 72:         emoji: '📖',
+80: 73:         code: 'APPLIE',
+81: 74:         description: 'Study materials and PYQs for Applied Mathematics.',
+82: 75:         resourceCount: 4,
+83: 76:         studyMaterials: [
+84: 77:         ],
+85: 78:         pyqs: [
+86: 79:           { title: 'AM-1_ETE_MakeupFEB2025', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/applied-mathematics/pyqs/AM-1_ETE_MakeupFEB2025.pdf', type: 'pdf' },
+87: 80:           { title: 'AM-1_ETE_Sem-I_2024-25', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/applied-mathematics/pyqs/AM-1_ETE_Sem-I_2024-25.pdf', type: 'pdf' },
+88: 81:           { title: 'AM-1_MTE_Sem-I_2024-25', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/applied-mathematics/pyqs/AM-1_MTE_Sem-I_2024-25.pdf', type: 'pdf' },
+89: 82:           { title: 'Course Handout_MA1109_BTech-1Sem', url: 'https://ik.imagekit.io/tjp471xsxp/1st%20year%20btech/chemistry-cycle/applied-mathematics/pyqs/Course%20Handout_MA1109_BTech-1Sem.pdf', type: 'pdf' },
+90: 83:         ],
+91: 84:         ytResources: [],
+92: 85:       },
+93: 86:       {
+94: 87:         id: 'basic-mechanical-engineering',
+95: 88:         name: 'Basic Mechanical Engineering',
+96: 89:         shortName: 'Basic Mechanical Eng...',
+97: 90:         emoji: '📖',
+98: 91:         code: 'BASICM',
+99: 92:         description: 'Study materials and PYQs for Basic Mechanical Engineering.',
+100: 93:         resourceCount: 29,
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

@@ -1,0 +1,8 @@
+{
+  "step_index": 272,
+  "source": "MODEL",
+  "type": "GREP_SEARCH",
+  "status": "DONE",
+  "created_at": "2026-07-02T09:40:06Z",
+  "content": "Created At: 2026-07-02T09:40:06Z\nCompleted At: 2026-07-02T09:40:07Z\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":175,\"LineContent\":\"        name: 'Biology for Engineers',\"}\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":176,\"LineContent\":\"        shortName: 'Bio. for Eng.',\"}\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":319,\"LineContent\":\"        name: 'Basic Mechanical Engineering',\"}\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":320,\"LineContent\":\"        shortName: 'Basic Mechanical',\"}\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":1207,\"LineContent\":\"    name: 'BBA',\"}\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":1301,\"LineContent\":\"    name: 'B.Com',\"}\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":1309,\"LineContent\":\"            name: 'Business Law',\"}\n{\"File\":\"c:/Users/Admin/study-material/src/data/studyMaterial.ts\",\"LineNumber\":1310,\"LineContent\":\"            shortName: 'Bus. Law',\"}"
+}

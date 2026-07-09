@@ -1,0 +1,86 @@
+Created At: 2026-07-09T11:40:03Z
+Completed At: 2026-07-09T11:40:03Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1637
+Total Bytes: 71873
+Showing lines 1560 to 1637
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1560:   ],
+1561:   'aiml-machine-learning': [
+1562:     {
+1563:       id: 'ml1', topic: 'Supervised Learning', year: 'End-Term 2024', marks: 6,
+1564:       text: 'Which algorithm minimises mean squared error for regression?',
+1565:       options: ['k-NN', 'Decision Tree', 'Linear Regression', 'SVM'],
+1566:       correct: 2,
+1567:       explanation: 'Linear Regression directly minimises the sum of squared residuals (MSE) via the ordinary least squares formulation.'
+1568:     },
+1569:     {
+1570:       id: 'ml2', topic: 'Classification', year: 'Mid-Term 2024', marks: 4,
+1571:       text: 'What does the Softmax function output?',
+1572:       options: ['A single probability', 'A probability distribution over classes', 'Binary 0 or 1', 'The maximum value'],
+1573:       correct: 1,
+1574:       explanation: 'Softmax converts a vector of real numbers into a probability distribution where all values sum to 1.'
+1575:     },
+1576:   ],
+1577:   'cse-os': [
+1578:     {
+1579:       id: 'os1', topic: 'Process Scheduling', year: 'End-Term 2024', marks: 6,
+1580:       text: 'Which scheduling algorithm can lead to starvation?',
+1581:       options: ['FCFS', 'SJF (non-preemptive)', 'Round Robin', 'HRRN'],
+1582:       correct: 1,
+1583:       explanation: 'SJF (Shortest Job First) can cause starvation for longer processes if shorter jobs keep arriving.'
+1584:     },
+1585:     {
+1586:       id: 'os2', topic: 'Memory Management', year: 'End-Term 2023', marks: 4,
+1587:       text: 'Which page replacement algorithm is known as the optimal algorithm?',
+1588:       options: ['FIFO', 'LRU', 'Optimal (Belady\'s)', 'Clock'],
+1589:       correct: 2,
+1590:       explanation: 'Belady\'s Optimal Algorithm replaces the page that won\'t be used for the longest time in the future.'
+1591:     },
+1592:   ],
+1593:   'bba-pom': [
+1594:     {
+1595:       id: 'bbapom1', topic: 'Management Process', year: 'End-Term 2024', marks: 5,
+1596:       text: 'Who is known as the Father of Scientific Management?',
+1597:       options: ['Henri Fayol', 'F.W. Taylor', 'Max Weber', 'Peter Drucker'],
+1598:       correct: 1,
+1599:       explanation: 'F.W. Taylor developed the principles of Scientific Management focusing on shop-floor efficiency.'
+1600:     },
+1601:     {
+1602:       id: 'bbapom2', topic: 'Planning', year: 'Sessional 1 2023', marks: 5,
+1603:       text: 'SWOT Analysis stands for:',
+1604:       options: ['Strengths, Weaknesses, Options, Threats', 'Strengths, Weaknesses, Opportunities, Threats', 'Smart, Wide, Open, Tested', 'Simple, Wise, Original, Timely'],
+1605:       correct: 1,
+1606:       explanation: 'SWOT stands for Strengths, Weaknesses, Opportunities, Threats.'
+1607:     }
+1608:   ],
+1609:   'bba-fa': [
+1610:     {
+1611:       id: 'bbafa1', topic: 'Accounting Basics', year: 'End-Term 2024', marks: 6,
+1612:       text: 'Which accounting equation is correct?',
+1613:       options: ['Assets = Liabilities - Equity', 'Assets = Liabilities + Equity', 'Liabilities = Assets + Equity', 'Equity = Assets + Liabilities'],
+1614:       correct: 1,
+1615:       explanation: 'The fundamental accounting equation is Assets = Liabilities + Owners\' Equity.'
+1616:     }
+1617:   ],
+1618:   'bcom-bl': [
+1619:     {
+1620:       id: 'bcombl1', topic: 'Contract Act', year: 'End-Term 2024', marks: 6,
+1621:       text: 'An agreement enforceable by law is a:',
+1622:       options: ['Proposal', 'Promise', 'Contract', 'Acceptance'],
+1623:       correct: 2,
+1624:       explanation: 'According to Section 2(h) of the Indian Contract Act, 1872, an agreement enforceable by law is a contract.'
+1625:     }
+1626:   ],
+1627:   'llb-con1': [
+1628:     {
+1629:       id: 'llbcon1', topic: 'Fundamental Rights', year: 'End-Term 2024', marks: 8,
+1630:       text: 'Which article of the Indian Constitution is known as the Heart and Soul of the Constitution?',
+1631:       options: ['Article 14', 'Article 19', 'Article 21', 'Article 32'],
+1632:       correct: 3,
+1633:       explanation: 'Dr. B.R. Ambedkar termed Article 32 (Right to Constitutional Remedies) as the Heart and Soul of the Constitution.'
+1634:     }
+1635:   ]
+1636: };
+1637: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

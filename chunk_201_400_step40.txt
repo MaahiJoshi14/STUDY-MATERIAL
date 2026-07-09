@@ -1,0 +1,208 @@
+Created At: 2026-07-01T17:55:04Z
+Completed At: 2026-07-01T17:55:04Z
+File Path: `file:///c:/Users/Admin/study-material/src/data/studyMaterial.ts`
+Total Lines: 1637
+Total Bytes: 70237
+Showing lines 201 to 400
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+201:           { title: 'MATLAB Basics — Complete Guide', url: 'https://drive.google.com/file/d/1example_matlab_notes', type: 'pdf' },
+202:           { title: 'Lab Programs — All Experiments', url: 'https://drive.google.com/file/d/1example_matlab_lab', type: 'pdf' },
+203:         ],
+204:         pyqs: [
+205:           { title: 'Lab Viva Questions 2023', url: 'https://drive.google.com/file/d/1example_matlab_viva', type: 'pdf' },
+206:         ],
+207:         ytResources: [
+208:           { title: 'MATLAB for Beginners — Full Course', url: 'https://youtube.com/watch?v=nsGFdZSmrlg', channelName: 'MATLAB Official', thumbnailId: 'nsGFdZSmrlg' },
+209:         ],
+210:       },
+211:       {
+212:         id: 'engineering-materials-mechanics',
+213:         name: 'Engineering Materials & Mechanics',
+214:         shortName: 'Eng. Materials',
+215:         emoji: '⚙️',
+216:         code: 'ME-101',
+217:         description: 'Properties of materials, stress, strain, and thermodynamics basics.',
+218:         resourceCount: 31,
+219:         studyMaterials: [
+220:           { title: 'Stress & Strain — Unit 1', url: 'https://drive.google.com/file/d/1example_emm_u1', type: 'pdf' },
+221:           { title: 'Thermodynamics Basics', url: 'https://drive.google.com/file/d/1example_emm_u2', type: 'pdf' },
+222:         ],
+223:         pyqs: [
+224:           { title: 'Sessional 1 & 2 — 2024', url: 'https://drive.google.com/file/d/1example_emm_pyq24', type: 'pdf' },
+225:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_emm_pyq23', type: 'pdf' },
+226:         ],
+227:         ytResources: [
+228:           { title: 'Engineering Mechanics Full Course', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'NPTEL', thumbnailId: 'dQw4w9WgXcQ' },
+229:         ],
+230:       },
+231:       {
+232:         id: 'data-visualization',
+233:         name: 'Data Visualization',
+234:         shortName: 'Data Viz',
+235:         emoji: '📈',
+236:         code: 'CS-102',
+237:         description: 'Charts, data storytelling, and visual analytics tools.',
+238:         resourceCount: 19,
+239:         studyMaterials: [
+240:           { title: 'Data Visualization Using Python', url: 'https://drive.google.com/file/d/1example_dv_notes', type: 'pdf' },
+241:         ],
+242:         pyqs: [
+243:           { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/1example_dv_pyq24', type: 'pdf' },
+244:         ],
+245:         ytResources: [
+246:           { title: 'Data Visualization with Python', url: 'https://youtube.com/watch?v=a9UrKTVEeZA', channelName: 'Corey Schafer', thumbnailId: 'a9UrKTVEeZA' },
+247:         ],
+248:       },
+249:       {
+250:         id: 'fundamentals-data-structures',
+251:         name: 'Fundamentals of Data Structures',
+252:         shortName: 'Data Structures',
+253:         emoji: '🗃️',
+254:         code: 'CS-103',
+255:         description: 'Arrays, linked lists, stacks, queues, trees, and graphs.',
+256:         resourceCount: 28,
+257:         studyMaterials: [
+258:           { title: 'Complete DSA Notes', url: 'https://drive.google.com/file/d/1example_fds_notes', type: 'pdf' },
+259:           { title: 'Algorithm Complexity Guide', url: 'https://drive.google.com/file/d/1example_fds_algo', type: 'pdf' },
+260:         ],
+261:         pyqs: [
+262:           { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/1example_fds_pyq24', type: 'pdf' },
+263:           { title: 'Sessional 2 — 2023', url: 'https://drive.google.com/file/d/1example_fds_pyq23', type: 'pdf' },
+264:         ],
+265:         ytResources: [
+266:           { title: 'DSA in C++ Complete Course', url: 'https://youtube.com/watch?v=8hly31xKli0', channelName: 'freeCodeCamp', thumbnailId: '8hly31xKli0' },
+267:         ],
+268:       },
+269:       {
+270:         id: 'electrical-technology',
+271:         name: 'Electrical Technology',
+272:         shortName: 'Elec. Tech',
+273:         emoji: '⚡',
+274:         code: 'EE-101',
+275:         description: 'Circuits, electromagnetism, and power systems fundamentals.',
+276:         resourceCount: 26,
+277:         studyMaterials: [
+278:           { title: 'Electrical Technology Notes', url: 'https://drive.google.com/file/d/1example_et_notes', type: 'pdf' },
+279:         ],
+280:         pyqs: [
+281:           { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/1example_et_pyq24', type: 'pdf' },
+282:         ],
+283:         ytResources: [
+284:           { title: 'Electrical Technology Full Course', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'NPTEL', thumbnailId: 'dQw4w9WgXcQ' },
+285:         ],
+286:       },
+287:       {
+288:         id: 'applied-mathematics-1',
+289:         name: 'Applied Mathematics 1',
+290:         shortName: 'App. Maths 1',
+291:         emoji: '🔢',
+292:         code: 'MA-103',
+293:         description: 'Calculus, sequences, series, and analytical geometry.',
+294:         resourceCount: 33,
+295:         studyMaterials: [
+296:           { title: 'Applied Maths 1 — All Units', url: 'https://drive.google.com/file/d/1example_am1_notes', type: 'pdf' },
+297:         ],
+298:         pyqs: [
+299:           { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/1example_am1_pyq24', type: 'pdf' },
+300:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_am1_pyq23', type: 'pdf' },
+301:         ],
+302:         ytResources: [
+303:           { title: 'Applied Mathematics for Engineers', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'NPTEL', thumbnailId: 'dQw4w9WgXcQ' },
+304:         ],
+305:       },
+306:     ],
+307:   },
+308:   {
+309:     id: 'chemistry-cycle',
+310:     name: 'Chemistry Cycle',
+311:     emoji: '🧪',
+312:     color: '#0891b2',
+313:     gradient: 'from-cyan-500 to-teal-600',
+314:     description: 'Eng. Chemistry, Basic Mechanical, Calculus, Graphics, Electronics, and Manufacturing Process.',
+315:     subjectPreview: '10 Subjects',
+316:     subjects: [
+317:       {
+318:         id: 'basic-mechanical-engineering',
+319:         name: 'Basic Mechanical Engineering',
+320:         shortName: 'Basic Mechanical',
+321:         emoji: '🔩',
+322:         code: 'ME-102',
+323:         description: 'Mechanics, thermodynamics, and machine drawing basics.',
+324:         resourceCount: 29,
+325:         studyMaterials: [
+326:           { title: 'Basic ME — Complete Notes', url: 'https://drive.google.com/file/d/1example_bme_notes', type: 'pdf' },
+327:         ],
+328:         pyqs: [
+329:           { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/1example_bme_pyq24', type: 'pdf' },
+330:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_bme_pyq23', type: 'pdf' },
+331:         ],
+332:         ytResources: [
+333:           { title: 'Basic Mechanical Engineering', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'NPTEL', thumbnailId: 'dQw4w9WgXcQ' },
+334:         ],
+335:       },
+336:       {
+337:         id: 'calculus-matrices',
+338:         name: 'Calculus and Matrices',
+339:         shortName: 'Calculus & Matrices',
+340:         emoji: '∫',
+341:         code: 'MA-104',
+342:         description: 'Integral calculus, matrix algebra, and linear transformations.',
+343:         resourceCount: 34,
+344:         studyMaterials: [
+345:           { title: 'Calculus & Matrices — Full Notes', url: 'https://drive.google.com/file/d/1example_cm2_notes', type: 'pdf' },
+346:           { title: 'Practice Problems Set', url: 'https://drive.google.com/file/d/1example_cm2_problems', type: 'pdf' },
+347:         ],
+348:         pyqs: [
+349:           { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/1example_cm2_pyq24', type: 'pdf' },
+350:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_cm2_pyq23', type: 'pdf' },
+351:         ],
+352:         ytResources: [
+353:           { title: 'Calculus Full Course — MIT', url: 'https://youtube.com/watch?v=HfACrKJ_Y2w', channelName: 'MIT OpenCourseWare', thumbnailId: 'HfACrKJ_Y2w' },
+354:         ],
+355:       },
+356:       {
+357:         id: 'communication-skills',
+358:         name: 'Communication Skills',
+359:         shortName: 'Comm. Skills',
+360:         emoji: '🗣️',
+361:         code: 'HS-102',
+362:         description: 'Technical writing, presentation, and professional English.',
+363:         resourceCount: 12,
+364:         studyMaterials: [
+365:           { title: 'Communication Skills Notes', url: 'https://drive.google.com/file/d/1example_cs_notes', type: 'pdf' },
+366:         ],
+367:         pyqs: [
+368:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_cs_pyq23', type: 'pdf' },
+369:         ],
+370:         ytResources: [
+371:           { title: 'Communication Skills for Engineers', url: 'https://youtube.com/watch?v=dQw4w9WgXcQ', channelName: 'Lecture Hub', thumbnailId: 'dQw4w9WgXcQ' },
+372:         ],
+373:       },
+374:       {
+375:         id: 'digital-systems',
+376:         name: 'Digital Systems',
+377:         shortName: 'Digital Systems',
+378:         emoji: '🔲',
+379:         code: 'EC-101',
+380:         description: 'Boolean algebra, logic gates, flip-flops, and digital circuits.',
+381:         resourceCount: 41,
+382:         studyMaterials: [
+383:           { title: 'Digital Systems — Full Notes', url: 'https://drive.google.com/file/d/1example_ds_notes', type: 'pdf' },
+384:           { title: 'Boolean Algebra Practice', url: 'https://drive.google.com/file/d/1example_ds_bool', type: 'pdf' },
+385:         ],
+386:         pyqs: [
+387:           { title: 'End Semester 2024', url: 'https://drive.google.com/file/d/1example_ds_pyq24', type: 'pdf' },
+388:           { title: 'End Semester 2023', url: 'https://drive.google.com/file/d/1example_ds_pyq23', type: 'pdf' },
+389:           { title: 'Sessional 2 — 2023', url: 'https://drive.google.com/file/d/1example_ds_pyq23s2', type: 'pdf' },
+390:         ],
+391:         ytResources: [
+392:           { title: 'Digital Systems Full Course', url: 'https://youtube.com/watch?v=M0mx8S05v60', channelName: 'Neso Academy', thumbnailId: 'M0mx8S05v60' },
+393:         ],
+394:       },
+395:       {
+396:         id: 'engineering-graphics',
+397:         name: 'Engineering Graphics',
+398:         shortName: 'Eng. Graphics',
+399:         emoji: '📏',
+400:         code: 'ME-103',
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
