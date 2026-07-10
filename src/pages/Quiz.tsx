@@ -201,7 +201,7 @@ export default function Quiz() {
   );
 
   return (
-    <div className="min-h-screen bg-[#F8F9FB] text-[#1E1E1E] font-sans antialiased pb-28">
+    <div className="min-h-screen bg-[#FFF8FA] text-[#1E1E1E] font-sans antialiased pb-28">
       
       {/* ── HEADER NAVIGATION ── */}
       <header className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
@@ -458,7 +458,7 @@ export default function Quiz() {
                 <button
                   disabled={!subject || getQuestionsForSubject(subject.id).length === 0}
                   onClick={handleEnterArena}
-                  className="w-full py-3.5 bg-[#1E1E1E] text-white font-black text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer hover:bg-black transition-all shadow-sm"
+                  className="w-full py-3.5 bg-gradient-to-r from-[#FF7EB9] to-[#FF5252] text-white font-black text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer hover:shadow-[0_4px_16px_rgba(255,126,185,0.4)] transition-all duration-300 shadow-sm"
                 >
                   <Zap className="w-4 h-4 fill-white" />
                   Enter Practice Arena
@@ -716,13 +716,13 @@ export default function Quiz() {
               className="space-y-8"
             >
               {/* Header Details with Points Counter at Top */}
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end border-b border-slate-200 pb-6 gap-4 text-left">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end border-b border-pink-100 pb-6 gap-4 text-left">
                 <div className="space-y-1">
                   <div className="flex flex-wrap gap-2">
-                    <span className="text-[9px] font-black uppercase bg-[#1E1E1E] text-white px-3 py-1 rounded-full animate-pulse">
+                    <span className="text-[9px] font-black uppercase bg-[#FF7EB9] text-white px-3 py-1 rounded-full">
                       {subject.name}
                     </span>
-                    <span className="text-[9px] font-black uppercase bg-white border border-slate-200 text-slate-600 px-3 py-1 rounded-full">
+                    <span className="text-[9px] font-black uppercase bg-white border border-pink-200 text-pink-500 px-3 py-1 rounded-full">
                       {selectedCategoryLabel}
                     </span>
                   </div>
@@ -733,14 +733,36 @@ export default function Quiz() {
                   <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">
                     Progress: {Object.keys(submitted).length} / {currentQuestions.length} Checked
                   </p>
-                  <div className="w-44 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="w-44 h-1.5 bg-pink-100 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-[#5D5FEF] rounded-full transition-all duration-300"
+                      className="h-full bg-gradient-to-r from-[#FF7EB9] to-[#FF5252] rounded-full transition-all duration-300"
                       style={{ width: `${(Object.keys(submitted).length / Math.max(1, currentQuestions.length)) * 100}%` }}
                     />
                   </div>
                 </div>
               </div>
+
+              {/* PYQ Resources for Subject */}
+              {subject.pyqs && subject.pyqs.length > 0 && (
+                <div className="bg-pink-50 border border-pink-100 rounded-2xl p-4">
+                  <p className="text-[10px] font-black uppercase tracking-widest text-pink-500 mb-3 flex items-center gap-1.5">
+                    📚 PYQ Papers for {subject.name}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {subject.pyqs.map((pyq, i) => (
+                      <a
+                        key={i}
+                        href={pyq.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 bg-white border border-pink-200 hover:border-pink-400 text-[10px] font-black text-pink-600 px-3 py-1.5 rounded-lg hover:bg-pink-50 transition-all duration-200"
+                      >
+                        📄 {pyq.title}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {currentQuestions.length > 0 ? (
                 <>

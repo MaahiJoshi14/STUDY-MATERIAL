@@ -3914,5100 +3914,3190 @@ export interface Question {
 }
 
 export const QUESTIONS_DB: Record<string, Question[]> = {
+  "engineering-physics": [
+    {
+      "id": "engineering-physics-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for engineering-physics",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "computational-mathematics": [
+    {
+      "id": "computational-mathematics-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for computational-mathematics",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "psuc": [
+    {
+      "id": "psuc-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for psuc",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "wellness-community-service": [
+    {
+      "id": "wellness-community-service-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for wellness-community-service",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "environmental-science": [
+    {
+      "id": "environmental-science-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for environmental-science",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "biology-for-engineers": [
+    {
+      "id": "biology-for-engineers-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for biology-for-engineers",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "internet-of-things": [
+    {
+      "id": "internet-of-things-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for internet-of-things",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "engineering-material-mechanics": [
+    {
+      "id": "engineering-material-mechanics-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for engineering-material-mechanics",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "data-visualization": [
+    {
+      "id": "data-visualization-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for data-visualization",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "fundamentals-data-structures": [
+    {
+      "id": "fundamentals-data-structures-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for fundamentals-data-structures",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "electrical-technology": [
+    {
+      "id": "electrical-technology-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for electrical-technology",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "applied-mathematics": [
+    {
+      "id": "applied-mathematics-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for applied-mathematics",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "basic-mechanical-engineering": [
+    {
+      "id": "basic-mechanical-engineering-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for basic-mechanical-engineering",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "calculus-and-matrices": [
+    {
+      "id": "calculus-and-matrices-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for calculus-and-matrices",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "universal-human-values": [
+    {
+      "id": "universal-human-values-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for universal-human-values",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "technical-writing-clinic": [
+    {
+      "id": "technical-writing-clinic-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for technical-writing-clinic",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "manufracturing-products": [
+    {
+      "id": "manufracturing-products-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for manufracturing-products",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "engineering-graphics": [
+    {
+      "id": "engineering-graphics-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for engineering-graphics",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "engineering-chemistry": [
+    {
+      "id": "engineering-chemistry-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for engineering-chemistry",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "electronic-circuits": [
+    {
+      "id": "electronic-circuits-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for electronic-circuits",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "electrical-and-electronic-systems": [
+    {
+      "id": "electrical-and-electronic-systems-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for electrical-and-electronic-systems",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "digital-systems": [
+    {
+      "id": "digital-systems-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for digital-systems",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "communication-skills": [
+    {
+      "id": "communication-skills-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for communication-skills",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
   "aiml-ase": [
     {
-      "id": "aiml-q1",
-      "topic": "Agile Software Development",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Agile Software Development?",
+      "id": "aiml-ase-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-ase",
       "options": [
-        "Primary principles of Agile Software Development",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Agile Software Development as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Requirement Analysis",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Requirement Analysis, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Requirement Analysis",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Requirement Analysis.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Software Architecture",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Software Architecture in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Software Architecture",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Software Architecture is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Testing & QA",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Testing & QA?",
-      "options": [
-        "Real-time industrial systems and automation based on Testing & QA",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Testing & QA for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Agile Software Development",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Agile Software Development, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Requirement Analysis",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Requirement Analysis?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-cc": [
     {
-      "id": "aiml-q1",
-      "topic": "Cloud Deployment Models",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Cloud Deployment Models?",
+      "id": "aiml-cc-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-cc",
       "options": [
-        "Primary principles of Cloud Deployment Models",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Cloud Deployment Models as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Virtualization",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Virtualization, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Virtualization",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Virtualization.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "AWS & Azure Basics",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying AWS & Azure Basics in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under AWS & Azure Basics",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under AWS & Azure Basics is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Containers & Kubernetes",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Containers & Kubernetes?",
-      "options": [
-        "Real-time industrial systems and automation based on Containers & Kubernetes",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Containers & Kubernetes for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Cloud Deployment Models",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Cloud Deployment Models, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Virtualization",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Virtualization?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-coa": [
     {
-      "id": "aiml-q1",
-      "topic": "Instruction Sets",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Instruction Sets?",
+      "id": "aiml-coa-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-coa",
       "options": [
-        "Primary principles of Instruction Sets",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Instruction Sets as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Pipelining",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Pipelining, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Pipelining",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Pipelining.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Memory Hierarchy",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Memory Hierarchy in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Memory Hierarchy",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Memory Hierarchy is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "I/O Interface",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of I/O Interface?",
-      "options": [
-        "Real-time industrial systems and automation based on I/O Interface",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage I/O Interface for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Instruction Sets",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Instruction Sets, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Pipelining",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Pipelining?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-daa": [
     {
-      "id": "aiml-q1",
-      "topic": "Divide & Conquer",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Divide & Conquer?",
+      "id": "aiml-daa-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-daa",
       "options": [
-        "Primary principles of Divide & Conquer",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Divide & Conquer as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Dynamic Programming",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Dynamic Programming, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Dynamic Programming",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Dynamic Programming.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Greedy Algorithms",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Greedy Algorithms in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Greedy Algorithms",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Greedy Algorithms is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Graph Algorithms",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Graph Algorithms?",
-      "options": [
-        "Real-time industrial systems and automation based on Graph Algorithms",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Graph Algorithms for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Divide & Conquer",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Divide & Conquer, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Dynamic Programming",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Dynamic Programming?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-dsa": [
     {
-      "id": "aiml-q1",
-      "topic": "Linear Data Structures",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Linear Data Structures?",
+      "id": "aiml-dsa-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-dsa",
       "options": [
-        "Primary principles of Linear Data Structures",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Linear Data Structures as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Non-Linear Data Structures",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Non-Linear Data Structures, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Non-Linear Data Structures",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Non-Linear Data Structures.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Hashing",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Hashing in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Hashing",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Hashing is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Heaps & Priority Queues",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Heaps & Priority Queues?",
-      "options": [
-        "Real-time industrial systems and automation based on Heaps & Priority Queues",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Heaps & Priority Queues for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Linear Data Structures",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Linear Data Structures, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Non-Linear Data Structures",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Non-Linear Data Structures?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-eco": [
     {
-      "id": "aiml-q1",
-      "topic": "Engineering Economics",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Engineering Economics?",
+      "id": "aiml-eco-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-eco",
       "options": [
-        "Primary principles of Engineering Economics",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Engineering Economics as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Inflation",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Inflation, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Inflation",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Inflation.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Cost Estimation",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Cost Estimation in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Cost Estimation",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Cost Estimation is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Depreciation",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Depreciation?",
-      "options": [
-        "Real-time industrial systems and automation based on Depreciation",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Depreciation for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Engineering Economics",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Engineering Economics, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Inflation",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Inflation?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-mot": [
     {
-      "id": "aiml-q1",
-      "topic": "Management Theories",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Management Theories?",
+      "id": "aiml-mot-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-mot",
       "options": [
-        "Primary principles of Management Theories",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Management Theories as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Organizational Behavior",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Organizational Behavior, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Organizational Behavior",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Organizational Behavior.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Human Resource Management",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Human Resource Management in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Human Resource Management",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Human Resource Management is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Strategic Management",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Strategic Management?",
-      "options": [
-        "Real-time industrial systems and automation based on Strategic Management",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Strategic Management for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Management Theories",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Management Theories, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Organizational Behavior",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Organizational Behavior?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-oops": [
     {
-      "id": "aiml-q1",
-      "topic": "Classes & Objects",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Classes & Objects?",
+      "id": "aiml-oops-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-oops",
       "options": [
-        "Primary principles of Classes & Objects",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Classes & Objects as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Inheritance & Polymorphism",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Inheritance & Polymorphism, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Inheritance & Polymorphism",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Inheritance & Polymorphism.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Encapsulation & Abstraction",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Encapsulation & Abstraction in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Encapsulation & Abstraction",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Encapsulation & Abstraction is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Templates & Generics",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Templates & Generics?",
-      "options": [
-        "Real-time industrial systems and automation based on Templates & Generics",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Templates & Generics for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Classes & Objects",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Classes & Objects, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Inheritance & Polymorphism",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Inheritance & Polymorphism?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-os": [
     {
-      "id": "aiml-q1",
-      "topic": "Process Management",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Process Management?",
+      "id": "aiml-os-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-os",
       "options": [
-        "Primary principles of Process Management",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Process Management as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "CPU Scheduling",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of CPU Scheduling, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of CPU Scheduling",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by CPU Scheduling.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Deadlocks",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Deadlocks in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Deadlocks",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Deadlocks is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Memory Management & Paging",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Memory Management & Paging?",
-      "options": [
-        "Real-time industrial systems and automation based on Memory Management & Paging",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Memory Management & Paging for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Process Management",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Process Management, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "CPU Scheduling",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with CPU Scheduling?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-pai": [
     {
-      "id": "aiml-q1",
-      "topic": "Search Algorithms",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Search Algorithms?",
+      "id": "aiml-pai-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-pai",
       "options": [
-        "Primary principles of Search Algorithms",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Search Algorithms as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Knowledge Representation",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Knowledge Representation, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Knowledge Representation",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Knowledge Representation.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "First-Order Logic",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying First-Order Logic in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under First-Order Logic",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under First-Order Logic is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Expert Systems",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Expert Systems?",
-      "options": [
-        "Real-time industrial systems and automation based on Expert Systems",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Expert Systems for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Search Algorithms",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Search Algorithms, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Knowledge Representation",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Knowledge Representation?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-rdbms": [
     {
-      "id": "aiml-q1",
-      "topic": "E-R Modeling",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under E-R Modeling?",
+      "id": "aiml-rdbms-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-rdbms",
       "options": [
-        "Primary principles of E-R Modeling",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of E-R Modeling as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Normalization (1NF, 2NF, 3NF, BCNF)",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Normalization (1NF, 2NF, 3NF, BCNF), which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Normalization (1NF, 2NF, 3NF, BCNF)",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Normalization (1NF, 2NF, 3NF, BCNF).",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "SQL Queries",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying SQL Queries in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under SQL Queries",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under SQL Queries is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Transaction & Concurrency",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Transaction & Concurrency?",
-      "options": [
-        "Real-time industrial systems and automation based on Transaction & Concurrency",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Transaction & Concurrency for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "E-R Modeling",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under E-R Modeling, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Normalization (1NF, 2NF, 3NF, BCNF)",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Normalization (1NF, 2NF, 3NF, BCNF)?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-sepm": [
     {
-      "id": "aiml-q1",
-      "topic": "Software Life Cycle Models",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Software Life Cycle Models?",
+      "id": "aiml-sepm-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-sepm",
       "options": [
-        "Primary principles of Software Life Cycle Models",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Software Life Cycle Models as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Software Estimation",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Software Estimation, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Software Estimation",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Software Estimation.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Risk Management",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Risk Management in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Risk Management",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Risk Management is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Project Scheduling",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Project Scheduling?",
-      "options": [
-        "Real-time industrial systems and automation based on Project Scheduling",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Project Scheduling for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Software Life Cycle Models",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Software Life Cycle Models, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Software Estimation",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Software Estimation?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-stats": [
     {
-      "id": "aiml-q1",
-      "topic": "Probability Distributions",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Probability Distributions?",
+      "id": "aiml-stats-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-stats",
       "options": [
-        "Primary principles of Probability Distributions",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Probability Distributions as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Hypothesis Testing",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Hypothesis Testing, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Hypothesis Testing",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Hypothesis Testing.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Regression Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Regression Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Regression Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Regression Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Sampling Methods",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Sampling Methods?",
-      "options": [
-        "Real-time industrial systems and automation based on Sampling Methods",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Sampling Methods for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Probability Distributions",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Probability Distributions, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Hypothesis Testing",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Hypothesis Testing?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-acd": [
     {
-      "id": "aiml-q1",
-      "topic": "Lexical Analysis",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Lexical Analysis?",
+      "id": "aiml-acd-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-acd",
       "options": [
-        "Primary principles of Lexical Analysis",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Lexical Analysis as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Syntax Analysis & Parsing",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Syntax Analysis & Parsing, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Syntax Analysis & Parsing",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Syntax Analysis & Parsing.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Syntax-Directed Translation",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Syntax-Directed Translation in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Syntax-Directed Translation",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Syntax-Directed Translation is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Code Generation",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Code Generation?",
-      "options": [
-        "Real-time industrial systems and automation based on Code Generation",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Code Generation for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Lexical Analysis",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Lexical Analysis, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Syntax Analysis & Parsing",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Syntax Analysis & Parsing?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-cn": [
     {
-      "id": "aiml-q1",
-      "topic": "OSI & TCP/IP Models",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under OSI & TCP/IP Models?",
+      "id": "aiml-cn-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-cn",
       "options": [
-        "Primary principles of OSI & TCP/IP Models",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of OSI & TCP/IP Models as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Routing Protocols",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Routing Protocols, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Routing Protocols",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Routing Protocols.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "IP Addressing & Subnetting",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying IP Addressing & Subnetting in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under IP Addressing & Subnetting",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under IP Addressing & Subnetting is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Transport Layer (TCP/UDP)",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Transport Layer (TCP/UDP)?",
-      "options": [
-        "Real-time industrial systems and automation based on Transport Layer (TCP/UDP)",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Transport Layer (TCP/UDP) for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "OSI & TCP/IP Models",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under OSI & TCP/IP Models, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Routing Protocols",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Routing Protocols?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-deep-learning": [
     {
-      "id": "aiml-q1",
-      "topic": "Artificial Neural Networks",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Artificial Neural Networks?",
+      "id": "aiml-deep-learning-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-deep-learning",
       "options": [
-        "Primary principles of Artificial Neural Networks",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Artificial Neural Networks as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Backpropagation",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Backpropagation, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Backpropagation",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Backpropagation.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Convolutional Neural Networks",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Convolutional Neural Networks in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Convolutional Neural Networks",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Convolutional Neural Networks is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Recurrent Neural Networks",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Recurrent Neural Networks?",
-      "options": [
-        "Real-time industrial systems and automation based on Recurrent Neural Networks",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Recurrent Neural Networks for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Artificial Neural Networks",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Artificial Neural Networks, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Backpropagation",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Backpropagation?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-machine-learning": [
     {
-      "id": "aiml-q1",
-      "topic": "Supervised Learning",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Supervised Learning?",
+      "id": "aiml-machine-learning-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-machine-learning",
       "options": [
-        "Primary principles of Supervised Learning",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Supervised Learning as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Unsupervised Learning",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Unsupervised Learning, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Unsupervised Learning",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Unsupervised Learning.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Model Evaluation",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Model Evaluation in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Model Evaluation",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Model Evaluation is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Ensemble Methods",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Ensemble Methods?",
-      "options": [
-        "Real-time industrial systems and automation based on Ensemble Methods",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Ensemble Methods for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Supervised Learning",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Supervised Learning, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Unsupervised Learning",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Unsupervised Learning?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-mte26": [
     {
-      "id": "aiml-q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "aiml-mte26-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-mte26",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-rec": [
     {
-      "id": "aiml-q1",
-      "topic": "Collaborative Filtering",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Collaborative Filtering?",
+      "id": "aiml-rec-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-rec",
       "options": [
-        "Primary principles of Collaborative Filtering",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Collaborative Filtering as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "Content-Based Filtering",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Content-Based Filtering, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Content-Based Filtering",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Content-Based Filtering.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "Evaluation Metrics",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Evaluation Metrics in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Evaluation Metrics",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Evaluation Metrics is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Matrix Factorization",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Matrix Factorization?",
-      "options": [
-        "Real-time industrial systems and automation based on Matrix Factorization",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Matrix Factorization for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "Collaborative Filtering",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Collaborative Filtering, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "Content-Based Filtering",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Content-Based Filtering?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "aiml-webtech": [
     {
-      "id": "aiml-q1",
-      "topic": "HTML & CSS",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under HTML & CSS?",
+      "id": "aiml-webtech-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-webtech",
       "options": [
-        "Primary principles of HTML & CSS",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of HTML & CSS as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "aiml-q2",
-      "topic": "JavaScript & DOM",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of JavaScript & DOM, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of JavaScript & DOM",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by JavaScript & DOM.",
-      "frequency": "most"
-    },
-    {
-      "id": "aiml-q3",
-      "topic": "ReactJS Basics",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying ReactJS Basics in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under ReactJS Basics",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under ReactJS Basics is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q4",
-      "topic": "Node.js & Express",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Node.js & Express?",
-      "options": [
-        "Real-time industrial systems and automation based on Node.js & Express",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Node.js & Express for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "aiml-q5",
-      "topic": "HTML & CSS",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under HTML & CSS, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "aiml-q6",
-      "topic": "JavaScript & DOM",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with JavaScript & DOM?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cse-os": [
     {
-      "id": "cse--q1",
-      "topic": "CPU Scheduling",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under CPU Scheduling?",
+      "id": "cse-os-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cse-os",
       "options": [
-        "Primary principles of CPU Scheduling",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of CPU Scheduling as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cse--q2",
-      "topic": "Process Synchronization",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Process Synchronization, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Process Synchronization",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Process Synchronization.",
-      "frequency": "most"
-    },
-    {
-      "id": "cse--q3",
-      "topic": "Deadlocks",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Deadlocks in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Deadlocks",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Deadlocks is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cse--q4",
-      "topic": "Virtual Memory",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Virtual Memory?",
-      "options": [
-        "Real-time industrial systems and automation based on Virtual Memory",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Virtual Memory for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cse--q5",
-      "topic": "CPU Scheduling",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under CPU Scheduling, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cse--q6",
-      "topic": "Process Synchronization",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Process Synchronization?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cse-dbms": [
     {
-      "id": "cse--q1",
-      "topic": "Relational Algebra",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Relational Algebra?",
+      "id": "cse-dbms-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cse-dbms",
       "options": [
-        "Primary principles of Relational Algebra",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Relational Algebra as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cse--q2",
-      "topic": "SQL Constraints",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of SQL Constraints, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of SQL Constraints",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by SQL Constraints.",
-      "frequency": "most"
-    },
-    {
-      "id": "cse--q3",
-      "topic": "Normalization",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Normalization in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Normalization",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Normalization is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cse--q4",
-      "topic": "ACID Properties",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of ACID Properties?",
-      "options": [
-        "Real-time industrial systems and automation based on ACID Properties",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage ACID Properties for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cse--q5",
-      "topic": "Relational Algebra",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Relational Algebra, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cse--q6",
-      "topic": "SQL Constraints",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with SQL Constraints?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cce-dccn": [
     {
-      "id": "cce--q1",
-      "topic": "Data Communication Basics",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Data Communication Basics?",
+      "id": "cce-dccn-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce-dccn",
       "options": [
-        "Primary principles of Data Communication Basics",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Data Communication Basics as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cce--q2",
-      "topic": "Transmission Media",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Transmission Media, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Transmission Media",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Transmission Media.",
-      "frequency": "most"
-    },
-    {
-      "id": "cce--q3",
-      "topic": "Error Detection & Correction",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Error Detection & Correction in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Error Detection & Correction",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Error Detection & Correction is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q4",
-      "topic": "Multiple Access Protocols",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Multiple Access Protocols?",
-      "options": [
-        "Real-time industrial systems and automation based on Multiple Access Protocols",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Multiple Access Protocols for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q5",
-      "topic": "Data Communication Basics",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Data Communication Basics, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cce--q6",
-      "topic": "Transmission Media",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Transmission Media?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cce-ddca": [
     {
-      "id": "cce--q1",
-      "topic": "Digital Logic Design",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Digital Logic Design?",
+      "id": "cce-ddca-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce-ddca",
       "options": [
-        "Primary principles of Digital Logic Design",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Digital Logic Design as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cce--q2",
-      "topic": "Verilog Basics",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Verilog Basics, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Verilog Basics",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Verilog Basics.",
-      "frequency": "most"
-    },
-    {
-      "id": "cce--q3",
-      "topic": "Computer Organization",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Computer Organization in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Computer Organization",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Computer Organization is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q4",
-      "topic": "Memory Design",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Memory Design?",
-      "options": [
-        "Real-time industrial systems and automation based on Memory Design",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Memory Design for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q5",
-      "topic": "Digital Logic Design",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Digital Logic Design, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cce--q6",
-      "topic": "Verilog Basics",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Verilog Basics?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cce-dsa": [
     {
-      "id": "cce--q1",
-      "topic": "Complexity Analysis",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Complexity Analysis?",
+      "id": "cce-dsa-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce-dsa",
       "options": [
-        "Primary principles of Complexity Analysis",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Complexity Analysis as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cce--q2",
-      "topic": "Dynamic Arrays",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Dynamic Arrays, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Dynamic Arrays",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Dynamic Arrays.",
-      "frequency": "most"
-    },
-    {
-      "id": "cce--q3",
-      "topic": "Trees & Heaps",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Trees & Heaps in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Trees & Heaps",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Trees & Heaps is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q4",
-      "topic": "Graph Algorithms",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Graph Algorithms?",
-      "options": [
-        "Real-time industrial systems and automation based on Graph Algorithms",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Graph Algorithms for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q5",
-      "topic": "Complexity Analysis",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Complexity Analysis, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cce--q6",
-      "topic": "Dynamic Arrays",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Dynamic Arrays?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cce-eco": [
     {
-      "id": "cce--q1",
-      "topic": "Microeconomics",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Microeconomics?",
+      "id": "cce-eco-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce-eco",
       "options": [
-        "Primary principles of Microeconomics",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Microeconomics as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cce--q2",
-      "topic": "Macroeconomics",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Macroeconomics, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Macroeconomics",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Macroeconomics.",
-      "frequency": "most"
-    },
-    {
-      "id": "cce--q3",
-      "topic": "Cost-Benefit Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Cost-Benefit Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Cost-Benefit Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Cost-Benefit Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q4",
-      "topic": "Capital Budgeting",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Capital Budgeting?",
-      "options": [
-        "Real-time industrial systems and automation based on Capital Budgeting",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Capital Budgeting for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q5",
-      "topic": "Microeconomics",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Microeconomics, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cce--q6",
-      "topic": "Macroeconomics",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Macroeconomics?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cce-mot": [
     {
-      "id": "cce--q1",
-      "topic": "Business Communication",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Business Communication?",
+      "id": "cce-mot-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce-mot",
       "options": [
-        "Primary principles of Business Communication",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Business Communication as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cce--q2",
-      "topic": "Motivation Theories",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Motivation Theories, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Motivation Theories",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Motivation Theories.",
-      "frequency": "most"
-    },
-    {
-      "id": "cce--q3",
-      "topic": "Team Dynamics",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Team Dynamics in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Team Dynamics",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Team Dynamics is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q4",
-      "topic": "Conflict Resolution",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Conflict Resolution?",
-      "options": [
-        "Real-time industrial systems and automation based on Conflict Resolution",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Conflict Resolution for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q5",
-      "topic": "Business Communication",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Business Communication, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cce--q6",
-      "topic": "Motivation Theories",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Motivation Theories?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cce-oops": [
     {
-      "id": "cce--q1",
-      "topic": "C++ Classes",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under C++ Classes?",
+      "id": "cce-oops-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce-oops",
       "options": [
-        "Primary principles of C++ Classes",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of C++ Classes as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cce--q2",
-      "topic": "Dynamic Binding",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Dynamic Binding, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Dynamic Binding",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Dynamic Binding.",
-      "frequency": "most"
-    },
-    {
-      "id": "cce--q3",
-      "topic": "Virtual Functions",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Virtual Functions in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Virtual Functions",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Virtual Functions is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q4",
-      "topic": "Operator Overloading",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Operator Overloading?",
-      "options": [
-        "Real-time industrial systems and automation based on Operator Overloading",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Operator Overloading for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q5",
-      "topic": "C++ Classes",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under C++ Classes, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cce--q6",
-      "topic": "Dynamic Binding",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Dynamic Binding?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cce-os": [
     {
-      "id": "cce--q1",
-      "topic": "Processes & Threads",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Processes & Threads?",
+      "id": "cce-os-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce-os",
       "options": [
-        "Primary principles of Processes & Threads",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Processes & Threads as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cce--q2",
-      "topic": "Semaphores",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Semaphores, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Semaphores",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Semaphores.",
-      "frequency": "most"
-    },
-    {
-      "id": "cce--q3",
-      "topic": "Page Replacement",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Page Replacement in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Page Replacement",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Page Replacement is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q4",
-      "topic": "Disk Scheduling",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Disk Scheduling?",
-      "options": [
-        "Real-time industrial systems and automation based on Disk Scheduling",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Disk Scheduling for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q5",
-      "topic": "Processes & Threads",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Processes & Threads, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cce--q6",
-      "topic": "Semaphores",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Semaphores?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cce-rdbms": [
     {
-      "id": "cce--q1",
-      "topic": "Database Schemas",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Database Schemas?",
+      "id": "cce-rdbms-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce-rdbms",
       "options": [
-        "Primary principles of Database Schemas",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Database Schemas as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cce--q2",
-      "topic": "Relational Calculus",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Relational Calculus, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Relational Calculus",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Relational Calculus.",
-      "frequency": "most"
-    },
-    {
-      "id": "cce--q3",
-      "topic": "Concurrency Control",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Concurrency Control in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Concurrency Control",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Concurrency Control is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q4",
-      "topic": "Recovery Systems",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Recovery Systems?",
-      "options": [
-        "Real-time industrial systems and automation based on Recovery Systems",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Recovery Systems for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q5",
-      "topic": "Database Schemas",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Database Schemas, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cce--q6",
-      "topic": "Relational Calculus",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Relational Calculus?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cce-stats": [
     {
-      "id": "cce--q1",
-      "topic": "Descriptive Statistics",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Descriptive Statistics?",
+      "id": "cce-stats-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce-stats",
       "options": [
-        "Primary principles of Descriptive Statistics",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Descriptive Statistics as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cce--q2",
-      "topic": "Probability Theory",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Probability Theory, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Probability Theory",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Probability Theory.",
-      "frequency": "most"
-    },
-    {
-      "id": "cce--q3",
-      "topic": "Random Variables",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Random Variables in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Random Variables",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Random Variables is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q4",
-      "topic": "Correlation Analysis",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Correlation Analysis?",
-      "options": [
-        "Real-time industrial systems and automation based on Correlation Analysis",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Correlation Analysis for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cce--q5",
-      "topic": "Descriptive Statistics",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Descriptive Statistics, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cce--q6",
-      "topic": "Probability Theory",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Probability Theory?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "ece-signals-systems": [
     {
-      "id": "ece--q1",
-      "topic": "Signal Classification",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Signal Classification?",
+      "id": "ece-signals-systems-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for ece-signals-systems",
       "options": [
-        "Primary principles of Signal Classification",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Signal Classification as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "ece--q2",
-      "topic": "LTI Systems",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of LTI Systems, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of LTI Systems",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by LTI Systems.",
-      "frequency": "most"
-    },
-    {
-      "id": "ece--q3",
-      "topic": "Fourier Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Fourier Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Fourier Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Fourier Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "ece--q4",
-      "topic": "Laplace Transform",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Laplace Transform?",
-      "options": [
-        "Real-time industrial systems and automation based on Laplace Transform",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Laplace Transform for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "ece--q5",
-      "topic": "Signal Classification",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Signal Classification, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "ece--q6",
-      "topic": "LTI Systems",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with LTI Systems?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "it-web-development": [
     {
-      "id": "it-w-q1",
-      "topic": "HTML5 & Semantic Markup",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under HTML5 & Semantic Markup?",
+      "id": "it-web-development-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for it-web-development",
       "options": [
-        "Primary principles of HTML5 & Semantic Markup",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of HTML5 & Semantic Markup as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "it-w-q2",
-      "topic": "Tailwind & Flexbox",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Tailwind & Flexbox, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Tailwind & Flexbox",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Tailwind & Flexbox.",
-      "frequency": "most"
-    },
-    {
-      "id": "it-w-q3",
-      "topic": "Vanilla JavaScript",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Vanilla JavaScript in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Vanilla JavaScript",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Vanilla JavaScript is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "it-w-q4",
-      "topic": "API Integration",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of API Integration?",
-      "options": [
-        "Real-time industrial systems and automation based on API Integration",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage API Integration for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "it-w-q5",
-      "topic": "HTML5 & Semantic Markup",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under HTML5 & Semantic Markup, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "it-w-q6",
-      "topic": "Tailwind & Flexbox",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Tailwind & Flexbox?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cyber-security": [
     {
-      "id": "cybe-q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "cyber-security-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cyber-security",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cybe-q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "cybe-q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cybe-q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cybe-q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cybe-q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "cs-network-security": [
     {
-      "id": "cs-n-q1",
-      "topic": "Cryptography (AES/RSA)",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Cryptography (AES/RSA)?",
+      "id": "cs-network-security-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cs-network-security",
       "options": [
-        "Primary principles of Cryptography (AES/RSA)",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Cryptography (AES/RSA) as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "cs-n-q2",
-      "topic": "Hashing (SHA-256)",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Hashing (SHA-256), which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Hashing (SHA-256)",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Hashing (SHA-256).",
-      "frequency": "most"
-    },
-    {
-      "id": "cs-n-q3",
-      "topic": "Firewalls & IDS",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Firewalls & IDS in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Firewalls & IDS",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Firewalls & IDS is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cs-n-q4",
-      "topic": "VPNs & SSL/TLS",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of VPNs & SSL/TLS?",
-      "options": [
-        "Real-time industrial systems and automation based on VPNs & SSL/TLS",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage VPNs & SSL/TLS for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "cs-n-q5",
-      "topic": "Cryptography (AES/RSA)",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Cryptography (AES/RSA), how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "cs-n-q6",
-      "topic": "Hashing (SHA-256)",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Hashing (SHA-256)?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "iot": [
     {
       "id": "iot-q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "iot-q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "iot-q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "iot-q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "iot-q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "iot-q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "iot-embedded": [
     {
-      "id": "iot--q1",
-      "topic": "Microcontroller Architecture",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Microcontroller Architecture?",
+      "id": "iot-embedded-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot-embedded",
       "options": [
-        "Primary principles of Microcontroller Architecture",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Microcontroller Architecture as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "iot--q2",
-      "topic": "Sensors & Actuators",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Sensors & Actuators, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Sensors & Actuators",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Sensors & Actuators.",
-      "frequency": "most"
-    },
-    {
-      "id": "iot--q3",
-      "topic": "I2C/SPI Protocols",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying I2C/SPI Protocols in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under I2C/SPI Protocols",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under I2C/SPI Protocols is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "iot--q4",
-      "topic": "RTOS Basics",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of RTOS Basics?",
-      "options": [
-        "Real-time industrial systems and automation based on RTOS Basics",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage RTOS Basics for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "iot--q5",
-      "topic": "Microcontroller Architecture",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Microcontroller Architecture, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "iot--q6",
-      "topic": "Sensors & Actuators",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Sensors & Actuators?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "mech-thermo": [
     {
-      "id": "mech-q1",
-      "topic": "First Law of Thermodynamics",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under First Law of Thermodynamics?",
+      "id": "mech-thermo-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mech-thermo",
       "options": [
-        "Primary principles of First Law of Thermodynamics",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of First Law of Thermodynamics as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "mech-q2",
-      "topic": "Second Law of Thermodynamics",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Second Law of Thermodynamics, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Second Law of Thermodynamics",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Second Law of Thermodynamics.",
-      "frequency": "most"
-    },
-    {
-      "id": "mech-q3",
-      "topic": "Entropy",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Entropy in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Entropy",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Entropy is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "mech-q4",
-      "topic": "Gas Power Cycles",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Gas Power Cycles?",
-      "options": [
-        "Real-time industrial systems and automation based on Gas Power Cycles",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Gas Power Cycles for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "mech-q5",
-      "topic": "First Law of Thermodynamics",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under First Law of Thermodynamics, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "mech-q6",
-      "topic": "Second Law of Thermodynamics",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Second Law of Thermodynamics?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "mect-robotics": [
     {
-      "id": "mect-q1",
-      "topic": "Robot Kinematics",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Robot Kinematics?",
+      "id": "mect-robotics-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mect-robotics",
       "options": [
-        "Primary principles of Robot Kinematics",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Robot Kinematics as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "mect-q2",
-      "topic": "Actuators & Sensors",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Actuators & Sensors, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Actuators & Sensors",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Actuators & Sensors.",
-      "frequency": "most"
-    },
-    {
-      "id": "mect-q3",
-      "topic": "Robot Control Systems",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Robot Control Systems in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Robot Control Systems",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Robot Control Systems is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "mect-q4",
-      "topic": "Path Planning",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Path Planning?",
-      "options": [
-        "Real-time industrial systems and automation based on Path Planning",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Path Planning for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "mect-q5",
-      "topic": "Robot Kinematics",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Robot Kinematics, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "mect-q6",
-      "topic": "Actuators & Sensors",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Actuators & Sensors?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "auto-vehicle-dynamics": [
     {
-      "id": "auto-q1",
-      "topic": "Suspension Systems",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Suspension Systems?",
+      "id": "auto-vehicle-dynamics-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for auto-vehicle-dynamics",
       "options": [
-        "Primary principles of Suspension Systems",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Suspension Systems as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "auto-q2",
-      "topic": "Steering Geometry",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Steering Geometry, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Steering Geometry",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Steering Geometry.",
-      "frequency": "most"
-    },
-    {
-      "id": "auto-q3",
-      "topic": "Braking Performance",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Braking Performance in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Braking Performance",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Braking Performance is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "auto-q4",
-      "topic": "Aerodynamics",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Aerodynamics?",
-      "options": [
-        "Real-time industrial systems and automation based on Aerodynamics",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Aerodynamics for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "auto-q5",
-      "topic": "Suspension Systems",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Suspension Systems, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "auto-q6",
-      "topic": "Steering Geometry",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Steering Geometry?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "dse-statistics": [
     {
-      "id": "dse--q1",
-      "topic": "Probability Distributions",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under Probability Distributions?",
+      "id": "dse-statistics-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for dse-statistics",
       "options": [
-        "Primary principles of Probability Distributions",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of Probability Distributions as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "dse--q2",
-      "topic": "Linear Regression",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Linear Regression, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Linear Regression",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Linear Regression.",
-      "frequency": "most"
-    },
-    {
-      "id": "dse--q3",
-      "topic": "Time Series Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Time Series Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Time Series Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Time Series Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "dse--q4",
-      "topic": "Hypothesis Testing",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Hypothesis Testing?",
-      "options": [
-        "Real-time industrial systems and automation based on Hypothesis Testing",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Hypothesis Testing for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "dse--q5",
-      "topic": "Probability Distributions",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under Probability Distributions, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "dse--q6",
-      "topic": "Linear Regression",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Linear Regression?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "bba": [
     {
       "id": "bba-q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "bba-q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "bba-q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bba-q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bba-q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "bba-q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "bba-pom": [
     {
-      "id": "bba--q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "bba-pom-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba-pom",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "bba--q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "bba--q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bba--q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bba--q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "bba--q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "bba-fa": [
     {
-      "id": "bba--q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "bba-fa-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba-fa",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "bba--q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "bba--q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bba--q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bba--q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "bba--q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "bba-ob": [
     {
-      "id": "bba--q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "bba-ob-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba-ob",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "bba--q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "bba--q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bba--q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bba--q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "bba--q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "bba-sm": [
     {
-      "id": "bba--q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "bba-sm-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba-sm",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "bba--q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "bba--q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bba--q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bba--q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "bba--q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "bcom-bl": [
     {
-      "id": "bcom-q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "bcom-bl-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bcom-bl",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "bcom-q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "bcom-q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bcom-q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bcom-q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "bcom-q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "bcom-ca": [
     {
-      "id": "bcom-q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "bcom-ca-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bcom-ca",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "bcom-q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "bcom-q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bcom-q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bcom-q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "bcom-q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "bcom-cost": [
     {
-      "id": "bcom-q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "bcom-cost-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bcom-cost",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "bcom-q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "bcom-q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bcom-q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "bcom-q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "bcom-q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "llb-con1": [
     {
-      "id": "llb--q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "llb-con1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for llb-con1",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "llb--q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "llb--q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "llb--q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "llb--q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "llb--q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "llb-crim": [
     {
-      "id": "llb--q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "llb-crim-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for llb-crim",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
-    {
-      "id": "llb--q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
-      "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
-      ],
-      "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
-      "frequency": "most"
-    },
-    {
-      "id": "llb--q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
-      "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
-      ],
-      "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "llb--q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
-      "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
-      ],
-      "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
-    {
-      "id": "llb--q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
-      "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
-      ],
-      "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
-    {
-      "id": "llb--q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
-      "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
-      ],
-      "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
     }
   ],
   "llb-admin": [
     {
-      "id": "llb--q1",
-      "topic": "General Principles",
-      "year": "ETE Sem-I 2024-25",
-      "marks": 6,
-      "text": "Which of the following is a core concept under General Principles?",
+      "id": "llb-admin-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for llb-admin",
       "options": [
-        "Primary principles of General Principles",
-        "Alternative structures in engineering",
-        "Basic components of experimental systems",
-        "None of the above"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "This principle formulates the foundational framework of General Principles as taught in modern engineering curricula.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
+    }
+  ],
+  "aiml-q1": [
     {
-      "id": "llb--q2",
-      "topic": "Core Applications",
-      "year": "MTE Sem-I 2024-25",
-      "marks": 8,
-      "text": "In the context of Core Applications, which equation or theorem holds true under ideal conditions?",
+      "id": "aiml-q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-q1",
       "options": [
-        "The governing conservation law of Core Applications",
-        "The linear feedback approximation",
-        "The statistical boundary theorem",
-        "The non-linear distortion factor"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "The conservation law provides the primary formulation for analyzing systems governed by Core Applications.",
+      "explanation": "Explanation",
       "frequency": "most"
-    },
+    }
+  ],
+  "aiml-q2": [
     {
-      "id": "llb--q3",
-      "topic": "Advanced Analysis",
-      "year": "ETE Sem-II 2023-24",
-      "marks": 4,
-      "text": "What is the primary objective of studying Advanced Analysis in this syllabus?",
+      "id": "aiml-q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-q2",
       "options": [
-        "To analyze and optimize the behavior of systems under Advanced Analysis",
-        "To design decorative layouts for machinery",
-        "To replace all digital components with analog systems",
-        "To minimize thermodynamic efficiency"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "Optimizing system behavior under Advanced Analysis is critical for maximizing performance and efficiency in practical applications.",
-      "frequency": "moderate"
-    },
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "aiml-q3": [
     {
-      "id": "llb--q4",
-      "topic": "Theoretical Foundations",
-      "year": "MTE Sem-II 2023-24",
-      "marks": 6,
-      "text": "Which of the following represents a common application of Theoretical Foundations?",
+      "id": "aiml-q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-q3",
       "options": [
-        "Real-time industrial systems and automation based on Theoretical Foundations",
-        "Simple mechanical pulleys",
-        "Basic office word processors",
-        "Refrigeration cooling towers only"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "Industrial systems leverage Theoretical Foundations for robust, real-time control and high-performance operations.",
-      "frequency": "moderate"
-    },
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "aiml-q4": [
     {
-      "id": "llb--q5",
-      "topic": "General Principles",
-      "year": "Make-up FEB 2025",
-      "marks": 2,
-      "text": "Under General Principles, how does increasing the system load affect overall performance?",
+      "id": "aiml-q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-q4",
       "options": [
-        "It depends on the specific tuning parameters but generally increases resource utilization",
-        "It instantly halts the system",
-        "It decreases the output frequency to absolute zero",
-        "It doubles the thermal dissipation instantly"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "Increased load leads to higher resource demands, which must be managed by the system controller.",
-      "frequency": "can-be"
-    },
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "aiml-q5": [
     {
-      "id": "llb--q6",
-      "topic": "Core Applications",
-      "year": "Re-sess Sem-I 2025-26",
-      "marks": 4,
-      "text": "What is a major limitation associated with Core Applications?",
+      "id": "aiml-q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-q5",
       "options": [
-        "Higher susceptibility to external noise and parameter variations",
-        "Very low initial setup cost",
-        "Complete lack of mathematical modeling",
-        "Incompatibility with modern semiconductor technologies"
+        "A",
+        "B",
+        "C",
+        "D"
       ],
       "correct": 0,
-      "explanation": "Noise sensitivity requires robust filtering and feedback loop stabilization in modern designs.",
-      "frequency": "can-be"
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "aiml-q6": [
+    {
+      "id": "aiml-q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for aiml-q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cse--q1": [
+    {
+      "id": "cse--q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cse--q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cse--q2": [
+    {
+      "id": "cse--q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cse--q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cse--q3": [
+    {
+      "id": "cse--q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cse--q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cse--q4": [
+    {
+      "id": "cse--q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cse--q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cse--q5": [
+    {
+      "id": "cse--q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cse--q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cse--q6": [
+    {
+      "id": "cse--q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cse--q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cce--q1": [
+    {
+      "id": "cce--q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce--q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cce--q2": [
+    {
+      "id": "cce--q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce--q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cce--q3": [
+    {
+      "id": "cce--q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce--q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cce--q4": [
+    {
+      "id": "cce--q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce--q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cce--q5": [
+    {
+      "id": "cce--q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce--q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cce--q6": [
+    {
+      "id": "cce--q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cce--q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "ece--q1": [
+    {
+      "id": "ece--q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for ece--q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "ece--q2": [
+    {
+      "id": "ece--q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for ece--q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "ece--q3": [
+    {
+      "id": "ece--q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for ece--q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "ece--q4": [
+    {
+      "id": "ece--q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for ece--q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "ece--q5": [
+    {
+      "id": "ece--q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for ece--q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "ece--q6": [
+    {
+      "id": "ece--q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for ece--q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "it-w-q1": [
+    {
+      "id": "it-w-q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for it-w-q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "it-w-q2": [
+    {
+      "id": "it-w-q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for it-w-q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "it-w-q3": [
+    {
+      "id": "it-w-q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for it-w-q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "it-w-q4": [
+    {
+      "id": "it-w-q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for it-w-q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "it-w-q5": [
+    {
+      "id": "it-w-q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for it-w-q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "it-w-q6": [
+    {
+      "id": "it-w-q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for it-w-q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cybe-q1": [
+    {
+      "id": "cybe-q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cybe-q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cybe-q2": [
+    {
+      "id": "cybe-q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cybe-q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cybe-q3": [
+    {
+      "id": "cybe-q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cybe-q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cybe-q4": [
+    {
+      "id": "cybe-q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cybe-q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cybe-q5": [
+    {
+      "id": "cybe-q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cybe-q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cybe-q6": [
+    {
+      "id": "cybe-q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cybe-q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cs-n-q1": [
+    {
+      "id": "cs-n-q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cs-n-q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cs-n-q2": [
+    {
+      "id": "cs-n-q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cs-n-q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cs-n-q3": [
+    {
+      "id": "cs-n-q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cs-n-q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cs-n-q4": [
+    {
+      "id": "cs-n-q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cs-n-q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cs-n-q5": [
+    {
+      "id": "cs-n-q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cs-n-q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "cs-n-q6": [
+    {
+      "id": "cs-n-q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for cs-n-q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot-q1": [
+    {
+      "id": "iot-q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot-q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot-q2": [
+    {
+      "id": "iot-q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot-q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot-q3": [
+    {
+      "id": "iot-q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot-q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot-q4": [
+    {
+      "id": "iot-q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot-q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot-q5": [
+    {
+      "id": "iot-q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot-q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot-q6": [
+    {
+      "id": "iot-q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot-q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot--q1": [
+    {
+      "id": "iot--q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot--q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot--q2": [
+    {
+      "id": "iot--q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot--q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot--q3": [
+    {
+      "id": "iot--q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot--q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot--q4": [
+    {
+      "id": "iot--q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot--q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot--q5": [
+    {
+      "id": "iot--q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot--q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "iot--q6": [
+    {
+      "id": "iot--q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for iot--q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mech-q1": [
+    {
+      "id": "mech-q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mech-q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mech-q2": [
+    {
+      "id": "mech-q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mech-q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mech-q3": [
+    {
+      "id": "mech-q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mech-q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mech-q4": [
+    {
+      "id": "mech-q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mech-q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mech-q5": [
+    {
+      "id": "mech-q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mech-q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mech-q6": [
+    {
+      "id": "mech-q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mech-q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mect-q1": [
+    {
+      "id": "mect-q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mect-q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mect-q2": [
+    {
+      "id": "mect-q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mect-q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mect-q3": [
+    {
+      "id": "mect-q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mect-q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mect-q4": [
+    {
+      "id": "mect-q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mect-q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mect-q5": [
+    {
+      "id": "mect-q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mect-q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "mect-q6": [
+    {
+      "id": "mect-q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for mect-q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "auto-q1": [
+    {
+      "id": "auto-q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for auto-q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "auto-q2": [
+    {
+      "id": "auto-q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for auto-q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "auto-q3": [
+    {
+      "id": "auto-q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for auto-q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "auto-q4": [
+    {
+      "id": "auto-q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for auto-q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "auto-q5": [
+    {
+      "id": "auto-q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for auto-q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "auto-q6": [
+    {
+      "id": "auto-q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for auto-q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "dse--q1": [
+    {
+      "id": "dse--q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for dse--q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "dse--q2": [
+    {
+      "id": "dse--q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for dse--q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "dse--q3": [
+    {
+      "id": "dse--q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for dse--q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "dse--q4": [
+    {
+      "id": "dse--q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for dse--q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "dse--q5": [
+    {
+      "id": "dse--q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for dse--q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "dse--q6": [
+    {
+      "id": "dse--q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for dse--q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba-q1": [
+    {
+      "id": "bba-q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba-q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba-q2": [
+    {
+      "id": "bba-q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba-q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba-q3": [
+    {
+      "id": "bba-q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba-q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba-q4": [
+    {
+      "id": "bba-q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba-q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba-q5": [
+    {
+      "id": "bba-q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba-q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba-q6": [
+    {
+      "id": "bba-q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba-q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba--q1": [
+    {
+      "id": "bba--q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba--q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba--q2": [
+    {
+      "id": "bba--q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba--q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba--q3": [
+    {
+      "id": "bba--q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba--q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba--q4": [
+    {
+      "id": "bba--q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba--q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba--q5": [
+    {
+      "id": "bba--q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba--q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bba--q6": [
+    {
+      "id": "bba--q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bba--q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bcom-q1": [
+    {
+      "id": "bcom-q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bcom-q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bcom-q2": [
+    {
+      "id": "bcom-q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bcom-q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bcom-q3": [
+    {
+      "id": "bcom-q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bcom-q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bcom-q4": [
+    {
+      "id": "bcom-q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bcom-q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bcom-q5": [
+    {
+      "id": "bcom-q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bcom-q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "bcom-q6": [
+    {
+      "id": "bcom-q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for bcom-q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "llb--q1": [
+    {
+      "id": "llb--q1-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for llb--q1",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "llb--q2": [
+    {
+      "id": "llb--q2-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for llb--q2",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "llb--q3": [
+    {
+      "id": "llb--q3-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for llb--q3",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "llb--q4": [
+    {
+      "id": "llb--q4-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for llb--q4",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "llb--q5": [
+    {
+      "id": "llb--q5-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for llb--q5",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
+    }
+  ],
+  "llb--q6": [
+    {
+      "id": "llb--q6-q1",
+      "topic": "General",
+      "year": "2024",
+      "marks": 5,
+      "text": "Sample Question for llb--q6",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "correct": 0,
+      "explanation": "Explanation",
+      "frequency": "most"
     }
   ]
 };

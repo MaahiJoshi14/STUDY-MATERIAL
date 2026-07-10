@@ -182,40 +182,53 @@ export default function Home() {
       </header>
 
       {/* ── HERO SECTION ── */}
-      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-8 lg:py-14">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 pt-6 pb-10 lg:pt-8 lg:pb-16 relative">
+        {/* Soft ambient glow behind hero */}
+        <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-gradient-to-br from-[#5D5FEF]/8 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-10 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-[#FF7EB9]/8 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
+
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center relative">
           
           {/* Hero Left Content */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="space-y-4">
-              <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-[72px] text-[#1E1E1E] leading-[0.9] tracking-tight uppercase">
+          <div className="lg:col-span-7 space-y-8 text-left">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-[#5D5FEF]/10 border border-[#5D5FEF]/20 text-[#5D5FEF] px-3.5 py-1.5 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#5D5FEF] animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-widest">MUJ Space — BTech Study Hub</span>
+            </div>
+
+            <div className="space-y-3">
+              <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-[76px] text-[#1E1E1E] leading-[0.88] tracking-tight uppercase">
                 Study Smarter.<br />
-                <span className="text-[#5D5FEF]">Score Higher.</span>
+                <span className="bg-gradient-to-r from-[#5D5FEF] to-[#7B7DFF] bg-clip-text text-transparent">Score Higher.</span>
               </h1>
+              <p className="text-slate-500 font-bold text-sm max-w-sm leading-relaxed">
+                Notes, PYQs, and practice for every MUJ subject — all in one place.
+              </p>
             </div>
 
             {/* Selection Filters — compact */}
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-[0_4px_16px_rgb(0,0,0,0.02)] space-y-3.5">
+            <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-[0_8px_32px_rgba(93,95,239,0.06)] space-y-4">
               {/* Row 1: Course & Year Selectors */}
-              <div className="flex flex-wrap items-center gap-3 pb-3 border-b border-slate-100">
+              <div className="flex flex-wrap items-center gap-3 pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-1.5">
                   <span className="text-[9px] font-black uppercase text-slate-400">Course:</span>
-                  <span className="px-2.5 py-1 bg-[#FAF9F5] border border-slate-200 text-[10px] font-bold rounded-lg text-[#1E1E1E]">B.Tech</span>
+                  <span className="px-2.5 py-1 bg-[#1E1E1E] text-white text-[10px] font-black rounded-lg">B.Tech</span>
                 </div>
 
                 <div className="w-px h-4 bg-slate-200 hidden sm:block" />
 
                 {/* Year Selection Pills */}
-                <div className="flex items-center gap-1">
-                  <span className="text-[9px] font-black uppercase text-slate-400 mr-1.5">Year:</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[9px] font-black uppercase text-slate-400 mr-1">Year:</span>
                   {[1, 2, 3, 4].map((y) => (
                     <button
                       key={y}
                       onClick={() => handleHeroYearChange(y)}
-                      className={`px-2.5 py-1 rounded-lg text-[10px] font-bold border transition-all cursor-pointer ${
+                      className={`px-3 py-1 rounded-lg text-[10px] font-black border transition-all duration-200 cursor-pointer ${
                         selectedYear === y
-                          ? 'bg-[#1E1E1E] text-white border-[#1E1E1E] shadow-sm'
-                          : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'
+                          ? 'bg-gradient-to-r from-[#5D5FEF] to-[#7B7DFF] text-white border-transparent shadow-[0_2px_8px_rgba(93,95,239,0.3)]'
+                          : 'bg-slate-50 text-slate-500 border-slate-200 hover:border-[#5D5FEF]/40 hover:text-[#5D5FEF]'
                       }`}
                     >
                       {y === 1 ? '1st' : y === 2 ? '2nd' : y === 3 ? '3rd' : '4th'}
@@ -225,20 +238,20 @@ export default function Home() {
               </div>
 
               {/* Row 2: Branch/Cycle Selection */}
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">
                   {selectedYear === 1 ? 'Cycle' : 'Branch'}
                 </span>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {selectedYear === 1 ? (
                     year1Cycles.map((c) => (
                       <button
                         key={c.id}
                         onClick={() => setSelectedBranch(c.id)}
-                        className={`px-3 py-1.5 rounded-lg text-[10px] font-bold border transition-all cursor-pointer ${
+                        className={`px-3.5 py-1.5 rounded-xl text-[10px] font-bold border transition-all duration-200 cursor-pointer ${
                           selectedBranch === c.id
                             ? 'bg-[#5D5FEF] text-white border-[#5D5FEF] shadow-sm'
-                            : 'bg-[#FAF9F5] text-slate-700 border-slate-200 hover:border-slate-300'
+                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-[#5D5FEF]/40'
                         }`}
                       >
                         {c.name}
@@ -249,10 +262,10 @@ export default function Home() {
                       <button
                         key={b.id}
                         onClick={() => setSelectedBranch(b.id)}
-                        className={`px-3 py-1.5 rounded-lg text-[10px] font-bold border transition-all cursor-pointer ${
+                        className={`px-3.5 py-1.5 rounded-xl text-[10px] font-bold border transition-all duration-200 cursor-pointer ${
                           selectedBranch === b.id
                             ? 'bg-[#5D5FEF] text-white border-[#5D5FEF] shadow-sm'
-                            : 'bg-[#FAF9F5] text-slate-700 border-slate-200 hover:border-slate-300'
+                            : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-[#5D5FEF]/40'
                         }`}
                       >
                         {b.shortName}
@@ -263,15 +276,15 @@ export default function Home() {
               </div>
 
               {/* Row 3: Search + Button */}
-              <div className="flex gap-2 pt-1">
-                <div className="relative flex-1 bg-[#FAF9F5] border border-slate-200 rounded-xl flex items-center">
+              <div className="flex gap-2">
+                <div className="relative flex-1 bg-slate-50 border border-slate-200 rounded-xl flex items-center focus-within:border-[#5D5FEF]/50 focus-within:ring-2 focus-within:ring-[#5D5FEF]/10 transition-all">
                   <span className="pl-3 text-slate-400 text-sm shrink-0">🔍</span>
                   <input
                     type="text"
                     placeholder="Search subject..."
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
-                    className="w-full h-9 pl-2 pr-3 text-[10px] font-bold text-[#1E1E1E] bg-transparent focus:outline-none placeholder-slate-400"
+                    className="w-full h-10 pl-2 pr-3 text-[11px] font-bold text-[#1E1E1E] bg-transparent focus:outline-none placeholder-slate-400"
                   />
                 </div>
                 <button
@@ -280,9 +293,9 @@ export default function Home() {
                     const searchQueryString = searchQuery ? `&q=${encodeURIComponent(searchQuery)}` : '';
                     navigate(`/explore?year=${selectedYear}${cycleQuery}${searchQueryString}`);
                   }}
-                  className="px-4 h-9 bg-[#1E1E1E] text-white font-black text-[10px] uppercase tracking-wider rounded-xl flex items-center justify-center gap-1.5 hover:bg-black transition-all shadow-sm cursor-pointer shrink-0"
+                  className="px-5 h-10 bg-gradient-to-r from-[#5D5FEF] to-[#7B7DFF] text-white font-black text-[10px] uppercase tracking-wider rounded-xl flex items-center justify-center gap-1.5 hover:shadow-[0_4px_12px_rgba(93,95,239,0.4)] transition-all duration-300 shadow-sm cursor-pointer shrink-0"
                 >
-                  Search
+                  Explore
                 </button>
               </div>
             </div>
@@ -291,18 +304,22 @@ export default function Home() {
           {/* Hero Right: 5-Book 3D Shelf */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center relative select-none py-6 lg:py-0">
             <style>{`
-              @keyframes bookFloat1 { 0%,100%{transform:translateY(0) rotateY(22deg) rotateZ(-9deg);} 50%{transform:translateY(-8px) rotateY(22deg) rotateZ(-9deg);} }
-              @keyframes bookFloat2 { 0%,100%{transform:translateY(-4px) rotateY(10deg) rotateZ(-4deg);} 50%{transform:translateY(4px) rotateY(10deg) rotateZ(-4deg);} }
-              @keyframes bookFloat3 { 0%,100%{transform:translateY(0) rotateY(0deg) rotateZ(-1deg);} 50%{transform:translateY(-10px) rotateY(0deg) rotateZ(-1deg);} }
-              @keyframes bookFloat4 { 0%,100%{transform:translateY(-6px) rotateY(-10deg) rotateZ(4deg);} 50%{transform:translateY(2px) rotateY(-10deg) rotateZ(4deg);} }
-              @keyframes bookFloat5 { 0%,100%{transform:translateY(0) rotateY(-22deg) rotateZ(8deg);} 50%{transform:translateY(-7px) rotateY(-22deg) rotateZ(8deg);} }
+              @keyframes bookFloat1 { 0%,100%{transform:translateY(0) rotateY(22deg) rotateZ(-9deg);} 50%{transform:translateY(-4px) rotateY(22deg) rotateZ(-9deg);} }
+              @keyframes bookFloat2 { 0%,100%{transform:translateY(-2px) rotateY(10deg) rotateZ(-4deg);} 50%{transform:translateY(2px) rotateY(10deg) rotateZ(-4deg);} }
+              @keyframes bookFloat3 { 0%,100%{transform:translateY(0) rotateY(0deg) rotateZ(-1deg);} 50%{transform:translateY(-5px) rotateY(0deg) rotateZ(-1deg);} }
+              @keyframes bookFloat4 { 0%,100%{transform:translateY(-3px) rotateY(-10deg) rotateZ(4deg);} 50%{transform:translateY(1px) rotateY(-10deg) rotateZ(4deg);} }
+              @keyframes bookFloat5 { 0%,100%{transform:translateY(0) rotateY(-22deg) rotateZ(8deg);} 50%{transform:translateY(-3px) rotateY(-22deg) rotateZ(8deg);} }
               .book3d { 
                 position:absolute; 
                 border-radius:4px 10px 10px 4px; 
-                box-shadow:0 18px 40px rgba(0,0,0,0.3), 0 6px 12px rgba(0,0,0,0.15); 
-                transition:filter 0.3s, transform 0.3s; 
+                box-shadow: 0 10px 30px rgba(93,95,239,0.1), 0 4px 12px rgba(0,0,0,0.05); 
+                transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
               }
-              .book3d:hover { filter:brightness(1.1); cursor:pointer; transform:scale(1.05) translateY(-5px); }
+              .book3d:hover { 
+                cursor:pointer; 
+                transform: scale(1.05) translateY(-10px) rotate(2deg) !important; 
+                box-shadow: 0 15px 40px rgba(93,95,239,0.15), 0 8px 16px rgba(0,0,0,0.08);
+              }
               .bspine { 
                 position:absolute; 
                 left:-10px; 
@@ -362,8 +379,11 @@ export default function Home() {
             `}</style>
 
             <div className="relative books-container">
-              {/* Soft glow */}
-              <div className="absolute" style={{inset:0,background:'radial-gradient(ellipse at 50% 60%, rgba(93,95,239,0.15) 0%, transparent 70%)',borderRadius:'50%',filter:'blur(15px)'}} />
+              {/* Soft glow / particles background */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(93,95,239,0.08)_0%,transparent_70%)] rounded-full blur-2xl" />
+              <div className="absolute top-10 left-10 w-4 h-4 bg-white rounded-full blur-sm opacity-60" />
+              <div className="absolute bottom-20 right-12 w-6 h-6 bg-white rounded-full blur-md opacity-40" />
+
 
               {/* Book 1 – far left (Engineering Physics, red) */}
               <div className="book3d book-1" style={{left:0,background:'linear-gradient(145deg,#e53935,#b71c1c)',animation:'bookFloat1 5.5s ease-in-out infinite',zIndex:1}}>
@@ -432,20 +452,22 @@ export default function Home() {
               {/* Attendance Calculator box */}
               <button 
                 onClick={() => setIsAttendanceModalOpen(true)}
-                className="flex-1 bg-gradient-to-br from-[#5D5FEF] to-[#7F00FF] hover:brightness-105 transition-all text-white p-3 rounded-xl shadow-sm text-left relative overflow-hidden group cursor-pointer border border-white/20"
+                className="flex-1 bg-white hover:bg-[#F4F4FF] border-2 border-[#5D5FEF]/20 hover:border-[#5D5FEF] hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 p-4 rounded-2xl shadow-[0_8px_24px_rgba(93,95,239,0.15)] text-left relative overflow-hidden group cursor-pointer"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl" />
-                <div className="font-display font-black text-[11px] uppercase tracking-wide flex items-center gap-1.5"><ArrowRight className="w-3 h-3 text-white/70" /> Attendance</div>
-                <div className="text-[9px] text-white/80 font-bold leading-tight mt-1 ml-4.5">Calculate & track</div>
+                <div className="font-display font-black text-sm text-[#5D5FEF] uppercase tracking-wide flex items-center gap-1.5">
+                   Attendance
+                </div>
+                <div className="text-[10px] text-slate-500 font-bold leading-tight mt-1 ml-0">Calculate & track</div>
               </button>
               {/* Exam Timetable box */}
               <button 
                 onClick={() => setIsExamTimetableModalOpen(true)}
-                className="flex-1 bg-gradient-to-br from-[#FF6B6B] to-[#FFB236] hover:brightness-105 transition-all text-white p-3 rounded-xl shadow-sm text-left relative overflow-hidden group cursor-pointer border border-white/20"
+                className="flex-1 bg-white hover:bg-[#FFF5F5] border-2 border-[#FF6B6B]/20 hover:border-[#FF6B6B] hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 p-4 rounded-2xl shadow-[0_8px_24px_rgba(255,107,107,0.15)] text-left relative overflow-hidden group cursor-pointer"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl" />
-                <div className="font-display font-black text-[11px] uppercase tracking-wide flex items-center gap-1.5"><ArrowRight className="w-3 h-3 text-white/70" /> Timetable</div>
-                <div className="text-[9px] text-white/80 font-bold leading-tight mt-1 ml-4.5">View schedule</div>
+                <div className="font-display font-black text-sm text-[#FF6B6B] uppercase tracking-wide flex items-center gap-1.5">
+                   Timetable
+                </div>
+                <div className="text-[10px] text-slate-500 font-bold leading-tight mt-1 ml-0">View schedule</div>
               </button>
             </div>
             
@@ -454,6 +476,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── EXAM CALENDAR BANNER ── */}
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 pb-12">
+        <div className="bg-gradient-to-r from-[#1E1E1E] to-[#2D2D2D] rounded-[24px] p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-white/10 to-transparent rounded-full blur-3xl" />
+          <div className="relative z-10 text-left">
+            <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight flex items-center gap-2">
+              📅 Exam Calendar
+            </h3>
+            <p className="text-slate-300 font-bold text-xs mt-2 max-w-md">
+              Add your MTE, ETE or specific subject exam dates. Get timely reminders and stay ahead of your schedule.
+            </p>
+          </div>
+          <button 
+            onClick={() => setIsExamTimetableModalOpen(true)}
+            className="w-full md:w-auto relative z-10 bg-white text-[#1E1E1E] hover:bg-slate-100 font-black px-8 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] shadow-[0_4px_16px_rgba(0,0,0,0.2)] whitespace-nowrap"
+          >
+            + Add Exam Date
+          </button>
+        </div>
+      </section>
 
       {/* ── CONTINUE STUDYING SECTION ── */}
       <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-12 border-t border-slate-200/60">
@@ -465,7 +507,7 @@ export default function Home() {
         </div>
 
         {/* MOBILE: Horizontal slider */}
-        <div className="md:hidden flex gap-6 overflow-x-auto no-scrollbar pb-6 pt-2 px-2 snap-x snap-mandatory">
+        <div className="md:hidden flex gap-4 overflow-x-auto no-scrollbar pb-6 pt-2 px-2 snap-x snap-mandatory">
           {[
             {
               title: 'Physics Cycle',
@@ -495,26 +537,25 @@ export default function Home() {
             <Link
               key={idx}
               to={item.explorePath}
-              className="min-w-[280px] snap-center shrink-0 bg-white border border-slate-200 rounded-[32px] p-5 hover:shadow-lg transition-all duration-300 group flex items-center gap-4 cursor-pointer text-left"
+              className="min-w-[260px] snap-center shrink-0 bg-white border border-slate-100 rounded-3xl p-4 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:scale-[1.02] transition-all duration-300 ease-out group flex items-center gap-5 cursor-pointer text-left"
             >
-              <div className="relative w-20 h-28 shrink-0" style={{ perspective: '800px' }}>
-                <div className="absolute right-0 top-0.5 bottom-0.5 w-1.5 bg-gradient-to-r from-slate-200 to-white border-y border-r border-slate-300 rounded-r-sm" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
-                <div className="absolute left-0 top-0 bottom-0 w-2 bg-black/20 z-10 rounded-l-sm" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.12), rgba(255,255,255,0.05) 30%, rgba(0,0,0,0.08) 85%)' }} />
-                <div className="absolute inset-0 rounded-r-lg bg-cover bg-center border-l-2 border-black/15" style={{ backgroundImage: `url(${item.cover})` }} />
+              <div className="relative w-24 h-32 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-4px]" style={{ perspective: '800px' }}>
+                <div className="absolute inset-0 bg-white/40 blur-xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
+                <div className="absolute right-0 top-0.5 bottom-0.5 w-1.5 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-sm" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
+                <div className="absolute left-0 top-0 bottom-0 w-2 bg-black/5 z-10 rounded-l-sm" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
+                <div className="absolute inset-0 rounded-r-lg bg-cover bg-center border border-slate-200/50 shadow-[inset_1px_0_0_rgba(255,255,255,0.4)]" style={{ backgroundImage: `url(${item.cover})` }} />
               </div>
-              <div className="flex-1 flex flex-col justify-between h-28 py-1">
+              <div className="flex-1 flex flex-col justify-center h-32 py-1">
                 <div className="space-y-0.5">
                   <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
                   <h3 className="font-display font-bold text-sm text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
                 </div>
-                <div className="space-y-1">
-                  <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">Progress</span>
-                  <div className="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
-                    <div className="bg-[#5D5FEF] h-full rounded-full" style={{ width: idx === 0 ? '73%' : idx === 1 ? '42%' : idx === 2 ? '15%' : '65%' }} />
-                  </div>
+                <div className="space-y-0.5 mt-3">
+                  <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">Recently Opened</span>
+                  <span className="text-[9px] font-bold text-slate-600 block">2 hours ago</span>
                 </div>
-                <div className="w-full py-1.5 border border-slate-200 rounded-lg bg-[#FAF9F5] text-center font-display font-black text-[8px] text-[#1E1E1E] uppercase tracking-wider group-hover:bg-[#1E1E1E] group-hover:text-white transition-all mt-1">
-                  Continue Notebook →
+                <div className="mt-3 font-display font-black text-[9px] text-[#5D5FEF] uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                  Continue <ArrowRight className="w-2.5 h-2.5" />
                 </div>
               </div>
             </Link>
@@ -552,39 +593,30 @@ export default function Home() {
             <div 
               key={idx}
               onClick={() => navigate(item.explorePath)}
-              className="bg-white border border-slate-200 rounded-[32px] p-6 hover:shadow-lg transition-all duration-300 group flex flex-col xl:flex-row items-center gap-6 cursor-pointer text-left"
+              className="bg-white border border-slate-100 rounded-[32px] p-6 hover:shadow-[0_12px_40px_rgba(0,0,0,0.04)] hover:scale-[1.02] transition-all duration-300 ease-out group flex flex-col xl:flex-row items-center gap-6 cursor-pointer text-left"
             >
               {/* Left Side: 3D Book Cover */}
-              <div className="relative w-28 h-40 shrink-0" style={{ perspective: '800px' }}>
-                {/* Page edges */}
-                <div className="absolute right-0 top-0.5 bottom-0.5 w-2 bg-gradient-to-r from-slate-200 to-white border-y border-r border-slate-300 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
-                {/* Spine */}
-                <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/20 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.12), rgba(255,255,255,0.05) 30%, rgba(0,0,0,0.08) 85%)' }} />
-                {/* Book Cover */}
-                <div 
-                  className="absolute inset-0 rounded-r-xl bg-cover bg-center border-l-2 border-black/15"
-                  style={{ backgroundImage: `url(${item.cover})` }}
-                />
+              <div className="relative w-32 h-44 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-6px]" style={{ perspective: '800px' }}>
+                <div className="absolute inset-0 bg-white/50 blur-2xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
+                <div className="absolute right-0 top-0.5 bottom-0.5 w-2 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
+                <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
+                <div className="absolute inset-0 rounded-r-xl bg-cover bg-center border border-slate-200/50 shadow-[inset_1px_0_0_rgba(255,255,255,0.4)]" style={{ backgroundImage: `url(${item.cover})` }} />
               </div>
 
               {/* Right Side: Details */}
-              <div className="flex-1 flex flex-col justify-between h-40 py-1 w-full">
+              <div className="flex-1 flex flex-col justify-center h-44 py-2 w-full">
                 <div className="space-y-1">
                   <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
                   <h3 className="font-display font-extrabold text-lg xl:text-xl text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
                 </div>
 
-                {/* Progress bar without percentage */}
-                <div className="space-y-1.5 mt-2">
-                  <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">Progress</span>
-                  <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                    <div className="bg-[#5D5FEF] h-full rounded-full" style={{ width: idx === 0 ? '73%' : idx === 1 ? '42%' : idx === 2 ? '15%' : '65%' }} />
-                  </div>
+                <div className="space-y-1 mt-4">
+                  <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">Recently Opened</span>
+                  <span className="text-[11px] font-bold text-slate-600 block">2 hours ago</span>
                 </div>
 
-                {/* Continue Notebook Button */}
-                <div className="w-full py-2 border border-slate-200 rounded-xl bg-[#FAF9F5] text-center font-display font-black text-[10px] text-[#1E1E1E] uppercase tracking-wider group-hover:bg-[#1E1E1E] group-hover:text-white transition-all mt-4">
-                  Continue Notebook →
+                <div className="mt-5 font-display font-black text-[11px] text-[#5D5FEF] uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1.5">
+                  Continue <ArrowRight className="w-3 h-3" />
                 </div>
               </div>
             </div>
@@ -612,15 +644,11 @@ export default function Home() {
             >
               {/* 3D Book Layout Container */}
               <div className="relative w-52 h-72 transition-all duration-300 group-hover:scale-[1.06] group-hover:rotate-1" style={{ perspective: '900px' }}>
-                {/* Soft fanned shadow */}
-                <div className="absolute inset-0 bg-black/35 rounded-r-2xl blur-lg translate-y-4 translate-x-2 transition-all duration-300 group-hover:translate-y-6 group-hover:translate-x-4 group-hover:blur-xl" />
-                {/* Page edges layer */}
-                <div className="absolute right-0 top-1 bottom-1 w-3.5 bg-gradient-to-r from-slate-200 to-white border-y border-r border-slate-300 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
-                {/* Spine effect */}
-                <div className="absolute left-0 top-0 bottom-0 w-4.5 bg-black/25 z-10 rounded-l-md border-r border-white/10" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.1), rgba(255,255,255,0.05) 30%, rgba(0,0,0,0.1) 85%)' }} />
-                {/* Main Book Cover */}
+                <div className="absolute inset-0 bg-white/50 blur-2xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
+                <div className="absolute right-0 top-0.5 bottom-0.5 w-2.5 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
+                <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
                 <div 
-                  className="absolute inset-0 rounded-r-2xl bg-cover bg-center border-l-4 border-black/30"
+                  className="absolute inset-0 rounded-r-xl bg-cover bg-center border border-slate-200/50 shadow-[inset_1px_0_0_rgba(255,255,255,0.4)]"
                   style={{ backgroundImage: `url(${item.cover})` }}
                 />
               </div>
@@ -637,17 +665,17 @@ export default function Home() {
 
       {/* ── PRACTICE ARENA / NON-BTECH BANNERS ── */}
       <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60 grid md:grid-cols-2 gap-8">
-        <div className="bg-gradient-to-br from-[#FF6B6B] to-[#FFB236] rounded-[32px] border border-slate-200 p-6 sm:p-8 shadow-md relative overflow-hidden flex flex-col justify-between h-52 text-left group">
-          <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
-          <div>
-            <span className="text-[9px] font-extrabold uppercase bg-white/20 border border-white/40 px-3 py-1 rounded-full text-white tracking-widest">
+        <div className="bg-pink-50 rounded-[32px] border border-pink-100 p-8 shadow-[0_4px_20px_rgba(255,182,193,0.15)] hover:shadow-[0_8px_30px_rgba(255,182,193,0.25)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-56 text-left group">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-pink-200/40 to-transparent rounded-full blur-3xl group-hover:from-pink-200/60 transition-colors duration-500" />
+          <div className="relative z-10">
+            <span className="text-[9px] font-extrabold uppercase bg-white/50 border border-slate-200/60 px-3 py-1.5 rounded-full text-slate-500 tracking-widest">
               PYQs · Mock Tests
             </span>
-            <h3 className="font-display font-black text-3xl text-white uppercase mt-2 tracking-wide leading-none">
-              PRACTICE ARENA
+            <h3 className="font-display font-black text-3xl text-[#1E1E1E] uppercase mt-4 tracking-wide leading-none">
+              Practice Arena
             </h3>
-            <p className="text-white/80 text-xs font-bold mt-1">
-              Test sessional skills with sessional sessional questions.
+            <p className="text-slate-500 text-xs font-bold mt-2 max-w-[240px] leading-relaxed">
+              Test your skills with past sessional and university questions.
             </p>
           </div>
           <button
@@ -655,7 +683,7 @@ export default function Home() {
               handleSetupYearChange(1);
               setIsArenaModalOpen(true);
             }}
-            className="w-fit bg-white border border-slate-200 text-[#1E1E1E] font-black px-5 py-2.5 rounded-2xl text-xs uppercase tracking-wider shadow-sm hover:bg-slate-50 transition-all cursor-pointer flex items-center gap-1.5"
+            className="w-fit bg-[#FF6B6B] text-white font-black px-6 py-3 rounded-2xl text-xs uppercase tracking-wider shadow-[0_4px_12px_rgba(255,107,107,0.3)] hover:bg-[#ff5252] hover:shadow-[0_6px_16px_rgba(255,107,107,0.4)] hover:scale-[1.02] transition-all duration-300 cursor-pointer flex items-center gap-2 relative z-10"
           >
             Enter Arena <ArrowRight className="w-3.5 h-3.5" />
           </button>

@@ -3,13 +3,13 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, BookOpen, FileText, ExternalLink,
-  ChevronRight, Search, Play, Download, Bell, Folder,
+  ChevronRight, Search, Download, Bell, Folder,
   Calendar, Plus, X
 } from 'lucide-react';
 import { year1Cycles, branches, type Subject, type Cycle, type Branch } from '@/data/studyMaterial';
 
 type Step = 'year' | 'branch' | 'subjects' | 'resources';
-type ResourceTab = 'notes' | 'pyqs' | 'yt';
+type ResourceTab = 'notes' | 'pyqs';
 
 // ── MUJ Academic Calendar (hardcoded MTE / ETE windows) ──
 const MUJ_EXAMS = [
@@ -63,15 +63,19 @@ function SidebarClock({ timetable, onAddTimetable }: {
 
           {/* MUJ hardcoded exams */}
           {nextExam && daysLeft !== null && (
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-3">
+            <div className="bg-white border border-slate-100 rounded-xl p-4 shadow-[0_4px_16px_rgba(0,0,0,0.03)] group hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-300">
               <div className="flex justify-between items-start mb-2">
                 <div>
-                  <p className="text-[11px] font-black text-slate-700 leading-tight">{nextExam.subject}</p>
-                  <p className="text-[10px] font-bold text-slate-500 mt-0.5">Academic Calendar</p>
+                  <p className="text-[11px] font-black text-[#1E1E1E] leading-tight">{nextExam.subject}</p>
+                  <p className="text-[9px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Academic Calendar</p>
                 </div>
-                <span className={`text-[10px] font-black text-white px-2 py-0.5 rounded uppercase tracking-wider ${nextExam.label === 'MTE' ? 'bg-orange-500' : 'bg-purple-600'}`}>
-                  {nextExam.label}: {Math.max(0, daysLeft)} Days
+                <span className={`text-[9px] font-black text-white px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm ${nextExam.label === 'MTE' ? 'bg-[#FFB236]' : 'bg-[#5D5FEF]'}`}>
+                  {Math.max(0, daysLeft)} Days Left
                 </span>
+              </div>
+              <div className="mt-3 pt-3 border-t border-slate-50 flex items-center justify-between text-[10px]">
+                 <span className="font-bold text-slate-400">Type</span>
+                 <span className="font-black text-slate-600 uppercase">{nextExam.label}</span>
               </div>
             </div>
           )}
@@ -352,7 +356,7 @@ function SidebarClock({ timetable, onAddTimetable }: {
                 </div>
 
                 {/* Cards Grid — 3D Book Style */}
-                <div className={`grid gap-8 ${selectedYear === 1 ? 'sm:grid-cols-2 max-w-2xl' : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4'}`}>
+                <div className={`grid gap-16 place-items-center mx-auto mt-6 ${selectedYear === 1 ? 'sm:grid-cols-2 max-w-2xl' : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 max-w-5xl'}`}>
                   {(selectedYear === 1 ? year1Cycles : branches).map((item) => (
                     <button
                       key={item.id}
@@ -369,37 +373,35 @@ function SidebarClock({ timetable, onAddTimetable }: {
                     >
                       {/* 3D Book Layout */}
                       <div
-                        className={`relative transition-all duration-300 group-hover:scale-[1.06] group-hover:rotate-1 group-hover:translate-y-[-6px] ${selectedYear === 1 ? 'w-52 h-72' : 'w-40 h-56'}`}
-                        style={{ perspective: '900px' }}
+                        className={`relative transition-all duration-300 ease-out group-hover:scale-[1.05] group-hover:-translate-y-2 group-hover:rotate-1 ${selectedYear === 1 ? 'w-48 h-64' : 'w-40 h-56'}`}
+                        style={{ perspective: '800px' }}
                       >
+                        <div className="absolute inset-0 bg-white/50 blur-2xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
                         {/* Page edges */}
                         <div
-                          className="absolute right-0 top-1 bottom-1 w-3 bg-gradient-to-r from-slate-200 to-white border-y border-r border-slate-300 rounded-r-md"
+                          className="absolute right-0 top-0.5 bottom-0.5 w-2 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md"
                           style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }}
                         />
                         {/* Spine */}
                         <div
-                          className="absolute left-0 top-0 bottom-0 w-4 bg-black/20 z-10 rounded-l-md"
-                          style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.12), rgba(255,255,255,0.05) 30%, rgba(0,0,0,0.08) 85%)' }}
+                          className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md"
+                          style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }}
                         />
                         {/* Book Cover */}
                         <div
-                          className="absolute inset-0 rounded-r-2xl bg-cover bg-center border-l-4 border-black/25"
+                          className="absolute inset-0 rounded-r-xl bg-cover bg-center border border-slate-200/50 shadow-[inset_1px_0_0_rgba(255,255,255,0.4)]"
                           style={{ backgroundImage: `url(${getBookCoverPath(item.id)})` }}
-                        />
-                        {/* Hover shine overlay */}
-                        <div className="absolute inset-0 rounded-r-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                          style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%)' }}
                         />
                       </div>
 
                       {/* Label */}
-                      <div className="mt-4 text-center space-y-1 w-full px-1">
-                        <h3 className={`font-display font-extrabold text-[#1E1E1E] uppercase leading-tight tracking-tight ${selectedYear === 1 ? 'text-base' : 'text-sm'}`}>
+                      <div className="mt-6 text-center space-y-1.5 w-full px-2 transform transition-all duration-300 group-hover:-translate-y-1 relative">
+                        <h3 className={`font-display font-extrabold text-[#1E1E1E] uppercase leading-tight tracking-tight transition-colors group-hover:text-[#5D5FEF] ${selectedYear === 1 ? 'text-lg' : 'text-base'}`}>
                           {'name' in item ? item.name : (item as Branch).shortName}
                         </h3>
-                        <p className="text-[10px] font-bold text-slate-400">
+                        <p className="text-[10px] font-bold text-slate-400 flex items-center justify-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
                           {selectedYear === 1 ? 'Foundation Cycle' : 'Sessional Syllabus'}
+                          <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#5D5FEF]">→</span>
                         </p>
                       </div>
                     </button>
@@ -437,19 +439,19 @@ function SidebarClock({ timetable, onAddTimetable }: {
                 </div>
 
                 {/* Search */}
-                <div className="relative bg-white border border-slate-200 rounded-xl shadow-sm flex items-center">
+                <div className="relative bg-white border border-slate-200 rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] flex items-center focus-within:ring-2 focus-within:ring-[#5D5FEF]/20 focus-within:border-[#5D5FEF]/50 transition-all duration-300">
                   <Search className="absolute left-4 w-4 h-4 text-slate-400" />
                   <input
                     type="text"
-                    placeholder="Search subject by name or code..."
+                    placeholder="Search subjects, notes, PYQs, PPTs..."
                     value={searchQuery}
                     onChange={e => setSearchQuery(e.target.value)}
-                    className="w-full h-11 pl-12 pr-4 text-xs font-bold text-[#1E1E1E] bg-transparent focus:outline-none placeholder-slate-400"
+                    className="w-full h-12 pl-12 pr-4 text-xs font-bold text-[#1E1E1E] bg-transparent focus:outline-none placeholder-slate-400"
                   />
                 </div>
 
                 {/* Folder Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 mt-6">
                   {filteredSubjects.map((sub, i) => {
                     const style = getFolderColors(i);
                     return (
@@ -490,22 +492,19 @@ function SidebarClock({ timetable, onAddTimetable }: {
                 exit={{ opacity: 0, y: -15 }}
                 className="space-y-8 text-left"
               >
-                <div>
+                <div className="flex items-center gap-3 flex-wrap">
                   <h1 className="font-display font-extrabold text-3xl md:text-4xl text-[#1E1E1E] uppercase flex items-center gap-2">
                     <span>{selectedSubject.emoji}</span>
                     <span>{selectedSubject.name}</span>
                   </h1>
-                  <p className="text-slate-500 font-bold text-xs mt-1">
-                    {selectedSubject.code} • {selectedSubject.description}
-                  </p>
+                  <span className="text-[9px] font-black uppercase bg-white border border-slate-200 text-slate-500 px-2.5 py-1 rounded-full">{selectedSubject.code}</span>
                 </div>
 
                 {/* Tab selectors */}
-                <div className="flex gap-2 border-b border-slate-200 pb-2">
+                <div className="flex gap-2 pt-2">
                   {[
                     { key: 'notes', label: 'Study Materials', color: '#FFB236' },
                     { key: 'pyqs',  label: 'Previous Papers', color: '#FF7EB9' },
-                    { key: 'yt',    label: 'YouTube Lectures', color: '#4FA3F7' },
                   ].map(({ key, label, color }) => {
                     const isActive = activeTab === key;
                     return (
@@ -513,8 +512,8 @@ function SidebarClock({ timetable, onAddTimetable }: {
                         key={key}
                         onClick={() => setActiveTab(key as ResourceTab)}
                         style={{ backgroundColor: isActive ? color : '' }}
-                        className={`px-4 py-2 rounded-t-2xl font-display font-bold text-xs uppercase border border-b-0 border-slate-200 transition-all cursor-pointer ${
-                          isActive ? 'translate-y-[2px] text-[#1E1E1E]' : 'bg-white text-slate-500 hover:bg-slate-50'
+                        className={`px-4 py-2 rounded-xl font-display font-bold text-xs uppercase border border-slate-200 transition-all cursor-pointer ${
+                          isActive ? 'text-[#1E1E1E] shadow-sm border-transparent' : 'bg-white text-slate-500 hover:bg-slate-50'
                         }`}
                       >
                         {label}
@@ -581,38 +580,7 @@ function SidebarClock({ timetable, onAddTimetable }: {
                   </motion.div>
                 )}
 
-                {/* YouTube */}
-                {activeTab === 'yt' && (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
-                    {selectedSubject.ytResources.length === 0 ? (
-                      <div className="p-8 text-center border border-dashed border-slate-200 rounded-2xl text-xs font-bold text-slate-400">
-                        NO YOUTUBE LECTURES LINKED YET.
-                      </div>
-                    ) : (
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {selectedSubject.ytResources.map((yt, i) => (
-                          <a key={i} href={yt.url} target="_blank" rel="noreferrer"
-                            className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:translate-y-[-2px] transition-all flex flex-col group"
-                          >
-                            <div className="aspect-video bg-[#1E1E1E] flex items-center justify-center relative overflow-hidden">
-                              <span className="text-3xl">📺</span>
-                              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <Play className="w-10 h-10 text-white fill-white" />
-                              </div>
-                            </div>
-                            <div className="p-4 space-y-2 text-left flex-1 flex flex-col justify-between">
-                              <div>
-                                <span className="text-[8px] font-extrabold bg-[#FF5252] text-white px-2 py-0.5 rounded uppercase">YouTube</span>
-                                <h4 className="font-display font-bold text-xs text-[#1E1E1E] mt-2 line-clamp-2 leading-tight uppercase">{yt.title}</h4>
-                              </div>
-                              <p className="text-[10px] font-black text-slate-400 uppercase pt-2">{yt.channelName}</p>
-                            </div>
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </motion.div>
-                )}
+
               </motion.div>
             )}
 
