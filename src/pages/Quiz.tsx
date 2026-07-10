@@ -201,7 +201,7 @@ export default function Quiz() {
   );
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-[#1E1E1E] font-sans antialiased pb-28">
+    <div className="min-h-screen bg-[#F8F9FB] text-[#1E1E1E] font-sans antialiased pb-28">
       
       {/* ── HEADER NAVIGATION ── */}
       <header className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">

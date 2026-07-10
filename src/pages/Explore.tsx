@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, BookOpen, FileText, ExternalLink,
   ChevronRight, Search, Play, Download, Bell, Folder,
-  Calendar, Clock, Plus, X
+  Calendar, Plus, X
 } from 'lucide-react';
 import { year1Cycles, branches, type Subject, type Cycle, type Branch } from '@/data/studyMaterial';
 
@@ -35,38 +35,12 @@ function SidebarClock({ timetable, onAddTimetable }: {
   timetable: { subject: string; date: string } | null;
   onAddTimetable: () => void;
 }) {
-  const [now, setNow] = useState(new Date());
-  useEffect(() => {
-    const t = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(t);
-  }, []);
-
   const nextExam = getNextExam();
   const daysLeft = nextExam ? getDaysLeft(nextExam.startDate) : null;
   const customDays = timetable ? getDaysLeft(new Date(timetable.date)) : null;
 
-  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-  const day = dayNames[now.getDay()];
-  const date = `${String(now.getDate()).padStart(2, '0')} ${monthNames[now.getMonth()]} ${now.getFullYear()}`;
-  const hours = now.getHours();
-  const mins = String(now.getMinutes()).padStart(2, '0');
-  const period = hours >= 12 ? 'PM' : 'AM';
-  const h12 = hours % 12 || 12;
-  const time = `${h12}:${mins} ${period}`;
-
   return (
     <div className="space-y-6 pt-2">
-      {/* Date & Time - Clean text layout without box */}
-      <div>
-        <div className="flex items-center gap-1.5 text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">
-          <Clock className="w-3.5 h-3.5" /> Time & Date
-        </div>
-        <p className="text-3xl font-display font-black text-[#1E1E1E] tracking-tight mt-1">{time}</p>
-        <p className="text-xs font-bold text-slate-500 mt-1">{day}, {date}</p>
-      </div>
-
       {/* Upcoming Exams - Clean layout */}
       <div className="space-y-4">
         <div className="flex items-center gap-1.5 text-[10px] font-black uppercase text-slate-400 tracking-widest">
@@ -118,6 +92,7 @@ function SidebarClock({ timetable, onAddTimetable }: {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const initialYear = parseInt(queryParams.get('year') || '0', 10);
+  const displayName = localStorage.getItem('muj_username') || 'Student';
 
   const [step, setStep] = useState<Step>(initialYear > 0 ? 'branch' : 'year');
   const [selectedYear, setSelectedYear] = useState<number>(initialYear);
@@ -180,11 +155,22 @@ function SidebarClock({ timetable, onAddTimetable }: {
       'it': '/bookcovers/it.png',
       'data-science': '/bookcovers/data-science.png',
       'mechanical-engineering': '/bookcovers/mechanical-engineering.png',
+      'mechanical': '/bookcovers/mechanical-engineering.png',
       'civil-engineering': '/bookcovers/civil-engineering.png',
       'chemical-engineering': '/bookcovers/chemical-engineering.png',
       'electronics-communication-engineering': '/bookcovers/electronics-communication-engineering.png',
+      'ece': '/bookcovers/electronics-communication-engineering.png',
       'electronics-engineering': '/bookcovers/electronics-engineering.png',
       'iot': '/bookcovers/iot.png',
+      'dse': '/bookcovers/data-science.png',
+      'cyber-security': '/bookcovers/cyber-security.png',
+      'cce': '/bookcovers/cce.png',
+      'mechatronics': '/bookcovers/mechatronics.png',
+      'automobile': '/bookcovers/automobile.png',
+      'first-year': '/bookcovers/first-year.png',
+      'second-year': '/bookcovers/second-year.png',
+      'third-year': '/bookcovers/third-year.png',
+      'fourth-year': '/bookcovers/fourth-year.png',
     };
     return map[id] || '/bookcovers/cse.png';
   };
@@ -204,10 +190,10 @@ function SidebarClock({ timetable, onAddTimetable }: {
   const showSidebar = selectedYear > 0;
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-[#1E1E1E] font-sans antialiased pb-28">
+    <div className="min-h-screen bg-[#F8F9FB] text-[#1E1E1E] font-sans antialiased pb-28">
 
       {/* ── HEADER NAVIGATION ── */}
-      <header className="max-w-[1400px] mx-auto px-6 py-5 flex justify-between items-center">
+      <header className="w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2.5">
           <div className="w-8 h-8 bg-[#FF5252] rounded-xl flex items-center justify-center shadow-sm">
             <BookOpen className="w-4 h-4 text-white" />
@@ -233,13 +219,13 @@ function SidebarClock({ timetable, onAddTimetable }: {
               alt="Maahi"
               className="w-9 h-9 rounded-full border border-slate-200 object-cover shadow-sm"
             />
-            <span className="hidden lg:inline text-xs font-black text-[#1E1E1E] tracking-tight">Hi, Maahi 👋</span>
+            <span className="hidden lg:inline text-xs font-black text-[#1E1E1E] tracking-tight">Hi, {displayName} 👋</span>
           </div>
         </div>
       </header>
 
       {/* ── MAIN LAYOUT ── */}
-      <div className={`max-w-[1400px] mx-auto px-6 py-6 ${showSidebar ? 'flex flex-col-reverse lg:flex-row gap-8' : ''}`}>
+      <div className={`w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 ${showSidebar ? 'flex flex-col-reverse lg:flex-row gap-6' : ''}`}>
 
         {/* ── LEFT SIDEBAR (only on branch/subjects steps) ── */}
         {showSidebar && (
@@ -365,8 +351,8 @@ function SidebarClock({ timetable, onAddTimetable }: {
                   </p>
                 </div>
 
-                {/* Cards Grid — clean, no inner frame */}
-                <div className={`grid gap-6 ${selectedYear === 1 ? 'sm:grid-cols-2 max-w-xl' : 'sm:grid-cols-2 lg:grid-cols-3'}`}>
+                {/* Cards Grid — 3D Book Style */}
+                <div className={`grid gap-8 ${selectedYear === 1 ? 'sm:grid-cols-2 max-w-2xl' : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4'}`}>
                   {(selectedYear === 1 ? year1Cycles : branches).map((item) => (
                     <button
                       key={item.id}
@@ -379,40 +365,49 @@ function SidebarClock({ timetable, onAddTimetable }: {
                           setStep('subjects');
                         }
                       }}
-                      className="text-left w-full cursor-pointer focus:outline-none group"
+                      className="text-left w-full cursor-pointer focus:outline-none group flex flex-col items-center"
                     >
-                      <div className="bg-white border border-slate-200 rounded-[24px] overflow-hidden shadow-sm hover:shadow-md hover:translate-y-[-3px] transition-all flex flex-col">
-                        {/* Book cover — fully visible without cropping */}
-                        <div className="relative w-full aspect-[3/4] bg-[#F7F7F9] p-4 flex items-center justify-center overflow-hidden">
-                          <div
-                            className="w-full h-full bg-contain bg-no-repeat bg-center group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
-                            style={{ backgroundImage: `url(${getBookCoverPath(item.id)})` }}
-                          />
-                          {/* Overlay gradient at bottom */}
-                          <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/10 to-transparent" />
-                        </div>
+                      {/* 3D Book Layout */}
+                      <div
+                        className={`relative transition-all duration-300 group-hover:scale-[1.06] group-hover:rotate-1 group-hover:translate-y-[-6px] ${selectedYear === 1 ? 'w-52 h-72' : 'w-40 h-56'}`}
+                        style={{ perspective: '900px' }}
+                      >
+                        {/* Page edges */}
+                        <div
+                          className="absolute right-0 top-1 bottom-1 w-3 bg-gradient-to-r from-slate-200 to-white border-y border-r border-slate-300 rounded-r-md"
+                          style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }}
+                        />
+                        {/* Spine */}
+                        <div
+                          className="absolute left-0 top-0 bottom-0 w-4 bg-black/20 z-10 rounded-l-md"
+                          style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.12), rgba(255,255,255,0.05) 30%, rgba(0,0,0,0.08) 85%)' }}
+                        />
+                        {/* Book Cover */}
+                        <div
+                          className="absolute inset-0 rounded-r-2xl bg-cover bg-center border-l-4 border-black/25"
+                          style={{ backgroundImage: `url(${getBookCoverPath(item.id)})` }}
+                        />
+                        {/* Hover shine overlay */}
+                        <div className="absolute inset-0 rounded-r-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%)' }}
+                        />
+                      </div>
 
-                        {/* Footer */}
-                        <div className="px-5 py-4 flex justify-between items-center bg-white border-t border-slate-100">
-                          <div>
-                            <h3 className="font-display font-extrabold text-sm text-[#1E1E1E] uppercase tracking-wide">
-                              {'name' in item ? item.name : (item as Branch).shortName}
-                            </h3>
-                            <p className="text-[10px] font-bold text-slate-400 mt-0.5">
-                              {selectedYear === 1 ? 'Foundation Cycle' : 'Sessional Syllabus'}
-                            </p>
-                          </div>
-                          {/* Pink arrow button like screenshot */}
-                          <span className="w-9 h-9 rounded-full bg-[#FF4D88] flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                            <ChevronRight className="w-4 h-4 text-white" />
-                          </span>
-                        </div>
+                      {/* Label */}
+                      <div className="mt-4 text-center space-y-1 w-full px-1">
+                        <h3 className={`font-display font-extrabold text-[#1E1E1E] uppercase leading-tight tracking-tight ${selectedYear === 1 ? 'text-base' : 'text-sm'}`}>
+                          {'name' in item ? item.name : (item as Branch).shortName}
+                        </h3>
+                        <p className="text-[10px] font-bold text-slate-400">
+                          {selectedYear === 1 ? 'Foundation Cycle' : 'Sessional Syllabus'}
+                        </p>
                       </div>
                     </button>
                   ))}
                 </div>
               </motion.div>
             )}
+
 
             {/* ── STEP: SUBJECTS ── */}
             {step === 'subjects' && (
@@ -454,7 +449,7 @@ function SidebarClock({ timetable, onAddTimetable }: {
                 </div>
 
                 {/* Folder Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
                   {filteredSubjects.map((sub, i) => {
                     const style = getFolderColors(i);
                     return (
@@ -463,7 +458,7 @@ function SidebarClock({ timetable, onAddTimetable }: {
                         onClick={() => { setSelectedSubject(sub); setActiveTab('notes'); setStep('resources'); }}
                         className="text-left w-full focus:outline-none cursor-pointer group"
                       >
-                        <div className={`rounded-2xl border ${style.border} ${style.bg} p-4 shadow-sm flex flex-col justify-between h-36 hover:scale-[1.02] transition-transform`}>
+                        <div className={`rounded-2xl border ${style.border} ${style.bg} p-4 shadow-md flex flex-col justify-between h-40 hover:scale-[1.02] transition-transform`}>
                           <div className="flex justify-between items-start">
                             <Folder className={`w-8 h-8 fill-current ${style.folderColor}`} />
                             <span className="text-[8px] font-extrabold bg-[#1E1E1E] text-white px-2 py-0.5 rounded uppercase">
@@ -536,10 +531,10 @@ function SidebarClock({ timetable, onAddTimetable }: {
                         NO STUDY MATERIALS LINKED YET.
                       </div>
                     ) : (
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                         {selectedSubject.studyMaterials.map((m, i) => (
                           <a key={i} href={m.url} target="_blank" rel="noreferrer"
-                            className="group bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:translate-y-[-2px] transition-all flex flex-col justify-between h-40"
+                            className="group bg-white border border-slate-200 rounded-2xl p-5 shadow-lg hover:shadow-xl hover:translate-y-[-4px] transition-all flex flex-col justify-between h-44"
                           >
                             <div>
                               <div className="w-9 h-9 bg-[#4FA3F7]/10 border border-slate-200 rounded-xl flex items-center justify-center mb-3">
@@ -565,10 +560,10 @@ function SidebarClock({ timetable, onAddTimetable }: {
                         NO PYQS UPLOADED YET.
                       </div>
                     ) : (
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                         {selectedSubject.pyqs.map((p, i) => (
                           <a key={i} href={p.url} target="_blank" rel="noreferrer"
-                            className="group bg-white border border-slate-200 rounded-2xl p-5 shadow-sm hover:translate-y-[-2px] transition-all flex flex-col justify-between h-40"
+                            className="group bg-white border border-slate-200 rounded-2xl p-5 shadow-lg hover:shadow-xl hover:translate-y-[-4px] transition-all flex flex-col justify-between h-44"
                           >
                             <div>
                               <div className="w-9 h-9 bg-[#FF7EB9]/10 border border-slate-200 rounded-xl flex items-center justify-center mb-3">

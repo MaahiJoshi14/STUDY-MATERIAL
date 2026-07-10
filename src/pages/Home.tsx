@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -11,6 +11,45 @@ import {
 
 export default function Home() {
   const navigate = useNavigate();
+
+  // Dynamic display name from localStorage
+  const [displayName, setDisplayName] = useState<string>(() => {
+    return localStorage.getItem('muj_username') || 'Student';
+  });
+  const [isEditingName, setIsEditingName] = useState(false);
+  const [nameInput, setNameInput] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('muj_username', displayName);
+  }, [displayName]);
+
+  // Non-BTech coming soon modal
+  const [isNonBTechModalOpen, setIsNonBTechModalOpen] = useState(false);
+  
+  // Attendance and Exam Timetable modal states
+  const [isAttendanceModalOpen, setIsAttendanceModalOpen] = useState(false);
+  const [isExamTimetableModalOpen, setIsExamTimetableModalOpen] = useState(false);
+  
+  // Attendance Tracker state
+  interface AttendanceSubject {
+    id: string;
+    name: string;
+    credits: 3 | 4;
+    missedLectures: number;
+  }
+  const [subjects, setSubjects] = useState<AttendanceSubject[]>(() => {
+    const saved = localStorage.getItem('attendanceSubjects');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [selectedSubjectId, setSelectedSubjectId] = useState<string | null>(null);
+  const [showAddSubject, setShowAddSubject] = useState(false);
+  const [newSubjectName, setNewSubjectName] = useState('');
+  const [newSubjectCredits, setNewSubjectCredits] = useState<3 | 4>(3);
+  
+  // Save subjects to localStorage on change
+  useEffect(() => {
+    localStorage.setItem('attendanceSubjects', JSON.stringify(subjects));
+  }, [subjects]);
 
   // Setup form states inside B&W modal (accessible from header/practice arena)
   const [isArenaModalOpen, setIsArenaModalOpen] = useState(false);
@@ -76,7 +115,7 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-[#1E1E1E] font-sans antialiased pb-24">
+    <div className="min-h-screen bg-[#F8F9FB] text-[#1E1E1E] font-sans antialiased pb-24">
       
       {/* ── HEADER NAVIGATION (Clean, Thin Borders, Soft Shadows) ── */}
       <header className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
@@ -118,12 +157,26 @@ export default function Home() {
             <Bell className="w-4 h-4 text-[#1E1E1E]" />
           </button>
           <div className="flex items-center gap-2">
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120"
-              alt="Maahi"
-              className="w-9 h-9 rounded-full border border-slate-200 object-cover shadow-sm"
-            />
-            <span className="hidden lg:inline text-xs font-black text-[#1E1E1E] tracking-tight">Hi, Maahi 👋</span>
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#5D5FEF] to-[#FF5252] flex items-center justify-center text-white text-xs font-black shadow-sm border border-white">
+              {displayName.charAt(0).toUpperCase()}
+            </div>
+            {isEditingName ? (
+              <form onSubmit={(e) => { e.preventDefault(); if (nameInput.trim()) setDisplayName(nameInput.trim()); setIsEditingName(false); }} className="flex items-center gap-1">
+                <input
+                  autoFocus
+                  value={nameInput}
+                  onChange={e => setNameInput(e.target.value)}
+                  className="hidden lg:inline w-24 text-xs font-black text-[#1E1E1E] bg-white border border-[#5D5FEF] rounded-lg px-2 py-1 focus:outline-none"
+                  placeholder="Your name"
+                />
+                <button type="submit" className="hidden lg:inline text-[9px] font-black text-[#5D5FEF] hover:underline cursor-pointer">Save</button>
+              </form>
+            ) : (
+              <button
+                onClick={() => { setNameInput(displayName); setIsEditingName(true); }}
+                className="hidden lg:inline text-xs font-black text-[#1E1E1E] tracking-tight hover:text-[#5D5FEF] transition-colors cursor-pointer"
+              >Hi, {displayName} 👋</button>
+            )}
           </div>
         </div>
       </header>
@@ -235,65 +288,172 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero Right: 3D Standing Books */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center relative select-none">
-            <div className="relative w-full max-w-[460px] h-[380px] flex items-center justify-center perspective-[1200px]">
-              
-              {/* Left book: Physics Cycle */}
-              <div className="absolute transition-transform duration-500 hover:translate-y-[-10px] z-10" style={{ transform: 'translate3d(-100px, 10px, -80px) rotateY(-25deg) rotateZ(-4deg)' }}>
-                <div className="relative w-[160px] h-[230px] preserve-3d rounded-r-lg shadow-[-20px_20px_30px_rgba(0,0,0,0.2)]" style={{ transformStyle: 'preserve-3d' }}>
-                  {/* Front Cover */}
-                  <div className="absolute inset-0 bg-cover bg-center rounded-r-lg rounded-l-sm z-20 border border-white/20" style={{ backgroundImage: 'url("/bookcovers/physics-cycle.png")', transform: 'translateZ(10px)' }} />
-                  {/* Back Cover */}
-                  <div className="absolute inset-0 bg-[#E64A79] rounded-r-lg rounded-l-sm z-0 border border-black/10" style={{ transform: 'translateZ(-10px)' }} />
-                  {/* Spine (Left side) */}
-                  <div className="absolute top-0 left-0 h-full w-[20px] bg-[#C2355F] z-10" style={{ transform: 'rotateY(-90deg) translateZ(10px)', transformOrigin: 'left' }} />
-                  {/* Pages (Right, Top, Bottom) - Not really visible from this angle, but adds depth */}
-                  <div className="absolute top-[2px] right-0 h-[226px] w-[20px] bg-slate-100 z-10" style={{ transform: 'rotateY(90deg) translateZ(160px)', transformOrigin: 'left' }} />
-                  <div className="absolute top-0 left-[2px] w-[156px] h-[20px] bg-slate-200 z-10" style={{ transform: 'rotateX(90deg) translateZ(10px)', transformOrigin: 'top' }} />
+          {/* Hero Right: 5-Book 3D Shelf */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center relative select-none py-6 lg:py-0">
+            <style>{`
+              @keyframes bookFloat1 { 0%,100%{transform:translateY(0) rotateY(22deg) rotateZ(-9deg);} 50%{transform:translateY(-8px) rotateY(22deg) rotateZ(-9deg);} }
+              @keyframes bookFloat2 { 0%,100%{transform:translateY(-4px) rotateY(10deg) rotateZ(-4deg);} 50%{transform:translateY(4px) rotateY(10deg) rotateZ(-4deg);} }
+              @keyframes bookFloat3 { 0%,100%{transform:translateY(0) rotateY(0deg) rotateZ(-1deg);} 50%{transform:translateY(-10px) rotateY(0deg) rotateZ(-1deg);} }
+              @keyframes bookFloat4 { 0%,100%{transform:translateY(-6px) rotateY(-10deg) rotateZ(4deg);} 50%{transform:translateY(2px) rotateY(-10deg) rotateZ(4deg);} }
+              @keyframes bookFloat5 { 0%,100%{transform:translateY(0) rotateY(-22deg) rotateZ(8deg);} 50%{transform:translateY(-7px) rotateY(-22deg) rotateZ(8deg);} }
+              .book3d { 
+                position:absolute; 
+                border-radius:4px 10px 10px 4px; 
+                box-shadow:0 18px 40px rgba(0,0,0,0.3), 0 6px 12px rgba(0,0,0,0.15); 
+                transition:filter 0.3s, transform 0.3s; 
+              }
+              .book3d:hover { filter:brightness(1.1); cursor:pointer; transform:scale(1.05) translateY(-5px); }
+              .bspine { 
+                position:absolute; 
+                left:-10px; 
+                top:0; 
+                bottom:0; 
+                width:10px; 
+                border-radius:4px 0 0 4px; 
+                filter:brightness(0.6); 
+                box-shadow: inset -2px 0 6px rgba(0,0,0,0.3);
+              }
+              .bpages { 
+                position:absolute; 
+                right:-4px; 
+                top:2px; 
+                bottom:2px; 
+                width:5px; 
+                background:linear-gradient(to right,#d4ccb8,#e8e3d7,#d4ccb8); 
+                border-radius:0 2px 2px 0;
+                box-shadow: inset 0 0 3px rgba(0,0,0,0.15);
+              }
+              @media (min-width: 768px) {
+                .books-container { width: 440px; height: 320px; }
+                .book-1 { width:100px; height:150px; bottom:50px; }
+                .book-2 { width:115px; height:170px; left:95px; bottom:50px; }
+                .book-3 { width:130px; height:195px; left:205px; bottom:50px; }
+                .book-4 { width:115px; height:165px; right:90px; bottom:50px; }
+                .book-5 { width:100px; height:148px; bottom:50px; }
+                .book-shelf { bottom:36px; left:12px; right:12px; height:16px; }
+                .book-shadow { bottom:12px; left:40px; right:40px; }
+                .book-padding { padding:8px 6px; }
+                .book-padding-3 { padding:10px 8px; }
+                .book-icon { font-size:18px; margin-bottom:4px; }
+                .book-icon-3 { font-size:22px; margin-bottom:4px; }
+                .book-title { font-size:7px; }
+                .book-title-3 { font-size:8px; }
+                .book-subtitle { font-size:6px; margin-top:3px; }
+                .book-divider { width:24px; margin:5px 0; }
+              }
+              @media (max-width: 767px) {
+                .books-container { width: 240px; height: 180px; }
+                .book-1 { width:55px; height:80px; bottom:28px; }
+                .book-2 { width:62px; height:92px; left:50px; bottom:28px; }
+                .book-3 { width:68px; height:105px; left:108px; bottom:28px; }
+                .book-4 { width:62px; height:88px; right:48px; bottom:28px; }
+                .book-5 { width:55px; height:78px; bottom:28px; }
+                .book-shelf { bottom:20px; left:6px; right:6px; height:10px; }
+                .book-shadow { bottom:9px; left:30px; right:30px; }
+                .book-padding { padding:5px 4px; }
+                .book-padding-3 { padding:7px 5px; }
+                .book-icon { font-size:14px; margin-bottom:2px; }
+                .book-icon-3 { font-size:16px; margin-bottom:2px; }
+                .book-title { font-size:5px; }
+                .book-title-3 { font-size:5.5px; }
+                .book-subtitle { font-size:4.5px; margin-top:2px; }
+                .book-divider { width:16px; margin:3px 0; }
+              }
+            `}</style>
+
+            <div className="relative books-container">
+              {/* Soft glow */}
+              <div className="absolute" style={{inset:0,background:'radial-gradient(ellipse at 50% 60%, rgba(93,95,239,0.15) 0%, transparent 70%)',borderRadius:'50%',filter:'blur(15px)'}} />
+
+              {/* Book 1 – far left (Engineering Physics, red) */}
+              <div className="book3d book-1" style={{left:0,background:'linear-gradient(145deg,#e53935,#b71c1c)',animation:'bookFloat1 5.5s ease-in-out infinite',zIndex:1}}>
+                <div className="bspine" style={{background:'#b71c1c'}} />
+                <div className="bpages" />
+                <div className="book-padding" style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',borderRadius:'0 10px 10px 0'}}>
+                  <div className="book-icon">⚛️</div>
+                  <p className="book-title" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>Engineering Physics</p>
+                  <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
                 </div>
               </div>
 
-              {/* Right book: CSE Stack */}
-              <div className="absolute transition-transform duration-500 hover:translate-y-[-10px] z-10" style={{ transform: 'translate3d(100px, 10px, -80px) rotateY(25deg) rotateZ(4deg)' }}>
-                <div className="relative w-[160px] h-[230px] preserve-3d rounded-l-lg shadow-[20px_20px_30px_rgba(0,0,0,0.2)]" style={{ transformStyle: 'preserve-3d' }}>
-                  {/* Front Cover */}
-                  <div className="absolute inset-0 bg-cover bg-center rounded-l-lg rounded-r-sm z-20 border border-white/20" style={{ backgroundImage: 'url("/bookcovers/cse.png")', transform: 'translateZ(10px)' }} />
-                  {/* Back Cover */}
-                  <div className="absolute inset-0 bg-[#154AA1] rounded-l-lg rounded-r-sm z-0 border border-black/10" style={{ transform: 'translateZ(-10px)' }} />
-                  {/* Spine (Right side because of angle) -> Actually spine is on left, pages are on right. Since it's rotated right, we see the pages side! */}
-                  <div className="absolute top-[2px] right-0 h-[226px] w-[20px] bg-gradient-to-r from-slate-200 to-white z-10 border-y border-r border-slate-300" style={{ transform: 'rotateY(90deg) translateZ(160px)', transformOrigin: 'left' }}>
-                    {/* Page lines texture */}
-                    <div className="w-full h-full opacity-30" style={{ backgroundImage: 'repeating-linear-gradient(to right, transparent, transparent 1px, rgba(0,0,0,0.1) 1px, rgba(0,0,0,0.1) 2px)' }} />
-                  </div>
-                  {/* Spine (Left side) - Not really visible */}
-                  <div className="absolute top-0 left-0 h-full w-[20px] bg-[#113C82] z-10" style={{ transform: 'rotateY(-90deg) translateZ(10px)', transformOrigin: 'left' }} />
-                  {/* Top Pages */}
-                  <div className="absolute top-0 left-[2px] w-[156px] h-[20px] bg-slate-200 z-10 border-x border-t border-slate-300" style={{ transform: 'rotateX(90deg) translateZ(10px)', transformOrigin: 'top' }} />
+              {/* Book 2 – mid-left (Comp Math, orange-amber) */}
+              <div className="book3d book-2" style={{background:'linear-gradient(145deg,#f9a825,#e65100)',animation:'bookFloat2 6s ease-in-out infinite',zIndex:2}}>
+                <div className="bspine" style={{background:'#e65100'}} />
+                <div className="bpages" />
+                <div className="book-padding" style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',borderRadius:'0 10px 10px 0'}}>
+                  <div className="book-icon">📐</div>
+                  <p className="book-title" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>Comp. Mathematics</p>
+                  <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
                 </div>
               </div>
 
-              {/* Center book: Chemistry Cycle */}
-              <div className="absolute transition-transform duration-500 hover:translate-y-[-12px] z-20" style={{ transform: 'translate3d(0, -5px, 0) scale(1.05)' }}>
-                <div className="relative w-[180px] h-[260px] preserve-3d rounded-r-lg shadow-[0_30px_40px_rgba(0,0,0,0.3)]" style={{ transformStyle: 'preserve-3d' }}>
-                  {/* Front Cover */}
-                  <div className="absolute inset-0 bg-cover bg-center rounded-r-lg rounded-l-sm z-20 border border-white/30" style={{ backgroundImage: 'url("/bookcovers/chemistry-cycle.png")', transform: 'translateZ(12px)' }} />
-                  {/* Back Cover */}
-                  <div className="absolute inset-0 bg-[#28923F] rounded-r-lg rounded-l-sm z-0 border border-black/10" style={{ transform: 'translateZ(-12px)' }} />
-                  {/* Spine (Left side) */}
-                  <div className="absolute top-0 left-0 h-full w-[24px] bg-gradient-to-r from-[#1E7430] to-[#28923F] z-10 border-y border-l border-black/20" style={{ transform: 'rotateY(-90deg) translateZ(12px)', transformOrigin: 'left' }} />
-                  {/* Pages (Right side) - Slightly visible if looking straight, mostly bottom shadow */}
-                  <div className="absolute top-[2px] right-0 h-[256px] w-[24px] bg-slate-100 z-10" style={{ transform: 'rotateY(90deg) translateZ(180px)', transformOrigin: 'left' }} />
-                  {/* Top Pages */}
-                  <div className="absolute top-0 left-[2px] w-[176px] h-[24px] bg-slate-200 z-10" style={{ transform: 'rotateX(90deg) translateZ(12px)', transformOrigin: 'top' }} />
+              {/* Book 3 – center/tallest (Physics Cycle, deep indigo) */}
+              <div className="book3d book-3" style={{background:'linear-gradient(145deg,#5D5FEF,#3730a3)',animation:'bookFloat3 5s ease-in-out infinite',zIndex:5}}>
+                <div className="bspine" style={{background:'#3730a3'}} />
+                <div className="bpages" />
+                <div className="book-padding-3" style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',borderRadius:'0 10px 10px 0'}}>
+                  <div className="book-icon-3">🔬</div>
+                  <p className="book-title-3" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>Physics Cycle</p>
+                  <div className="book-divider" style={{height:1,background:'rgba(255,255,255,0.3)'}} />
+                  <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
                 </div>
               </div>
 
+              {/* Book 4 – mid-right (Chemistry Cycle, teal) */}
+              <div className="book3d book-4" style={{background:'linear-gradient(145deg,#00acc1,#00695c)',animation:'bookFloat4 6.5s ease-in-out infinite',zIndex:3}}>
+                <div className="bspine" style={{background:'#00695c'}} />
+                <div className="bpages" />
+                <div className="book-padding" style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',borderRadius:'0 10px 10px 0'}}>
+                  <div className="book-icon">🧪</div>
+                  <p className="book-title" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>Chemistry Cycle</p>
+                  <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
+                </div>
+              </div>
+
+              {/* Book 5 – far right (PSUC, emerald-green) */}
+              <div className="book3d book-5" style={{right:0,background:'linear-gradient(145deg,#43a047,#1b5e20)',animation:'bookFloat5 5.8s ease-in-out infinite',zIndex:2}}>
+                <div className="bspine" style={{background:'#1b5e20'}} />
+                <div className="bpages" />
+                <div className="book-padding" style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',borderRadius:'0 10px 10px 0'}}>
+                  <div className="book-icon">💻</div>
+                  <p className="book-title" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>PSUC</p>
+                  <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
+                </div>
+              </div>
+
+              {/* Wooden shelf */}
+              <div className="book-shelf" style={{position:'absolute',borderRadius:6,background:'linear-gradient(to bottom,#c8a97e 0%,#a0734c 60%,#7a5230 100%)',boxShadow:'0 4px 14px rgba(0,0,0,0.25)',zIndex:10}} />
+              {/* Shelf shadow */}
+              <div className="book-shadow" style={{position:'absolute',height:8,borderRadius:'50%',background:'rgba(0,0,0,0.14)',filter:'blur(6px)',zIndex:0}} />
             </div>
+
+            {/* NEW MINI CARDS UNDER BOOKS */}
+            <div className="flex gap-4 w-full max-w-[440px] mt-8 z-10">
+              {/* Attendance Calculator box */}
+              <button 
+                onClick={() => setIsAttendanceModalOpen(true)}
+                className="flex-1 bg-gradient-to-br from-[#5D5FEF] to-[#7F00FF] hover:brightness-105 transition-all text-white p-3 rounded-xl shadow-sm text-left relative overflow-hidden group cursor-pointer border border-white/20"
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl" />
+                <div className="font-display font-black text-[11px] uppercase tracking-wide flex items-center gap-1.5"><ArrowRight className="w-3 h-3 text-white/70" /> Attendance</div>
+                <div className="text-[9px] text-white/80 font-bold leading-tight mt-1 ml-4.5">Calculate & track</div>
+              </button>
+              {/* Exam Timetable box */}
+              <button 
+                onClick={() => setIsExamTimetableModalOpen(true)}
+                className="flex-1 bg-gradient-to-br from-[#FF6B6B] to-[#FFB236] hover:brightness-105 transition-all text-white p-3 rounded-xl shadow-sm text-left relative overflow-hidden group cursor-pointer border border-white/20"
+              >
+                <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-xl" />
+                <div className="font-display font-black text-[11px] uppercase tracking-wide flex items-center gap-1.5"><ArrowRight className="w-3 h-3 text-white/70" /> Timetable</div>
+                <div className="text-[9px] text-white/80 font-bold leading-tight mt-1 ml-4.5">View schedule</div>
+              </button>
+            </div>
+            
           </div>
 
         </div>
       </section>
+
 
       {/* ── CONTINUE STUDYING SECTION ── */}
       <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-12 border-t border-slate-200/60">
@@ -304,108 +464,171 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* MOBILE: Horizontal slider */}
+        <div className="md:hidden flex gap-6 overflow-x-auto no-scrollbar pb-6 pt-2 px-2 snap-x snap-mandatory">
           {[
             {
               title: 'Physics Cycle',
               year: 'BTech 1st Year',
-              progress: 73,
               cover: '/bookcovers/physics-cycle.png',
               explorePath: '/explore?year=1&cycle=physics-cycle'
             },
             {
               title: 'BTech 2nd Year',
               year: 'All Subjects',
-              progress: 42,
               cover: '/bookcovers/second-year.png',
               explorePath: '/explore?year=2'
             },
             {
               title: 'Data Structures',
               year: 'BTech 2nd Year',
-              progress: 15,
               cover: '/bookcovers/cse.png',
               explorePath: '/explore?year=2'
             },
             {
               title: 'Chemistry Cycle',
               year: 'BTech 1st Year',
-              progress: 65,
+              cover: '/bookcovers/chemistry-cycle.png',
+              explorePath: '/explore?year=1&cycle=chemistry-cycle'
+            }
+          ].map((item, idx) => (
+            <Link
+              key={idx}
+              to={item.explorePath}
+              className="min-w-[280px] snap-center shrink-0 bg-white border border-slate-200 rounded-[32px] p-5 hover:shadow-lg transition-all duration-300 group flex items-center gap-4 cursor-pointer text-left"
+            >
+              <div className="relative w-20 h-28 shrink-0" style={{ perspective: '800px' }}>
+                <div className="absolute right-0 top-0.5 bottom-0.5 w-1.5 bg-gradient-to-r from-slate-200 to-white border-y border-r border-slate-300 rounded-r-sm" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
+                <div className="absolute left-0 top-0 bottom-0 w-2 bg-black/20 z-10 rounded-l-sm" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.12), rgba(255,255,255,0.05) 30%, rgba(0,0,0,0.08) 85%)' }} />
+                <div className="absolute inset-0 rounded-r-lg bg-cover bg-center border-l-2 border-black/15" style={{ backgroundImage: `url(${item.cover})` }} />
+              </div>
+              <div className="flex-1 flex flex-col justify-between h-28 py-1">
+                <div className="space-y-0.5">
+                  <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
+                  <h3 className="font-display font-bold text-sm text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
+                </div>
+                <div className="space-y-1">
+                  <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">Progress</span>
+                  <div className="w-full h-1 bg-slate-100 rounded-full overflow-hidden">
+                    <div className="bg-[#5D5FEF] h-full rounded-full" style={{ width: idx === 0 ? '73%' : idx === 1 ? '42%' : idx === 2 ? '15%' : '65%' }} />
+                  </div>
+                </div>
+                <div className="w-full py-1.5 border border-slate-200 rounded-lg bg-[#FAF9F5] text-center font-display font-black text-[8px] text-[#1E1E1E] uppercase tracking-wider group-hover:bg-[#1E1E1E] group-hover:text-white transition-all mt-1">
+                  Continue Notebook →
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* DESKTOP: Grid view */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            {
+              title: 'Physics Cycle',
+              year: 'BTech 1st Year',
+              cover: '/bookcovers/physics-cycle.png',
+              explorePath: '/explore?year=1&cycle=physics-cycle'
+            },
+            {
+              title: 'BTech 2nd Year',
+              year: 'All Subjects',
+              cover: '/bookcovers/second-year.png',
+              explorePath: '/explore?year=2'
+            },
+            {
+              title: 'Data Structures',
+              year: 'BTech 2nd Year',
+              cover: '/bookcovers/cse.png',
+              explorePath: '/explore?year=2'
+            },
+            {
+              title: 'Chemistry Cycle',
+              year: 'BTech 1st Year',
               cover: '/bookcovers/chemistry-cycle.png',
               explorePath: '/explore?year=1&cycle=chemistry-cycle'
             }
           ].map((item, idx) => (
             <div 
               key={idx}
-              className="bg-white border border-slate-200/80 rounded-[32px] p-6 shadow-[0_4px_24px_rgba(0,0,0,0.015)] flex flex-col justify-between h-[320px] hover:translate-y-[-4px] hover:shadow-md transition-all group text-left"
+              onClick={() => navigate(item.explorePath)}
+              className="bg-white border border-slate-200 rounded-[32px] p-6 hover:shadow-lg transition-all duration-300 group flex flex-col xl:flex-row items-center gap-6 cursor-pointer text-left"
             >
-              <div className="flex gap-5">
+              {/* Left Side: 3D Book Cover */}
+              <div className="relative w-28 h-40 shrink-0" style={{ perspective: '800px' }}>
+                {/* Page edges */}
+                <div className="absolute right-0 top-0.5 bottom-0.5 w-2 bg-gradient-to-r from-slate-200 to-white border-y border-r border-slate-300 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
+                {/* Spine */}
+                <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/20 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.12), rgba(255,255,255,0.05) 30%, rgba(0,0,0,0.08) 85%)' }} />
+                {/* Book Cover */}
                 <div 
-                  className="w-28 h-40 rounded-2xl bg-cover bg-center shrink-0 shadow-md group-hover:scale-[1.03] transition-transform"
-                  style={{ backgroundImage: `url(${item.cover})`, boxShadow: '0 8px 20px rgba(0,0,0,0.18)', border: '2px solid rgba(255,255,255,0.5)', outline: '1px solid rgba(0,0,0,0.1)' }}
+                  className="absolute inset-0 rounded-r-xl bg-cover bg-center border-l-2 border-black/15"
+                  style={{ backgroundImage: `url(${item.cover})` }}
                 />
-                <div className="flex-1 min-w-0 space-y-2 pt-1">
-                  <span className="text-[9px] font-extrabold uppercase bg-slate-100 px-2 py-0.5 rounded text-slate-500">{item.year}</span>
-                  <h4 className="font-display font-bold text-lg text-[#1E1E1E] leading-tight line-clamp-2">{item.title}</h4>
-                </div>
               </div>
-              
-              <div className="space-y-3 pt-4 border-t border-slate-100">
-                <div className="flex justify-between items-center text-[10px] font-black uppercase text-[#1E1E1E]">
-                  <span>Progress</span>
-                  <span>{item.progress}%</span>
+
+              {/* Right Side: Details */}
+              <div className="flex-1 flex flex-col justify-between h-40 py-1 w-full">
+                <div className="space-y-1">
+                  <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
+                  <h3 className="font-display font-extrabold text-lg xl:text-xl text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
                 </div>
-                <div className="h-2 bg-slate-100 rounded-full overflow-hidden">
-                  <div className="h-full bg-[#5D5FEF] rounded-full transition-all duration-500" style={{ width: `${item.progress}%` }} />
+
+                {/* Progress bar without percentage */}
+                <div className="space-y-1.5 mt-2">
+                  <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">Progress</span>
+                  <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <div className="bg-[#5D5FEF] h-full rounded-full" style={{ width: idx === 0 ? '73%' : idx === 1 ? '42%' : idx === 2 ? '15%' : '65%' }} />
+                  </div>
                 </div>
-                <button
-                  onClick={() => navigate(item.explorePath)}
-                  className="w-full mt-2 py-2.5 bg-[#FAF9F5] border border-slate-200 text-[#1E1E1E] font-black text-[10px] uppercase rounded-xl flex items-center justify-center gap-1 cursor-pointer hover:bg-[#1E1E1E] hover:text-white hover:border-[#1E1E1E] transition-all"
-                >
-                  Continue notebook <ArrowRight className="w-3.5 h-3.5" />
-                </button>
+
+                {/* Continue Notebook Button */}
+                <div className="w-full py-2 border border-slate-200 rounded-xl bg-[#FAF9F5] text-center font-display font-black text-[10px] text-[#1E1E1E] uppercase tracking-wider group-hover:bg-[#1E1E1E] group-hover:text-white transition-all mt-4">
+                  Continue Notebook →
+                </div>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── TECH STACKS SECTION ── */}
-      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60">
+      {/* ── TECH STACKS SECTION (80px padding py-20) ── */}
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-20 border-t border-slate-200/60">
         <div className="flex justify-between items-center mb-8">
           <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">Tech Stacks</h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {[
-            { y: 1, title: 'First Year',   color: 'bg-[#EDE7F6]', cover: '/bookcovers/first-year.png' },
-            { y: 2, title: 'Second Year',  color: 'bg-[#FFF3E0]', cover: '/bookcovers/second-year.png' },
-            { y: 3, title: 'Third Year',   color: 'bg-[#E3F2FD]', cover: '/bookcovers/third-year.png' },
-            { y: 4, title: 'Fourth Year',  color: 'bg-[#E8F5E9]', cover: '/bookcovers/fourth-year.png' },
+            { y: 1, title: 'First Year',   cover: '/bookcovers/first-year.png' },
+            { y: 2, title: 'Second Year',  cover: '/bookcovers/second-year.png' },
+            { y: 3, title: 'Third Year',   cover: '/bookcovers/third-year.png' },
+            { y: 4, title: 'Fourth Year',  cover: '/bookcovers/fourth-year.png' },
           ].map((item) => (
             <div 
               key={item.y}
               onClick={() => navigate(`/explore?year=${item.y}`)}
-              className={`group cursor-pointer rounded-3xl border border-slate-200/80 p-5 shadow-[0_6px_20px_rgba(0,0,0,0.02)] hover:translate-y-[-2px] transition-all flex flex-col justify-between h-80 ${item.color}`}
+              className="group cursor-pointer hover:translate-y-[-10px] transition-all duration-300 flex flex-col items-center"
             >
-              {/* Book cover — big, centred, takes most of the card */}
-              <div className="flex-1 flex items-center justify-center py-2">
+              {/* 3D Book Layout Container */}
+              <div className="relative w-52 h-72 transition-all duration-300 group-hover:scale-[1.06] group-hover:rotate-1" style={{ perspective: '900px' }}>
+                {/* Soft fanned shadow */}
+                <div className="absolute inset-0 bg-black/35 rounded-r-2xl blur-lg translate-y-4 translate-x-2 transition-all duration-300 group-hover:translate-y-6 group-hover:translate-x-4 group-hover:blur-xl" />
+                {/* Page edges layer */}
+                <div className="absolute right-0 top-1 bottom-1 w-3.5 bg-gradient-to-r from-slate-200 to-white border-y border-r border-slate-300 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
+                {/* Spine effect */}
+                <div className="absolute left-0 top-0 bottom-0 w-4.5 bg-black/25 z-10 rounded-l-md border-r border-white/10" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.1), rgba(255,255,255,0.05) 30%, rgba(0,0,0,0.1) 85%)' }} />
+                {/* Main Book Cover */}
                 <div 
-                  className="w-32 h-44 rounded-2xl bg-cover bg-center group-hover:scale-105 transition-transform"
-                  style={{ backgroundImage: `url(${item.cover})`, boxShadow: '0 10px 28px rgba(0,0,0,0.22)', border: '2px solid rgba(255,255,255,0.5)', outline: '1px solid rgba(0,0,0,0.1)' }}
+                  className="absolute inset-0 rounded-r-2xl bg-cover bg-center border-l-4 border-black/30"
+                  style={{ backgroundImage: `url(${item.cover})` }}
                 />
               </div>
-
-              <div className="pt-3 border-t border-slate-200/20 flex justify-between items-center">
-                <div className="text-left">
-                  <span className="text-[9px] font-extrabold uppercase text-slate-400 tracking-widest">Year 0{item.y}</span>
-                  <h3 className="font-display font-extrabold text-base text-[#1E1E1E] uppercase leading-tight">
-                    {item.title}
-                  </h3>
-                </div>
-                <span className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm group-hover:bg-[#1E1E1E] group-hover:border-[#1E1E1E] transition-all">
-                  <ChevronRight className="w-4 h-4 text-[#1E1E1E] group-hover:text-white transition-colors" />
-                </span>
+              <div className="mt-6 text-center space-y-1 w-full">
+                <span className="text-[10px] font-extrabold uppercase text-slate-500">Year 0{item.y}</span>
+                <h3 className="font-display font-extrabold text-lg text-[#1E1E1E] uppercase leading-tight">
+                  {item.title}
+                </h3>
               </div>
             </div>
           ))}
@@ -438,7 +661,10 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="bg-gradient-to-br from-[#5D5FEF] to-[#7F00FF] rounded-[32px] border border-slate-200 p-6 sm:p-8 shadow-md relative overflow-hidden flex flex-col justify-between h-52 text-left group cursor-not-allowed">
+        <div
+          className="bg-gradient-to-br from-[#5D5FEF] to-[#7F00FF] rounded-[32px] border border-slate-200 p-6 sm:p-8 shadow-md relative overflow-hidden flex flex-col justify-between h-52 text-left group cursor-pointer hover:scale-[1.01] transition-transform"
+          onClick={() => setIsNonBTechModalOpen(true)}
+        >
           <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
           <div>
             <span className="text-[9px] font-extrabold uppercase bg-white/20 border border-white/40 px-3 py-1 rounded-full text-white tracking-widest">
@@ -452,21 +678,55 @@ export default function Home() {
             </p>
           </div>
           <button
-            disabled
-            className="w-fit bg-white/50 border border-slate-200/50 text-slate-500 font-black px-5 py-2.5 rounded-2xl text-xs uppercase tracking-wider shadow-sm cursor-not-allowed flex items-center gap-1.5"
+            className="w-fit bg-white border border-white/50 text-[#5D5FEF] font-black px-5 py-2.5 rounded-2xl text-xs uppercase tracking-wider shadow-sm flex items-center gap-1.5 group-hover:bg-white/90 transition-all"
           >
-            Coming Soon <ArrowRight className="w-3.5 h-3.5" />
+            Explore Courses <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-400 uppercase">
-        <span className="font-display font-extrabold text-[#1E1E1E] text-base">MUJSTUDY</span>
+        <span className="font-display font-extrabold text-[#1E1E1E] text-base">MUJ SPACE</span>
         <span>© 2026 MANIPAL UNIVERSITY JAIPUR ARCHIVE</span>
       </footer>
 
-
+      {/* ── NON-BTECH COMING SOON MODAL ── */}
+      <AnimatePresence>
+        {isNonBTechModalOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E1E1E]/50 backdrop-blur-sm"
+            onClick={() => setIsNonBTechModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.93, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.93, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-gradient-to-br from-[#5D5FEF] to-[#7F00FF] rounded-[32px] w-full max-w-sm overflow-hidden shadow-2xl p-8 text-center relative"
+            >
+              <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full blur-2xl" />
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">
+                  🚀
+                </div>
+                <h3 className="font-display font-black text-2xl text-white uppercase tracking-wide mb-2">Coming Soon!</h3>
+                <p className="text-white/80 text-sm font-bold leading-relaxed mb-6">
+                  We are adding more courses very soon!<br />
+                  <span className="text-white/60 text-xs">BBA · BCA · MBA · B.Sc and more.</span>
+                </p>
+                <button
+                  onClick={() => setIsNonBTechModalOpen(false)}
+                  className="w-full py-3 bg-white text-[#5D5FEF] font-black text-xs uppercase tracking-wider rounded-2xl hover:bg-white/90 transition-all cursor-pointer shadow-sm"
+                >
+                  Got it, stay tuned! 🎯
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* ── SETUP DIALOG MODAL (Clean B&W overlay modal) ── */}
       <AnimatePresence>
@@ -685,6 +945,505 @@ export default function Home() {
                   Enter Practice Arena
                 </button>
               </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* ── ATTENDANCE CALCULATOR MODAL ── */}
+      <AnimatePresence>
+        {isAttendanceModalOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30 backdrop-blur-sm"
+            onClick={() => setIsAttendanceModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.93, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.93, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white/90 backdrop-blur-xl rounded-[24px] w-full max-w-lg overflow-hidden shadow-2xl border border-white/50 relative"
+            >
+              {/* Header */}
+              <div className="px-6 py-4 border-b border-slate-200/50 flex items-center justify-between bg-white/70">
+                <div>
+                  <h3 className="font-display font-black text-xl text-[#1E1E1E] uppercase tracking-tight">Attendance Tracker</h3>
+                </div>
+                <button
+                  onClick={() => setIsAttendanceModalOpen(false)}
+                  className="w-10 h-10 rounded-xl border border-slate-200 hover:bg-slate-100 flex items-center justify-center transition-all cursor-pointer"
+                >
+                  <X className="w-5 h-5 text-[#1E1E1E]" />
+                </button>
+              </div>
+
+              {/* Body */}
+              <div className="p-6 space-y-6">
+                {subjects.length === 0 && !showAddSubject ? (
+                  /* Empty state: add subject */
+                  <div className="text-center py-6 space-y-4">
+                    <div className="text-5xl">📚</div>
+                    <h4 className="font-bold text-lg text-[#1E1E1E]">Add your first subject!</h4>
+                    <p className="text-sm text-slate-500">Track your attendance and missed lectures.</p>
+                    <button
+                      onClick={() => setShowAddSubject(true)}
+                      className="px-6 py-2.5 bg-[#1E1E1E] text-white font-black text-xs uppercase rounded-xl shadow-sm hover:bg-black transition-all cursor-pointer"
+                    >
+                      Add Subject
+                    </button>
+                  </div>
+                ) : showAddSubject ? (
+                  /* Add subject form */
+                  <div className="space-y-4">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500">Subject Name</label>
+                      <input
+                        type="text"
+                        value={newSubjectName}
+                        onChange={(e) => setNewSubjectName(e.target.value)}
+                        placeholder="e.g., Engineering Physics"
+                        className="w-full h-12 px-4 bg-white border border-slate-200 rounded-xl text-sm font-medium focus:outline-none focus:border-[#5D5FEF]"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500">Credits</label>
+                      <div className="flex gap-3">
+                        <button
+                          onClick={() => setNewSubjectCredits(3)}
+                          className={`flex-1 h-12 rounded-xl text-sm font-bold border transition-all cursor-pointer ${
+                            newSubjectCredits === 3 ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
+                          }`}
+                        >
+                          3 Credits
+                        </button>
+                        <button
+                          onClick={() => setNewSubjectCredits(4)}
+                          className={`flex-1 h-12 rounded-xl text-sm font-bold border transition-all cursor-pointer ${
+                            newSubjectCredits === 4 ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
+                          }`}
+                        >
+                          4 Credits
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex gap-3 pt-2">
+                      <button
+                        onClick={() => setShowAddSubject(false)}
+                        className="flex-1 h-12 rounded-xl text-sm font-bold border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-all cursor-pointer"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={() => {
+                          if (newSubjectName.trim()) {
+                            const newSubject: AttendanceSubject = {
+                              id: Date.now().toString(),
+                              name: newSubjectName.trim(),
+                              credits: newSubjectCredits,
+                              missedLectures: 0
+                            };
+                            setSubjects([...subjects, newSubject]);
+                            setSelectedSubjectId(newSubject.id);
+                            setNewSubjectName('');
+                            setShowAddSubject(false);
+                          }
+                        }}
+                        disabled={!newSubjectName.trim()}
+                        className="flex-1 h-12 rounded-xl text-sm font-black bg-[#1E1E1E] text-white hover:bg-black transition-all cursor-pointer disabled:opacity-40"
+                      >
+                        Save Subject
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  /* Attendance tracker view */
+                  <div className="space-y-6">
+                    {/* Subject selector + Add subject button */}
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex-1 space-y-1">
+                        <label className="text-[10px] font-black uppercase tracking-wider text-slate-500">Select Subject</label>
+                        <select
+                          value={selectedSubjectId || ''}
+                          onChange={(e) => setSelectedSubjectId(e.target.value)}
+                          className="w-full h-12 px-4 bg-white border border-slate-200 rounded-xl text-sm font-medium focus:outline-none focus:border-[#5D5FEF] cursor-pointer"
+                        >
+                          {subjects.map((s) => (
+                            <option key={s.id} value={s.id}>{s.name}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <button
+                        onClick={() => setShowAddSubject(true)}
+                        className="mt-5 h-12 px-5 bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs uppercase rounded-xl hover:bg-slate-200 transition-all cursor-pointer flex items-center gap-2"
+                      >
+                        + Add
+                      </button>
+                    </div>
+
+                    {/* Current subject info */}
+                    {selectedSubjectId && (
+                      (() => {
+                        const subject = subjects.find(s => s.id === selectedSubjectId);
+                        if (!subject) return null;
+                        const totalLectures = subject.credits === 3 ? 45 : 60;
+                        const maxMissed = subject.credits === 3 ? 9 : 12;
+                        const attended = totalLectures - subject.missedLectures;
+                        const percentage = Math.max(0, Math.min(100, (attended / totalLectures) * 100));
+                        const isSafe = percentage >= 75;
+
+                        return (
+                          <div className="space-y-6">
+                            {/* Attendance percentage */}
+                            <div className="text-center">
+                              <div className={`text-6xl font-black ${isSafe ? 'text-green-600' : 'text-red-600'}`}>
+                                {Math.round(percentage)}%
+                              </div>
+                              <div className="text-sm font-bold text-slate-500 mt-1">
+                                {isSafe ? 'Attendance is safe! 🎉' : 'Need more attendance! ⚠️'}
+                              </div>
+                              <div className="text-xs text-slate-400 mt-2">
+                                {attended}/{totalLectures} lectures attended
+                              </div>
+                            </div>
+
+                            {/* Missed lectures grid */}
+                            <div className="space-y-3">
+                              <div className="flex items-center justify-between">
+                                <span className="text-[10px] font-black uppercase tracking-wider text-slate-500">
+                                  Missed Lectures ({subject.missedLectures}/{maxMissed})
+                                </span>
+                              </div>
+                              <div className="grid grid-cols-9 gap-2">
+                                {Array.from({ length: maxMissed }).map((_, idx) => (
+                                  <motion.button
+                                    key={idx}
+                                    onClick={() => {
+                                      const newSubjects = subjects.map(s => {
+                                        if (s.id === selectedSubjectId) {
+                                          const newMissed = idx < s.missedLectures 
+                                            ? s.missedLectures - 1 
+                                            : s.missedLectures + 1;
+                                          return { ...s, missedLectures: newMissed };
+                                        }
+                                        return s;
+                                      });
+                                      setSubjects(newSubjects);
+                                    }}
+                                    initial={{ scale: 1 }}
+                                    animate={{ scale: idx < subject.missedLectures ? [1, 1.1, 1] : 1 }}
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    className={`aspect-square rounded-xl flex items-center justify-center text-lg shadow-sm transition-all cursor-pointer ${
+                                      idx < subject.missedLectures
+                                        ? 'bg-red-500 text-white shadow-red-200'
+                                        : 'bg-slate-100 text-slate-400 border border-slate-200 hover:bg-slate-200'
+                                    }`}
+                                  >
+                                    {idx < subject.missedLectures ? '❌' : '⚪'}
+                                  </motion.button>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })()
+                    )}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* ── EXAM TIMETABLE MODAL ── */}
+      <AnimatePresence>
+        {isExamTimetableModalOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30 backdrop-blur-sm"
+            onClick={() => setIsExamTimetableModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.93, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.93, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white/90 backdrop-blur-xl rounded-[24px] w-full max-w-2xl overflow-hidden shadow-2xl border border-white/50 relative"
+            >
+              {/* Header */}
+              <div className="px-6 py-4 border-b border-slate-200/50 flex items-center justify-between bg-white/70">
+                <div>
+                  <h3 className="font-display font-black text-xl text-[#1E1E1E] uppercase tracking-tight">Exam Timetable</h3>
+                </div>
+                <button
+                  onClick={() => setIsExamTimetableModalOpen(false)}
+                  className="w-10 h-10 rounded-xl border border-slate-200 hover:bg-slate-100 flex items-center justify-center transition-all cursor-pointer"
+                >
+                  <X className="w-5 h-5 text-[#1E1E1E]" />
+                </button>
+              </div>
+
+              {/* Body */}
+              <div className="p-6 text-center">
+                <div className="text-5xl mb-4">📅</div>
+                <h4 className="font-bold text-lg text-[#1E1E1E] mb-2">Coming Soon!</h4>
+                <p className="text-sm text-slate-500">Add your exams to track countdowns.</p>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Attendance Calculator Modal */}
+      <AnimatePresence>
+        {isAttendanceModalOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E1E1E]/40 backdrop-blur-sm"
+            onClick={() => setIsAttendanceModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.93, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.93, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white/90 backdrop-blur-xl border border-slate-200/60 rounded-3xl w-full max-w-md overflow-hidden shadow-2xl"
+            >
+              {/* Modal Header */}
+              <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between bg-white/50">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-[#5D5FEF] rounded-lg flex items-center justify-center">
+                    <Zap className="w-4 h-4 text-white" />
+                  </div>
+                  <h3 className="font-display font-black text-sm text-[#1E1E1E] uppercase">
+                    Attendance Tracker
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setIsAttendanceModalOpen(false)}
+                  className="w-8 h-8 rounded-lg border border-slate-200 hover:bg-slate-100 flex items-center justify-center transition-all cursor-pointer"
+                >
+                  <X className="w-4 h-4 text-[#1E1E1E]" />
+                </button>
+              </div>
+
+              {/* Modal Body */}
+              <div className="p-6 space-y-5">
+                {subjects.length === 0 && !showAddSubject ? (
+                  // No subjects yet, show add subject form first
+                  <div className="text-center space-y-5">
+                    <div className="w-16 h-16 bg-[#EDE7F6] rounded-2xl flex items-center justify-center mx-auto">
+                      <div className="text-3xl">📚</div>
+                    </div>
+                    <div>
+                      <h4 className="font-display font-extrabold text-lg text-[#1E1E1E] uppercase">
+                        Add Your First Subject
+                      </h4>
+                      <p className="text-xs font-bold text-slate-400 mt-2">
+                        Start tracking attendance by adding a subject!
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => setShowAddSubject(true)}
+                      className="w-full py-3 bg-[#1E1E1E] text-white font-black text-xs uppercase tracking-wider rounded-xl hover:bg-black transition-all cursor-pointer"
+                    >
+                      Add Subject
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    {showAddSubject ? (
+                      // Add Subject Form
+                      <div className="space-y-4">
+                        <h4 className="font-display font-bold text-base text-[#1E1E1E]">Add New Subject</h4>
+                        <div className="space-y-3">
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Subject Name</label>
+                            <input
+                              type="text"
+                              value={newSubjectName}
+                              onChange={(e) => setNewSubjectName(e.target.value)}
+                              placeholder="e.g., Engineering Physics"
+                              className="w-full h-11 px-4 bg-white border border-slate-200 rounded-xl text-xs font-bold text-[#1E1E1E] focus:outline-none focus:border-[#5D5FEF]"
+                            />
+                          </div>
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Credits</label>
+                            <div className="grid grid-cols-2 gap-2">
+                              {[3, 4].map((cred) => (
+                                <button
+                                  key={cred}
+                                  onClick={() => setNewSubjectCredits(cred as 3 | 4)}
+                                  className={`py-2 rounded-xl text-xs font-black border transition-all cursor-pointer ${
+                                    newSubjectCredits === cred
+                                      ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]'
+                                      : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'
+                                  }`}
+                                >
+                                  {cred} Credits
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => { setShowAddSubject(false); setNewSubjectName(''); }}
+                              className="flex-1 py-2.5 bg-white border border-slate-200 text-[#1E1E1E] font-black text-xs uppercase rounded-xl hover:bg-slate-50 transition-all cursor-pointer"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              onClick={() => {
+                                if (newSubjectName.trim()) {
+                                  setSubjects([...subjects, {
+                                    id: Date.now().toString(),
+                                    name: newSubjectName.trim(),
+                                    credits: newSubjectCredits,
+                                    missedLectures: 0
+                                  }]);
+                                  setShowAddSubject(false);
+                                  setNewSubjectName('');
+                                }
+                              }}
+                              disabled={!newSubjectName.trim()}
+                              className="flex-1 py-2.5 bg-[#1E1E1E] text-white font-black text-xs uppercase rounded-xl hover:bg-black transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                            >
+                              Save Subject
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      // Attendance Tracker Interface
+                      <>
+                        {/* Subject Selector */}
+                        <div className="space-y-2">
+                          <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Select Subject</label>
+                          <div className="grid grid-cols-2 gap-2">
+                            {subjects.map((subj) => (
+                              <button
+                                key={subj.id}
+                                onClick={() => setSelectedSubjectId(subj.id)}
+                                className={`py-2.5 rounded-xl text-xs font-black border transition-all cursor-pointer ${
+                                  selectedSubjectId === subj.id
+                                    ? 'bg-[#5D5FEF] text-white border-[#5D5FEF] shadow-sm'
+                                    : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'
+                                }`}
+                              >
+                                {subj.name}
+                              </button>
+                            ))}
+                          </div>
+                          <button
+                            onClick={() => setShowAddSubject(true)}
+                            className="w-full py-2.5 bg-[#FAF9F5] border border-slate-200 text-[#1E1E1E] font-black text-[10px] uppercase rounded-xl hover:bg-white transition-all cursor-pointer"
+                          >
+                            + Add Subject
+                          </button>
+                        </div>
+
+                        {/* Selected Subject Details */}
+                        {selectedSubjectId && (() => {
+                          const subject = subjects.find(s => s.id === selectedSubjectId);
+                          if (!subject) return null;
+                          const totalLectures = subject.credits === 3 ? 45 : 60;
+                          const maxMissed = subject.credits === 3 ? 9 : 12;
+                          const attended = totalLectures - subject.missedLectures;
+                          const percentage = Math.round((attended / totalLectures) * 100);
+                          const isSafe = percentage >= 75;
+
+                          return (
+                            <div className="space-y-5">
+                              {/* Attendance Percentage */}
+                              <div className="text-center space-y-2">
+                                <div className={`text-6xl font-display font-black ${isSafe ? 'text-[#22C55E]' : 'text-[#EF4444]'}`}>
+                                  {percentage}%
+                                </div>
+                                <div className={`text-xs font-extrabold uppercase tracking-wider ${isSafe ? 'text-[#22C55E]' : 'text-[#EF4444]'}`}>
+                                  {isSafe ? 'SAFE' : 'NEED MORE ATTENDANCE'}
+                                </div>
+                                <div className="text-xs font-bold text-slate-500">
+                                  {attended} / {totalLectures} Lectures Attended
+                                </div>
+                              </div>
+
+                              {/* Missed Lectures Circles */}
+                              <div className="space-y-3">
+                                <div className="flex justify-between items-center">
+                                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Missed Lectures</label>
+                                  <span className="text-xs font-extrabold text-slate-600">
+                                    {subject.missedLectures} / {maxMissed}
+                                  </span>
+                                </div>
+                                <div className="flex flex-wrap gap-2 justify-center">
+                                  {Array.from({ length: maxMissed }, (_, i) => (
+                                    <motion.button
+                                      key={i}
+                                      whileTap={{ scale: 0.85 }}
+                                      onClick={() => {
+                                        setSubjects(subjects.map(s => {
+                                          if (s.id === subject.id) {
+                                            if (i < s.missedLectures) {
+                                              return { ...s, missedLectures: s.missedLectures - 1 };
+                                            } else {
+                                              return { ...s, missedLectures: s.missedLectures + 1 };
+                                            }
+                                          }
+                                          return s;
+                                        }));
+                                      }}
+                                      className={`w-10 h-10 rounded-xl transition-all cursor-pointer flex items-center justify-center ${
+                                        i < subject.missedLectures
+                                          ? 'bg-gradient-to-br from-[#EF4444] to-[#DC2626] shadow-lg'
+                                          : 'bg-slate-100 border border-slate-200 hover:border-slate-300'
+                                      }`}
+                                    >
+                                      {i < subject.missedLectures && <X className="w-5 h-5 text-white" />}
+                                    </motion.button>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })()}
+                      </>
+                    )}
+                  </>
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Exam Timetable Modal (Placeholder) */}
+      <AnimatePresence>
+        {isExamTimetableModalOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E1E1E]/40 backdrop-blur-sm"
+            onClick={() => setIsExamTimetableModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.93, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.93, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white/90 backdrop-blur-xl border border-slate-200/60 rounded-3xl w-full max-w-md overflow-hidden shadow-2xl text-center p-8"
+            >
+              <div className="w-16 h-16 bg-gradient-to-br from-[#FF6B6B] to-[#FFB236] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="text-3xl">📅</div>
+              </div>
+              <h3 className="font-display font-black text-2xl text-[#1E1E1E] uppercase mb-2">
+                Exam Timetable
+              </h3>
+              <p className="text-xs font-bold text-slate-500 mb-6">
+                Coming soon! Add your exam dates here soon.
+              </p>
+              <button
+                onClick={() => setIsExamTimetableModalOpen(false)}
+                className="w-full py-3 bg-[#1E1E1E] text-white font-black text-xs uppercase tracking-wider rounded-xl hover:bg-black transition-all cursor-pointer"
+              >
+                Got it!
+              </button>
             </motion.div>
           </div>
         )}

@@ -22,7 +22,7 @@ html {
 }
 
 body {
-  background-color: #FAF6F0;
+  background-color: #F8F9FB;
   color: #1E1E1E;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
@@ -79,7 +79,7 @@ body {
 
 /* ── Background Patterns ── */
 .bg-graph-paper {
-  background-color: #FAF6F0;
+  background-color: #F8F9FB;
   background-image: 
     linear-gradient(to right, rgba(30, 30, 30, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(30, 30, 30, 0.04) 1px, transparent 1px);
@@ -87,7 +87,7 @@ body {
 }
 
 .bg-dots {
-  background-color: #FAF6F0;
+  background-color: #F8F9FB;
   background-image: radial-gradient(rgba(30, 30, 30, 0.08) 1.5px, transparent 1.5px);
   background-size: 20px 20px;
 }
