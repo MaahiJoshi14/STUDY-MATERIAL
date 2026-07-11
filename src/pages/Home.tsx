@@ -580,12 +580,8 @@ export default function Home() {
               className="bg-white border border-slate-100 rounded-[32px] px-5 py-4 hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:scale-[1.02] transition-all duration-300 ease-out group flex flex-row items-center gap-5 cursor-pointer text-left"
             >
               <div className="relative w-40 h-56 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-6px]" style={{ perspective: '800px' }}>
-                {/* Book spine highlight */}
-                <div className="absolute right-0 top-0.5 bottom-0.5 w-2 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
-                {/* Book spine shadow */}
-                <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
                 {/* Book cover image */}
-                <div className="absolute inset-0 rounded-r-xl bg-cover bg-center" style={{ backgroundImage: `url(${item.cover})`, boxShadow: '0 8px 20px rgba(0,0,0,0.08)' }} />
+                <div className="absolute inset-0 rounded-r-xl bg-cover bg-center" style={{ backgroundImage: `url(${item.cover})` }} />
               </div>
 
               {/* Right Side: Details */}
@@ -625,21 +621,17 @@ export default function Home() {
             <div 
               key={item.y}
               onClick={() => navigate(`/explore?year=${item.y}`)}
-              className="group cursor-pointer hover:translate-y-[-10px] transition-all duration-300 flex flex-col items-center"
+              className="group cursor-pointer hover:translate-y-[-10px] transition-all duration-300 flex flex-col items-center p-4 border border-slate-200 rounded-none"
             >
               {/* 3D Book Layout Container */}
               <div className="relative w-52 h-72 transition-all duration-300 group-hover:scale-[1.06] group-hover:rotate-1" style={{ perspective: '900px' }}>
-                {/* Spine highlight */}
-                <div className="absolute right-0 top-0.5 bottom-0.5 w-2.5 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
-                {/* Spine shadow */}
-                <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
                 <div 
                   className="absolute inset-0 rounded-r-xl bg-cover bg-center"
-                  style={{ backgroundImage: `url(${item.cover})`, boxShadow: '0 8px 20px rgba(0,0,0,0.08)' }}
+                  style={{ backgroundImage: `url(${item.cover})` }}
                 />
               </div>
               <div className="mt-6 text-center space-y-1 w-full">
-                <span className="text-[10px] font-extrabold uppercase text-slate-500">Year 0{item.y}</span>
+                <span className="text-[10px] font-extrabold uppercase text-slate-500">Year {item.y}</span>
                 <h3 className="font-display font-extrabold text-lg text-[#1E1E1E] uppercase leading-tight">
                   {item.title}
                 </h3>
