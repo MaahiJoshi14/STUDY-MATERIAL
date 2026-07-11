@@ -30,6 +30,25 @@ export default function Home() {
   const [isAttendanceModalOpen, setIsAttendanceModalOpen] = useState(false);
   const [isExamTimetableModalOpen, setIsExamTimetableModalOpen] = useState(false);
   
+  interface ExamEntry {
+    id: string;
+    subject: string;
+    type: 'MTE' | 'ETE' | 'Other';
+    date: string;
+  }
+  const [examEntries, setExamEntries] = useState<ExamEntry[]>(() => {
+    const saved = localStorage.getItem('examEntries');
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [showAddExam, setShowAddExam] = useState(false);
+  const [newExamSubject, setNewExamSubject] = useState('');
+  const [newExamType, setNewExamType] = useState<'MTE'|'ETE'|'Other'>('MTE');
+  const [newExamDate, setNewExamDate] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('examEntries', JSON.stringify(examEntries));
+  }, [examEntries]);
+  
   // Attendance Tracker state
   interface AttendanceSubject {
     id: string;
@@ -182,7 +201,7 @@ export default function Home() {
       </header>
 
       {/* ── HERO SECTION ── */}
-      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 pt-6 pb-10 lg:pt-8 lg:pb-16 relative">
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 pt-4 pb-8 lg:pt-8 lg:pb-12 relative">
         {/* Soft ambient glow behind hero */}
         <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-gradient-to-br from-[#5D5FEF]/8 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-10 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-[#FF7EB9]/8 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -198,7 +217,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-3">
-              <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-[76px] text-[#1E1E1E] leading-[0.88] tracking-tight uppercase">
+              <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-[76px] text-[#1E1E1E] leading-[0.88] tracking-tight uppercase">
                 Study Smarter.<br />
                 <span className="bg-gradient-to-r from-[#5D5FEF] to-[#7B7DFF] bg-clip-text text-transparent">Score Higher.</span>
               </h1>
@@ -210,7 +229,7 @@ export default function Home() {
             {/* Selection Filters — compact */}
             <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-[0_8px_32px_rgba(93,95,239,0.06)] space-y-4">
               {/* Row 1: Course & Year Selectors */}
-              <div className="flex flex-wrap items-center gap-3 pb-4 border-b border-slate-100">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-1.5">
                   <span className="text-[9px] font-black uppercase text-slate-400">Course:</span>
                   <span className="px-2.5 py-1 bg-[#1E1E1E] text-white text-[10px] font-black rounded-lg">B.Tech</span>
@@ -477,7 +496,7 @@ export default function Home() {
       </section>
 
       {/* ── CONTINUE STUDYING SECTION ── */}
-      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-12 border-t border-slate-200/60">
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-8 border-t border-slate-200/60">
         <div className="flex justify-between items-center mb-8">
           <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">Continue Studying</h2>
           <Link to="/explore" className="text-xs font-black uppercase text-[#5D5FEF] hover:underline flex items-center gap-1">
@@ -522,12 +541,12 @@ export default function Home() {
                 <div className="absolute inset-0 bg-white/40 blur-xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
                 <div className="absolute right-0 top-0.5 bottom-0.5 w-1.5 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-sm" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
                 <div className="absolute left-0 top-0 bottom-0 w-2 bg-black/5 z-10 rounded-l-sm" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
-                <div className="absolute inset-0 rounded-r-lg bg-cover bg-center border border-slate-200/50 shadow-[inset_1px_0_0_rgba(255,255,255,0.4)]" style={{ backgroundImage: `url(${item.cover})` }} />
+                <div className="absolute inset-0 rounded-r-lg bg-cover bg-center" style={{ backgroundImage: `url(${item.cover})` }} />
               </div>
               <div className="flex-1 flex flex-col justify-center h-40 py-1">
                 <div className="space-y-0.5">
                   <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
-                  <h3 className="font-display font-bold text-sm text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
+                  <h3 className="font-display font-bold text-xs text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
                 </div>
                 <div className="space-y-0.5 mt-3">
                   <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">Recently Opened</span>
@@ -578,14 +597,14 @@ export default function Home() {
                 <div className="absolute inset-0 bg-white/50 blur-2xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
                 <div className="absolute right-0 top-0.5 bottom-0.5 w-2 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
                 <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
-                <div className="absolute inset-0 rounded-r-xl bg-cover bg-center border border-slate-200/50 shadow-[inset_1px_0_0_rgba(255,255,255,0.4)]" style={{ backgroundImage: `url(${item.cover})` }} />
+                <div className="absolute inset-0 rounded-r-xl bg-cover bg-center" style={{ backgroundImage: `url(${item.cover})` }} />
               </div>
 
               {/* Right Side: Details */}
               <div className="flex-1 flex flex-col justify-center h-56 py-2 w-full">
                 <div className="space-y-1">
                   <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
-                  <h3 className="font-display font-extrabold text-lg xl:text-xl text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
+                  <h3 className="font-display font-extrabold text-base xl:text-lg text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
                 </div>
 
                 <div className="space-y-1 mt-4">
@@ -603,7 +622,7 @@ export default function Home() {
       </section>
 
       {/* ── TECH STACKS SECTION (80px padding py-20) ── */}
-      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-20 border-t border-slate-200/60">
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60">
         <div className="flex justify-between items-center mb-8">
           <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">Tech Stacks</h2>
         </div>
@@ -626,7 +645,7 @@ export default function Home() {
                 <div className="absolute right-0 top-0.5 bottom-0.5 w-2.5 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
                 <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
                 <div 
-                  className="absolute inset-0 rounded-r-xl bg-cover bg-center border border-slate-200/50 shadow-[inset_1px_0_0_rgba(255,255,255,0.4)]"
+                  className="absolute inset-0 rounded-r-xl bg-cover bg-center"
                   style={{ backgroundImage: `url(${item.cover})` }}
                 />
               </div>
@@ -642,7 +661,7 @@ export default function Home() {
       </section>
 
       {/* ── PRACTICE ARENA / NON-BTECH BANNERS ── */}
-      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60 grid md:grid-cols-2 gap-8">
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-8 border-t border-slate-200/60 grid md:grid-cols-2 gap-8">
         <div className="bg-gradient-to-br from-[#FF7EB9] to-[#FF5252] rounded-[32px] p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-56 text-left group">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl group-hover:bg-white/30 transition-colors duration-500" />
           <div className="relative z-10">
@@ -1421,7 +1440,7 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* Exam Timetable Modal (Placeholder) */}
+      {/* Exam Timetable Modal */}
       <AnimatePresence>
         {isExamTimetableModalOpen && (
           <div
@@ -1433,23 +1452,168 @@ export default function Home() {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.93, opacity: 0, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white/90 backdrop-blur-xl border border-slate-200/60 rounded-3xl w-full max-w-md overflow-hidden shadow-2xl text-center p-8"
+              className="bg-white/90 backdrop-blur-xl border border-slate-200/60 rounded-3xl w-full max-w-md overflow-hidden shadow-2xl text-left"
             >
-              <div className="w-16 h-16 bg-gradient-to-br from-[#FF6B6B] to-[#FFB236] rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <div className="text-3xl">📅</div>
+              {/* Modal Header */}
+              <div className="px-6 py-5 border-b border-slate-100 flex items-center justify-between bg-white/50">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-[#FF6B6B] rounded-lg flex items-center justify-center">
+                    <span className="text-white text-sm">📅</span>
+                  </div>
+                  <h3 className="font-display font-black text-sm text-[#1E1E1E] uppercase">
+                    Exam Timetable
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setIsExamTimetableModalOpen(false)}
+                  className="w-8 h-8 rounded-lg border border-slate-200 hover:bg-slate-100 flex items-center justify-center transition-all cursor-pointer"
+                >
+                  <X className="w-4 h-4 text-[#1E1E1E]" />
+                </button>
               </div>
-              <h3 className="font-display font-black text-2xl text-[#1E1E1E] uppercase mb-2">
-                Exam Timetable
-              </h3>
-              <p className="text-xs font-bold text-slate-500 mb-6">
-                Coming soon! Add your exam dates here soon.
-              </p>
-              <button
-                onClick={() => setIsExamTimetableModalOpen(false)}
-                className="w-full py-3 bg-[#1E1E1E] text-white font-black text-xs uppercase tracking-wider rounded-xl hover:bg-black transition-all cursor-pointer"
-              >
-                Got it!
-              </button>
+
+              {/* Modal Body */}
+              <div className="p-6 space-y-5">
+                {examEntries.length === 0 && !showAddExam ? (
+                  // No exams yet, show add exam prompt
+                  <div className="text-center space-y-5">
+                    <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto">
+                      <div className="text-3xl">🗓️</div>
+                    </div>
+                    <div>
+                      <h4 className="font-display font-extrabold text-lg text-[#1E1E1E] uppercase">
+                        No Exams Added
+                      </h4>
+                      <p className="text-xs font-bold text-slate-400 mt-2">
+                        Keep track of your MTEs and ETEs easily.
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => setShowAddExam(true)}
+                      className="w-full py-3 bg-[#1E1E1E] text-white font-black text-xs uppercase tracking-wider rounded-xl hover:bg-black transition-all cursor-pointer"
+                    >
+                      Add Exam Date
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    {showAddExam ? (
+                      // Add Exam Form
+                      <div className="space-y-4">
+                        <h4 className="font-display font-bold text-base text-[#1E1E1E]">Add New Exam</h4>
+                        <div className="space-y-3">
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Subject / Course</label>
+                            <input
+                              type="text"
+                              value={newExamSubject}
+                              onChange={(e) => setNewExamSubject(e.target.value)}
+                              placeholder="e.g., Engineering Mathematics"
+                              className="w-full h-11 px-4 bg-white border border-slate-200 rounded-xl text-xs font-bold text-[#1E1E1E] focus:outline-none focus:border-[#FF6B6B]"
+                            />
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Exam Type</label>
+                            <div className="grid grid-cols-3 gap-2">
+                              {['MTE', 'ETE', 'Other'].map((type) => (
+                                <button
+                                  key={type}
+                                  onClick={() => setNewExamType(type as any)}
+                                  className={`py-2 rounded-xl text-xs font-black border transition-all cursor-pointer ${
+                                    newExamType === type
+                                      ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]'
+                                      : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'
+                                  }`}
+                                >
+                                  {type}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Date</label>
+                            <input
+                              type="date"
+                              value={newExamDate}
+                              onChange={(e) => setNewExamDate(e.target.value)}
+                              className="w-full h-11 px-4 bg-white border border-slate-200 rounded-xl text-xs font-bold text-[#1E1E1E] focus:outline-none focus:border-[#FF6B6B]"
+                            />
+                          </div>
+                          
+                          <div className="flex gap-2 pt-2">
+                            <button
+                              onClick={() => { setShowAddExam(false); setNewExamSubject(''); setNewExamDate(''); }}
+                              className="flex-1 py-2.5 bg-white border border-slate-200 text-[#1E1E1E] font-black text-xs uppercase rounded-xl hover:bg-slate-50 transition-all cursor-pointer"
+                            >
+                              Cancel
+                            </button>
+                            <button
+                              onClick={() => {
+                                if (newExamSubject.trim() && newExamDate) {
+                                  setExamEntries([...examEntries, {
+                                    id: Date.now().toString(),
+                                    subject: newExamSubject.trim(),
+                                    type: newExamType,
+                                    date: newExamDate
+                                  }].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()));
+                                  setShowAddExam(false);
+                                  setNewExamSubject('');
+                                  setNewExamDate('');
+                                }
+                              }}
+                              disabled={!newExamSubject.trim() || !newExamDate}
+                              className="flex-1 py-2.5 bg-[#FF6B6B] text-white font-black text-xs uppercase rounded-xl hover:bg-[#ff5252] transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                            >
+                              Save Exam
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      // Exam List Interface
+                      <div className="space-y-4">
+                        <div className="space-y-2">
+                          {examEntries.map((exam) => (
+                            <div key={exam.id} className="p-3 border border-slate-200 rounded-xl bg-white flex justify-between items-center group">
+                              <div>
+                                <h4 className="font-display font-bold text-sm text-[#1E1E1E] uppercase">{exam.subject}</h4>
+                                <div className="flex items-center gap-2 mt-1">
+                                  <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded ${
+                                    exam.type === 'MTE' ? 'bg-orange-100 text-orange-600' :
+                                    exam.type === 'ETE' ? 'bg-red-100 text-red-600' :
+                                    'bg-slate-100 text-slate-600'
+                                  }`}>
+                                    {exam.type}
+                                  </span>
+                                  <span className="text-[10px] font-bold text-slate-400">
+                                    {new Date(exam.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                  </span>
+                                </div>
+                              </div>
+                              <button
+                                onClick={() => {
+                                  setExamEntries(examEntries.filter(e => e.id !== exam.id));
+                                }}
+                                className="w-8 h-8 flex flex-shrink-0 items-center justify-center rounded-lg hover:bg-red-50 text-slate-300 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100 cursor-pointer"
+                              >
+                                <X className="w-4 h-4" />
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                        <button
+                          onClick={() => setShowAddExam(true)}
+                          className="w-full py-2.5 bg-[#FAF9F5] border border-slate-200 text-[#1E1E1E] font-black text-[10px] uppercase rounded-xl hover:bg-white transition-all cursor-pointer"
+                        >
+                          + Add More Subjects
+                        </button>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
             </motion.div>
           </div>
         )}

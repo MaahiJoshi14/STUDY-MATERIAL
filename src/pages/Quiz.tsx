@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, Trophy, Zap, ChevronRight,
-  BookOpen, Search, ChevronLeft, HelpCircle
+  BookOpen, Search, ChevronLeft
 } from 'lucide-react';
 import {
   year1Cycles, branches, type Subject, type Question, QUESTIONS_DB
@@ -1044,21 +1044,18 @@ export default function Quiz() {
                   </div>
                 </>
               ) : (
-                <div className="text-center py-24 bg-white border border-slate-200 rounded-3xl shadow-sm">
-                  <HelpCircle className="w-12 h-12 text-[#FF6B6B] mx-auto mb-4" />
-                  <h3 className="font-display font-black text-xl">No Questions Configured</h3>
-                  <p className="text-xs font-bold text-slate-400 max-w-sm mx-auto leading-normal">
-                    This subject category does not have practice questions yet. Try another sessional category.
+                <div className="py-16 bg-white border border-slate-200 rounded-3xl text-center shadow-sm">
+                  <div className="w-16 h-16 bg-pink-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <span className="text-3xl">📭</span>
+                  </div>
+                  <h3 className="font-display font-black text-xl text-[#1E1E1E] uppercase mb-2">
+                    No Quiz Questions Yet
+                  </h3>
+                  <p className="text-xs font-bold text-slate-500 max-w-sm mx-auto leading-relaxed">
+                    We haven't added interactive questions for this section yet. In the meantime, you can review the uploaded PYQ papers above!
                   </p>
-                  <button
-                    onClick={() => setStep('categories')}
-                    className="mt-6 px-5 py-2.5 bg-[#4FA3F7] border border-slate-200 text-[#1E1E1E] font-bold text-xs rounded-xl cursor-pointer hover:bg-sky-400 transition-all uppercase shadow-sm"
-                  >
-                    Select Another
-                  </button>
                 </div>
               )}
-
             </motion.div>
           )}
 
