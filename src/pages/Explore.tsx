@@ -287,15 +287,9 @@ function SidebarClock({ timetable, onAddTimetable }: {
                 className="space-y-10"
               >
                 <div className="text-center space-y-3">
-                  <span className="text-[10px] font-extrabold uppercase bg-white border border-slate-200 px-3 py-1 rounded-full shadow-sm">
-                    MUJ LIBRARY
-                  </span>
                   <h1 className="font-display font-extrabold text-4xl md:text-5xl text-[#1E1E1E] uppercase">
                     Select Academic Level
                   </h1>
-                  <p className="text-slate-500 font-bold max-w-md mx-auto text-xs leading-relaxed">
-                    Choose your level to unlock subject notebooks, previous year papers, and sessional revision folders.
-                  </p>
                 </div>
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -310,7 +304,7 @@ function SidebarClock({ timetable, onAddTimetable }: {
                       onClick={() => { setSelectedYear(y); setStep('branch'); }}
                       className="text-left w-full cursor-pointer focus:outline-none group"
                     >
-                      <div className={`rounded-[24px] border border-slate-200 p-5 shadow-sm hover:translate-y-[-3px] hover:shadow-md transition-all flex flex-col justify-between h-64 ${color}`}>
+                      <div className={`rounded-[24px] border border-slate-200 p-5 shadow-sm hover:translate-y-[-3px] hover:shadow-md transition-all flex flex-col justify-between h-72 ${color}`}>
                         <div className="flex justify-between gap-4">
                           <div className="space-y-1 text-left">
                             <span className="text-[9px] font-extrabold uppercase bg-white border border-slate-200 px-2 py-0.5 rounded-full shadow-sm">Year 0{y}</span>
@@ -318,7 +312,7 @@ function SidebarClock({ timetable, onAddTimetable }: {
                             <p className="text-[10px] font-bold text-slate-500">{subtitle}</p>
                           </div>
                           <div
-                            className="w-20 h-28 rounded-xl bg-cover bg-center shadow-md group-hover:scale-105 transition-transform shrink-0"
+                            className="w-28 h-40 rounded-xl bg-cover bg-center shadow-md group-hover:scale-105 transition-transform shrink-0"
                             style={{ backgroundImage: `url(${cover})` }}
                           />
                         </div>
@@ -471,9 +465,6 @@ function SidebarClock({ timetable, onAddTimetable }: {
                             <h4 className="font-display font-extrabold text-xs text-[#1E1E1E] uppercase leading-tight line-clamp-2">
                               {sub.name}
                             </h4>
-                            <p className="text-[9px] font-black text-slate-400 uppercase tracking-wide font-mono">
-                              {sub.code}
-                            </p>
                           </div>
                         </div>
                       </button>

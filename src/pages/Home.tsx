@@ -465,7 +465,7 @@ export default function Home() {
                 className="flex-1 bg-white hover:bg-[#FFF5F5] border-2 border-[#FF6B6B]/20 hover:border-[#FF6B6B] hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 p-4 rounded-2xl shadow-[0_8px_24px_rgba(255,107,107,0.15)] text-left relative overflow-hidden group cursor-pointer"
               >
                 <div className="font-display font-black text-sm text-[#FF6B6B] uppercase tracking-wide flex items-center gap-1.5">
-                   Timetable
+                   Add Exam Timetable
                 </div>
                 <div className="text-[10px] text-slate-500 font-bold leading-tight mt-1 ml-0">View schedule</div>
               </button>
@@ -473,27 +473,6 @@ export default function Home() {
             
           </div>
 
-        </div>
-      </section>
-
-      {/* ── EXAM CALENDAR BANNER ── */}
-      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 pb-12">
-        <div className="bg-gradient-to-r from-[#1E1E1E] to-[#2D2D2D] rounded-[24px] p-6 lg:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-white/10 to-transparent rounded-full blur-3xl" />
-          <div className="relative z-10 text-left">
-            <h3 className="font-display font-black text-2xl text-white uppercase tracking-tight flex items-center gap-2">
-              📅 Exam Calendar
-            </h3>
-            <p className="text-slate-300 font-bold text-xs mt-2 max-w-md">
-              Add your MTE, ETE or specific subject exam dates. Get timely reminders and stay ahead of your schedule.
-            </p>
-          </div>
-          <button 
-            onClick={() => setIsExamTimetableModalOpen(true)}
-            className="w-full md:w-auto relative z-10 bg-white text-[#1E1E1E] hover:bg-slate-100 font-black px-8 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 hover:scale-[1.02] shadow-[0_4px_16px_rgba(0,0,0,0.2)] whitespace-nowrap"
-          >
-            + Add Exam Date
-          </button>
         </div>
       </section>
 
@@ -537,15 +516,15 @@ export default function Home() {
             <Link
               key={idx}
               to={item.explorePath}
-              className="min-w-[260px] snap-center shrink-0 bg-white border border-slate-100 rounded-3xl p-4 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:scale-[1.02] transition-all duration-300 ease-out group flex items-center gap-5 cursor-pointer text-left"
+              className="min-w-[280px] snap-center shrink-0 bg-white border border-slate-100 rounded-3xl p-4 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:scale-[1.02] transition-all duration-300 ease-out group flex items-center gap-5 cursor-pointer text-left"
             >
-              <div className="relative w-24 h-32 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-4px]" style={{ perspective: '800px' }}>
+              <div className="relative w-28 h-40 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-4px]" style={{ perspective: '800px' }}>
                 <div className="absolute inset-0 bg-white/40 blur-xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
                 <div className="absolute right-0 top-0.5 bottom-0.5 w-1.5 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-sm" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
                 <div className="absolute left-0 top-0 bottom-0 w-2 bg-black/5 z-10 rounded-l-sm" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
                 <div className="absolute inset-0 rounded-r-lg bg-cover bg-center border border-slate-200/50 shadow-[inset_1px_0_0_rgba(255,255,255,0.4)]" style={{ backgroundImage: `url(${item.cover})` }} />
               </div>
-              <div className="flex-1 flex flex-col justify-center h-32 py-1">
+              <div className="flex-1 flex flex-col justify-center h-40 py-1">
                 <div className="space-y-0.5">
                   <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
                   <h3 className="font-display font-bold text-sm text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
@@ -595,8 +574,7 @@ export default function Home() {
               onClick={() => navigate(item.explorePath)}
               className="bg-white border border-slate-100 rounded-[32px] p-6 hover:shadow-[0_12px_40px_rgba(0,0,0,0.04)] hover:scale-[1.02] transition-all duration-300 ease-out group flex flex-col xl:flex-row items-center gap-6 cursor-pointer text-left"
             >
-              {/* Left Side: 3D Book Cover */}
-              <div className="relative w-32 h-44 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-6px]" style={{ perspective: '800px' }}>
+              <div className="relative w-40 h-56 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-6px]" style={{ perspective: '800px' }}>
                 <div className="absolute inset-0 bg-white/50 blur-2xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
                 <div className="absolute right-0 top-0.5 bottom-0.5 w-2 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
                 <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
@@ -604,7 +582,7 @@ export default function Home() {
               </div>
 
               {/* Right Side: Details */}
-              <div className="flex-1 flex flex-col justify-center h-44 py-2 w-full">
+              <div className="flex-1 flex flex-col justify-center h-56 py-2 w-full">
                 <div className="space-y-1">
                   <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
                   <h3 className="font-display font-extrabold text-lg xl:text-xl text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
@@ -665,16 +643,16 @@ export default function Home() {
 
       {/* ── PRACTICE ARENA / NON-BTECH BANNERS ── */}
       <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60 grid md:grid-cols-2 gap-8">
-        <div className="bg-pink-50 rounded-[32px] border border-pink-100 p-8 shadow-[0_4px_20px_rgba(255,182,193,0.15)] hover:shadow-[0_8px_30px_rgba(255,182,193,0.25)] hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-56 text-left group">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-pink-200/40 to-transparent rounded-full blur-3xl group-hover:from-pink-200/60 transition-colors duration-500" />
+        <div className="bg-gradient-to-br from-[#FF7EB9] to-[#FF5252] rounded-[32px] p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-56 text-left group">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl group-hover:bg-white/30 transition-colors duration-500" />
           <div className="relative z-10">
-            <span className="text-[9px] font-extrabold uppercase bg-white/50 border border-slate-200/60 px-3 py-1.5 rounded-full text-slate-500 tracking-widest">
+            <span className="text-[9px] font-extrabold uppercase bg-white/20 border border-white/40 px-3 py-1.5 rounded-full text-white tracking-widest">
               PYQs · Mock Tests
             </span>
-            <h3 className="font-display font-black text-3xl text-[#1E1E1E] uppercase mt-4 tracking-wide leading-none">
+            <h3 className="font-display font-black text-3xl text-white uppercase mt-4 tracking-wide leading-none">
               Practice Arena
             </h3>
-            <p className="text-slate-500 text-xs font-bold mt-2 max-w-[240px] leading-relaxed">
+            <p className="text-white/90 text-xs font-bold mt-2 max-w-[240px] leading-relaxed">
               Test your skills with past sessional and university questions.
             </p>
           </div>
@@ -683,7 +661,7 @@ export default function Home() {
               handleSetupYearChange(1);
               setIsArenaModalOpen(true);
             }}
-            className="w-fit bg-[#FF6B6B] text-white font-black px-6 py-3 rounded-2xl text-xs uppercase tracking-wider shadow-[0_4px_12px_rgba(255,107,107,0.3)] hover:bg-[#ff5252] hover:shadow-[0_6px_16px_rgba(255,107,107,0.4)] hover:scale-[1.02] transition-all duration-300 cursor-pointer flex items-center gap-2 relative z-10"
+            className="w-fit bg-white text-[#FF5252] font-black px-6 py-3 rounded-2xl text-xs uppercase tracking-wider shadow-sm hover:bg-white/90 transition-all duration-300 cursor-pointer flex items-center gap-2 relative z-10"
           >
             Enter Arena <ArrowRight className="w-3.5 h-3.5" />
           </button>

@@ -1,0 +1,15 @@
+{
+  "name": "replace_file_content",
+  "args": {
+    "AllowMultiple": false,
+    "Description": "Replaced entire chemistry cycle with real ImageKit URLs and all subjects as they were in the original data file. Also updated ResourceLink type to include 'ppt' and 'pptx' file types.",
+    "EndLine": 9,
+    "Instruction": "Fix the ResourceLink type to include 'ppt' and 'pptx' types needed for the real BME materials",
+    "ReplacementContent": "  type: 'pdf' | 'ppt' | 'pptx' | 'doc' | 'docx' | 'drive' | 'slides';",
+    "StartLine": 8,
+    "TargetContent": "  type: 'drive' | 'pdf' | 'doc' | 'slides';",
+    "TargetFile": "c:\\Users\\Admin\\study-material\\src\\data\\studyMaterial.ts",
+    "toolAction": "Fixing ResourceLink type",
+    "toolSummary": "Update ResourceLink type to include ppt/pptx"
+  }
+}

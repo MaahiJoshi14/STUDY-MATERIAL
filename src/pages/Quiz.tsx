@@ -189,7 +189,7 @@ export default function Quiz() {
     setScore(prev => prev + earnedPoints);
     setChecking(prev => ({ ...prev, [question.id]: false }));
   };  const handleEnterArena = () => {
-    if (subject && getQuestionsForSubject(subject.id).length > 0) {
+    if (subject) {
       setStep('categories');
     }
   };
@@ -416,7 +416,7 @@ export default function Quiz() {
                           <div className="overflow-y-auto flex-1 no-scrollbar">
                             {filteredSubjects.length > 0 ? (
                               filteredSubjects.map((s) => {
-                                const hasQ = getQuestionsForSubject(s.id).length > 0;
+                                const hasQ = true;
                                 return (
                                   <button
                                     key={s.id}
@@ -456,7 +456,7 @@ export default function Quiz() {
 
                 {/* Enter arena button */}
                 <button
-                  disabled={!subject || getQuestionsForSubject(subject.id).length === 0}
+                  disabled={!subject}
                   onClick={handleEnterArena}
                   className="w-full py-3.5 bg-gradient-to-r from-[#FF7EB9] to-[#FF5252] text-white font-black text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer hover:shadow-[0_4px_16px_rgba(255,126,185,0.4)] transition-all duration-300 shadow-sm"
                 >
