@@ -31,46 +31,59 @@ function getNextExam() {
 }
 
 // ── Sidebar Clock ──
-function SidebarClock({ timetable, onAddTimetable }: {
-  timetable: { subject: string; date: string } | null;
+// ── Shared ExamEntry type (same as Home.tsx) ──
+interface ExamEntry {
+  id: string;
+  subject: string;
+  type: 'MTE' | 'ETE' | 'Other';
+  date: string;
+}
+
+function SidebarClock({ examEntries, onAddTimetable }: {
+  examEntries: ExamEntry[];
   onAddTimetable: () => void;
 }) {
   const nextExam = getNextExam();
   const daysLeft = nextExam ? getDaysLeft(nextExam.startDate) : null;
-  const customDays = timetable ? getDaysLeft(new Date(timetable.date)) : null;
+
+  // Sort user entries by date ascending
+  const sortedEntries = [...examEntries].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  const upcomingEntries = sortedEntries.filter(e => getDaysLeft(new Date(e.date)) >= 0);
 
   return (
     <div className="space-y-6 pt-2">
-      {/* Upcoming Exams - Clean layout */}
       <div className="space-y-4">
         <div className="flex items-center gap-1.5 text-[10px] font-black uppercase text-slate-400 tracking-widest">
           <Calendar className="w-3.5 h-3.5" /> Upcoming Exams
         </div>
 
         <div className="space-y-3">
-          {/* Custom timetable entry */}
-          {timetable && customDays !== null && (
-            <div className="bg-red-50 border border-red-100 rounded-xl p-3">
-              <div className="flex justify-between items-start mb-2">
-                <div>
-                  <p className="text-[11px] font-black text-red-900 leading-tight">{timetable.subject}</p>
-                  <p className="text-[10px] font-bold text-red-600/80 mt-0.5">Your Timetable</p>
+          {/* User exam entries */}
+          {upcomingEntries.map(entry => {
+            const days = getDaysLeft(new Date(entry.date));
+            return (
+              <div key={entry.id} className="bg-red-50 border border-red-100 rounded-xl p-3">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <p className="text-[11px] font-black text-red-900 leading-tight">{entry.subject}</p>
+                    <p className="text-[9px] font-bold text-red-600/70 mt-0.5 uppercase tracking-wider">{entry.type}</p>
+                  </div>
+                  <span className="text-[10px] font-black bg-red-500 text-white px-2 py-0.5 rounded uppercase">{Math.max(0, days)}d</span>
                 </div>
-                <span className="text-[10px] font-black bg-red-500 text-white px-2 py-0.5 rounded uppercase tracking-wider">{Math.max(0, customDays)} Days</span>
               </div>
-            </div>
-          )}
+            );
+          })}
 
           {/* MUJ hardcoded exams */}
           {nextExam && daysLeft !== null && (
-            <div className="bg-white border border-slate-100 rounded-xl p-4 shadow-[0_4px_16px_rgba(0,0,0,0.03)] group hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-300">
+            <div className="bg-white border border-slate-100 rounded-xl p-4 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:-translate-y-0.5 transition-all duration-300">
               <div className="flex justify-between items-start mb-2">
                 <div>
                   <p className="text-[11px] font-black text-[#1E1E1E] leading-tight">{nextExam.subject}</p>
                   <p className="text-[9px] font-bold text-slate-400 mt-1 uppercase tracking-wider">Academic Calendar</p>
                 </div>
                 <span className={`text-[9px] font-black text-white px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm ${nextExam.label === 'MTE' ? 'bg-[#FFB236]' : 'bg-[#5D5FEF]'}`}>
-                  {Math.max(0, daysLeft)} Days Left
+                  {Math.max(0, daysLeft)} Days
                 </span>
               </div>
               <div className="mt-3 pt-3 border-t border-slate-50 flex items-center justify-between text-[10px]">
@@ -85,13 +98,15 @@ function SidebarClock({ timetable, onAddTimetable }: {
             onClick={onAddTimetable}
             className="w-full flex items-center justify-center gap-1.5 text-[10px] font-black uppercase text-slate-500 bg-white border-2 border-dashed border-slate-200 rounded-xl py-2.5 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-700 transition-all cursor-pointer"
           >
-            <Plus className="w-3 h-3" /> Add Custom Exam
+            <Plus className="w-3 h-3" /> Add Exam
           </button>
         </div>
       </div>
     </div>
   );
-}export default function Explore() {
+}
+
+export default function Explore() {
   const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -105,9 +120,18 @@ function SidebarClock({ timetable, onAddTimetable }: {
   const [selectedSubject, setSelectedSubject] = useState<Subject | null>(null);
   const [activeTab, setActiveTab] = useState<ResourceTab>('notes');
   const [searchQuery, setSearchQuery] = useState('');
-  const [timetable, setTimetable] = useState<{ subject: string; date: string } | null>(null);
+  // Sync with the same localStorage key as Home.tsx
+  const [examEntries, setExamEntries] = useState<ExamEntry[]>(() => {
+    const saved = localStorage.getItem('examEntries');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [showTimetableModal, setShowTimetableModal] = useState(false);
-  const [timetableForm, setTimetableForm] = useState({ subject: '', date: '' });
+  const [timetableForm, setTimetableForm] = useState({ subject: '', type: 'MTE' as 'MTE'|'ETE'|'Other', date: '' });
+
+  // Persist exam entries to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('examEntries', JSON.stringify(examEntries));
+  }, [examEntries]);
 
   // Update step/year when query parameter changes
   useEffect(() => {
@@ -259,7 +283,7 @@ function SidebarClock({ timetable, onAddTimetable }: {
             <div className="border-t border-slate-200" />
 
             {/* Clock + exam countdown */}
-            <SidebarClock timetable={timetable} onAddTimetable={() => setShowTimetableModal(true)} />
+            <SidebarClock examEntries={examEntries} onAddTimetable={() => setShowTimetableModal(true)} />
           </aside>
         )}
 
@@ -304,22 +328,16 @@ function SidebarClock({ timetable, onAddTimetable }: {
                       onClick={() => { setSelectedYear(y); setStep('branch'); }}
                       className="text-left w-full cursor-pointer focus:outline-none group"
                     >
-                      <div className={`rounded-[24px] border border-slate-200 p-5 shadow-sm hover:translate-y-[-3px] hover:shadow-md transition-all flex flex-col justify-between h-72 ${color}`}>
-                        <div className="flex justify-between gap-4">
-                          <div className="space-y-1 text-left">
-                            <span className="text-[9px] font-extrabold uppercase bg-white border border-slate-200 px-2 py-0.5 rounded-full shadow-sm">Year 0{y}</span>
-                            <h3 className="font-display font-extrabold text-lg text-[#1E1E1E] uppercase leading-tight pt-1">{label}</h3>
-                            <p className="text-[10px] font-bold text-slate-500">{subtitle}</p>
-                          </div>
-                          <div
-                            className="w-28 h-40 rounded-xl bg-cover bg-center shadow-md group-hover:scale-105 transition-transform shrink-0"
-                            style={{ backgroundImage: `url(${cover})` }}
-                          />
+                      <div className={`relative rounded-[24px] border border-slate-200 pt-6 px-6 shadow-[0_8px_20px_rgba(0,0,0,0.03)] hover:translate-y-[-4px] hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)] transition-all flex flex-col items-center h-[340px] overflow-hidden ${color}`}>
+                        <div className="w-full space-y-1 text-left z-10">
+                          <span className="text-[9px] font-extrabold uppercase bg-white/60 backdrop-blur-md border border-slate-200/50 px-2 py-0.5 rounded-full shadow-sm">Year 0{y}</span>
+                          <h3 className="font-display font-extrabold text-xl text-[#1E1E1E] uppercase leading-tight pt-1">{label}</h3>
+                          <p className="text-[10px] font-bold text-slate-500">{subtitle}</p>
                         </div>
-                        <div className="flex justify-between items-center pt-3 border-t border-black/5">
-                          <span className="text-[10px] font-black uppercase text-slate-500">Explore</span>
-                          <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#1E1E1E] transition-colors" />
-                        </div>
+                        <div
+                          className="absolute bottom-[-20px] w-48 h-64 rounded-xl bg-cover bg-center shadow-[0_8px_20px_rgba(0,0,0,0.12)] group-hover:scale-[1.03] transition-transform duration-500 z-0"
+                          style={{ backgroundImage: `url(${cover})` }}
+                        />
                       </div>
                     </button>
                   ))}
@@ -488,7 +506,6 @@ function SidebarClock({ timetable, onAddTimetable }: {
                     <span>{selectedSubject.emoji}</span>
                     <span>{selectedSubject.name}</span>
                   </h1>
-                  <span className="text-[9px] font-black uppercase bg-white border border-slate-200 text-slate-500 px-2.5 py-1 rounded-full">{selectedSubject.code}</span>
                 </div>
 
                 {/* Tab selectors */}
@@ -579,7 +596,7 @@ function SidebarClock({ timetable, onAddTimetable }: {
         </div>
       </div>
 
-      {/* ── ADD TIMETABLE MODAL ── */}
+      {/* ── ADD EXAM TIMETABLE MODAL ── */}
       <AnimatePresence>
         {showTimetableModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E1E1E]/40 backdrop-blur-sm">
@@ -591,7 +608,7 @@ function SidebarClock({ timetable, onAddTimetable }: {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-display font-black text-sm text-[#1E1E1E] uppercase">Add Exam Date</h3>
+                  <h3 className="font-display font-black text-sm text-[#1E1E1E] uppercase">Add Exam Timetable</h3>
                   <p className="text-[9px] font-black uppercase text-slate-400 mt-0.5">Set your personal exam reminder</p>
                 </div>
                 <button
@@ -607,11 +624,27 @@ function SidebarClock({ timetable, onAddTimetable }: {
                   <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider">Subject / Exam Name</label>
                   <input
                     type="text"
-                    placeholder="e.g. Engineering Physics MTE"
+                    placeholder="e.g. Engineering Physics"
                     value={timetableForm.subject}
                     onChange={e => setTimetableForm(f => ({ ...f, subject: e.target.value }))}
                     className="w-full h-11 px-4 border border-slate-200 rounded-xl text-xs font-bold focus:outline-none focus:border-[#5D5FEF] bg-[#FAF9F5]"
                   />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider">Exam Type</label>
+                  <div className="flex gap-2">
+                    {(['MTE', 'ETE', 'Other'] as const).map(t => (
+                      <button
+                        key={t}
+                        onClick={() => setTimetableForm(f => ({ ...f, type: t }))}
+                        className={`flex-1 py-2 text-[10px] font-black uppercase rounded-xl border transition-all cursor-pointer ${
+                          timetableForm.type === t
+                            ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]'
+                            : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'
+                        }`}
+                      >{t}</button>
+                    ))}
+                  </div>
                 </div>
                 <div className="space-y-1">
                   <label className="text-[10px] font-black uppercase text-slate-400 tracking-wider">Exam Date</label>
@@ -627,13 +660,19 @@ function SidebarClock({ timetable, onAddTimetable }: {
               <button
                 disabled={!timetableForm.subject || !timetableForm.date}
                 onClick={() => {
-                  setTimetable({ subject: timetableForm.subject, date: timetableForm.date });
+                  const entry: ExamEntry = {
+                    id: Date.now().toString(),
+                    subject: timetableForm.subject,
+                    type: timetableForm.type,
+                    date: timetableForm.date,
+                  };
+                  setExamEntries(prev => [...prev, entry]);
                   setShowTimetableModal(false);
-                  setTimetableForm({ subject: '', date: '' });
+                  setTimetableForm({ subject: '', type: 'MTE', date: '' });
                 }}
                 className="w-full py-3 bg-[#1E1E1E] text-white font-black text-xs uppercase tracking-wider rounded-xl flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer hover:bg-black transition-all"
               >
-                <Calendar className="w-4 h-4" /> Save Exam Date
+                <Calendar className="w-4 h-4" /> Save Exam
               </button>
             </motion.div>
           </div>

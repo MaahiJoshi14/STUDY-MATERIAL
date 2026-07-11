@@ -202,14 +202,10 @@ export default function Home() {
 
       {/* ── HERO SECTION ── */}
       <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 pt-4 pb-8 lg:pt-8 lg:pb-12 relative">
-        {/* Soft ambient glow behind hero */}
-        <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-gradient-to-br from-[#5D5FEF]/8 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-10 right-0 w-[300px] h-[300px] bg-gradient-to-bl from-[#FF7EB9]/8 via-transparent to-transparent rounded-full blur-3xl pointer-events-none" />
-
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center relative">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center relative">
           
           {/* Hero Left Content */}
-          <div className="lg:col-span-7 space-y-8 text-left">
+          <div className="lg:col-span-7 space-y-6 lg:space-y-8 text-center lg:text-left">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[#5D5FEF]/10 border border-[#5D5FEF]/20 text-[#5D5FEF] px-3.5 py-1.5 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-[#5D5FEF] animate-pulse" />
@@ -217,11 +213,11 @@ export default function Home() {
             </div>
 
             <div className="space-y-3">
-              <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-[76px] text-[#1E1E1E] leading-[0.88] tracking-tight uppercase">
+              <h1 className="font-display font-extrabold text-[42px] sm:text-5xl lg:text-[76px] text-[#1E1E1E] leading-[0.9] tracking-tight uppercase">
                 Study Smarter.<br />
                 <span className="bg-gradient-to-r from-[#5D5FEF] to-[#7B7DFF] bg-clip-text text-transparent">Score Higher.</span>
               </h1>
-              <p className="text-slate-500 font-bold text-sm max-w-sm leading-relaxed">
+              <p className="text-slate-500 font-bold text-sm leading-relaxed mx-auto lg:mx-0 max-w-sm">
                 Notes, PYQs, and practice for every MUJ subject — all in one place.
               </p>
             </div>
@@ -321,7 +317,7 @@ export default function Home() {
           </div>
 
           {/* Hero Right: 5-Book 3D Shelf */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center relative select-none py-6 lg:py-0">
+          <div className="lg:col-span-5 flex flex-col items-center justify-center relative select-none py-4 lg:py-0">
             <style>{`
               @keyframes bookFloat1 { 0%,100%{transform:translateY(0) rotateY(22deg) rotateZ(-9deg);} 50%{transform:translateY(-4px) rotateY(22deg) rotateZ(-9deg);} }
               @keyframes bookFloat2 { 0%,100%{transform:translateY(-2px) rotateY(10deg) rotateZ(-4deg);} 50%{transform:translateY(2px) rotateY(10deg) rotateZ(-4deg);} }
@@ -331,13 +327,13 @@ export default function Home() {
               .book3d { 
                 position:absolute; 
                 border-radius:4px 10px 10px 4px; 
-                box-shadow: 0 10px 30px rgba(93,95,239,0.1), 0 4px 12px rgba(0,0,0,0.05); 
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
                 transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
               }
               .book3d:hover { 
                 cursor:pointer; 
                 transform: scale(1.05) translateY(-10px) rotate(2deg) !important; 
-                box-shadow: 0 15px 40px rgba(93,95,239,0.15), 0 8px 16px rgba(0,0,0,0.08);
+                box-shadow: 0 12px 24px rgba(0,0,0,0.12);
               }
               .bspine { 
                 position:absolute; 
@@ -378,7 +374,7 @@ export default function Home() {
                 .book-divider { width:24px; margin:5px 0; }
               }
               @media (max-width: 767px) {
-                .books-container { width: 240px; height: 180px; }
+                .books-container { width: 240px; height: 180px; margin: 0 auto; }
                 .book-1 { width:55px; height:80px; bottom:28px; }
                 .book-2 { width:62px; height:92px; left:50px; bottom:28px; }
                 .book-3 { width:68px; height:105px; left:108px; bottom:28px; }
@@ -398,10 +394,6 @@ export default function Home() {
             `}</style>
 
             <div className="relative books-container">
-              {/* Soft glow / particles background */}
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(93,95,239,0.08)_0%,transparent_70%)] rounded-full blur-2xl" />
-              <div className="absolute top-10 left-10 w-4 h-4 bg-white rounded-full blur-sm opacity-60" />
-              <div className="absolute bottom-20 right-12 w-6 h-6 bg-white rounded-full blur-md opacity-40" />
 
 
               {/* Book 1 – far left (Engineering Physics, red) */}
@@ -459,15 +451,10 @@ export default function Home() {
                   <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
                 </div>
               </div>
-
-              {/* Wooden shelf */}
-              <div className="book-shelf" style={{position:'absolute',borderRadius:6,background:'linear-gradient(to bottom,#c8a97e 0%,#a0734c 60%,#7a5230 100%)',boxShadow:'0 4px 14px rgba(0,0,0,0.25)',zIndex:10}} />
-              {/* Shelf shadow */}
-              <div className="book-shadow" style={{position:'absolute',height:8,borderRadius:'50%',background:'rgba(0,0,0,0.14)',filter:'blur(6px)',zIndex:0}} />
             </div>
 
             {/* NEW MINI CARDS UNDER BOOKS */}
-            <div className="flex gap-4 w-full max-w-[440px] mt-8 z-10">
+            <div className="flex gap-3 w-full max-w-[440px] mt-6 z-10 justify-center lg:justify-start">
               {/* Attendance Calculator box */}
               <button 
                 onClick={() => setIsAttendanceModalOpen(true)}
@@ -497,7 +484,7 @@ export default function Home() {
 
       {/* ── CONTINUE STUDYING SECTION ── */}
       <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-8 border-t border-slate-200/60">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-5">
           <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">Continue Studying</h2>
           <Link to="/explore" className="text-xs font-black uppercase text-[#5D5FEF] hover:underline flex items-center gap-1">
             View all <ChevronRight className="w-3.5 h-3.5" />
@@ -538,15 +525,14 @@ export default function Home() {
               className="min-w-[280px] snap-center shrink-0 bg-white border border-slate-100 rounded-3xl p-4 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:scale-[1.02] transition-all duration-300 ease-out group flex items-center gap-5 cursor-pointer text-left"
             >
               <div className="relative w-28 h-40 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-4px]" style={{ perspective: '800px' }}>
-                <div className="absolute inset-0 bg-white/40 blur-xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
                 <div className="absolute right-0 top-0.5 bottom-0.5 w-1.5 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-sm" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
                 <div className="absolute left-0 top-0 bottom-0 w-2 bg-black/5 z-10 rounded-l-sm" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
-                <div className="absolute inset-0 rounded-r-lg bg-cover bg-center" style={{ backgroundImage: `url(${item.cover})` }} />
+                <div className="absolute inset-0 rounded-r-lg bg-cover bg-center" style={{ backgroundImage: `url(${item.cover})`, boxShadow: '0 8px 20px rgba(0,0,0,0.08)' }} />
               </div>
               <div className="flex-1 flex flex-col justify-center h-40 py-1">
                 <div className="space-y-0.5">
                   <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
-                  <h3 className="font-display font-bold text-xs text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
+                  <h3 className="font-display font-bold text-xs text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors break-words whitespace-normal">{item.title}</h3>
                 </div>
                 <div className="space-y-0.5 mt-3">
                   <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">Recently Opened</span>
@@ -591,20 +577,22 @@ export default function Home() {
             <div 
               key={idx}
               onClick={() => navigate(item.explorePath)}
-              className="bg-white border border-slate-100 rounded-[32px] p-6 hover:shadow-[0_12px_40px_rgba(0,0,0,0.04)] hover:scale-[1.02] transition-all duration-300 ease-out group flex flex-col xl:flex-row items-center gap-6 cursor-pointer text-left"
+              className="bg-white border border-slate-100 rounded-[32px] px-5 py-4 hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:scale-[1.02] transition-all duration-300 ease-out group flex flex-row items-center gap-5 cursor-pointer text-left"
             >
               <div className="relative w-40 h-56 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-6px]" style={{ perspective: '800px' }}>
-                <div className="absolute inset-0 bg-white/50 blur-2xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
+                {/* Book spine highlight */}
                 <div className="absolute right-0 top-0.5 bottom-0.5 w-2 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
+                {/* Book spine shadow */}
                 <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
-                <div className="absolute inset-0 rounded-r-xl bg-cover bg-center" style={{ backgroundImage: `url(${item.cover})` }} />
+                {/* Book cover image */}
+                <div className="absolute inset-0 rounded-r-xl bg-cover bg-center" style={{ backgroundImage: `url(${item.cover})`, boxShadow: '0 8px 20px rgba(0,0,0,0.08)' }} />
               </div>
 
               {/* Right Side: Details */}
               <div className="flex-1 flex flex-col justify-center h-56 py-2 w-full">
                 <div className="space-y-1">
                   <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
-                  <h3 className="font-display font-extrabold text-base xl:text-lg text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors">{item.title}</h3>
+                  <h3 className="font-display font-extrabold text-base xl:text-lg text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors break-words whitespace-normal">{item.title}</h3>
                 </div>
 
                 <div className="space-y-1 mt-4">
@@ -641,12 +629,13 @@ export default function Home() {
             >
               {/* 3D Book Layout Container */}
               <div className="relative w-52 h-72 transition-all duration-300 group-hover:scale-[1.06] group-hover:rotate-1" style={{ perspective: '900px' }}>
-                <div className="absolute inset-0 bg-white/50 blur-2xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
+                {/* Spine highlight */}
                 <div className="absolute right-0 top-0.5 bottom-0.5 w-2.5 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
+                {/* Spine shadow */}
                 <div className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
                 <div 
                   className="absolute inset-0 rounded-r-xl bg-cover bg-center"
-                  style={{ backgroundImage: `url(${item.cover})` }}
+                  style={{ backgroundImage: `url(${item.cover})`, boxShadow: '0 8px 20px rgba(0,0,0,0.08)' }}
                 />
               </div>
               <div className="mt-6 text-center space-y-1 w-full">

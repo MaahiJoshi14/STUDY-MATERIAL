@@ -385,7 +385,7 @@ export default function Quiz() {
                         {subject ? (
                           <>
                             <span>{subject.emoji}</span>
-                            <span>{subject.name} ({subject.code})</span>
+                            <span>{subject.name}</span>
                           </>
                         ) : (
                           <span className="text-slate-400">Choose Subject...</span>
