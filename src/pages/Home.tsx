@@ -206,10 +206,10 @@ export default function Home() {
           
           {/* Hero Left Content */}
           <div className="lg:col-span-7 space-y-6 lg:space-y-8 text-center lg:text-left">
+            
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-[#5D5FEF]/10 border border-[#5D5FEF]/20 text-[#5D5FEF] px-3.5 py-1.5 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-[#5D5FEF] animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-widest">MUJ Space — BTech Study Hub</span>
             </div>
 
             <div className="space-y-3">
@@ -222,8 +222,21 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Selection Filters — compact */}
-            <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-[0_8px_32px_rgba(93,95,239,0.06)] space-y-4">
+          {/* Selection Filters — compact */}
+          <div
+         className="
+rounded-3xl
+border border-white/70
+bg-gradient-to-br
+from-white
+via-white
+to-[#F7F8FF]
+backdrop-blur-xl
+p-6
+space-y-5
+shadow-[0_18px_50px_rgba(93,95,239,0.08)]
+"
+>
               {/* Row 1: Course & Year Selectors */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-1.5">
@@ -450,8 +463,48 @@ export default function Home() {
                   <p className="book-title" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>PSUC</p>
                   <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
                 </div>
-              </div>
-            </div>
+                </div>
+            
+            {/* Wooden Shelf */}
+<div
+  style={{
+    position: "absolute",
+    width: "300px",
+    height: "12px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    bottom: "32px",
+    zIndex: 0,
+
+    borderRadius: "999px",
+
+    background:
+      "linear-gradient(180deg,#D8B188 0%,#C48952 40%,#A86839 70%,#844C27 100%)",
+
+    boxShadow:
+      "0 8px 18px rgba(0,0,0,.18), inset 0 1px 1px rgba(255,255,255,.45)",
+  }}
+/>
+
+{/* Shelf Shadow */}
+<div
+  style={{
+    position: "absolute",
+    width: "260px",
+    height: "16px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    bottom: "18px",
+
+    borderRadius: "999px",
+    background: "rgba(0,0,0,.18)",
+    filter: "blur(12px)",
+    zIndex: -1,
+  }}
+/>
+</div>
+
+
 
             {/* NEW MINI CARDS UNDER BOOKS */}
             <div className="flex gap-3 w-full max-w-[440px] mt-6 z-10 justify-center lg:justify-start">
@@ -605,43 +658,86 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TECH STACKS SECTION (80px padding py-20) ── */}
-      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">Tech Stacks</h2>
+     {/* ── TECH STACKS SECTION ── */}
+<section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60">
+  <div className="flex justify-between items-center mb-8">
+    <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">
+      Tech Stacks
+    </h2>
+  </div>
+
+  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    {[
+      {
+        y: 1,
+        title: "First Year",
+        cover: "/bookcovers/first-year.png",
+        bg: "bg-[#F7F2FF]",
+      },
+      {
+        y: 2,
+        title: "Second Year",
+        cover: "/bookcovers/second-year.png",
+        bg: "bg-[#FFF6EC]",
+      },
+      {
+        y: 3,
+        title: "Third Year",
+        cover: "/bookcovers/third-year.png",
+        bg: "bg-[#EEF7FF]",
+      },
+      {
+        y: 4,
+        title: "Fourth Year",
+        cover: "/bookcovers/fourth-year.png",
+        bg: "bg-[#EFFAF2]",
+      },
+    ].map((item) => (
+      <div
+        key={item.y}
+        onClick={() => navigate(`/explore?year=${item.y}`)}
+        className={`
+          ${item.bg}
+          group
+          cursor-pointer
+          rounded-2xl
+          border border-slate-200
+          p-6
+          flex flex-col
+          items-center
+          transition-all
+          duration-300
+          hover:-translate-y-2
+          hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]
+        `}
+      >
+        {/* Book */}
+        <div
+          className="relative w-52 h-72 transition-all duration-300 group-hover:scale-105"
+          style={{ perspective: "900px" }}
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center rounded-r-xl"
+            style={{
+              backgroundImage: `url(${item.cover})`,
+            }}
+          />
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {[
-            { y: 1, title: 'First Year',   cover: '/bookcovers/first-year.png' },
-            { y: 2, title: 'Second Year',  cover: '/bookcovers/second-year.png' },
-            { y: 3, title: 'Third Year',   cover: '/bookcovers/third-year.png' },
-            { y: 4, title: 'Fourth Year',  cover: '/bookcovers/fourth-year.png' },
-          ].map((item) => (
-            <div 
-              key={item.y}
-              onClick={() => navigate(`/explore?year=${item.y}`)}
-              className="group cursor-pointer hover:translate-y-[-10px] transition-all duration-300 flex flex-col items-center p-4 border border-slate-200 rounded-none"
-            >
-              {/* 3D Book Layout Container */}
-              <div className="relative w-52 h-72 transition-all duration-300 group-hover:scale-[1.06] group-hover:rotate-1" style={{ perspective: '900px' }}>
-                <div 
-                  className="absolute inset-0 rounded-r-xl bg-cover bg-center"
-                  style={{ backgroundImage: `url(${item.cover})` }}
-                />
-              </div>
-              <div className="mt-6 text-center space-y-1 w-full">
-                <span className="text-[10px] font-extrabold uppercase text-slate-500">Year {item.y}</span>
-                <h3 className="font-display font-extrabold text-lg text-[#1E1E1E] uppercase leading-tight">
-                  {item.title}
-                </h3>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+        {/* Label */}
+        <div className="mt-6 text-center">
+          <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+            Year {item.y}
+          </span>
 
-      {/* ── PRACTICE ARENA / NON-BTECH BANNERS ── */}
+          <h3 className="mt-1 font-display font-extrabold text-xl uppercase text-[#1E1E1E]">
+            {item.title}
+          </h3>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>      {/* ── PRACTICE ARENA / NON-BTECH BANNERS ── */}
       <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-8 border-t border-slate-200/60 grid md:grid-cols-2 gap-8">
         <div className="bg-gradient-to-br from-[#FF7EB9] to-[#FF5252] rounded-[32px] p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-56 text-left group">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl group-hover:bg-white/30 transition-colors duration-500" />

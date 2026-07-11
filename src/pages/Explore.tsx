@@ -344,84 +344,112 @@ export default function Explore() {
                 </div>
               </motion.div>
             )}
+          {/* ── STEP: BRANCH / CYCLE ── */}
+{step === "branch" && (
+  <motion.div
+    key="branch"
+    initial={{ opacity: 0, y: 15 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -15 }}
+    className="space-y-8"
+  >
+    {/* Header */}
+    <div className="space-y-2">
+      <span className="text-[10px] font-extrabold uppercase bg-white border border-slate-200 px-3 py-1 rounded-full shadow-sm inline-block">
+        YEAR 0{selectedYear}
+      </span>
 
-            {/* ── STEP: BRANCH / CYCLE ── */}
-            {step === 'branch' && (
-              <motion.div
-                key="branch"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                className="space-y-8"
-              >
-                {/* Header */}
-                <div className="space-y-2">
-                  <span className="text-[10px] font-extrabold uppercase bg-white border border-slate-200 px-3 py-1 rounded-full shadow-sm inline-block">
-                    YEAR 0{selectedYear}
-                  </span>
-                  <h1 className="font-display font-black text-3xl md:text-4xl text-[#1E1E1E] uppercase">
-                    {selectedYear === 1 ? 'Select Your Cycle' : 'Select Branch'}
-                  </h1>
-                  <p className="text-slate-400 font-bold text-xs leading-relaxed max-w-sm">
-                    Select the appropriate stream cover to access notes and sessional study cards.
-                  </p>
-                </div>
+      <h1 className="font-display font-black text-3xl md:text-4xl text-[#1E1E1E] uppercase">
+        {selectedYear === 1 ? "Select Your Cycle" : "Select Branch"}
+      </h1>
 
-                {/* Cards Grid — 3D Book Style */}
-                <div className={`grid gap-16 place-items-center mx-auto mt-6 ${selectedYear === 1 ? 'sm:grid-cols-2 max-w-2xl' : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 max-w-5xl'}`}>
-                  {(selectedYear === 1 ? year1Cycles : branches).map((item) => (
-                    <button
-                      key={item.id}
-                      onClick={() => {
-                        if (selectedYear === 1) {
-                          setSelectedCycle(item as Cycle);
-                          setStep('subjects');
-                        } else {
-                          setSelectedBranch(item as Branch);
-                          setStep('subjects');
-                        }
-                      }}
-                      className="text-left w-full cursor-pointer focus:outline-none group flex flex-col items-center"
-                    >
-                      {/* 3D Book Layout */}
-                      <div
-                        className={`relative transition-all duration-300 ease-out group-hover:scale-[1.05] group-hover:-translate-y-2 group-hover:rotate-1 ${selectedYear === 1 ? 'w-48 h-64' : 'w-40 h-56'}`}
-                        style={{ perspective: '800px' }}
-                      >
-                        <div className="absolute inset-0 bg-white/50 blur-2xl rounded-xl -z-10 group-hover:bg-[#5D5FEF]/10 transition-colors duration-300" />
-                        {/* Page edges */}
-                        <div
-                          className="absolute right-0 top-0.5 bottom-0.5 w-2 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-md"
-                          style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }}
-                        />
-                        {/* Spine */}
-                        <div
-                          className="absolute left-0 top-0 bottom-0 w-3 bg-black/5 z-10 rounded-l-md"
-                          style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }}
-                        />
-                        {/* Book Cover */}
-                        <div
-                          className="absolute inset-0 rounded-r-xl bg-cover bg-center border border-slate-200/50 shadow-[inset_1px_0_0_rgba(255,255,255,0.4)]"
-                          style={{ backgroundImage: `url(${getBookCoverPath(item.id)})` }}
-                        />
-                      </div>
+      <p className="text-slate-400 font-bold text-xs leading-relaxed max-w-sm">
+        Select the appropriate stream cover to access notes and sessional study
+        cards.
+      </p>
+    </div>
 
-                      {/* Label */}
-                      <div className="mt-6 text-center space-y-1.5 w-full px-2 transform transition-all duration-300 group-hover:-translate-y-1 relative">
-                        <h3 className={`font-display font-extrabold text-[#1E1E1E] uppercase leading-tight tracking-tight transition-colors group-hover:text-[#5D5FEF] ${selectedYear === 1 ? 'text-lg' : 'text-base'}`}>
-                          {'name' in item ? item.name : (item as Branch).shortName}
-                        </h3>
-                        <p className="text-[10px] font-bold text-slate-400 flex items-center justify-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
-                          {selectedYear === 1 ? 'Foundation Cycle' : 'Sessional Syllabus'}
-                          <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[#5D5FEF]">→</span>
-                        </p>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-            )}
+    {/* Books Grid */}
+    <div
+      className={`grid justify-center gap-x-16 gap-y-24 mx-auto mt-12 ${
+        selectedYear === 1
+          ? "grid-cols-2 max-w-3xl"
+          : "grid-cols-2 md:grid-cols-3 xl:grid-cols-4 max-w-6xl"
+      }`}
+    >
+      {(selectedYear === 1 ? year1Cycles : branches).map((item) => (
+        <button
+          key={item.id}
+          onClick={() => {
+            if (selectedYear === 1) {
+              setSelectedCycle(item as Cycle);
+              setStep("subjects");
+            } else {
+              setSelectedBranch(item as Branch);
+              setStep("subjects");
+            }
+          }}
+          className="group flex flex-col items-center justify-start h-[430px] cursor-pointer bg-transparent border-none outline-none"
+        >
+          {/* Book Area */}
+          <div className="h-72 w-full flex items-end justify-center">
+            <img
+              src={getBookCoverPath(item.id)}
+              alt={"name" in item ? item.name : (item as Branch).shortName}
+              draggable={false}
+              className={`
+                max-h-full
+                max-w-full
+                object-contain
+                transition-all
+                duration-300
+                ease-out
+                group-hover:scale-105
+                group-hover:-translate-y-2
+                drop-shadow-2xl
+                ${
+                  selectedYear === 1
+                    ? "w-64"
+                    : "w-56"
+                }
+              `}
+            />
+          </div>
 
+          {/* Title Area */}
+          <div className="mt-6 h-28 flex flex-col items-center justify-start text-center px-3">
+            <h3
+              className={`
+                font-display
+                font-extrabold
+                uppercase
+                leading-tight
+                tracking-tight
+                text-[#1E1E1E]
+                transition-colors
+                duration-300
+                group-hover:text-[#5D5FEF]
+                ${
+                  selectedYear === 1
+                    ? "text-xl"
+                    : "text-[19px]"
+                }
+              `}
+            >
+              {"name" in item ? item.name : (item as Branch).shortName}
+            </h3>
+
+            <p className="mt-2 text-xs font-medium text-slate-400">
+              {selectedYear === 1
+                ? "Foundation Cycle"
+                : "Sessional Syllabus"}
+            </p>
+          </div>
+        </button>
+      ))}
+    </div>
+  </motion.div>
+)}
 
             {/* ── STEP: SUBJECTS ── */}
             {step === 'subjects' && (
