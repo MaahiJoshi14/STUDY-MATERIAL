@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -8,8 +8,155 @@ import {
   year1Cycles, branches, QUESTIONS_DB,
   type Subject
 } from '@/data/studyMaterial';
+import { getRecentActivity, type RecentActivityItem } from '@/lib/recentActivity';
+
+// Helper to calculate time ago from timestamp
+function getTimeAgo(timestamp: number): string {
+  const now = Date.now();
+  const diffMs = now - timestamp;
+  const diffSec = Math.floor(diffMs / 1000);
+  const diffMin = Math.floor(diffSec / 60);
+  const diffHour = Math.floor(diffMin / 60);
+  const diffDay = Math.floor(diffHour / 24);
+
+  if (diffDay > 0) {
+    return `${diffDay} ${diffDay === 1 ? 'day' : 'days'} ago`;
+  } else if (diffHour > 0) {
+    return `${diffHour} ${diffHour === 1 ? 'hour' : 'hours'} ago`;
+  } else if (diffMin > 0) {
+    return `${diffMin} ${diffMin === 1 ? 'minute' : 'minutes'} ago`;
+  } else {
+    return 'Just now';
+  }
+}
+
+// ────────────────────────────────────────────────────────────
+// CONTINUE STUDYING — Horizontal card list
+// Each card: book cover LEFT, text details RIGHT
+// Matches reference screenshot exactly
+// ────────────────────────────────────────────────────────────
+function ContinueStudyingCarousel({ items }: { items: RecentActivityItem[] }) {
+  const navigate = useNavigate();
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: 'left' | 'right') => {
+    if (!trackRef.current) return;
+    trackRef.current.scrollBy({ left: dir === 'right' ? 500 : -500, behavior: 'smooth' });
+  };
+
+  const getTypeLabel = (type: string) => {
+    switch (type) {
+      case 'year': return 'Selected Year';
+      case 'cycle': return 'Selected Cycle';
+      case 'branch': return 'Selected Branch';
+      case 'subject': return 'Recently Opened';
+      default: return 'Recently Opened';
+    }
+  };
+
+  return (
+    <div className="w-full select-none">
+      {/* ── Scroll track with hidden scrollbar ── */}
+      <style>{`.cs-row::-webkit-scrollbar{display:none}`}</style>
+
+      <div className="relative">
+        {/* Left fade + arrow */}
+        <button
+          onClick={() => scroll('left')}
+          aria-label="Scroll left"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-white rounded-full
+                     flex items-center justify-center shadow-[0_2px_12px_rgba(0,0,0,0.12)]
+                     text-slate-600 hover:scale-110 hover:shadow-md transition-all duration-200"
+        >
+          <ChevronRight className="w-4 h-4 rotate-180" />
+        </button>
+
+        {/* Scrollable row */}
+        <div
+          ref={trackRef}
+          className="cs-row flex gap-4 overflow-x-auto scroll-smooth px-12"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {items.map((item) => (
+            <div
+              key={item.id}
+              onClick={() => navigate(item.explorePath)}
+              className="flex-shrink-0 flex items-stretch bg-white rounded-2xl cursor-pointer
+                         border border-slate-100 hover:border-indigo-200
+                         shadow-[0_2px_12px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.10)]
+                         transition-all duration-200 overflow-hidden"
+              style={{ width: 480, minHeight: 220 }}
+            >
+              {/* ── Book cover (left) ── */}
+              <div className="flex-shrink-0 relative overflow-hidden" style={{ width: 176 }}>
+                <img
+                  src={item.cover}
+                  alt={item.title}
+                  draggable={false}
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center top',
+                    display: 'block',
+                  }}
+                />
+              </div>
+
+              {/* ── Text info (right) ── */}
+              <div className="flex flex-col justify-between p-8 flex-1 min-w-0">
+                {/* Year label */}
+                <p className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 leading-none mb-3">
+                  {item.year}
+                </p>
+
+                {/* Subject name */}
+                <h3 className="font-display font-black text-[#111] text-base leading-tight line-clamp-2 mb-3">
+                  {item.title}
+                </h3>
+
+                {/* Type label */}
+                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 leading-none mb-3">
+                  {getTypeLabel(item.type)}
+                </p>
+
+                {/* Time ago */}
+                <p className="text-xs font-semibold text-slate-500 mb-5">
+                  {getTimeAgo(item.timestamp)}
+                </p>
+
+                {/* Continue button */}
+                <button
+                  onClick={(e) => { e.stopPropagation(); navigate(item.explorePath); }}
+                  className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest
+                             text-indigo-600 hover:gap-3 transition-all duration-150 w-fit"
+                >
+                  Continue <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Right arrow */}
+        <button
+          onClick={() => scroll('right')}
+          aria-label="Scroll right"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-9 h-9 bg-white rounded-full
+                     flex items-center justify-center shadow-[0_2px_12px_rgba(0,0,0,0.12)]
+                     text-slate-600 hover:scale-110 hover:shadow-md transition-all duration-200"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
+
   const navigate = useNavigate();
 
   // Dynamic display name from localStorage
@@ -25,11 +172,11 @@ export default function Home() {
 
   // Non-BTech coming soon modal
   const [isNonBTechModalOpen, setIsNonBTechModalOpen] = useState(false);
-  
+
   // Attendance and Exam Timetable modal states
   const [isAttendanceModalOpen, setIsAttendanceModalOpen] = useState(false);
   const [isExamTimetableModalOpen, setIsExamTimetableModalOpen] = useState(false);
-  
+
   interface ExamEntry {
     id: string;
     subject: string;
@@ -42,13 +189,13 @@ export default function Home() {
   });
   const [showAddExam, setShowAddExam] = useState(false);
   const [newExamSubject, setNewExamSubject] = useState('');
-  const [newExamType, setNewExamType] = useState<'MTE'|'ETE'|'Other'>('MTE');
+  const [newExamType, setNewExamType] = useState<'MTE' | 'ETE' | 'Other'>('MTE');
   const [newExamDate, setNewExamDate] = useState('');
 
   useEffect(() => {
     localStorage.setItem('examEntries', JSON.stringify(examEntries));
   }, [examEntries]);
-  
+
   // Attendance Tracker state
   interface AttendanceSubject {
     id: string;
@@ -64,7 +211,7 @@ export default function Home() {
   const [showAddSubject, setShowAddSubject] = useState(false);
   const [newSubjectName, setNewSubjectName] = useState('');
   const [newSubjectCredits, setNewSubjectCredits] = useState<3 | 4>(3);
-  
+
   // Save subjects to localStorage on change
   useEffect(() => {
     localStorage.setItem('attendanceSubjects', JSON.stringify(subjects));
@@ -91,6 +238,8 @@ export default function Home() {
       setSelectedBranch('cse');
     }
   };
+
+  const recentActivity = getRecentActivity();
 
 
   // Handle year change in sessional setup modal
@@ -135,7 +284,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#F8F9FB] text-[#1E1E1E] font-sans antialiased pb-24">
-      
+
       {/* ── HEADER NAVIGATION (Clean, Thin Borders, Soft Shadows) ── */}
       <header className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2.5">
@@ -203,28 +352,23 @@ export default function Home() {
       {/* ── HERO SECTION ── */}
       <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 pt-4 pb-8 lg:pt-8 lg:pb-12 relative">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center relative">
-          
+
           {/* Hero Left Content */}
           <div className="lg:col-span-7 space-y-6 lg:space-y-8 text-center lg:text-left">
-            
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#5D5FEF]/10 border border-[#5D5FEF]/20 text-[#5D5FEF] px-3.5 py-1.5 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#5D5FEF] animate-pulse" />
-            </div>
+
+
 
             <div className="space-y-3">
               <h1 className="font-display font-extrabold text-[42px] sm:text-5xl lg:text-[76px] text-[#1E1E1E] leading-[0.9] tracking-tight uppercase">
                 Study Smarter.<br />
                 <span className="bg-gradient-to-r from-[#5D5FEF] to-[#7B7DFF] bg-clip-text text-transparent">Score Higher.</span>
               </h1>
-              <p className="text-slate-500 font-bold text-sm leading-relaxed mx-auto lg:mx-0 max-w-sm">
-                Notes, PYQs, and practice for every MUJ subject — all in one place.
-              </p>
+
             </div>
 
-          {/* Selection Filters — compact */}
-          <div
-         className="
+            {/* Selection Filters — compact */}
+            <div
+              className="
 rounded-3xl
 border border-white/70
 bg-gradient-to-br
@@ -236,7 +380,7 @@ p-6
 space-y-5
 shadow-[0_18px_50px_rgba(93,95,239,0.08)]
 "
->
+            >
               {/* Row 1: Course & Year Selectors */}
               <div className="flex flex-wrap items-center gap-2 sm:gap-3 pb-4 border-b border-slate-100">
                 <div className="flex items-center gap-1.5">
@@ -253,11 +397,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                     <button
                       key={y}
                       onClick={() => handleHeroYearChange(y)}
-                      className={`px-3 py-1 rounded-lg text-[10px] font-black border transition-all duration-200 cursor-pointer ${
-                        selectedYear === y
+                      className={`px-3 py-1 rounded-lg text-[10px] font-black border transition-all duration-200 cursor-pointer ${selectedYear === y
                           ? 'bg-gradient-to-r from-[#5D5FEF] to-[#7B7DFF] text-white border-transparent shadow-[0_2px_8px_rgba(93,95,239,0.3)]'
                           : 'bg-slate-50 text-slate-500 border-slate-200 hover:border-[#5D5FEF]/40 hover:text-[#5D5FEF]'
-                      }`}
+                        }`}
                     >
                       {y === 1 ? '1st' : y === 2 ? '2nd' : y === 3 ? '3rd' : '4th'}
                     </button>
@@ -276,11 +419,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                       <button
                         key={c.id}
                         onClick={() => setSelectedBranch(c.id)}
-                        className={`px-3.5 py-1.5 rounded-xl text-[10px] font-bold border transition-all duration-200 cursor-pointer ${
-                          selectedBranch === c.id
+                        className={`px-3.5 py-1.5 rounded-xl text-[10px] font-bold border transition-all duration-200 cursor-pointer ${selectedBranch === c.id
                             ? 'bg-[#5D5FEF] text-white border-[#5D5FEF] shadow-sm'
                             : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-[#5D5FEF]/40'
-                        }`}
+                          }`}
                       >
                         {c.name}
                       </button>
@@ -290,11 +432,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                       <button
                         key={b.id}
                         onClick={() => setSelectedBranch(b.id)}
-                        className={`px-3.5 py-1.5 rounded-xl text-[10px] font-bold border transition-all duration-200 cursor-pointer ${
-                          selectedBranch === b.id
+                        className={`px-3.5 py-1.5 rounded-xl text-[10px] font-bold border transition-all duration-200 cursor-pointer ${selectedBranch === b.id
                             ? 'bg-[#5D5FEF] text-white border-[#5D5FEF] shadow-sm'
                             : 'bg-slate-50 text-slate-600 border-slate-200 hover:border-[#5D5FEF]/40'
-                        }`}
+                          }`}
                       >
                         {b.shortName}
                       </button>
@@ -375,8 +516,8 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                 .book-3 { width:130px; height:195px; left:205px; bottom:50px; }
                 .book-4 { width:115px; height:165px; right:90px; bottom:50px; }
                 .book-5 { width:100px; height:148px; bottom:50px; }
-                .book-shelf { bottom:36px; left:12px; right:12px; height:16px; }
-                .book-shadow { bottom:12px; left:40px; right:40px; }
+                .book-shelf { left:50%; transform:translateX(-50%); width:300px; bottom:36px; height:16px; }
+                .book-shadow { left:50%; transform:translateX(-50%); width:260px; bottom:12px; }
                 .book-padding { padding:8px 6px; }
                 .book-padding-3 { padding:10px 8px; }
                 .book-icon { font-size:18px; margin-bottom:4px; }
@@ -393,8 +534,8 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                 .book-3 { width:68px; height:105px; left:108px; bottom:28px; }
                 .book-4 { width:62px; height:88px; right:48px; bottom:28px; }
                 .book-5 { width:55px; height:78px; bottom:28px; }
-                .book-shelf { bottom:20px; left:6px; right:6px; height:10px; }
-                .book-shadow { bottom:9px; left:30px; right:30px; }
+                .book-shelf { left:50%; transform:translateX(-50%); width:220px; bottom:18px; height:10px; }
+                .book-shadow { left:50%; transform:translateX(-50%); width:180px; bottom:9px; }
                 .book-padding { padding:5px 4px; }
                 .book-padding-3 { padding:7px 5px; }
                 .book-icon { font-size:14px; margin-bottom:2px; }
@@ -410,293 +551,190 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
 
 
               {/* Book 1 – far left (Engineering Physics, red) */}
-              <div className="book3d book-1" style={{left:0,background:'linear-gradient(145deg,#e53935,#b71c1c)',animation:'bookFloat1 5.5s ease-in-out infinite',zIndex:1}}>
-                <div className="bspine" style={{background:'#b71c1c'}} />
+              <div className="book3d book-1" style={{ left: 0, background: 'linear-gradient(145deg,#e53935,#b71c1c)', animation: 'bookFloat1 5.5s ease-in-out infinite', zIndex: 1 }}>
+                <div className="bspine" style={{ background: '#b71c1c' }} />
                 <div className="bpages" />
-                <div className="book-padding" style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',borderRadius:'0 10px 10px 0'}}>
+                <div className="book-padding" style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: '0 10px 10px 0' }}>
                   <div className="book-icon">⚛️</div>
-                  <p className="book-title" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>Engineering Physics</p>
-                  <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
+                  <p className="book-title" style={{ color: '#fff', fontWeight: 900, textAlign: 'center', textTransform: 'uppercase', lineHeight: 1.2, letterSpacing: '0.05em' }}>Engineering Physics</p>
+                  <p className="book-subtitle" style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 700, textTransform: 'uppercase' }}>MUJ Space</p>
                 </div>
               </div>
 
               {/* Book 2 – mid-left (Comp Math, orange-amber) */}
-              <div className="book3d book-2" style={{background:'linear-gradient(145deg,#f9a825,#e65100)',animation:'bookFloat2 6s ease-in-out infinite',zIndex:2}}>
-                <div className="bspine" style={{background:'#e65100'}} />
+              <div className="book3d book-2" style={{ background: 'linear-gradient(145deg,#f9a825,#e65100)', animation: 'bookFloat2 6s ease-in-out infinite', zIndex: 2 }}>
+                <div className="bspine" style={{ background: '#e65100' }} />
                 <div className="bpages" />
-                <div className="book-padding" style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',borderRadius:'0 10px 10px 0'}}>
+                <div className="book-padding" style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: '0 10px 10px 0' }}>
                   <div className="book-icon">📐</div>
-                  <p className="book-title" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>Comp. Mathematics</p>
-                  <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
+                  <p className="book-title" style={{ color: '#fff', fontWeight: 900, textAlign: 'center', textTransform: 'uppercase', lineHeight: 1.2, letterSpacing: '0.05em' }}>Comp. Mathematics</p>
+                  <p className="book-subtitle" style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 700, textTransform: 'uppercase' }}>MUJ Space</p>
                 </div>
               </div>
 
               {/* Book 3 – center/tallest (Physics Cycle, deep indigo) */}
-              <div className="book3d book-3" style={{background:'linear-gradient(145deg,#5D5FEF,#3730a3)',animation:'bookFloat3 5s ease-in-out infinite',zIndex:5}}>
-                <div className="bspine" style={{background:'#3730a3'}} />
+              <div className="book3d book-3" style={{ background: 'linear-gradient(145deg,#5D5FEF,#3730a3)', animation: 'bookFloat3 5s ease-in-out infinite', zIndex: 5 }}>
+                <div className="bspine" style={{ background: '#3730a3' }} />
                 <div className="bpages" />
-                <div className="book-padding-3" style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',borderRadius:'0 10px 10px 0'}}>
+                <div className="book-padding-3" style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: '0 10px 10px 0' }}>
                   <div className="book-icon-3">🔬</div>
-                  <p className="book-title-3" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>Physics Cycle</p>
-                  <div className="book-divider" style={{height:1,background:'rgba(255,255,255,0.3)'}} />
-                  <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
+                  <p className="book-title-3" style={{ color: '#fff', fontWeight: 900, textAlign: 'center', textTransform: 'uppercase', lineHeight: 1.2, letterSpacing: '0.05em' }}>Physics Cycle</p>
+                  <div className="book-divider" style={{ height: 1, background: 'rgba(255,255,255,0.3)' }} />
+                  <p className="book-subtitle" style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 700, textTransform: 'uppercase' }}>MUJ Space</p>
                 </div>
               </div>
 
               {/* Book 4 – mid-right (Chemistry Cycle, teal) */}
-              <div className="book3d book-4" style={{background:'linear-gradient(145deg,#00acc1,#00695c)',animation:'bookFloat4 6.5s ease-in-out infinite',zIndex:3}}>
-                <div className="bspine" style={{background:'#00695c'}} />
+              <div className="book3d book-4" style={{ background: 'linear-gradient(145deg,#00acc1,#00695c)', animation: 'bookFloat4 6.5s ease-in-out infinite', zIndex: 3 }}>
+                <div className="bspine" style={{ background: '#00695c' }} />
                 <div className="bpages" />
-                <div className="book-padding" style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',borderRadius:'0 10px 10px 0'}}>
+                <div className="book-padding" style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: '0 10px 10px 0' }}>
                   <div className="book-icon">🧪</div>
-                  <p className="book-title" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>Chemistry Cycle</p>
-                  <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
+                  <p className="book-title" style={{ color: '#fff', fontWeight: 900, textAlign: 'center', textTransform: 'uppercase', lineHeight: 1.2, letterSpacing: '0.05em' }}>Chemistry Cycle</p>
+                  <p className="book-subtitle" style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 700, textTransform: 'uppercase' }}>MUJ Space</p>
                 </div>
               </div>
 
               {/* Book 5 – far right (PSUC, emerald-green) */}
-              <div className="book3d book-5" style={{right:0,background:'linear-gradient(145deg,#43a047,#1b5e20)',animation:'bookFloat5 5.8s ease-in-out infinite',zIndex:2}}>
-                <div className="bspine" style={{background:'#1b5e20'}} />
+              <div className="book3d book-5" style={{ right: 0, background: 'linear-gradient(145deg,#43a047,#1b5e20)', animation: 'bookFloat5 5.8s ease-in-out infinite', zIndex: 2 }}>
+                <div className="bspine" style={{ background: '#1b5e20' }} />
                 <div className="bpages" />
-                <div className="book-padding" style={{position:'absolute',inset:0,display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',borderRadius:'0 10px 10px 0'}}>
+                <div className="book-padding" style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: '0 10px 10px 0' }}>
                   <div className="book-icon">💻</div>
-                  <p className="book-title" style={{color:'#fff',fontWeight:900,textAlign:'center',textTransform:'uppercase',lineHeight:1.2,letterSpacing:'0.05em'}}>PSUC</p>
-                  <p className="book-subtitle" style={{color:'rgba(255,255,255,0.5)',fontWeight:700,textTransform:'uppercase'}}>MUJ Space</p>
+                  <p className="book-title" style={{ color: '#fff', fontWeight: 900, textAlign: 'center', textTransform: 'uppercase', lineHeight: 1.2, letterSpacing: '0.05em' }}>PSUC</p>
+                  <p className="book-subtitle" style={{ color: 'rgba(255,255,255,0.5)', fontWeight: 700, textTransform: 'uppercase' }}>MUJ Space</p>
                 </div>
-                </div>
-            
-            {/* Wooden Shelf */}
-<div
-  style={{
-    position: "absolute",
-    width: "300px",
-    height: "12px",
-    left: "50%",
-    transform: "translateX(-50%)",
-    bottom: "32px",
-    zIndex: 0,
+              </div>
 
-    borderRadius: "999px",
+              {/* Wooden Shelf */}
+              <div
+                className="book-shelf"
+                style={{
+                  position: "absolute",
+                  zIndex: 0, // Ensure shelf is behind books
+                  borderRadius: "999px",
+                  background:
+                    "linear-gradient(180deg,#D8B188 0%,#C48952 40%,#A86839 70%,#844C27 100%)",
+                  boxShadow:
+                    "0 8px 18px rgba(0,0,0,.18), inset 0 1px 1px rgba(255,255,255,.45)",
+                }}
+              />
 
-    background:
-      "linear-gradient(180deg,#D8B188 0%,#C48952 40%,#A86839 70%,#844C27 100%)",
-
-    boxShadow:
-      "0 8px 18px rgba(0,0,0,.18), inset 0 1px 1px rgba(255,255,255,.45)",
-  }}
-/>
-
-{/* Shelf Shadow */}
-<div
-  style={{
-    position: "absolute",
-    width: "260px",
-    height: "16px",
-    left: "50%",
-    transform: "translateX(-50%)",
-    bottom: "18px",
-
-    borderRadius: "999px",
-    background: "rgba(0,0,0,.18)",
-    filter: "blur(12px)",
-    zIndex: -1,
-  }}
-/>
-</div>
+              {/* Shelf Shadow */}
+              <div
+                className="book-shadow"
+                style={{
+                  position: "absolute",
+                  borderRadius: "999px",
+                  background: "rgba(0,0,0,.18)",
+                  filter: "blur(12px)",
+                  zIndex: -1,
+                }}
+              />
+            </div>
 
 
 
             {/* NEW MINI CARDS UNDER BOOKS */}
             <div className="flex gap-3 w-full max-w-[440px] mt-6 z-10 justify-center lg:justify-start">
               {/* Attendance Calculator box */}
-              <button 
+              <button
                 onClick={() => setIsAttendanceModalOpen(true)}
                 className="flex-1 bg-white hover:bg-[#F4F4FF] border-2 border-[#5D5FEF]/20 hover:border-[#5D5FEF] hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 p-4 rounded-2xl shadow-[0_8px_24px_rgba(93,95,239,0.15)] text-left relative overflow-hidden group cursor-pointer"
               >
                 <div className="font-display font-black text-sm text-[#5D5FEF] uppercase tracking-wide flex items-center gap-1.5">
-                   Attendance
+                  Attendance
                 </div>
                 <div className="text-[10px] text-slate-500 font-bold leading-tight mt-1 ml-0">Calculate & track</div>
               </button>
               {/* Exam Timetable box */}
-              <button 
+              <button
                 onClick={() => setIsExamTimetableModalOpen(true)}
                 className="flex-1 bg-white hover:bg-[#FFF5F5] border-2 border-[#FF6B6B]/20 hover:border-[#FF6B6B] hover:scale-[1.03] hover:-translate-y-1 transition-all duration-300 p-4 rounded-2xl shadow-[0_8px_24px_rgba(255,107,107,0.15)] text-left relative overflow-hidden group cursor-pointer"
               >
                 <div className="font-display font-black text-sm text-[#FF6B6B] uppercase tracking-wide flex items-center gap-1.5">
-                   Add Exam Timetable
+                  Add Exam Timetable
                 </div>
                 <div className="text-[10px] text-slate-500 font-bold leading-tight mt-1 ml-0">View schedule</div>
               </button>
             </div>
-            
+
           </div>
 
         </div>
       </section>
 
       {/* ── CONTINUE STUDYING SECTION ── */}
-      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-8 border-t border-slate-200/60">
-        <div className="flex justify-between items-center mb-5">
-          <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">Continue Studying</h2>
-          <Link to="/explore" className="text-xs font-black uppercase text-[#5D5FEF] hover:underline flex items-center gap-1">
-            View all <ChevronRight className="w-3.5 h-3.5" />
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-8">
+          <div>
+            <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">CONTINUE STUDYING</h2>
+          </div>
+          <Link to="/explore" className="group">
+            <span className="text-xs font-bold text-[#5D5FEF] flex items-center gap-1 hover:gap-2 transition-all">View all <ArrowRight className="w-4 h-4" /></span>
           </Link>
         </div>
 
-        {/* MOBILE: Horizontal slider */}
-        <div className="md:hidden flex gap-4 overflow-x-auto no-scrollbar pb-6 pt-2 px-2 snap-x snap-mandatory">
-          {[
-            {
-              title: 'Physics Cycle',
-              year: 'BTech 1st Year',
-              cover: '/bookcovers/physics-cycle.png',
-              explorePath: '/explore?year=1&cycle=physics-cycle'
-            },
-            {
-              title: 'BTech 2nd Year',
-              year: 'All Subjects',
-              cover: '/bookcovers/second-year.png',
-              explorePath: '/explore?year=2'
-            },
-            {
-              title: 'Data Structures',
-              year: 'BTech 2nd Year',
-              cover: '/bookcovers/cse.png',
-              explorePath: '/explore?year=2'
-            },
-            {
-              title: 'Chemistry Cycle',
-              year: 'BTech 1st Year',
-              cover: '/bookcovers/chemistry-cycle.png',
-              explorePath: '/explore?year=1&cycle=chemistry-cycle'
-            }
-          ].map((item, idx) => (
-            <Link
-              key={idx}
-              to={item.explorePath}
-              className="min-w-[280px] snap-center shrink-0 bg-white border border-slate-100 rounded-3xl p-4 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:scale-[1.02] transition-all duration-300 ease-out group flex items-center gap-5 cursor-pointer text-left"
-            >
-              <div className="relative w-28 h-40 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-4px]" style={{ perspective: '800px' }}>
-                <div className="absolute right-0 top-0.5 bottom-0.5 w-1.5 bg-gradient-to-r from-slate-100 to-white border-y border-r border-slate-200 rounded-r-sm" style={{ transform: 'rotateY(-20deg)', transformOrigin: 'right center' }} />
-                <div className="absolute left-0 top-0 bottom-0 w-2 bg-black/5 z-10 rounded-l-sm" style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.08), rgba(255,255,255,0.1) 30%, rgba(0,0,0,0.04) 85%)' }} />
-                <div className="absolute inset-0 rounded-r-lg bg-cover bg-center" style={{ backgroundImage: `url(${item.cover})`, boxShadow: '0 8px 20px rgba(0,0,0,0.08)' }} />
-              </div>
-              <div className="flex-1 flex flex-col justify-center h-40 py-1">
-                <div className="space-y-0.5">
-                  <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
-                  <h3 className="font-display font-bold text-xs text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors break-words whitespace-normal">{item.title}</h3>
-                </div>
-                <div className="space-y-0.5 mt-3">
-                  <span className="text-[8px] font-black uppercase text-slate-400 tracking-wider block">Recently Opened</span>
-                  <span className="text-[9px] font-bold text-slate-600 block">2 hours ago</span>
-                </div>
-                <div className="mt-3 font-display font-black text-[9px] text-[#5D5FEF] uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                  Continue <ArrowRight className="w-2.5 h-2.5" />
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+        {recentActivity.length > 0 ? (
+          <ContinueStudyingCarousel items={recentActivity} />
 
-        {/* DESKTOP: Grid view */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            {
-              title: 'Physics Cycle',
-              year: 'BTech 1st Year',
-              cover: '/bookcovers/physics-cycle.png',
-              explorePath: '/explore?year=1&cycle=physics-cycle'
-            },
-            {
-              title: 'BTech 2nd Year',
-              year: 'All Subjects',
-              cover: '/bookcovers/second-year.png',
-              explorePath: '/explore?year=2'
-            },
-            {
-              title: 'Data Structures',
-              year: 'BTech 2nd Year',
-              cover: '/bookcovers/cse.png',
-              explorePath: '/explore?year=2'
-            },
-            {
-              title: 'Chemistry Cycle',
-              year: 'BTech 1st Year',
-              cover: '/bookcovers/chemistry-cycle.png',
-              explorePath: '/explore?year=1&cycle=chemistry-cycle'
-            }
-          ].map((item, idx) => (
-            <div 
-              key={idx}
-              onClick={() => navigate(item.explorePath)}
-              className="bg-white border border-slate-100 rounded-[32px] px-5 py-4 hover:shadow-[0_8px_20px_rgba(0,0,0,0.06)] hover:scale-[1.02] transition-all duration-300 ease-out group flex flex-row items-center gap-5 cursor-pointer text-left"
-            >
-              <div className="relative w-40 h-56 shrink-0 transition-transform duration-300 ease-out group-hover:translate-y-[-6px]" style={{ perspective: '800px' }}>
-                {/* Book cover image */}
-                <div className="absolute inset-0 rounded-r-xl bg-cover bg-center" style={{ backgroundImage: `url(${item.cover})` }} />
-              </div>
-
-              {/* Right Side: Details */}
-              <div className="flex-1 flex flex-col justify-center h-56 py-2 w-full">
-                <div className="space-y-1">
-                  <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">{item.year}</span>
-                  <h3 className="font-display font-extrabold text-base xl:text-lg text-[#1E1E1E] leading-tight uppercase group-hover:text-[#5D5FEF] transition-colors break-words whitespace-normal">{item.title}</h3>
-                </div>
-
-                <div className="space-y-1 mt-4">
-                  <span className="text-[9px] font-black uppercase text-slate-400 tracking-wider block">Recently Opened</span>
-                  <span className="text-[11px] font-bold text-slate-600 block">2 hours ago</span>
-                </div>
-
-                <div className="mt-5 font-display font-black text-[11px] text-[#5D5FEF] uppercase tracking-wider group-hover:translate-x-1 transition-transform flex items-center gap-1.5">
-                  Continue <ArrowRight className="w-3 h-3" />
-                </div>
-              </div>
+        ) : (
+          <div className="flex items-center gap-4 py-10">
+            <div className="w-16 h-24 bg-slate-100 rounded-2xl shrink-0 flex items-center justify-center">
+              <BookOpen className="w-6 h-6 text-slate-300" />
             </div>
-          ))}
-        </div>
+            <div>
+              <p className="text-sm font-black text-slate-700 uppercase tracking-wide">No Activity Yet</p>
+              <p className="text-xs text-slate-400 font-bold mt-1">Start exploring subjects to build your reading history.</p>
+              <Link to="/explore" className="text-[10px] font-black text-[#5D5FEF] uppercase tracking-widest mt-2 flex items-center gap-1 hover:gap-2 transition-all">
+                Browse Library <ArrowRight className="w-3 h-3" />
+              </Link>
+            </div>
+          </div>
+        )}
       </section>
 
-     {/* ── TECH STACKS SECTION ── */}
-<section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60">
-  <div className="flex justify-between items-center mb-8">
-    <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">
-      Tech Stacks
-    </h2>
-  </div>
 
-  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-    {[
-      {
-        y: 1,
-        title: "First Year",
-        cover: "/bookcovers/first-year.png",
-        bg: "bg-[#F7F2FF]",
-      },
-      {
-        y: 2,
-        title: "Second Year",
-        cover: "/bookcovers/second-year.png",
-        bg: "bg-[#FFF6EC]",
-      },
-      {
-        y: 3,
-        title: "Third Year",
-        cover: "/bookcovers/third-year.png",
-        bg: "bg-[#EEF7FF]",
-      },
-      {
-        y: 4,
-        title: "Fourth Year",
-        cover: "/bookcovers/fourth-year.png",
-        bg: "bg-[#EFFAF2]",
-      },
-    ].map((item) => (
-      <div
-        key={item.y}
-        onClick={() => navigate(`/explore?year=${item.y}`)}
-        className={`
+      {/* ── TECH STACKS SECTION ── */}
+      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-10 border-t border-slate-200/60">
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="font-display font-extrabold text-2xl uppercase text-[#1E1E1E] tracking-tight">
+            Tech Stacks
+          </h2>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {[
+            {
+              y: 1,
+              title: "First Year",
+              cover: "/bookcovers/first-year.png",
+              bg: "bg-[#F7F2FF]",
+            },
+            {
+              y: 2,
+              title: "Second Year",
+              cover: "/bookcovers/second-year.png",
+              bg: "bg-[#FFF6EC]",
+            },
+            {
+              y: 3,
+              title: "Third Year",
+              cover: "/bookcovers/third-year.png",
+              bg: "bg-[#EEF7FF]",
+            },
+            {
+              y: 4,
+              title: "Fourth Year",
+              cover: "/bookcovers/fourth-year.png",
+              bg: "bg-[#EFFAF2]",
+            },
+          ].map((item) => (
+            <div
+              key={item.y}
+              onClick={() => navigate(`/explore?year=${item.y}`)}
+              className={`
           ${item.bg}
           group
           cursor-pointer
@@ -710,34 +748,34 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
           hover:-translate-y-2
           hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)]
         `}
-      >
-        {/* Book */}
-        <div
-          className="relative w-52 h-72 transition-all duration-300 group-hover:scale-105"
-          style={{ perspective: "900px" }}
-        >
-          <div
-            className="absolute inset-0 bg-cover bg-center rounded-r-xl"
-            style={{
-              backgroundImage: `url(${item.cover})`,
-            }}
-          />
-        </div>
+            >
+              {/* Book */}
+              <div
+                className="relative w-52 h-72 transition-all duration-300 group-hover:scale-105"
+                style={{ perspective: "900px" }}
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center rounded-r-xl"
+                  style={{
+                    backgroundImage: `url(${item.cover})`,
+                  }}
+                />
+              </div>
 
-        {/* Label */}
-        <div className="mt-6 text-center">
-          <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
-            Year {item.y}
-          </span>
+              {/* Label */}
+              <div className="mt-6 text-center">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+                  Year {item.y}
+                </span>
 
-          <h3 className="mt-1 font-display font-extrabold text-xl uppercase text-[#1E1E1E]">
-            {item.title}
-          </h3>
+                <h3 className="mt-1 font-display font-extrabold text-xl uppercase text-[#1E1E1E]">
+                  {item.title}
+                </h3>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    ))}
-  </div>
-</section>      {/* ── PRACTICE ARENA / NON-BTECH BANNERS ── */}
+      </section>      {/* ── PRACTICE ARENA / NON-BTECH BANNERS ── */}
       <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 py-8 border-t border-slate-200/60 grid md:grid-cols-2 gap-8">
         <div className="bg-gradient-to-br from-[#FF7EB9] to-[#FF5252] rounded-[32px] p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-56 text-left group">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/20 rounded-full blur-3xl group-hover:bg-white/30 transition-colors duration-500" />
@@ -869,11 +907,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                       <button
                         key={c}
                         disabled={idx > 0}
-                        className={`px-4 py-2 rounded-full text-xs font-black border transition-all ${
-                          idx === 0
+                        className={`px-4 py-2 rounded-full text-xs font-black border transition-all ${idx === 0
                             ? 'bg-[#1E1E1E] border-[#1E1E1E] text-white'
                             : 'bg-white border-slate-205 text-slate-350 cursor-not-allowed opacity-50'
-                        }`}
+                          }`}
                       >
                         {c}
                       </button>
@@ -889,13 +926,12 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                       <button
                         key={y}
                         onClick={() => handleSetupYearChange(y)}
-                        className={`py-2 rounded-xl text-xs font-black border transition-all cursor-pointer ${
-                          setupYear === y
-                            ? 'bg-[#1E1E1E] border-[#1E1E1E] text-white'
+                        className={`py-2.5 rounded-xl text-xs font-black border transition-all cursor-pointer ${setupYear === y
+                            ? 'bg-[#1E1E1E] border-[#1E1E1E] text-white shadow-sm'
                             : 'bg-white border-slate-200 text-[#1E1E1E] hover:bg-slate-50'
-                        }`}
+                          }`}
                       >
-                        {y === 1 ? '1st' : y === 2 ? '2nd' : y === 3 ? '3rd' : '4th'} Yr
+                        {y === 1 ? '1st' : y === 2 ? '2nd' : y === 3 ? '3rd' : '4th'} Year
                       </button>
                     ))}
                   </div>
@@ -916,11 +952,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                             const list = c.subjects;
                             setSetupSubject(list[0] || null);
                           }}
-                          className={`px-4 py-2 rounded-full text-xs font-black border transition-all cursor-pointer ${
-                            setupBranch === c.id
+                          className={`px-4 py-2 rounded-full text-xs font-black border transition-all cursor-pointer ${setupBranch === c.id
                               ? 'bg-[#1E1E1E] border-[#1E1E1E] text-white'
                               : 'bg-white border-slate-200 text-[#1E1E1E] hover:bg-slate-50'
-                          }`}
+                            }`}
                         >
                           {c.name}
                         </button>
@@ -934,11 +969,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                             const list = b.subjects;
                             setSetupSubject(list[0] || null);
                           }}
-                          className={`px-4 py-2 rounded-full text-xs font-black border transition-all cursor-pointer ${
-                            setupBranch === b.id
+                          className={`px-4 py-2 rounded-full text-xs font-black border transition-all cursor-pointer ${setupBranch === b.id
                               ? 'bg-[#1E1E1E] border-[#1E1E1E] text-white'
                               : 'bg-white border-slate-200 text-[#1E1E1E] hover:bg-slate-50'
-                          }`}
+                            }`}
                         >
                           {b.shortName}
                         </button>
@@ -968,7 +1002,7 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                         {setupSubject ? (
                           <>
                             <span>{setupSubject.emoji}</span>
-                            <span>{setupSubject.name} ({setupSubject.code})</span>
+                            <span>{setupSubject.name}</span>
                           </>
                         ) : (
                           <span className="text-slate-400">Choose Subject...</span>
@@ -1009,11 +1043,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                                       setIsSubjectDropdownOpen(false);
                                       setSubjectSearch('');
                                     }}
-                                    className={`w-full text-left px-4 py-2.5 text-xs font-black transition-colors flex items-center justify-between border-b border-slate-50 last:border-none cursor-pointer ${
-                                      !hasQ
+                                    className={`w-full text-left px-4 py-2.5 text-xs font-black transition-colors flex items-center justify-between border-b border-slate-50 last:border-none cursor-pointer ${!hasQ
                                         ? 'opacity-35 cursor-not-allowed text-slate-450'
                                         : 'hover:bg-slate-50 text-neutral-800'
-                                    }`}
+                                      }`}
                                   >
                                     <span className="flex items-center gap-2">
                                       <span>{s.emoji}</span>
@@ -1112,17 +1145,15 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                       <div className="flex gap-3">
                         <button
                           onClick={() => setNewSubjectCredits(3)}
-                          className={`flex-1 h-12 rounded-xl text-sm font-bold border transition-all cursor-pointer ${
-                            newSubjectCredits === 3 ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
-                          }`}
+                          className={`flex-1 h-12 rounded-xl text-sm font-bold border transition-all cursor-pointer ${newSubjectCredits === 3 ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
+                            }`}
                         >
                           3 Credits
                         </button>
                         <button
                           onClick={() => setNewSubjectCredits(4)}
-                          className={`flex-1 h-12 rounded-xl text-sm font-bold border transition-all cursor-pointer ${
-                            newSubjectCredits === 4 ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
-                          }`}
+                          className={`flex-1 h-12 rounded-xl text-sm font-bold border transition-all cursor-pointer ${newSubjectCredits === 4 ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]' : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
+                            }`}
                         >
                           4 Credits
                         </button>
@@ -1222,8 +1253,8 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                                     onClick={() => {
                                       const newSubjects = subjects.map(s => {
                                         if (s.id === selectedSubjectId) {
-                                          const newMissed = idx < s.missedLectures 
-                                            ? s.missedLectures - 1 
+                                          const newMissed = idx < s.missedLectures
+                                            ? s.missedLectures - 1
                                             : s.missedLectures + 1;
                                           return { ...s, missedLectures: newMissed };
                                         }
@@ -1235,11 +1266,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                                     animate={{ scale: idx < subject.missedLectures ? [1, 1.1, 1] : 1 }}
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
-                                    className={`aspect-square rounded-xl flex items-center justify-center text-lg shadow-sm transition-all cursor-pointer ${
-                                      idx < subject.missedLectures
+                                    className={`aspect-square rounded-xl flex items-center justify-center text-lg shadow-sm transition-all cursor-pointer ${idx < subject.missedLectures
                                         ? 'bg-red-500 text-white shadow-red-200'
                                         : 'bg-slate-100 text-slate-400 border border-slate-200 hover:bg-slate-200'
-                                    }`}
+                                      }`}
                                   >
                                     {idx < subject.missedLectures ? '❌' : '⚪'}
                                   </motion.button>
@@ -1375,11 +1405,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                                 <button
                                   key={cred}
                                   onClick={() => setNewSubjectCredits(cred as 3 | 4)}
-                                  className={`py-2 rounded-xl text-xs font-black border transition-all cursor-pointer ${
-                                    newSubjectCredits === cred
+                                  className={`py-2 rounded-xl text-xs font-black border transition-all cursor-pointer ${newSubjectCredits === cred
                                       ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]'
                                       : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'
-                                  }`}
+                                    }`}
                                 >
                                   {cred} Credits
                                 </button>
@@ -1425,11 +1454,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                               <button
                                 key={subj.id}
                                 onClick={() => setSelectedSubjectId(subj.id)}
-                                className={`py-2.5 rounded-xl text-xs font-black border transition-all cursor-pointer ${
-                                  selectedSubjectId === subj.id
+                                className={`py-2.5 rounded-xl text-xs font-black border transition-all cursor-pointer ${selectedSubjectId === subj.id
                                     ? 'bg-[#5D5FEF] text-white border-[#5D5FEF] shadow-sm'
                                     : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'
-                                }`}
+                                  }`}
                               >
                                 {subj.name}
                               </button>
@@ -1493,11 +1521,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                                           return s;
                                         }));
                                       }}
-                                      className={`w-10 h-10 rounded-xl transition-all cursor-pointer flex items-center justify-center ${
-                                        i < subject.missedLectures
+                                      className={`w-10 h-10 rounded-xl transition-all cursor-pointer flex items-center justify-center ${i < subject.missedLectures
                                           ? 'bg-gradient-to-br from-[#EF4444] to-[#DC2626] shadow-lg'
                                           : 'bg-slate-100 border border-slate-200 hover:border-slate-300'
-                                      }`}
+                                        }`}
                                     >
                                       {i < subject.missedLectures && <X className="w-5 h-5 text-white" />}
                                     </motion.button>
@@ -1589,7 +1616,7 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                               className="w-full h-11 px-4 bg-white border border-slate-200 rounded-xl text-xs font-bold text-[#1E1E1E] focus:outline-none focus:border-[#FF6B6B]"
                             />
                           </div>
-                          
+
                           <div className="space-y-1">
                             <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Exam Type</label>
                             <div className="grid grid-cols-3 gap-2">
@@ -1597,18 +1624,17 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                                 <button
                                   key={type}
                                   onClick={() => setNewExamType(type as any)}
-                                  className={`py-2 rounded-xl text-xs font-black border transition-all cursor-pointer ${
-                                    newExamType === type
+                                  className={`py-2 rounded-xl text-xs font-black border transition-all cursor-pointer ${newExamType === type
                                       ? 'bg-[#1E1E1E] text-white border-[#1E1E1E]'
                                       : 'bg-white text-slate-500 border-slate-200 hover:border-slate-300'
-                                  }`}
+                                    }`}
                                 >
                                   {type}
                                 </button>
                               ))}
                             </div>
                           </div>
-                          
+
                           <div className="space-y-1">
                             <label className="text-[10px] font-black uppercase tracking-wider text-slate-400">Date</label>
                             <input
@@ -1618,7 +1644,7 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                               className="w-full h-11 px-4 bg-white border border-slate-200 rounded-xl text-xs font-bold text-[#1E1E1E] focus:outline-none focus:border-[#FF6B6B]"
                             />
                           </div>
-                          
+
                           <div className="flex gap-2 pt-2">
                             <button
                               onClick={() => { setShowAddExam(false); setNewExamSubject(''); setNewExamDate(''); }}
@@ -1657,11 +1683,10 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
                               <div>
                                 <h4 className="font-display font-bold text-sm text-[#1E1E1E] uppercase">{exam.subject}</h4>
                                 <div className="flex items-center gap-2 mt-1">
-                                  <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded ${
-                                    exam.type === 'MTE' ? 'bg-orange-100 text-orange-600' :
-                                    exam.type === 'ETE' ? 'bg-red-100 text-red-600' :
-                                    'bg-slate-100 text-slate-600'
-                                  }`}>
+                                  <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded ${exam.type === 'MTE' ? 'bg-orange-100 text-orange-600' :
+                                      exam.type === 'ETE' ? 'bg-red-100 text-red-600' :
+                                        'bg-slate-100 text-slate-600'
+                                    }`}>
                                     {exam.type}
                                   </span>
                                   <span className="text-[10px] font-bold text-slate-400">

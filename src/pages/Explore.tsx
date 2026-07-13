@@ -7,6 +7,7 @@ import {
   Calendar, Plus, X
 } from 'lucide-react';
 import { year1Cycles, branches, type Subject, type Cycle, type Branch } from '@/data/studyMaterial';
+import { logRecentActivity } from '@/lib/recentActivity';
 
 type Step = 'year' | 'branch' | 'subjects' | 'resources';
 type ResourceTab = 'notes' | 'pyqs';
@@ -325,7 +326,18 @@ export default function Explore() {
                   ].map(({ y, label, subtitle, color, cover }) => (
                     <button
                       key={y}
-                      onClick={() => { setSelectedYear(y); setStep('branch'); }}
+                      onClick={() => { 
+                        logRecentActivity({
+                          id: `year-${y}`,
+                          type: 'year',
+                          title: label,
+                          year: `BTech ${y === 1 ? '1st' : y === 2 ? '2nd' : y === 3 ? '3rd' : '4th'} Year`,
+                          cover: cover,
+                          explorePath: `/explore?year=${y}`
+                        });
+                        setSelectedYear(y); 
+                        setStep('branch'); 
+                      }}
                       className="text-left w-full cursor-pointer focus:outline-none group"
                     >
                       <div className={`relative rounded-[24px] border border-slate-200 pt-6 px-6 shadow-[0_8px_20px_rgba(0,0,0,0.03)] hover:translate-y-[-4px] hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)] transition-all flex flex-col items-center h-[340px] overflow-hidden ${color}`}>
@@ -382,9 +394,25 @@ export default function Explore() {
           key={item.id}
           onClick={() => {
             if (selectedYear === 1) {
+              logRecentActivity({
+                id: item.id,
+                type: 'cycle',
+                title: (item as Cycle).name,
+                year: 'BTech 1st Year',
+                cover: getBookCoverPath(item.id),
+                explorePath: `/explore?year=${selectedYear}&cycle=${item.id}`
+              });
               setSelectedCycle(item as Cycle);
               setStep("subjects");
             } else {
+              logRecentActivity({
+                id: item.id,
+                type: 'branch',
+                title: (item as Branch).shortName,
+                year: `BTech ${selectedYear === 2 ? '2nd' : selectedYear === 3 ? '3rd' : '4th'} Year`,
+                cover: getBookCoverPath(item.id),
+                explorePath: `/explore?year=${selectedYear}&branch=${item.id}`
+              });
               setSelectedBranch(item as Branch);
               setStep("subjects");
             }
@@ -497,7 +525,20 @@ export default function Explore() {
                     return (
                       <button
                         key={sub.id}
-                        onClick={() => { setSelectedSubject(sub); setActiveTab('notes'); setStep('resources'); }}
+                        onClick={() => { 
+                          logRecentActivity({
+                            id: sub.id,
+                            type: 'subject',
+                            title: sub.name,
+                            year: selectedYear === 1 ? 'BTech 1st Year' : 'BTech 2nd Year',
+                            cover: getBookCoverPath(selectedCycle?.id || selectedBranch?.id || ''),
+                            explorePath: `/explore?year=${selectedYear}&${selectedYear === 1 ? 'cycle' : 'branch'}=${selectedCycle?.id || selectedBranch?.id}&q=${encodeURIComponent(sub.name)}`
+                          });
+                          
+                          setSelectedSubject(sub); 
+                          setActiveTab('notes'); 
+                          setStep('resources'); 
+                        }}
                         className="text-left w-full focus:outline-none cursor-pointer group"
                       >
                         <div className={`rounded-2xl border ${style.border} ${style.bg} p-4 shadow-md flex flex-col justify-between h-40 hover:scale-[1.02] transition-transform`}>

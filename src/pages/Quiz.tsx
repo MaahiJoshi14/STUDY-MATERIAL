@@ -6,14 +6,19 @@ import {
   BookOpen, Search, ChevronLeft
 } from 'lucide-react';
 import {
-  year1Cycles, branches, type Subject, type Question, QUESTIONS_DB
+  year1Cycles, branches, type Subject
 } from '@/data/studyMaterial';
+import { parseAllPYQsToQuiz, getQuestionsByCategory, type QuizQuestion, type SubjectQuizData } from '@/lib/quizDataParser';
 
 type Step = 'setup' | 'categories' | 'practice';
 type Category = 'most' | 'moderate' | 'can-be' | string;
 
 export default function Quiz() {
   const [step, setStep] = useState<Step>('setup');
+
+  // Quiz data state
+  const [quizData, setQuizData] = useState<SubjectQuizData[]>([]);
+  const [loadingQuizData, setLoadingQuizData] = useState(false);
 
   // Setup form states (B&W)
   const [year, setYear] = useState<number>(1);
@@ -38,6 +43,22 @@ export default function Quiz() {
   // Active Category Stack Toggle: 'frequency' | 'topic'
   const [activeStackType, setActiveStackType] = useState<'frequency' | 'topic'>('frequency');
 
+
+  // Load quiz data on mount
+  useEffect(() => {
+    const loadQuizData = async () => {
+      setLoadingQuizData(true);
+      try {
+        const data = await parseAllPYQsToQuiz();
+        setQuizData(data);
+      } catch (error) {
+        console.error('Error loading quiz data:', error);
+      } finally {
+        setLoadingQuizData(false);
+      }
+    };
+    loadQuizData();
+  }, []);
 
   // Load setup data from sessionStorage if set by Home page
   useEffect(() => {
@@ -97,31 +118,32 @@ export default function Quiz() {
     return branch ? branch.subjects : [];
   };
 
-  const getQuestionsForSubject = (subjectId: string): Question[] => {
-    const targetId = subjectId === 'applied-mathematics' ? 'computational-mathematics' : subjectId;
-    return QUESTIONS_DB[targetId] || [];
+  const getQuestionsForSubject = (subjectId: string): QuizQuestion[] => {
+    const category = selectedCategory === 'most' ? 'most-asked' : 
+                     selectedCategory === 'moderate' ? 'moderately-asked' : 'can-be-asked';
+    return getQuestionsByCategory(quizData, subjectId, category);
   };
 
   const allQuestions = subject ? getQuestionsForSubject(subject.id) : [];
-  const topics = Array.from(new Set(allQuestions.map(q => q.topic))).map(topicName => ({
+  const topics = Array.from(new Set(allQuestions.map(q => q.topic || 'General'))).map(topicName => ({
     name: topicName,
-    questions: allQuestions.filter(q => q.topic === topicName)
+    questions: allQuestions.filter(q => (q.topic || 'General') === topicName)
   }));
 
-  const mostAsked = allQuestions.filter(q => q.frequency === 'most'); 
-  const moderatelyAsked = allQuestions.filter(q => q.frequency === 'moderate');
-  const canBeAsked = allQuestions.filter(q => q.frequency === 'can-be');
+  const mostAsked = getQuestionsByCategory(quizData, subject?.id || '', 'most-asked');
+  const moderatelyAsked = getQuestionsByCategory(quizData, subject?.id || '', 'moderately-asked');
+  const canBeAsked = getQuestionsByCategory(quizData, subject?.id || '', 'can-be-asked');
 
-  const getCategoryQuestions = (): Question[] => {
+  const getCategoryQuestions = (): QuizQuestion[] => {
     if (selectedCategory === 'most') return mostAsked;
     if (selectedCategory === 'moderate') return moderatelyAsked;
     if (selectedCategory === 'can-be') return canBeAsked;
-    return allQuestions.filter(q => q.topic === selectedCategory);
+    return allQuestions.filter(q => (q.topic || 'General') === selectedCategory);
   };
 
   const currentQuestions = getCategoryQuestions();
 
-  const handleAnswerSubmit = async (question: Question) => {
+  const handleAnswerSubmit = async (question: QuizQuestion) => {
     if (submitted[question.id] || checking[question.id]) return;
     const userAnswer = answers[question.id] || '';
     
@@ -134,25 +156,28 @@ export default function Quiz() {
 
     if (question.type === 'mcq') {
       const ansVal = parseInt(userAnswer, 10);
-      isCorrect = ansVal === question.correct;
-      earnedPoints = isCorrect ? question.marks : 0;
+      const correct = question.correct ?? 0;
+      const marks = question.marks ?? 0;
+      isCorrect = ansVal === correct;
+      earnedPoints = isCorrect ? marks : 0;
       feedback = isCorrect 
-        ? `Correct! ${question.explanation}` 
-        : `Incorrect. The correct option is ${String.fromCharCode(65 + question.correct)}. ${question.explanation}`;
+        ? `Correct! ${question.explanation || ''}` 
+        : `Incorrect. The correct option is ${String.fromCharCode(65 + correct)}. ${question.explanation || ''}`;
     } else if (question.type === 'theory') {
       // Check keywords
       const words = (question.keywords || []).map(w => w.toLowerCase());
       const userText = userAnswer.toLowerCase();
       const matched = words.filter(w => userText.includes(w));
       const matchRatio = words.length > 0 ? matched.length / words.length : 0;
+      const marks = question.marks ?? 0;
 
       if (matchRatio >= 0.6) {
         isCorrect = true;
-        earnedPoints = question.marks;
+        earnedPoints = marks;
         feedback = `Excellent response! You correctly identified key terms: ${matched.join(', ')}.`;
       } else if (matched.length > 0) {
         isCorrect = false;
-        earnedPoints = Math.max(1, Math.floor(question.marks * (matched.length / words.length)));
+        earnedPoints = Math.max(1, Math.floor(marks * (matched.length / (words.length || 1))));
         feedback = `Partial match. You mentioned: ${matched.join(', ')}. Try to also cover: ${words.filter(w => !matched.includes(w)).join(', ')}.`;
       } else {
         isCorrect = false;
@@ -163,6 +188,7 @@ export default function Quiz() {
       // Numerical
       const cleanUser = userAnswer.toLowerCase().replace(/\s+/g, '');
       const cleanFormula = (question.formula || '').toLowerCase().replace(/\s+/g, '');
+      const marks = question.marks ?? 0;
       
       const formulaNumbers = (question.formula || '').match(/\d+(\.\d+)?/g) || [];
       const userNumbers = userAnswer.match(/\d+(\.\d+)?/g) || [];
@@ -170,16 +196,16 @@ export default function Quiz() {
 
       if (cleanUser.includes(cleanFormula) || matchesNumber) {
         isCorrect = true;
-        earnedPoints = question.marks;
-        feedback = `Correct formula and final answer match! ${question.explanation}`;
+        earnedPoints = marks;
+        feedback = `Correct formula and final answer match! ${question.explanation || ''}`;
       } else {
         const matchedNums = formulaNumbers.filter(fn => userNumbers.some(un => Math.abs(parseFloat(un) - parseFloat(fn)) < 0.05));
         if (matchedNums.length > 0) {
-          earnedPoints = Math.max(1, Math.floor(question.marks / 2));
+          earnedPoints = Math.max(1, Math.floor(marks / 2));
           feedback = `Formula structure or values are partially correct. Check the calculation. Expected values like: ${formulaNumbers.join(', ')}.`;
         } else {
           earnedPoints = 0;
-          feedback = `Calculation or formula mismatch. Expected key values/formula pattern: ${question.formula}`;
+          feedback = `Calculation or formula mismatch. Expected key values/formula pattern: ${question.formula || ''}`;
         }
       }
     }
@@ -202,6 +228,14 @@ export default function Quiz() {
 
   return (
     <div className="min-h-screen bg-[#FFF8FA] text-[#1E1E1E] font-sans antialiased pb-28">
+      {loadingQuizData && (
+        <div className="fixed inset-0 bg-white/80 backdrop-blur-sm z-50 flex items-center justify-center">
+          <div className="text-center">
+            <div className="w-12 h-12 border-4 border-[#FF5252] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+            <p className="font-bold text-sm text-[#1E1E1E]">Loading quiz data...</p>
+          </div>
+        </div>
+      )}
       
       {/* ── HEADER NAVIGATION ── */}
       <header className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
@@ -479,7 +513,7 @@ export default function Quiz() {
                 {/* Header */}
               <div className="text-center space-y-3">
                 <span className="inline-block text-[10px] font-black uppercase bg-white border border-slate-200 px-3 py-1 rounded-full shadow-sm text-slate-500">
-                  {subject.name} ({subject.code})
+                  {subject.name}
                 </span>
                 <h1 className="font-display font-black text-4xl text-[#1E1E1E] uppercase">
                   Select Category
@@ -782,24 +816,32 @@ export default function Quiz() {
                             <span className="text-[9px] font-black uppercase tracking-widest text-slate-405">
                               Question {idx + 1}
                             </span>
-                            <span className="text-[9px] font-black uppercase bg-white border border-slate-200 px-2.5 py-1 rounded shadow-sm">
-                              +{q.marks} XP
-                            </span>
+                            <div className="flex gap-2">
+                              <span className="text-[9px] font-black uppercase bg-white border border-slate-200 px-2.5 py-1 rounded shadow-sm">
+                                +{q.marks} XP
+                              </span>
+                              <span className="text-[9px] font-black uppercase bg-white border border-slate-200 px-2.5 py-1 rounded shadow-sm">
+                                {q.frequencyAsked}x Asked
+                              </span>
+                            </div>
                           </div>
 
                           <div className="p-6 space-y-6">
                             <div className="flex flex-wrap gap-2">
                               <span className="text-[9px] font-black bg-[#E3F2FD] border border-blue-100 text-[#297BCF] px-2.5 py-1 rounded-full">
-                                📅 {q.year}
+                                📅 {q.yearsAppeared?.join(', ') || 'N/A'}
                               </span>
                               <span className="text-[9px] font-black bg-[#EDE7F6] border border-purple-100 text-[#8E6BB8] px-2.5 py-1 rounded-full">
-                                🏷 {q.topic}
+                                🏷 {q.topic || 'General'}
+                              </span>
+                              <span className="text-[9px] font-black bg-[#E8F5E9] border border-green-100 text-[#4CAF50] px-2.5 py-1 rounded-full">
+                                📊 {q.category}
                               </span>
                             </div>
 
                             <div className="space-y-1">
                               <h3 className="font-display font-extrabold text-xl text-[#1E1E1E] leading-relaxed">
-                                {q.text}
+                                {q.text || q.question}
                               </h3>
                             </div>
 
@@ -925,19 +967,27 @@ export default function Quiz() {
                               <span className="text-[9px] font-black text-slate-400">
                                 {idx + 1} of {currentQuestions.length}
                               </span>
-                              <span className="text-[9px] font-black bg-white border border-slate-200 px-2 py-0.5 rounded shadow-sm">
-                                +{q.marks} XP
-                              </span>
+                              <div className="flex gap-1">
+                                <span className="text-[9px] font-black bg-white border border-slate-200 px-2 py-0.5 rounded shadow-sm">
+                                  +{q.marks} XP
+                                </span>
+                                <span className="text-[9px] font-black bg-white border border-slate-200 px-2 py-0.5 rounded shadow-sm">
+                                  {q.frequencyAsked}x
+                                </span>
+                              </div>
                             </div>
 
                             <div className="p-5 flex-1 overflow-y-auto no-scrollbar space-y-4">
                               <div className="flex gap-2">
                                 <span className="text-[8px] font-black bg-slate-100 border border-slate-200 px-2 py-0.5 rounded text-slate-500">
-                                  {q.year}
+                                  {q.yearsAppeared?.join(', ') || 'N/A'}
+                                </span>
+                                <span className="text-[8px] font-black bg-[#E8F5E9] border border-green-100 text-[#4CAF50] px-2 py-0.5 rounded">
+                                  {q.category}
                                 </span>
                               </div>
                               <h3 className="font-display font-extrabold text-base text-[#1E1E1E] leading-snug">
-                                {q.text}
+                                {q.text || q.question}
                               </h3>
 
                               <div className="space-y-3">

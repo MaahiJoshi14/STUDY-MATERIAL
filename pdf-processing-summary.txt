@@ -1,0 +1,9 @@
+
+=====================================
+✅ Processing complete!
+✅ Successfully processed: 0
+⚠️ Skipped (locked/unwritable): 0
+❌ Failed: 672
+🔒 Backup stored at: C:\Users\Admin\Desktop\study-material-resources-backup
+=====================================
+  

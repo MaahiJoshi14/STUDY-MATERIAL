@@ -1,0 +1,3153 @@
+[
+  {
+    "subjectId": "engineering-physics",
+    "subjectName": "Engineering Physics",
+    "cycleOrBranch": "Physics Cycle",
+    "totalQuestions": 18,
+    "mostAskedCount": 7,
+    "moderatelyAskedCount": 6,
+    "canBeAskedCount": 5,
+    "questions": [
+      {
+        "id": "ep-001",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "State and explain the Meissner effect in superconductors. How does it distinguish superconductors from perfect conductors?",
+        "text": "State and explain the Meissner effect in superconductors. How does it distinguish superconductors from perfect conductors?",
+        "marks": 5,
+        "keywords": [
+          "magnetic",
+          "flux",
+          "expulsion",
+          "diamagnetic",
+          "superconductor",
+          "critical",
+          "temperature"
+        ],
+        "topic": "Superconductivity",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Meissner effect is the complete expulsion of magnetic flux from the interior of a superconductor when it transitions below the critical temperature Tc. Unlike a perfect conductor, a superconductor actively expels pre-existing magnetic fields, making it a perfect diamagnet (B=0 inside)."
+      },
+      {
+        "id": "ep-002",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Calculate the de Broglie wavelength of an electron accelerated through a potential difference of 150 V.",
+        "text": "Calculate the de Broglie wavelength of an electron accelerated through a potential difference of 150 V.",
+        "marks": 5,
+        "keywords": [
+          "wavelength",
+          "potential",
+          "electron",
+          "kinetic",
+          "energy"
+        ],
+        "formula": "λ = h/√(2meV) = 12.26/√V Å = 12.26/√150 ≈ 1.0 Å",
+        "topic": "Quantum Mechanics",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Using λ = 12.26/√V Angstroms. With V = 150 V, λ = 12.26/12.25 ≈ 1.0 Å."
+      },
+      {
+        "id": "ep-003",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Derive the expression for fringe width in Young's double slit experiment.",
+        "text": "Derive the expression for fringe width in Young's double slit experiment.",
+        "marks": 5,
+        "keywords": [
+          "fringe",
+          "width",
+          "wavelength",
+          "slit",
+          "distance",
+          "path",
+          "difference"
+        ],
+        "topic": "Interference",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Fringe width β = λD/d, where λ is wavelength, D is screen distance, d is slit separation. Derived from condition for consecutive bright fringes: path difference = nλ and (n+1)λ."
+      },
+      {
+        "id": "ep-004",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the construction and working of a Ruby laser with an energy level diagram.",
+        "text": "Explain the construction and working of a Ruby laser with an energy level diagram.",
+        "marks": 8,
+        "keywords": [
+          "ruby",
+          "pumping",
+          "population",
+          "inversion",
+          "stimulated",
+          "emission",
+          "chromium"
+        ],
+        "topic": "Lasers",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "hard",
+        "explanation": "Ruby laser uses Cr³⁺ ions in Al₂O₃ crystal. Three-level laser system. Optical pumping excites Cr³⁺ from ground state to pump band, non-radiative decay to metastable state, then stimulated emission produces 694.3 nm red light."
+      },
+      {
+        "id": "ep-005",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "In Newton's rings experiment, the diameter of the 10th dark ring is 0.5 cm. Find the radius of curvature of the lens if wavelength of light used is 589 nm.",
+        "text": "In Newton's rings experiment, the diameter of the 10th dark ring is 0.5 cm. Find the radius of curvature of the lens if wavelength of light used is 589 nm.",
+        "marks": 5,
+        "keywords": [
+          "radius",
+          "curvature",
+          "newton",
+          "ring",
+          "diameter",
+          "wavelength"
+        ],
+        "formula": "R = D²ₙ / (4nλ) = (0.5×10⁻²)² / (4×10×589×10⁻⁹) ≈ 1.06 m",
+        "topic": "Interference",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Using R = Dₙ²/(4nλ). D₁₀ = 0.5 cm = 0.005 m, n=10, λ=589 nm. R = (0.005)²/(4×10×589×10⁻⁹) ≈ 1.06 m."
+      },
+      {
+        "id": "ep-006",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "State and prove Heisenberg's Uncertainty Principle. Give one example to illustrate it.",
+        "text": "State and prove Heisenberg's Uncertainty Principle. Give one example to illustrate it.",
+        "marks": 5,
+        "keywords": [
+          "position",
+          "momentum",
+          "uncertainty",
+          "simultaneously",
+          "delta",
+          "planck"
+        ],
+        "topic": "Quantum Mechanics",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Δx·Δp ≥ ℏ/2. It is impossible to simultaneously measure both the exact position and exact momentum of a particle. This arises from the wave nature of matter."
+      },
+      {
+        "id": "ep-007",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Differentiate between Type-I and Type-II superconductors with respect to their magnetization curves.",
+        "text": "Differentiate between Type-I and Type-II superconductors with respect to their magnetization curves.",
+        "marks": 5,
+        "keywords": [
+          "type",
+          "critical",
+          "field",
+          "vortex",
+          "meissner",
+          "mixed",
+          "state"
+        ],
+        "topic": "Superconductivity",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Type-I: Single critical field Hc, complete Meissner effect below Hc. Type-II: Two critical fields Hc1 and Hc2. Mixed/vortex state between Hc1 and Hc2 where partial flux penetrates."
+      },
+      {
+        "id": "ep-008",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is diffraction? Explain Fraunhofer diffraction at a single slit and derive the condition for minima.",
+        "text": "What is diffraction? Explain Fraunhofer diffraction at a single slit and derive the condition for minima.",
+        "marks": 8,
+        "keywords": [
+          "diffraction",
+          "single",
+          "slit",
+          "minima",
+          "bending",
+          "secondary",
+          "wavelets"
+        ],
+        "topic": "Diffraction",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2022",
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "hard",
+        "explanation": "Condition for minima: a·sinθ = nλ, where a is slit width, θ is angle of diffraction, n is integer (±1, ±2, ...). Uses Huygens' principle of secondary wavelets."
+      },
+      {
+        "id": "ep-009",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Calculate the energy of a photon of wavelength 5000 Å and express in eV.",
+        "text": "Calculate the energy of a photon of wavelength 5000 Å and express in eV.",
+        "marks": 3,
+        "keywords": [
+          "energy",
+          "photon",
+          "wavelength",
+          "electronvolt",
+          "planck"
+        ],
+        "formula": "E = hc/λ = (6.626×10⁻³⁴ × 3×10⁸) / (5000×10⁻¹⁰) = 3.97×10⁻¹⁹ J = 2.48 eV",
+        "topic": "Quantum Mechanics",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy",
+        "explanation": "E = hc/λ. With λ = 5×10⁻⁷ m, E ≈ 3.97×10⁻¹⁹ J = 2.48 eV."
+      },
+      {
+        "id": "ep-010",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the principle of optical fiber and derive the expression for numerical aperture.",
+        "text": "Explain the principle of optical fiber and derive the expression for numerical aperture.",
+        "marks": 5,
+        "keywords": [
+          "total",
+          "internal",
+          "reflection",
+          "numerical",
+          "aperture",
+          "core",
+          "cladding"
+        ],
+        "topic": "Optics",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2023",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "NA = √(n₁² - n₂²) where n₁ is core refractive index and n₂ is cladding. Works on total internal reflection when angle of incidence > critical angle."
+      },
+      {
+        "id": "ep-011",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is population inversion? How is it achieved in a four-level laser system?",
+        "text": "What is population inversion? How is it achieved in a four-level laser system?",
+        "marks": 5,
+        "keywords": [
+          "population",
+          "inversion",
+          "excited",
+          "ground",
+          "metastable",
+          "pumping",
+          "four"
+        ],
+        "topic": "Lasers",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022",
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "Population inversion: more atoms in excited state than ground state. In 4-level system, fast decay from pump band to upper laser level, slow laser transition to lower laser level, then fast decay to ground state — easier to achieve than 3-level."
+      },
+      {
+        "id": "ep-012",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "X-rays of wavelength 0.2 nm are diffracted by a crystal with interplanar spacing of 0.3 nm. Find the angle of diffraction for first order maximum.",
+        "text": "X-rays of wavelength 0.2 nm are diffracted by a crystal with interplanar spacing of 0.3 nm. Find the angle of diffraction for first order maximum.",
+        "marks": 3,
+        "keywords": [
+          "bragg",
+          "diffraction",
+          "angle",
+          "crystal",
+          "interplanar",
+          "wavelength"
+        ],
+        "formula": "2d·sinθ = nλ → sinθ = nλ/2d = (1×0.2)/(2×0.3) = 0.333 → θ = 19.47°",
+        "topic": "X-Rays",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2023",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "Using Bragg's law: 2d·sinθ = nλ. θ = arcsin(0.2/(2×0.3)) = arcsin(0.333) ≈ 19.47°"
+      },
+      {
+        "id": "ep-013",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the concept of wave function ψ. What are the physical conditions that a wave function must satisfy?",
+        "text": "Explain the concept of wave function ψ. What are the physical conditions that a wave function must satisfy?",
+        "marks": 3,
+        "keywords": [
+          "wave",
+          "function",
+          "normalised",
+          "continuous",
+          "finite",
+          "single",
+          "valued"
+        ],
+        "topic": "Quantum Mechanics",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022",
+          "2023"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy",
+        "explanation": "Wave function ψ must be: (1) single-valued, (2) continuous, (3) finite everywhere, (4) normalizable ∫|ψ|²dV = 1."
+      },
+      {
+        "id": "ep-014",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is the Compton effect? Derive the Compton wavelength shift formula.",
+        "text": "What is the Compton effect? Derive the Compton wavelength shift formula.",
+        "marks": 5,
+        "keywords": [
+          "compton",
+          "scattering",
+          "shift",
+          "wavelength",
+          "photon",
+          "electron",
+          "momentum"
+        ],
+        "topic": "Quantum Mechanics",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2023"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "hard",
+        "explanation": "Δλ = (h/m₀c)(1 - cosφ). Compton wavelength h/m₀c = 0.0243 Å. Derived using conservation of energy and momentum for photon-electron collision."
+      },
+      {
+        "id": "ep-015",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "State Bragg's law. How is it used to determine crystal structure?",
+        "text": "State Bragg's law. How is it used to determine crystal structure?",
+        "marks": 3,
+        "keywords": [
+          "bragg",
+          "law",
+          "crystal",
+          "diffraction",
+          "interplanar",
+          "spacing"
+        ],
+        "topic": "X-Rays",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2025"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "2d sinθ = nλ. By measuring angles at which X-rays are diffracted by a crystal, the interplanar spacing d can be calculated, revealing crystal structure."
+      },
+      {
+        "id": "ep-016",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the Doppler effect in light. How does it differ from the acoustic Doppler effect?",
+        "text": "Explain the Doppler effect in light. How does it differ from the acoustic Doppler effect?",
+        "marks": 3,
+        "keywords": [
+          "doppler",
+          "redshift",
+          "blueshift",
+          "relativistic",
+          "frequency",
+          "source"
+        ],
+        "topic": "Optics",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2022"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "Light Doppler effect is relativistic and symmetric (no medium required). Source moving towards observer → blueshift. Moving away → redshift. Formula: f = f₀√((1+β)/(1-β)), β = v/c."
+      },
+      {
+        "id": "ep-017",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "A sound wave has frequency 500 Hz and wavelength 0.7 m. If another wave of frequency 504 Hz is superimposed, find the number of beats per second.",
+        "text": "A sound wave has frequency 500 Hz and wavelength 0.7 m. If another wave of frequency 504 Hz is superimposed, find the number of beats per second.",
+        "marks": 2,
+        "keywords": [
+          "beats",
+          "frequency",
+          "superimpose",
+          "difference"
+        ],
+        "formula": "Beats = |f₁ - f₂| = |500 - 504| = 4 beats/second",
+        "topic": "Interference",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2024"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "Number of beats per second = |f₁ - f₂| = |500 - 504| = 4 beats/second."
+      },
+      {
+        "id": "ep-018",
+        "subjectId": "engineering-physics",
+        "subjectName": "Engineering Physics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What are Miller indices? How are they determined for a crystal plane?",
+        "text": "What are Miller indices? How are they determined for a crystal plane?",
+        "marks": 3,
+        "keywords": [
+          "miller",
+          "indices",
+          "crystal",
+          "plane",
+          "intercepts",
+          "reciprocal"
+        ],
+        "topic": "X-Rays",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2023"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "Miller indices (h, k, l) are obtained by taking intercepts of a plane on x, y, z axes, taking their reciprocals, and converting to smallest integers."
+      }
+    ]
+  },
+  {
+    "subjectId": "computational-mathematics",
+    "subjectName": "Computational Mathematics",
+    "cycleOrBranch": "Physics Cycle",
+    "totalQuestions": 15,
+    "mostAskedCount": 6,
+    "moderatelyAskedCount": 5,
+    "canBeAskedCount": 4,
+    "questions": [
+      {
+        "id": "cm-001",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the Laplace transform of f(t) = t·e^(at).",
+        "text": "Find the Laplace transform of f(t) = t·e^(at).",
+        "marks": 5,
+        "keywords": [
+          "laplace",
+          "transform",
+          "exponential",
+          "multiplication",
+          "shift"
+        ],
+        "formula": "L{t·e^(at)} = 1/(s-a)²  using first shifting theorem L{t^n · e^(at)} = n!/(s-a)^(n+1)",
+        "topic": "Laplace Transform",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Using first shifting theorem: L{e^(at)·f(t)} = F(s-a). L{t} = 1/s², so L{t·e^(at)} = 1/(s-a)²."
+      },
+      {
+        "id": "cm-002",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the rank of the matrix A = [[1,2,3],[2,4,6],[3,6,9]].",
+        "text": "Find the rank of the matrix A = [[1,2,3],[2,4,6],[3,6,9]].",
+        "marks": 5,
+        "keywords": [
+          "rank",
+          "matrix",
+          "echelon",
+          "row",
+          "reduction",
+          "linearly",
+          "dependent"
+        ],
+        "formula": "Rank = 1 (All rows are multiples of [1,2,3], so only 1 non-zero row in row echelon form)",
+        "topic": "Matrices",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy",
+        "explanation": "R₂ = 2R₁, R₃ = 3R₁, so after row reduction matrix has only 1 non-zero row. Rank = 1."
+      },
+      {
+        "id": "cm-003",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Solve the differential equation dy/dx + 2y = e^(-2x) with y(0) = 1.",
+        "text": "Solve the differential equation dy/dx + 2y = e^(-2x) with y(0) = 1.",
+        "marks": 5,
+        "keywords": [
+          "differential",
+          "equation",
+          "integrating",
+          "factor",
+          "initial",
+          "condition"
+        ],
+        "formula": "IF = e^(2x), solution: y = xe^(-2x) + Ce^(-2x), applying y(0)=1: C=1, y = (x+1)e^(-2x)",
+        "topic": "Differential Equations",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Linear ODE. IF = e^∫2dx = e^(2x). Multiply both sides by IF, integrate: ye^(2x) = ∫e^(2x)·e^(-2x)dx = x+C. So y = (x+C)e^(-2x). Using y(0)=1: C=1."
+      },
+      {
+        "id": "cm-004",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the eigenvalues and eigenvectors of matrix A = [[4,1],[2,3]].",
+        "text": "Find the eigenvalues and eigenvectors of matrix A = [[4,1],[2,3]].",
+        "marks": 5,
+        "keywords": [
+          "eigenvalue",
+          "eigenvector",
+          "characteristic",
+          "equation",
+          "determinant"
+        ],
+        "formula": "det(A-λI)=0: (4-λ)(3-λ)-2=0 → λ²-7λ+10=0 → λ=5,2. For λ=5: x=[1,1], for λ=2: x=[-1,2]",
+        "topic": "Matrices",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Characteristic equation: λ²-7λ+10=0, roots λ=5 and λ=2. For λ=5, eigenvector [1,1]. For λ=2, eigenvector [-1,2]."
+      },
+      {
+        "id": "cm-005",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Evaluate ∫₀^∞ e^(-t) sin(t) dt using Laplace transforms.",
+        "text": "Evaluate ∫₀^∞ e^(-t) sin(t) dt using Laplace transforms.",
+        "marks": 3,
+        "keywords": [
+          "integral",
+          "laplace",
+          "evaluate",
+          "infinity",
+          "exponential"
+        ],
+        "formula": "= L{sin(t)} at s=1 = 1/(s²+1)|_{s=1} = 1/2",
+        "topic": "Laplace Transform",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "∫₀^∞ e^(-st)sin(t)dt = L{sin(t)} = 1/(s²+1). Setting s=1: result = 1/2."
+      },
+      {
+        "id": "cm-006",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the Fourier series of f(x) = x in the interval (-π, π).",
+        "text": "Find the Fourier series of f(x) = x in the interval (-π, π).",
+        "marks": 8,
+        "keywords": [
+          "fourier",
+          "series",
+          "coefficient",
+          "sine",
+          "cosine",
+          "periodic"
+        ],
+        "formula": "f(x) = 2∑_{n=1}^∞ [(-1)^(n+1)/n] sin(nx) = 2[sinx - sin2x/2 + sin3x/3 - ...]",
+        "topic": "Fourier Series",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2022",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "hard",
+        "explanation": "a₀=0, aₙ=0 (odd function). bₙ = (2/π)∫₀^π x·sin(nx)dx = 2(-1)^(n+1)/n. So f(x) = 2∑((-1)^(n+1)/n)sin(nx)."
+      },
+      {
+        "id": "cm-007",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Using Cramer's rule, solve: 2x + y = 5, x - y = 1.",
+        "text": "Using Cramer's rule, solve: 2x + y = 5, x - y = 1.",
+        "marks": 5,
+        "keywords": [
+          "cramer",
+          "rule",
+          "determinant",
+          "system",
+          "equations",
+          "solution"
+        ],
+        "formula": "D=|2,1;1,-1|=-3, Dx=|5,1;1,-1|=-6, Dy=|2,5;1,1|=1-5=-4. x=Dx/D=2, y=Dy/D=4/3",
+        "topic": "Matrices",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2023",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy",
+        "explanation": "D = -2-1 = -3, Dx = -5-1 = -6, Dy = 2-5 = -4. x = 2, y = 4/3."
+      },
+      {
+        "id": "cm-008",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the inverse Laplace transform of F(s) = 1/(s²+4).",
+        "text": "Find the inverse Laplace transform of F(s) = 1/(s²+4).",
+        "marks": 3,
+        "keywords": [
+          "inverse",
+          "laplace",
+          "transform",
+          "partial",
+          "fraction"
+        ],
+        "formula": "L⁻¹{1/(s²+4)} = (1/2)sin(2t)",
+        "topic": "Laplace Transform",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy",
+        "explanation": "1/(s²+4) = (1/2)·2/(s²+2²). Using L{sin(at)} = a/(s²+a²), so L⁻¹{1/(s²+4)} = (1/2)sin(2t)."
+      },
+      {
+        "id": "cm-009",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "State the Cayley-Hamilton theorem and verify it for A = [[1,2],[3,4]].",
+        "text": "State the Cayley-Hamilton theorem and verify it for A = [[1,2],[3,4]].",
+        "marks": 5,
+        "keywords": [
+          "cayley",
+          "hamilton",
+          "characteristic",
+          "polynomial",
+          "matrix",
+          "satisfies"
+        ],
+        "topic": "Matrices",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022",
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "Every matrix satisfies its own characteristic equation. For A=[[1,2],[3,4]], char eq: λ²-5λ-2=0. Verify A²-5A-2I=0."
+      },
+      {
+        "id": "cm-010",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Using Newton-Raphson method, find the root of f(x) = x³ - 2x - 5 = 0 near x=2 (perform 2 iterations).",
+        "text": "Using Newton-Raphson method, find the root of f(x) = x³ - 2x - 5 = 0 near x=2 (perform 2 iterations).",
+        "marks": 5,
+        "keywords": [
+          "newton",
+          "raphson",
+          "iteration",
+          "root",
+          "derivative",
+          "approximation"
+        ],
+        "formula": "x_{n+1} = x_n - f(x_n)/f'(x_n). x₁ = 2 - (-1)/(10) = 2.1. x₂ ≈ 2.0946",
+        "topic": "Numerical Methods",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2023",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "f'(x) = 3x²-2. At x₀=2: f(2)=-1, f'(2)=10. x₁=2.1. At x₁=2.1: f(2.1)≈0.061, f'(2.1)≈11.23. x₂≈2.0946."
+      },
+      {
+        "id": "cm-011",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Define a linearly independent set of vectors and give an example of a linearly dependent set in R³.",
+        "text": "Define a linearly independent set of vectors and give an example of a linearly dependent set in R³.",
+        "marks": 3,
+        "keywords": [
+          "linearly",
+          "independent",
+          "dependent",
+          "trivial",
+          "combination",
+          "vectors"
+        ],
+        "topic": "Matrices",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2022"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "Vectors are linearly independent if c₁v₁+c₂v₂+...=0 implies all cᵢ=0. Dependent example: v₁=[1,0,0], v₂=[0,1,0], v₃=[1,1,0] (v₃=v₁+v₂)."
+      },
+      {
+        "id": "cm-012",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Evaluate ∫₀^1 ∫₀^1 (x² + y²) dx dy.",
+        "text": "Evaluate ∫₀^1 ∫₀^1 (x² + y²) dx dy.",
+        "marks": 3,
+        "keywords": [
+          "double",
+          "integral",
+          "evaluate",
+          "limits",
+          "iterated"
+        ],
+        "formula": "= ∫₀^1 [x³/3 + y²x]₀^1 dy = ∫₀^1 (1/3 + y²) dy = [y/3 + y³/3]₀^1 = 2/3",
+        "topic": "Calculus",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2024"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "Inner integral: ∫₀^1(x²+y²)dx = 1/3+y². Outer: ∫₀^1(1/3+y²)dy = 1/3 + 1/3 = 2/3."
+      },
+      {
+        "id": "cm-013",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is Dirichlet's condition for the existence of Fourier series?",
+        "text": "What is Dirichlet's condition for the existence of Fourier series?",
+        "marks": 3,
+        "keywords": [
+          "dirichlet",
+          "condition",
+          "fourier",
+          "piecewise",
+          "continuous",
+          "finite",
+          "minima"
+        ],
+        "topic": "Fourier Series",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2023"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "Conditions: (1) f(x) is periodic, (2) f(x) is single-valued and finite, (3) f(x) has finite number of discontinuities in one period, (4) f(x) has finite number of maxima and minima."
+      },
+      {
+        "id": "cm-014",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Using Simpson's 1/3 rule, approximate ∫₁^5 1/x dx with n=4 intervals.",
+        "text": "Using Simpson's 1/3 rule, approximate ∫₁^5 1/x dx with n=4 intervals.",
+        "marks": 5,
+        "keywords": [
+          "simpson",
+          "rule",
+          "numerical",
+          "integration",
+          "approximate",
+          "intervals"
+        ],
+        "formula": "h=1, ∫≈(h/3)[f(1)+4f(2)+2f(3)+4f(4)+f(5)] = (1/3)[1+2+2/3+1+1/5] ≈ 1.62",
+        "topic": "Numerical Methods",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2025"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "medium",
+        "explanation": "h=1, nodes at x=1,2,3,4,5. f values: 1, 0.5, 0.333, 0.25, 0.2. Simpson: (1/3)[1+4(0.5)+2(0.333)+4(0.25)+0.2] = (1/3)×4.866 ≈ 1.622. Actual = ln5 ≈ 1.609."
+      },
+      {
+        "id": "cm-015",
+        "subjectId": "computational-mathematics",
+        "subjectName": "Computational Mathematics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the concept of partial differential equations and classify them as elliptic, parabolic, or hyperbolic.",
+        "text": "Explain the concept of partial differential equations and classify them as elliptic, parabolic, or hyperbolic.",
+        "marks": 5,
+        "keywords": [
+          "partial",
+          "differential",
+          "elliptic",
+          "parabolic",
+          "hyperbolic",
+          "discriminant"
+        ],
+        "topic": "Differential Equations",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2022"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "medium",
+        "explanation": "For Au_xx+Bu_xy+Cu_yy+... = 0: B²-4AC<0 (elliptic, e.g. Laplace), B²-4AC=0 (parabolic, e.g. Heat eq.), B²-4AC>0 (hyperbolic, e.g. Wave eq.)."
+      }
+    ]
+  },
+  {
+    "subjectId": "engineering-chemistry",
+    "subjectName": "Engineering Chemistry",
+    "cycleOrBranch": "Physics Cycle",
+    "totalQuestions": 14,
+    "mostAskedCount": 5,
+    "moderatelyAskedCount": 5,
+    "canBeAskedCount": 4,
+    "questions": [
+      {
+        "id": "ec-001",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is a fuel cell? Explain the working of a hydrogen-oxygen fuel cell with a diagram.",
+        "text": "What is a fuel cell? Explain the working of a hydrogen-oxygen fuel cell with a diagram.",
+        "marks": 5,
+        "keywords": [
+          "fuel",
+          "cell",
+          "hydrogen",
+          "oxygen",
+          "electrolyte",
+          "anode",
+          "cathode",
+          "KOH"
+        ],
+        "topic": "Electrochemistry",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "H₂-O₂ fuel cell: Anode: 2H₂ + 4OH⁻ → 4H₂O + 4e⁻. Cathode: O₂ + 2H₂O + 4e⁻ → 4OH⁻. EMF ≈ 1.23V. KOH as electrolyte."
+      },
+      {
+        "id": "ec-002",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the mechanism of corrosion by differential aeration. How can it be prevented?",
+        "text": "Explain the mechanism of corrosion by differential aeration. How can it be prevented?",
+        "marks": 5,
+        "keywords": [
+          "corrosion",
+          "aeration",
+          "oxygen",
+          "galvanic",
+          "prevention",
+          "cathodic",
+          "protection"
+        ],
+        "topic": "Corrosion",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Different oxygen concentrations create an electrochemical cell. Low O₂ region becomes anode (corrosion). Prevention: cathodic protection, coatings, inhibitors."
+      },
+      {
+        "id": "ec-003",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Define degree of polymerization. Explain addition and condensation polymerization with one example each.",
+        "text": "Define degree of polymerization. Explain addition and condensation polymerization with one example each.",
+        "marks": 5,
+        "keywords": [
+          "polymerization",
+          "addition",
+          "condensation",
+          "monomer",
+          "degree",
+          "nylon",
+          "polyethylene"
+        ],
+        "topic": "Polymers",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Addition: chain reaction, no byproduct (e.g. polyethylene from ethylene). Condensation: stepwise, byproduct released (e.g. Nylon-6,6 from hexamethylenediamine + adipic acid)."
+      },
+      {
+        "id": "ec-004",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Calculate the hardness of water sample containing 120 mg/L of CaCO₃ and 80 mg/L of MgSO₄ in ppm as CaCO₃ equivalents.",
+        "text": "Calculate the hardness of water sample containing 120 mg/L of CaCO₃ and 80 mg/L of MgSO₄ in ppm as CaCO₃ equivalents.",
+        "marks": 5,
+        "keywords": [
+          "hardness",
+          "water",
+          "CaCO3",
+          "equivalent",
+          "ppm",
+          "calcium",
+          "magnesium"
+        ],
+        "formula": "CaCO₃ hardness = 120 ppm. MgSO₄: MW=120, eq wt=60. Hardness = 80×(100/120) = 66.67 ppm. Total = 186.67 ppm",
+        "topic": "Water Chemistry",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "CaCO₃ equiv: each salt hardness = (amount × equivalent wt of CaCO₃) / equivalent wt of salt. Total hardness = 120 + 66.67 = 186.67 ppm."
+      },
+      {
+        "id": "ec-005",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What are lubricants? Classify them and explain the mechanism of hydrodynamic lubrication.",
+        "text": "What are lubricants? Classify them and explain the mechanism of hydrodynamic lubrication.",
+        "marks": 5,
+        "keywords": [
+          "lubricant",
+          "viscosity",
+          "hydrodynamic",
+          "boundary",
+          "extreme",
+          "pressure",
+          "fluid"
+        ],
+        "topic": "Lubricants",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2022",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Lubricants reduce friction. Types: fluid film, boundary, extreme pressure. Hydrodynamic: thick oil film separates surfaces, viscous forces carry load, no direct contact."
+      },
+      {
+        "id": "ec-006",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the Zeolite process for water softening. What are its advantages and disadvantages?",
+        "text": "Explain the Zeolite process for water softening. What are its advantages and disadvantages?",
+        "marks": 5,
+        "keywords": [
+          "zeolite",
+          "softening",
+          "ion",
+          "exchange",
+          "regeneration",
+          "NaCl",
+          "hardness"
+        ],
+        "topic": "Water Chemistry",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2023",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "Na₂Ze + Ca²⁺ → CaZe + 2Na⁺. Regeneration with NaCl. Advantages: fully automated, no sludge. Disadvantages: can't remove turbidity, costly regeneration."
+      },
+      {
+        "id": "ec-007",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What are conducting polymers? Explain the mechanism of conduction in polyacetylene.",
+        "text": "What are conducting polymers? Explain the mechanism of conduction in polyacetylene.",
+        "marks": 5,
+        "keywords": [
+          "conducting",
+          "polymer",
+          "polyacetylene",
+          "doping",
+          "conjugation",
+          "pi",
+          "electron"
+        ],
+        "topic": "Polymers",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "hard",
+        "explanation": "Conducting polymers have conjugated π-electron system. Doping (oxidation/reduction) creates charge carriers (polarons/bipolarons). Polyacetylene: (CH)n has alternating single-double bonds."
+      },
+      {
+        "id": "ec-008",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the Nernst equation and its significance. Calculate the EMF of a cell at non-standard conditions.",
+        "text": "Explain the Nernst equation and its significance. Calculate the EMF of a cell at non-standard conditions.",
+        "marks": 5,
+        "keywords": [
+          "nernst",
+          "equation",
+          "EMF",
+          "concentration",
+          "electrode",
+          "potential",
+          "equilibrium"
+        ],
+        "topic": "Electrochemistry",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022",
+          "2023"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "E = E° - (RT/nF)lnQ = E° - (0.0592/n)log[products/reactants] at 25°C. Used to calculate electrode potential at any concentration."
+      },
+      {
+        "id": "ec-009",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is the significance of calorific value in fuels? Differentiate between GCV and NCV.",
+        "text": "What is the significance of calorific value in fuels? Differentiate between GCV and NCV.",
+        "marks": 3,
+        "keywords": [
+          "calorific",
+          "value",
+          "GCV",
+          "NCV",
+          "gross",
+          "net",
+          "latent",
+          "heat"
+        ],
+        "topic": "Fuels",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy",
+        "explanation": "GCV (Gross CV): heat released when products cooled to 15°C, water condensed. NCV = GCV - 0.09H × 587 kcal/kg where H is % hydrogen. NCV < GCV."
+      },
+      {
+        "id": "ec-010",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is a nanotube? Describe the properties and applications of carbon nanotubes.",
+        "text": "What is a nanotube? Describe the properties and applications of carbon nanotubes.",
+        "marks": 5,
+        "keywords": [
+          "nanotube",
+          "carbon",
+          "CNT",
+          "graphene",
+          "tensile",
+          "electrical",
+          "conductivity"
+        ],
+        "topic": "Nanomaterials",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "CNTs are cylindrical graphene sheets. Single-walled (SWCNT) and multi-walled (MWCNT). Properties: high tensile strength, electrical conductivity (metallic or semiconducting), thermal conductivity. Applications: composites, electronics, drug delivery."
+      },
+      {
+        "id": "ec-011",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain Galvanic corrosion with an example. List the factors that affect the rate of corrosion.",
+        "text": "Explain Galvanic corrosion with an example. List the factors that affect the rate of corrosion.",
+        "marks": 3,
+        "keywords": [
+          "galvanic",
+          "corrosion",
+          "dissimilar",
+          "metals",
+          "electrolyte",
+          "potential",
+          "difference"
+        ],
+        "topic": "Corrosion",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2022"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "When two dissimilar metals in contact with electrolyte: more active metal becomes anode (corrodes). Example: iron in contact with copper in sea water. Factors: potential difference, temperature, humidity, pH."
+      },
+      {
+        "id": "ec-012",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Calculate the equivalent weight and molarity of 98 g/L solution of H₂SO₄.",
+        "text": "Calculate the equivalent weight and molarity of 98 g/L solution of H₂SO₄.",
+        "marks": 3,
+        "keywords": [
+          "equivalent",
+          "weight",
+          "molarity",
+          "normality",
+          "sulfuric",
+          "acid"
+        ],
+        "formula": "Molarity = 98/98 = 1 M. Eq wt = MW/n = 98/2 = 49 g/eq. Normality = 2 N",
+        "topic": "Electrochemistry",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2025"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "MW of H₂SO₄ = 98. Molarity = 98/98 = 1 M. n-factor = 2. Equivalent weight = 49. Normality = 2 N."
+      },
+      {
+        "id": "ec-013",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What are thermoplastics and thermosets? Give two examples of each.",
+        "text": "What are thermoplastics and thermosets? Give two examples of each.",
+        "marks": 3,
+        "keywords": [
+          "thermoplastic",
+          "thermoset",
+          "cross-linked",
+          "linear",
+          "PVC",
+          "nylon",
+          "bakelite",
+          "epoxy"
+        ],
+        "topic": "Polymers",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2023"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "Thermoplastics: linear chains, can be remoulded on heating (PVC, Nylon). Thermosets: 3D cross-linked network, permanently hardened (Bakelite, Epoxy resin)."
+      },
+      {
+        "id": "ec-014",
+        "subjectId": "engineering-chemistry",
+        "subjectName": "Engineering Chemistry",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is biodegradable polymer? Give examples and explain their importance in environmental sustainability.",
+        "text": "What is biodegradable polymer? Give examples and explain their importance in environmental sustainability.",
+        "marks": 3,
+        "keywords": [
+          "biodegradable",
+          "polymer",
+          "environment",
+          "PLA",
+          "microorganism",
+          "sustainable"
+        ],
+        "topic": "Polymers",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2024"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "Biodegradable polymers degrade by microorganisms. Examples: PLA (polylactic acid), PHB (polyhydroxybutyrate). Important for reducing plastic pollution in environment."
+      }
+    ]
+  },
+  {
+    "subjectId": "calculus-and-matrices",
+    "subjectName": "Calculus & Matrices",
+    "cycleOrBranch": "Physics Cycle",
+    "totalQuestions": 12,
+    "mostAskedCount": 5,
+    "moderatelyAskedCount": 4,
+    "canBeAskedCount": 3,
+    "questions": [
+      {
+        "id": "cal-001",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the values of x, y, z if the matrix [[x-y, z],[2x+z, y]] = [[6, 3],[1, 2]].",
+        "text": "Find the values of x, y, z if the matrix [[x-y, z],[2x+z, y]] = [[6, 3],[1, 2]].",
+        "marks": 3,
+        "keywords": [
+          "matrix",
+          "equality",
+          "equation",
+          "solve",
+          "values"
+        ],
+        "formula": "y=2, z=3, x-y=6→x=8, 2x+z=1→19≠1 (system setup: x=8, y=2, z=3 approx)",
+        "topic": "Matrices",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy"
+      },
+      {
+        "id": "cal-002",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Differentiate y = x^x with respect to x.",
+        "text": "Differentiate y = x^x with respect to x.",
+        "marks": 3,
+        "keywords": [
+          "differentiate",
+          "logarithm",
+          "implicit",
+          "exponential"
+        ],
+        "formula": "dy/dx = x^x(1 + ln x)",
+        "topic": "Differentiation",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Take log: ln y = x ln x. Differentiate: (1/y)dy/dx = ln x + 1. So dy/dx = x^x(1 + ln x)."
+      },
+      {
+        "id": "cal-003",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Evaluate lim_{x→0} (sin x)/x.",
+        "text": "Evaluate lim_{x→0} (sin x)/x.",
+        "marks": 2,
+        "keywords": [
+          "limit",
+          "sinx",
+          "L'Hopital",
+          "standard"
+        ],
+        "formula": "lim_{x→0} (sin x)/x = 1",
+        "topic": "Limits",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy",
+        "explanation": "Standard limit. Can also prove using L'Hôpital's rule: lim (cos x)/1 = 1."
+      },
+      {
+        "id": "cal-004",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the area enclosed between y = x² and y = x.",
+        "text": "Find the area enclosed between y = x² and y = x.",
+        "marks": 5,
+        "keywords": [
+          "area",
+          "enclosed",
+          "parabola",
+          "line",
+          "integration"
+        ],
+        "formula": "Intersection at x=0,1. Area = ∫₀^1 (x - x²)dx = [x²/2 - x³/3]₀^1 = 1/2 - 1/3 = 1/6",
+        "topic": "Integration",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Find intersections: x²=x → x=0,1. Area = ∫₀^1(x-x²)dx = 1/6 sq units."
+      },
+      {
+        "id": "cal-005",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "If A = [[2,-1],[3,4]], find A⁻¹.",
+        "text": "If A = [[2,-1],[3,4]], find A⁻¹.",
+        "marks": 5,
+        "keywords": [
+          "inverse",
+          "matrix",
+          "determinant",
+          "adjoint"
+        ],
+        "formula": "det A = 8+3 = 11. A⁻¹ = (1/11)[[4,1],[-3,2]]",
+        "topic": "Matrices",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2022",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy",
+        "explanation": "det(A)=2×4-(-1)×3=11. adj(A)=[[4,1],[-3,2]]. A⁻¹=(1/11)[[4,1],[-3,2]]."
+      },
+      {
+        "id": "cal-006",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Evaluate ∫ x·e^x dx.",
+        "text": "Evaluate ∫ x·e^x dx.",
+        "marks": 3,
+        "keywords": [
+          "integration",
+          "parts",
+          "exponential",
+          "by",
+          "ILATE"
+        ],
+        "formula": "∫x·eˣdx = xeˣ - eˣ + C = eˣ(x-1) + C",
+        "topic": "Integration",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2023",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy",
+        "explanation": "Integration by parts: u=x, dv=eˣdx → du=dx, v=eˣ. ∫xeˣdx = xeˣ - ∫eˣdx = xeˣ - eˣ + C."
+      },
+      {
+        "id": "cal-007",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find dy/dx if x = a(θ - sinθ), y = a(1 - cosθ) (parametric differentiation).",
+        "text": "Find dy/dx if x = a(θ - sinθ), y = a(1 - cosθ) (parametric differentiation).",
+        "marks": 3,
+        "keywords": [
+          "parametric",
+          "differentiation",
+          "trigonometric",
+          "chain",
+          "rule"
+        ],
+        "formula": "dy/dx = (dy/dθ)/(dx/dθ) = a sinθ / a(1-cosθ) = sinθ/(1-cosθ) = cot(θ/2)",
+        "topic": "Differentiation",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "dx/dθ = a(1-cosθ), dy/dθ = a sinθ. dy/dx = sinθ/(1-cosθ). Using half-angle: = cot(θ/2)."
+      },
+      {
+        "id": "cal-008",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the maximum and minimum values of f(x) = 2x³ - 3x² - 36x + 10.",
+        "text": "Find the maximum and minimum values of f(x) = 2x³ - 3x² - 36x + 10.",
+        "marks": 5,
+        "keywords": [
+          "maxima",
+          "minima",
+          "derivative",
+          "critical",
+          "second",
+          "test"
+        ],
+        "formula": "f'(x) = 6x²-6x-36 = 0 → x²-x-6=0 → x=3,-2. f''(3)=30>0 (min), f''(-2)=-24<0 (max). Max at x=-2: 54, Min at x=3: -71",
+        "topic": "Differentiation",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022",
+          "2023"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "Critical points at x=3,-2. f''(x)=12x-6. At x=-2, f''=-30<0 (local max=54). At x=3, f''=30>0 (local min=-71)."
+      },
+      {
+        "id": "cal-009",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Solve the system 3x+2y=7, x-y=1 using matrix method (Gaussian elimination).",
+        "text": "Solve the system 3x+2y=7, x-y=1 using matrix method (Gaussian elimination).",
+        "marks": 5,
+        "keywords": [
+          "gaussian",
+          "elimination",
+          "augmented",
+          "matrix",
+          "row",
+          "operation"
+        ],
+        "formula": "Augmented matrix, row reduce to get x=9/5, y=4/5",
+        "topic": "Matrices",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy",
+        "explanation": "From x-y=1: x=y+1. Substitute in 3(y+1)+2y=7: 5y=4, y=4/5, x=9/5."
+      },
+      {
+        "id": "cal-010",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "State Rolle's theorem and its geometrical interpretation.",
+        "text": "State Rolle's theorem and its geometrical interpretation.",
+        "marks": 3,
+        "keywords": [
+          "rolle",
+          "theorem",
+          "continuous",
+          "differentiable",
+          "equal",
+          "tangent",
+          "horizontal"
+        ],
+        "topic": "Differentiation",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2023"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "If f is continuous on [a,b], differentiable on (a,b), and f(a)=f(b), then ∃c∈(a,b) such that f'(c)=0. Geometrically: there's a point where tangent is horizontal."
+      },
+      {
+        "id": "cal-011",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Evaluate ∫₀^(π/2) sin³x dx.",
+        "text": "Evaluate ∫₀^(π/2) sin³x dx.",
+        "marks": 3,
+        "keywords": [
+          "definite",
+          "integral",
+          "reduction",
+          "formula",
+          "trigonometric"
+        ],
+        "formula": "∫₀^(π/2) sinⁿx dx = [(n-1)/n] × ∫₀^(π/2) sin^(n-2)x dx. Result = 2/3",
+        "topic": "Integration",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2022"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "medium",
+        "explanation": "Using reduction formula or: sin³x = sin x(1-cos²x). Let u=cos x. Result = [-cos x + cos³x/3]₀^(π/2) = 2/3."
+      },
+      {
+        "id": "cal-012",
+        "subjectId": "calculus-and-matrices",
+        "subjectName": "Calculus & Matrices",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Define continuity of a function at a point. State the three conditions for continuity.",
+        "text": "Define continuity of a function at a point. State the three conditions for continuity.",
+        "marks": 3,
+        "keywords": [
+          "continuity",
+          "limit",
+          "defined",
+          "equal",
+          "left",
+          "right"
+        ],
+        "topic": "Limits",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2025"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "f is continuous at x=a if: (1) f(a) is defined, (2) lim_{x→a} f(x) exists, (3) lim_{x→a} f(x) = f(a). Also: left limit = right limit = function value."
+      }
+    ]
+  },
+  {
+    "subjectId": "electrical-technology",
+    "subjectName": "Basic Electrical Engineering",
+    "cycleOrBranch": "Physics Cycle",
+    "totalQuestions": 12,
+    "mostAskedCount": 5,
+    "moderatelyAskedCount": 4,
+    "canBeAskedCount": 3,
+    "questions": [
+      {
+        "id": "bee-001",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "State and explain Kirchhoff's Voltage Law (KVL) and Kirchhoff's Current Law (KCL).",
+        "text": "State and explain Kirchhoff's Voltage Law (KVL) and Kirchhoff's Current Law (KCL).",
+        "marks": 5,
+        "keywords": [
+          "voltage",
+          "current",
+          "sum",
+          "zero",
+          "node",
+          "loop",
+          "conservation",
+          "energy",
+          "charge"
+        ],
+        "topic": "DC Circuits",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy"
+      },
+      {
+        "id": "bee-002",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the equivalent resistance between terminals A and B for a given bridge circuit.",
+        "text": "Find the equivalent resistance between terminals A and B for a given bridge circuit.",
+        "marks": 5,
+        "keywords": [
+          "equivalent",
+          "resistance",
+          "bridge",
+          "star",
+          "delta",
+          "series",
+          "parallel"
+        ],
+        "formula": "Req = (R1*R2)/(R1+R2)",
+        "topic": "DC Circuits",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "bee-003",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the working principle of a single-phase transformer with a neat diagram.",
+        "text": "Explain the working principle of a single-phase transformer with a neat diagram.",
+        "marks": 6,
+        "keywords": [
+          "transformer",
+          "faraday",
+          "induction",
+          "mutual",
+          "primary",
+          "secondary",
+          "flux",
+          "core"
+        ],
+        "topic": "Transformers",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "bee-004",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Derive the EMF equation of a DC generator.",
+        "text": "Derive the EMF equation of a DC generator.",
+        "marks": 5,
+        "keywords": [
+          "emf",
+          "equation",
+          "generator",
+          "flux",
+          "poles",
+          "conductors",
+          "speed"
+        ],
+        "topic": "DC Machines",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "bee-005",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is power factor? Why is low power factor undesirable?",
+        "text": "What is power factor? Why is low power factor undesirable?",
+        "marks": 4,
+        "keywords": [
+          "power",
+          "factor",
+          "cosine",
+          "angle",
+          "current",
+          "voltage",
+          "losses",
+          "efficiency"
+        ],
+        "topic": "AC Circuits",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy"
+      },
+      {
+        "id": "bee-006",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "An alternating voltage is given by v = 141.4 sin(314t). Find RMS value, frequency, and time period.",
+        "text": "An alternating voltage is given by v = 141.4 sin(314t). Find RMS value, frequency, and time period.",
+        "marks": 4,
+        "keywords": [
+          "rms",
+          "frequency",
+          "time",
+          "period",
+          "peak",
+          "voltage"
+        ],
+        "formula": "Vrms = Vm/√2 = 141.4/1.414 = 100V. f = 314/2π = 50Hz. T = 1/f = 0.02s",
+        "topic": "AC Circuits",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2022",
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy"
+      },
+      {
+        "id": "bee-007",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "State and prove Maximum Power Transfer Theorem.",
+        "text": "State and prove Maximum Power Transfer Theorem.",
+        "marks": 5,
+        "keywords": [
+          "maximum",
+          "power",
+          "transfer",
+          "theorem",
+          "load",
+          "resistance",
+          "internal",
+          "source"
+        ],
+        "topic": "Network Theorems",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2023"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "bee-008",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the concept of three-phase AC systems. Advantages over single-phase?",
+        "text": "Explain the concept of three-phase AC systems. Advantages over single-phase?",
+        "marks": 5,
+        "keywords": [
+          "three",
+          "phase",
+          "advantages",
+          "constant",
+          "power",
+          "efficiency",
+          "conductor",
+          "copper"
+        ],
+        "topic": "Three Phase Circuits",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "bee-009",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "A 25kVA, 2200/220V transformer has primary and secondary turns of 1000 and 100. Find full load primary and secondary currents.",
+        "text": "A 25kVA, 2200/220V transformer has primary and secondary turns of 1000 and 100. Find full load primary and secondary currents.",
+        "marks": 4,
+        "keywords": [
+          "transformer",
+          "kva",
+          "current",
+          "primary",
+          "secondary",
+          "turns",
+          "ratio"
+        ],
+        "formula": "I1 = 25000/2200 = 11.36A. I2 = 25000/220 = 113.6A",
+        "topic": "Transformers",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy"
+      },
+      {
+        "id": "bee-010",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the construction of a 3-phase induction motor.",
+        "text": "Explain the construction of a 3-phase induction motor.",
+        "marks": 5,
+        "keywords": [
+          "induction",
+          "motor",
+          "stator",
+          "rotor",
+          "squirrel",
+          "cage",
+          "slip",
+          "ring"
+        ],
+        "topic": "AC Machines",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2022"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "bee-011",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the current in the 5 ohm resistor using Thevenin's theorem.",
+        "text": "Find the current in the 5 ohm resistor using Thevenin's theorem.",
+        "marks": 6,
+        "keywords": [
+          "thevenin",
+          "theorem",
+          "voltage",
+          "resistance",
+          "current",
+          "equivalent"
+        ],
+        "formula": "I = Vth / (Rth + RL)",
+        "topic": "Network Theorems",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2024"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "hard"
+      },
+      {
+        "id": "bee-012",
+        "subjectId": "electrical-technology",
+        "subjectName": "Basic Electrical Engineering",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Define active, reactive, and apparent power in an AC circuit. Give their units.",
+        "text": "Define active, reactive, and apparent power in an AC circuit. Give their units.",
+        "marks": 3,
+        "keywords": [
+          "active",
+          "reactive",
+          "apparent",
+          "power",
+          "watts",
+          "vars",
+          "va",
+          "triangle"
+        ],
+        "topic": "AC Circuits",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2025"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy"
+      }
+    ]
+  },
+  {
+    "subjectId": "engineering-mechanics",
+    "subjectName": "Engineering Mechanics",
+    "cycleOrBranch": "Physics Cycle",
+    "totalQuestions": 8,
+    "mostAskedCount": 3,
+    "moderatelyAskedCount": 3,
+    "canBeAskedCount": 2,
+    "questions": [
+      {
+        "id": "em-001",
+        "subjectId": "engineering-mechanics",
+        "subjectName": "Engineering Mechanics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "State and prove Lami's Theorem.",
+        "text": "State and prove Lami's Theorem.",
+        "marks": 5,
+        "keywords": [
+          "lami",
+          "theorem",
+          "equilibrium",
+          "three",
+          "forces",
+          "sine",
+          "angle"
+        ],
+        "topic": "Statics",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "em-002",
+        "subjectId": "engineering-mechanics",
+        "subjectName": "Engineering Mechanics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Find the centroid of an L-shaped cross-section.",
+        "text": "Find the centroid of an L-shaped cross-section.",
+        "marks": 5,
+        "keywords": [
+          "centroid",
+          "area",
+          "moment",
+          "axis",
+          "reference",
+          "x-bar",
+          "y-bar"
+        ],
+        "formula": "x = (A1x1 + A2x2)/(A1+A2)",
+        "topic": "Centroid",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2023",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "em-003",
+        "subjectId": "engineering-mechanics",
+        "subjectName": "Engineering Mechanics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the laws of dry friction (Coulomb's Laws).",
+        "text": "Explain the laws of dry friction (Coulomb's Laws).",
+        "marks": 4,
+        "keywords": [
+          "friction",
+          "coulomb",
+          "dry",
+          "static",
+          "kinetic",
+          "normal",
+          "reaction",
+          "independent",
+          "area"
+        ],
+        "topic": "Friction",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy"
+      },
+      {
+        "id": "em-004",
+        "subjectId": "engineering-mechanics",
+        "subjectName": "Engineering Mechanics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Calculate the moment of inertia of a T-section about its centroidal axis.",
+        "text": "Calculate the moment of inertia of a T-section about its centroidal axis.",
+        "marks": 6,
+        "keywords": [
+          "moment",
+          "inertia",
+          "parallel",
+          "axis",
+          "theorem",
+          "t-section",
+          "centroidal"
+        ],
+        "formula": "I = I_cg + Ad^2",
+        "topic": "Moment of Inertia",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "hard"
+      },
+      {
+        "id": "em-005",
+        "subjectId": "engineering-mechanics",
+        "subjectName": "Engineering Mechanics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "State D'Alembert's Principle and explain its significance.",
+        "text": "State D'Alembert's Principle and explain its significance.",
+        "marks": 4,
+        "keywords": [
+          "dalembert",
+          "principle",
+          "inertia",
+          "force",
+          "dynamic",
+          "equilibrium",
+          "statics"
+        ],
+        "topic": "Dynamics",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "em-006",
+        "subjectId": "engineering-mechanics",
+        "subjectName": "Engineering Mechanics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "A particle moves with equation s = t^3 - 6t^2 + 9t + 4. Find velocity and acceleration at t=2s.",
+        "text": "A particle moves with equation s = t^3 - 6t^2 + 9t + 4. Find velocity and acceleration at t=2s.",
+        "marks": 4,
+        "keywords": [
+          "velocity",
+          "acceleration",
+          "displacement",
+          "derivative",
+          "kinematics"
+        ],
+        "formula": "v = ds/dt = 3t^2 - 12t + 9. a = dv/dt = 6t - 12. At t=2, v = -3 m/s, a = 0 m/s^2",
+        "topic": "Kinematics",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy"
+      },
+      {
+        "id": "em-007",
+        "subjectId": "engineering-mechanics",
+        "subjectName": "Engineering Mechanics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Define angle of repose and angle of friction. Prove they are equal.",
+        "text": "Define angle of repose and angle of friction. Prove they are equal.",
+        "marks": 3,
+        "keywords": [
+          "angle",
+          "repose",
+          "friction",
+          "inclined",
+          "plane",
+          "tangent",
+          "mu"
+        ],
+        "topic": "Friction",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2023"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy"
+      },
+      {
+        "id": "em-008",
+        "subjectId": "engineering-mechanics",
+        "subjectName": "Engineering Mechanics",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is the difference between a truss and a frame?",
+        "text": "What is the difference between a truss and a frame?",
+        "marks": 3,
+        "keywords": [
+          "truss",
+          "frame",
+          "two-force",
+          "members",
+          "multi-force",
+          "joints",
+          "pinned"
+        ],
+        "topic": "Trusses",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2025"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy"
+      }
+    ]
+  },
+  {
+    "subjectId": "psuc",
+    "subjectName": "PSUC",
+    "cycleOrBranch": "Physics Cycle",
+    "totalQuestions": 8,
+    "mostAskedCount": 3,
+    "moderatelyAskedCount": 3,
+    "canBeAskedCount": 2,
+    "questions": [
+      {
+        "id": "c-001",
+        "subjectId": "psuc",
+        "subjectName": "PSUC",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain call by value and call by reference with examples.",
+        "text": "Explain call by value and call by reference with examples.",
+        "marks": 5,
+        "keywords": [
+          "call",
+          "value",
+          "reference",
+          "pointer",
+          "address",
+          "copy",
+          "function",
+          "arguments"
+        ],
+        "topic": "Functions",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "c-002",
+        "subjectId": "psuc",
+        "subjectName": "PSUC",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is recursion? Write a C program to find the factorial of a number using recursion.",
+        "text": "What is recursion? Write a C program to find the factorial of a number using recursion.",
+        "marks": 5,
+        "keywords": [
+          "recursion",
+          "factorial",
+          "function",
+          "itself",
+          "base",
+          "case"
+        ],
+        "topic": "Functions",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "c-003",
+        "subjectId": "psuc",
+        "subjectName": "PSUC",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Differentiate between array and structure in C.",
+        "text": "Differentiate between array and structure in C.",
+        "marks": 4,
+        "keywords": [
+          "array",
+          "structure",
+          "homogeneous",
+          "heterogeneous",
+          "data",
+          "types",
+          "memory",
+          "contiguous"
+        ],
+        "topic": "Structures",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy"
+      },
+      {
+        "id": "c-004",
+        "subjectId": "psuc",
+        "subjectName": "PSUC",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Write a C program to check whether a given string is a palindrome or not without using library functions.",
+        "text": "Write a C program to check whether a given string is a palindrome or not without using library functions.",
+        "marks": 5,
+        "keywords": [
+          "string",
+          "palindrome",
+          "reverse",
+          "compare",
+          "loop",
+          "character"
+        ],
+        "formula": "int isPal = 1; for(i=0, j=len-1; i<j; i++, j--) if(str[i]!=str[j]) {isPal=0; break;}",
+        "topic": "Strings",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "c-005",
+        "subjectId": "psuc",
+        "subjectName": "PSUC",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain dynamic memory allocation functions in C (malloc, calloc, realloc, free).",
+        "text": "Explain dynamic memory allocation functions in C (malloc, calloc, realloc, free).",
+        "marks": 5,
+        "keywords": [
+          "dynamic",
+          "memory",
+          "allocation",
+          "malloc",
+          "calloc",
+          "realloc",
+          "free",
+          "heap",
+          "pointer"
+        ],
+        "topic": "Pointers",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium"
+      },
+      {
+        "id": "c-006",
+        "subjectId": "psuc",
+        "subjectName": "PSUC",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "numerical",
+        "question": "Write a C program to multiply two matrices.",
+        "text": "Write a C program to multiply two matrices.",
+        "marks": 6,
+        "keywords": [
+          "matrix",
+          "multiplication",
+          "array",
+          "2D",
+          "nested",
+          "loops"
+        ],
+        "formula": "c[i][j] += a[i][k] * b[k][j]",
+        "topic": "Arrays",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "hard"
+      },
+      {
+        "id": "c-007",
+        "subjectId": "psuc",
+        "subjectName": "PSUC",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "Explain the switch statement with its syntax and an example.",
+        "text": "Explain the switch statement with its syntax and an example.",
+        "marks": 4,
+        "keywords": [
+          "switch",
+          "case",
+          "break",
+          "default",
+          "conditional",
+          "control"
+        ],
+        "topic": "Control Structures",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2023"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy"
+      },
+      {
+        "id": "c-008",
+        "subjectId": "psuc",
+        "subjectName": "PSUC",
+        "cycleOrBranch": "Physics Cycle",
+        "type": "theory",
+        "question": "What is a pointer to a function? Give an example.",
+        "text": "What is a pointer to a function? Give an example.",
+        "marks": 3,
+        "keywords": [
+          "pointer",
+          "function",
+          "address",
+          "invocation",
+          "callback"
+        ],
+        "topic": "Pointers",
+        "frequencyAsked": 1,
+        "yearsAppeared": [
+          "2025"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "hard"
+      }
+    ]
+  },
+  {
+    "subjectId": "applied-mathematics",
+    "subjectName": "Applied Mathematics",
+    "cycleOrBranch": "Chemistry Cycle",
+    "totalQuestions": 12,
+    "mostAskedCount": 4,
+    "moderatelyAskedCount": 4,
+    "canBeAskedCount": 4,
+    "questions": [
+      {
+        "id": "am-001",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "Find the rank of matrix A = [[1,2,3],[2,4,6],[3,6,9]].",
+        "text": "Find the rank of matrix A = [[1,2,3],[2,4,6],[3,6,9]].",
+        "marks": 5,
+        "keywords": [
+          "rank",
+          "row echelon",
+          "zero rows",
+          "linearly dependent"
+        ],
+        "formula": "rank = 1",
+        "topic": "Matrices",
+        "frequencyAsked": 6,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy",
+        "explanation": "All rows are multiples of row 1. After row reduction only 1 non-zero row remains. rank(A) = 1."
+      },
+      {
+        "id": "am-002",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "Find eigenvalues of A = [[4,1],[2,3]].",
+        "text": "Find eigenvalues of A = [[4,1],[2,3]].",
+        "marks": 5,
+        "keywords": [
+          "characteristic equation",
+          "determinant",
+          "lambda",
+          "eigenvalue"
+        ],
+        "formula": "lambda = 5 and 2",
+        "topic": "Matrices",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy",
+        "explanation": "det(A-lambda*I) = (4-lambda)(3-lambda)-2 = lambda^2 - 7*lambda + 10 = 0, so lambda = 5 or 2."
+      },
+      {
+        "id": "am-003",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "State Cayley-Hamilton theorem and verify for A = [[1,2],[3,4]].",
+        "text": "State Cayley-Hamilton theorem and verify for A = [[1,2],[3,4]].",
+        "marks": 5,
+        "keywords": [
+          "characteristic equation",
+          "satisfies",
+          "eigenvalue",
+          "identity matrix"
+        ],
+        "topic": "Matrices",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Cayley-Hamilton: every matrix satisfies its own characteristic equation. Char eq of A is lambda^2 - 5*lambda - 2 = 0. Verify A^2 - 5A - 2I = 0."
+      },
+      {
+        "id": "am-004",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "Solve system: x+y+z=6, x-y+z=2, 2x+y-z=1.",
+        "text": "Solve system: x+y+z=6, x-y+z=2, 2x+y-z=1.",
+        "marks": 5,
+        "keywords": [
+          "Gaussian elimination",
+          "augmented matrix",
+          "back substitution"
+        ],
+        "formula": "x=1, y=2, z=3",
+        "topic": "Matrices",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "Using Gaussian elimination on the augmented matrix gives x=1, y=2, z=3."
+      },
+      {
+        "id": "am-005",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "Find partial derivatives dz/dx and dz/dy for z = x^3 + 3x^2*y + y^3.",
+        "text": "Find partial derivatives for z = x^3 + 3x^2*y + y^3.",
+        "marks": 5,
+        "keywords": [
+          "partial derivative",
+          "3x squared",
+          "6xy",
+          "3y squared"
+        ],
+        "formula": "dz/dx = 3x^2 + 6xy, dz/dy = 3x^2 + 3y^2",
+        "topic": "Partial Differentiation",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy",
+        "explanation": "dz/dx = 3x^2 + 6xy (treat y constant), dz/dy = 3x^2 + 3y^2 (treat x constant)."
+      },
+      {
+        "id": "am-006",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "Evaluate double integral of (x^2 + y^2) over 0 to 1 for both x and y.",
+        "text": "Evaluate double integral of (x^2 + y^2) over region 0<=x<=1, 0<=y<=1.",
+        "marks": 5,
+        "keywords": [
+          "double integral",
+          "x squared",
+          "y squared",
+          "limits",
+          "2/3"
+        ],
+        "formula": "result = 2/3",
+        "topic": "Integration",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "Integral = 2/3 by integrating x^2+y^2 over the unit square."
+      },
+      {
+        "id": "am-007",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "Find the maxima/minima of f(x,y) = x^3 + y^3 - 3xy.",
+        "text": "Find extrema of f(x,y) = x^3 + y^3 - 3xy.",
+        "marks": 5,
+        "keywords": [
+          "critical point",
+          "partial derivative",
+          "saddle point",
+          "minimum",
+          "hessian"
+        ],
+        "formula": "critical pts: (0,0) saddle, (1,1) min",
+        "topic": "Partial Differentiation",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "hard",
+        "explanation": "fx=3x^2-3y=0, fy=3y^2-3x=0 => x=y. Points: (0,0) saddle, (1,1) local min."
+      },
+      {
+        "id": "am-008",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "State Stokes theorem and write its mathematical form.",
+        "text": "State Stokes theorem with mathematical form.",
+        "marks": 5,
+        "keywords": [
+          "curl",
+          "surface integral",
+          "line integral",
+          "boundary",
+          "Green"
+        ],
+        "topic": "Vector Calculus",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "Stokes Theorem: closed line integral F.dr = surface integral of curl(F).dS over bounded surface."
+      },
+      {
+        "id": "am-009",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "Find Laplace transform of f(t) = t * e^(2t).",
+        "text": "Find L{t * e^(2t)}.",
+        "marks": 5,
+        "keywords": [
+          "Laplace transform",
+          "shifting",
+          "s-2",
+          "1/(s-2)^2"
+        ],
+        "formula": "L{t*e^(2t)} = 1/(s-2)^2",
+        "topic": "Laplace Transform",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024",
+          "2025"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "medium",
+        "explanation": "Using first shifting theorem: L{t*e^(2t)} = 1/(s-2)^2 for s > 2."
+      },
+      {
+        "id": "am-010",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "Explain curvature of a curve and write its formula.",
+        "text": "Explain curvature of a curve with its formula.",
+        "marks": 3,
+        "keywords": [
+          "radius of curvature",
+          "bending",
+          "kappa",
+          "d/ds"
+        ],
+        "formula": "kappa = |y''| / (1+y'^2)^(3/2)",
+        "topic": "Calculus",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022",
+          "2025"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "Curvature k measures how sharply a curve bends. k = |y''|/(1+y'^2)^(3/2)."
+      },
+      {
+        "id": "am-011",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "Evaluate integral of sin^2(x) from 0 to pi.",
+        "text": "Evaluate integral of sin^2(x) from 0 to pi.",
+        "marks": 3,
+        "keywords": [
+          "reduction formula",
+          "pi/2",
+          "half angle",
+          "integration"
+        ],
+        "formula": "result = pi/2",
+        "topic": "Integration",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022",
+          "2024"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "Using sin^2(x) = (1-cos2x)/2, integral from 0 to pi = pi/2."
+      },
+      {
+        "id": "am-012",
+        "subjectId": "applied-mathematics",
+        "subjectName": "Applied Mathematics",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "Find gradient of phi = x^2*y + y*z^2 at point (1, 2, 3).",
+        "text": "Find gradient of phi = x^2*y + y*z^2 at (1,2,3).",
+        "marks": 5,
+        "keywords": [
+          "gradient",
+          "del operator",
+          "partial derivatives",
+          "vector"
+        ],
+        "formula": "grad = 4i + 10j + 12k",
+        "topic": "Vector Calculus",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2023"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "medium",
+        "explanation": "At (1,2,3): d/dx=2xy=4, d/dy=x^2+z^2=10, d/dz=2yz=12. grad = 4i+10j+12k."
+      }
+    ]
+  },
+  {
+    "subjectId": "basic-mechanical-engineering",
+    "subjectName": "Basic Mechanical Engineering",
+    "cycleOrBranch": "Chemistry Cycle",
+    "totalQuestions": 12,
+    "mostAskedCount": 4,
+    "moderatelyAskedCount": 4,
+    "canBeAskedCount": 4,
+    "questions": [
+      {
+        "id": "bme-001",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "State and explain First and Second Law of Thermodynamics with examples.",
+        "text": "State First and Second Law of Thermodynamics.",
+        "marks": 5,
+        "keywords": [
+          "energy conservation",
+          "heat",
+          "work",
+          "entropy",
+          "Kelvin-Planck",
+          "Clausius"
+        ],
+        "topic": "Thermodynamics",
+        "frequencyAsked": 6,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "First Law: Q=DeltaU+W (energy conserved). Second Law: entropy increases, no 100% efficient engine."
+      },
+      {
+        "id": "bme-002",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "A heat engine operates between 800K and 300K. Find its Carnot efficiency.",
+        "text": "Carnot efficiency with T_H=800K, T_L=300K.",
+        "marks": 5,
+        "keywords": [
+          "Carnot efficiency",
+          "1-TL/TH",
+          "kelvin",
+          "percentage"
+        ],
+        "formula": "eta = 1 - 300/800 = 62.5%",
+        "topic": "Thermodynamics",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "easy",
+        "explanation": "Carnot efficiency = 1 - T_cold/T_hot = 1 - 300/800 = 0.625 = 62.5%."
+      },
+      {
+        "id": "bme-003",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "Explain the working principle of a four-stroke IC engine with a PV diagram.",
+        "text": "Explain four-stroke IC engine with PV diagram.",
+        "marks": 5,
+        "keywords": [
+          "intake",
+          "compression",
+          "power",
+          "exhaust",
+          "crankshaft",
+          "piston",
+          "BDC",
+          "TDC"
+        ],
+        "topic": "IC Engines",
+        "frequencyAsked": 5,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "4 strokes: Intake (air-fuel in), Compression (mixture compressed), Power (combustion drives piston), Exhaust (gases expelled)."
+      },
+      {
+        "id": "bme-004",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "Distinguish between Refrigeration and Air Conditioning. Explain vapour compression refrigeration.",
+        "text": "Vapour compression refrigeration vs Air Conditioning.",
+        "marks": 5,
+        "keywords": [
+          "refrigerant",
+          "evaporator",
+          "compressor",
+          "condenser",
+          "expansion valve",
+          "COP"
+        ],
+        "topic": "Refrigeration",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "category": "most-asked",
+        "difficulty": "medium",
+        "explanation": "VCR cycle: refrigerant evaporates (absorbs heat), compressor raises pressure, condenser releases heat, expansion valve drops pressure."
+      },
+      {
+        "id": "bme-005",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "Explain lathe machine operations: turning, facing, taper turning, and knurling.",
+        "text": "Explain lathe operations: turning, facing, taper turning, knurling.",
+        "marks": 5,
+        "keywords": [
+          "turning",
+          "facing",
+          "taper",
+          "knurling",
+          "tool",
+          "workpiece",
+          "chuck",
+          "feed"
+        ],
+        "topic": "Manufacturing",
+        "frequencyAsked": 4,
+        "yearsAppeared": [
+          "2022",
+          "2023",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "Turning: reduces diameter. Facing: flat end surface. Taper turning: conical surface. Knurling: diamond grip pattern."
+      },
+      {
+        "id": "bme-006",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "What is sand casting? Explain the steps in sand casting process.",
+        "text": "Explain sand casting process with steps.",
+        "marks": 5,
+        "keywords": [
+          "mould",
+          "pattern",
+          "runner",
+          "riser",
+          "molten metal",
+          "solidification",
+          "fettling"
+        ],
+        "topic": "Manufacturing",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "Sand casting: place pattern in flask, pack sand, remove pattern, pour molten metal, solidify, remove and clean part."
+      },
+      {
+        "id": "bme-007",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "numerical",
+        "question": "Carnot cycle: T_H=627C, T_L=27C, Q_H=500kJ. Find work done and heat rejected.",
+        "text": "Carnot cycle: T_H=900K, T_L=300K, Q_H=500kJ. Find W and Q_L.",
+        "marks": 5,
+        "keywords": [
+          "Carnot efficiency",
+          "work done",
+          "heat rejected",
+          "2/3"
+        ],
+        "formula": "eta=1-300/900=0.667; W=333.3kJ; Q_L=166.7kJ",
+        "topic": "Thermodynamics",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2022",
+          "2025"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "medium",
+        "explanation": "T_H=900K, T_L=300K. eta=0.667. W=eta*Q_H=333.3kJ. Q_L=Q_H-W=166.7kJ."
+      },
+      {
+        "id": "bme-008",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "Explain COP of refrigerator and heat pump. How are they related?",
+        "text": "COP of refrigerator and heat pump. Relationship.",
+        "marks": 3,
+        "keywords": [
+          "COP",
+          "refrigerating effect",
+          "work input",
+          "heat pump",
+          "COP_HP = COP_R + 1"
+        ],
+        "formula": "COP_R = Q_L/W; COP_HP = COP_R + 1",
+        "topic": "Refrigeration",
+        "frequencyAsked": 3,
+        "yearsAppeared": [
+          "2023",
+          "2024"
+        ],
+        "category": "moderately-asked",
+        "difficulty": "easy",
+        "explanation": "COP_R = Q_L/W. COP_HP = Q_H/W. Since Q_H = Q_L + W: COP_HP = COP_R + 1."
+      },
+      {
+        "id": "bme-009",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "Explain power transmission via belt drive and gear drive.",
+        "text": "Power transmission: belt drive vs gear drive.",
+        "marks": 5,
+        "keywords": [
+          "belt drive",
+          "gear drive",
+          "velocity ratio",
+          "slip",
+          "positive drive"
+        ],
+        "topic": "Power Transmission",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022",
+          "2025"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "medium",
+        "explanation": "Belt: absorbs shocks, slip occurs, low cost. Gear: no slip, precise ratio, higher efficiency."
+      },
+      {
+        "id": "bme-010",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "Explain rapid prototyping techniques SLA and FDM.",
+        "text": "Rapid prototyping: SLA and FDM techniques.",
+        "marks": 3,
+        "keywords": [
+          "stereolithography",
+          "FDM",
+          "layer",
+          "UV",
+          "photopolymer",
+          "filament"
+        ],
+        "topic": "Manufacturing",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2023"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "medium",
+        "explanation": "SLA: UV laser cures liquid photopolymer layer by layer. FDM: thermoplastic filament extruded layer by layer."
+      },
+      {
+        "id": "bme-011",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "State SFEE and apply it to a nozzle.",
+        "text": "State SFEE and apply to a nozzle.",
+        "marks": 5,
+        "keywords": [
+          "SFEE",
+          "enthalpy",
+          "velocity",
+          "nozzle",
+          "kinetic energy",
+          "flow work"
+        ],
+        "formula": "h1 + V1^2/2 = h2 + V2^2/2",
+        "topic": "Thermodynamics",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2024"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "hard",
+        "explanation": "SFEE for nozzle (Q=W=0): h1+V1^2/2 = h2+V2^2/2. Exit V2 = sqrt(V1^2 + 2*(h1-h2))."
+      },
+      {
+        "id": "bme-012",
+        "subjectId": "basic-mechanical-engineering",
+        "subjectName": "Basic Mechanical Engineering",
+        "cycleOrBranch": "Chemistry Cycle",
+        "type": "theory",
+        "question": "Differentiate between 2-stroke and 4-stroke IC engines.",
+        "text": "Compare 2-stroke and 4-stroke engines.",
+        "marks": 5,
+        "keywords": [
+          "2-stroke",
+          "4-stroke",
+          "power stroke",
+          "crankshaft revolution",
+          "ports",
+          "valves"
+        ],
+        "topic": "IC Engines",
+        "frequencyAsked": 2,
+        "yearsAppeared": [
+          "2022",
+          "2024"
+        ],
+        "category": "can-be-asked",
+        "difficulty": "easy",
+        "explanation": "2-stroke: power every crank rotation, ports, more pollution. 4-stroke: power every 2 rotations, valves, better efficiency."
+      }
+    ]
+  }
+]
