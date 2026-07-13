@@ -28,14 +28,7 @@ export interface SubjectQuizData {
   canBeAskedCount: number;
 }
 
-/**
- * Hash function using keywords and question type to detect similar questions
- */
-function hashQuestion(question: ParsedQuestion): string {
-  const keywords = question.keywords || [];
-  const type = question.type;
-  return `${type}-${keywords.sort().join('-')}`;
-}
+
 
 export async function parseAllPYQsToQuiz(): Promise<SubjectQuizData[]> {
   // In a real scenario, this could fetch from an API.
