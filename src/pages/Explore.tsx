@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft, BookOpen, FileText, ExternalLink,
-  ChevronRight, Search, Download, Bell, Folder,
+  ChevronRight, Search, Download, Folder,
   Calendar, Plus, X
 } from 'lucide-react';
 import { year1Cycles, branches, type Subject, type Cycle, type Branch } from '@/data/studyMaterial';
