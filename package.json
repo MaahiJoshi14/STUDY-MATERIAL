@@ -12,6 +12,7 @@
     "test-physics-quiz": "tsx scripts/test-engineering-physics-quiz.ts"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.110.8",
     "@types/pdfjs-dist": "^2.10.377",
     "clsx": "^2.1.1",
     "framer-motion": "^12.42.0",

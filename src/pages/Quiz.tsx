@@ -85,10 +85,8 @@ export default function Quiz() {
         setStep('categories');
       }
       
-      // Clean up storage so returning here doesn't auto-redirect again
-      sessionStorage.removeItem('setup_subject_id');
-      sessionStorage.removeItem('setup_year');
-      sessionStorage.removeItem('setup_branch');
+      // Note: We deliberately do not clear sessionStorage here to avoid React StrictMode 
+      // double-invocation from losing the setup state and reverting to defaults.
     } else {
       // Set default subject on load
       const subList = year1Cycles.find(c => c.id === 'physics-cycle')?.subjects || [];
@@ -227,7 +225,7 @@ export default function Quiz() {
   );
 
   return (
-    <div className="min-h-screen bg-[#FFF8FA] text-[#1E1E1E] font-sans antialiased pb-28">
+    <div className="min-h-screen bg-[#FFF8FA] text-[#1E1E1E] font-sans antialiased pb-28 overflow-x-hidden">
       {loadingQuizData && (
         <div className="fixed inset-0 bg-white/80 backdrop-blur-sm z-50 flex items-center justify-center">
           <div className="text-center">
@@ -238,47 +236,45 @@ export default function Quiz() {
       )}
       
       {/* ── HEADER NAVIGATION ── */}
-      <header className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-8.5 h-8.5 bg-[#FF5252] rounded-xl flex items-center justify-center border border-slate-200 shadow-sm">
-            <BookOpen className="w-4.5 h-4.5 text-white" />
+      <header className="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-5 flex items-center justify-between gap-1.5 sm:gap-4 flex-nowrap overflow-hidden">
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          <div className="w-6.5 h-6.5 sm:w-8.5 sm:h-8.5 bg-[#FF5252] rounded-xl flex items-center justify-center border border-slate-200 shadow-sm">
+            <BookOpen className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 text-white" />
           </div>
-          <span className="font-display font-black text-[#1E1E1E] text-xl tracking-tight uppercase">MUJ SPACE</span>
+          <span className="font-display font-black text-[#1E1E1E] text-xs xs:text-sm sm:text-xl tracking-tight uppercase">MUJ SPACE</span>
         </Link>
 
         {/* Navigation Middle Pill Bar */}
-        <div className="flex items-center gap-1.5 bg-white border border-slate-200/80 px-2 py-1.5 rounded-full shadow-sm">
+        <div className="flex items-center gap-0.5 sm:gap-1.5 bg-white border border-slate-200/80 px-1 sm:px-2 py-0.5 sm:py-1.5 rounded-full shadow-sm shrink-0">
           <Link
             to="/"
-            className="px-5 py-1.5 rounded-full text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all"
+            className="px-2 xs:px-3 sm:px-5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all"
           >
             Home
           </Link>
           <Link
             to="/explore"
-            className="px-5 py-1.5 rounded-full text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all"
+            className="px-2 xs:px-3 sm:px-5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all"
           >
             Library
           </Link>
           <Link
-            to="/quiz"
-            className={`px-5 py-1.5 rounded-full text-xs font-black transition-all ${
-              step === 'setup' ? 'text-slate-500' : 'bg-[#1E1E1E] text-white'
-            }`}
+            to="/?arena=true"
+            className="hidden sm:block px-2 xs:px-3 sm:px-5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-black bg-[#1E1E1E] text-white shadow-sm transition-all cursor-pointer"
           >
             Practice Arena
           </Link>
         </div>
 
         {/* Score Counter */}
-        <div className="flex items-center gap-2 bg-[#FFB236] border border-[#1E1E1E]/10 px-4 py-1.5 rounded-full shadow-sm">
-          <Trophy className="w-4 h-4 text-[#1E1E1E] fill-[#1E1E1E]" />
-          <span className="text-xs font-black text-[#1E1E1E]">{score} XP</span>
+        <div className="flex items-center gap-1 sm:gap-2 bg-[#FFB236] border border-[#1E1E1E]/10 px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full shadow-sm shrink-0">
+          <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#1E1E1E] fill-[#1E1E1E]" />
+          <span className="text-[10px] sm:text-xs font-black text-[#1E1E1E]">{score} XP</span>
         </div>
       </header>
 
       {/* Main Body */}
-      <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 py-4 sm:py-8 overflow-x-hidden">
         
         {step !== 'setup' && (
           <button

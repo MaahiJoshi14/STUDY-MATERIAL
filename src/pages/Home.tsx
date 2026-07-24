@@ -283,28 +283,28 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-[#F8F9FB] text-[#1E1E1E] font-sans antialiased pb-24">
+    <div className="min-h-screen bg-[#F8F9FB] text-[#1E1E1E] font-sans antialiased pb-24 overflow-x-hidden">
 
       {/* ── HEADER NAVIGATION (Clean, Thin Borders, Soft Shadows) ── */}
-      <header className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-8.5 h-8.5 bg-[#FF5252] rounded-xl flex items-center justify-center border border-slate-200 shadow-sm">
+      <header className="w-full max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-5 flex justify-between items-center gap-2">
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+          <div className="w-8 h-8 bg-[#FF5252] rounded-xl flex items-center justify-center border border-slate-200 shadow-sm shrink-0">
             <BookOpen className="w-4 h-4 text-white" />
           </div>
-          <span className="font-display font-black text-[#1E1E1E] text-lg tracking-tight uppercase">MUJ SPACE</span>
+          <span className="font-display font-black text-[#1E1E1E] text-sm sm:text-lg tracking-tight uppercase leading-tight">MUJ<br className="sm:hidden" /> SPACE</span>
         </Link>
 
         {/* Navigation Middle Pill Bar */}
-        <div className="flex items-center gap-1 bg-white border border-slate-200/80 px-1.5 py-1 rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.03)]">
+        <div className="flex items-center gap-0.5 sm:gap-1 bg-white border border-slate-200/80 px-1 sm:px-1.5 py-1 rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.03)] shrink-0">
           <Link
             to="/"
-            className="px-5 py-1.5 rounded-full text-xs font-black bg-[#1E1E1E] text-white shadow-sm transition-all"
+            className="px-3 sm:px-5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-black bg-[#1E1E1E] text-white shadow-sm transition-all"
           >
             Home
           </Link>
           <Link
             to="/explore"
-            className="px-5 py-1.5 rounded-full text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all"
+            className="px-3 sm:px-5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all"
           >
             Library
           </Link>
@@ -313,19 +313,19 @@ export default function Home() {
               handleSetupYearChange(1);
               setIsArenaModalOpen(true);
             }}
-            className="px-5 py-1.5 rounded-full text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all cursor-pointer"
+            className="hidden sm:block px-3 sm:px-5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all cursor-pointer"
           >
             Practice Arena
           </button>
         </div>
 
         {/* Profile / Notification Bar */}
-        <div className="flex items-center gap-3">
-          <button className="w-9 h-9 bg-white border border-slate-200 rounded-xl flex items-center justify-center shadow-sm hover:bg-slate-50 transition-all">
-            <Bell className="w-4 h-4 text-[#1E1E1E]" />
+        <div className="flex items-center gap-2 shrink-0">
+          <button className="w-8 h-8 sm:w-9 sm:h-9 bg-white border border-slate-200 rounded-xl flex items-center justify-center shadow-sm hover:bg-slate-50 transition-all">
+            <Bell className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#1E1E1E]" />
           </button>
           <div className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#5D5FEF] to-[#FF5252] flex items-center justify-center text-white text-xs font-black shadow-sm border border-white">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br from-[#5D5FEF] to-[#FF5252] flex items-center justify-center text-white text-xs font-black shadow-sm border border-white">
               {displayName.charAt(0).toUpperCase()}
             </div>
             {isEditingName ? (
@@ -350,16 +350,14 @@ export default function Home() {
       </header>
 
       {/* ── HERO SECTION ── */}
-      <section className="w-full max-w-[1536px] mx-auto px-6 lg:px-12 pt-4 pb-8 lg:pt-8 lg:pb-12 relative">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center relative">
+      <section className="w-full max-w-[1536px] mx-auto px-3 sm:px-6 lg:px-12 pt-3 sm:pt-4 pb-6 sm:pb-8 lg:pt-8 lg:pb-12 relative overflow-x-hidden">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-16 items-center relative">
 
           {/* Hero Left Content */}
-          <div className="lg:col-span-7 space-y-6 lg:space-y-8 text-center lg:text-left">
+          <div className="lg:col-span-7 space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left min-w-0">
 
-
-
-            <div className="space-y-3">
-              <h1 className="font-display font-extrabold text-[42px] sm:text-5xl lg:text-[76px] text-[#1E1E1E] leading-[0.9] tracking-tight uppercase">
+            <div className="space-y-2 sm:space-y-3">
+              <h1 className="font-display font-extrabold text-3xl xs:text-4xl sm:text-5xl lg:text-[76px] text-[#1E1E1E] leading-[1.0] sm:leading-[0.9] tracking-tight uppercase break-words">
                 Study Smarter.<br />
                 <span className="bg-gradient-to-r from-[#5D5FEF] to-[#7B7DFF] bg-clip-text text-transparent">Score Higher.</span>
               </h1>
@@ -472,82 +470,7 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
 
           {/* Hero Right: 5-Book 3D Shelf */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center relative select-none py-4 lg:py-0">
-            <style>{`
-              @keyframes bookFloat1 { 0%,100%{transform:translateY(0) rotateY(22deg) rotateZ(-9deg);} 50%{transform:translateY(-4px) rotateY(22deg) rotateZ(-9deg);} }
-              @keyframes bookFloat2 { 0%,100%{transform:translateY(-2px) rotateY(10deg) rotateZ(-4deg);} 50%{transform:translateY(2px) rotateY(10deg) rotateZ(-4deg);} }
-              @keyframes bookFloat3 { 0%,100%{transform:translateY(0) rotateY(0deg) rotateZ(-1deg);} 50%{transform:translateY(-5px) rotateY(0deg) rotateZ(-1deg);} }
-              @keyframes bookFloat4 { 0%,100%{transform:translateY(-3px) rotateY(-10deg) rotateZ(4deg);} 50%{transform:translateY(1px) rotateY(-10deg) rotateZ(4deg);} }
-              @keyframes bookFloat5 { 0%,100%{transform:translateY(0) rotateY(-22deg) rotateZ(8deg);} 50%{transform:translateY(-3px) rotateY(-22deg) rotateZ(8deg);} }
-              .book3d { 
-                position:absolute; 
-                border-radius:4px 10px 10px 4px; 
-                box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
-                transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
-              }
-              .book3d:hover { 
-                cursor:pointer; 
-                transform: scale(1.05) translateY(-10px) rotate(2deg) !important; 
-                box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-              }
-              .bspine { 
-                position:absolute; 
-                left:-10px; 
-                top:0; 
-                bottom:0; 
-                width:10px; 
-                border-radius:4px 0 0 4px; 
-                filter:brightness(0.6); 
-                box-shadow: inset -2px 0 6px rgba(0,0,0,0.3);
-              }
-              .bpages { 
-                position:absolute; 
-                right:-4px; 
-                top:2px; 
-                bottom:2px; 
-                width:5px; 
-                background:linear-gradient(to right,#d4ccb8,#e8e3d7,#d4ccb8); 
-                border-radius:0 2px 2px 0;
-                box-shadow: inset 0 0 3px rgba(0,0,0,0.15);
-              }
-              @media (min-width: 768px) {
-                .books-container { width: 440px; height: 320px; }
-                .book-1 { width:100px; height:150px; bottom:50px; }
-                .book-2 { width:115px; height:170px; left:95px; bottom:50px; }
-                .book-3 { width:130px; height:195px; left:205px; bottom:50px; }
-                .book-4 { width:115px; height:165px; right:90px; bottom:50px; }
-                .book-5 { width:100px; height:148px; bottom:50px; }
-                .book-shelf { left:50%; transform:translateX(-50%); width:300px; bottom:36px; height:16px; }
-                .book-shadow { left:50%; transform:translateX(-50%); width:260px; bottom:12px; }
-                .book-padding { padding:8px 6px; }
-                .book-padding-3 { padding:10px 8px; }
-                .book-icon { font-size:18px; margin-bottom:4px; }
-                .book-icon-3 { font-size:22px; margin-bottom:4px; }
-                .book-title { font-size:7px; }
-                .book-title-3 { font-size:8px; }
-                .book-subtitle { font-size:6px; margin-top:3px; }
-                .book-divider { width:24px; margin:5px 0; }
-              }
-              @media (max-width: 767px) {
-                .books-container { width: 240px; height: 180px; margin: 0 auto; }
-                .book-1 { width:55px; height:80px; bottom:28px; }
-                .book-2 { width:62px; height:92px; left:50px; bottom:28px; }
-                .book-3 { width:68px; height:105px; left:108px; bottom:28px; }
-                .book-4 { width:62px; height:88px; right:48px; bottom:28px; }
-                .book-5 { width:55px; height:78px; bottom:28px; }
-                .book-shelf { left:50%; transform:translateX(-50%); width:220px; bottom:18px; height:10px; }
-                .book-shadow { left:50%; transform:translateX(-50%); width:180px; bottom:9px; }
-                .book-padding { padding:5px 4px; }
-                .book-padding-3 { padding:7px 5px; }
-                .book-icon { font-size:14px; margin-bottom:2px; }
-                .book-icon-3 { font-size:16px; margin-bottom:2px; }
-                .book-title { font-size:5px; }
-                .book-title-3 { font-size:5.5px; }
-                .book-subtitle { font-size:4.5px; margin-top:2px; }
-                .book-divider { width:16px; margin:3px 0; }
-              }
-            `}</style>
-
-            <div className="relative books-container">
+            <div className="hidden sm:block relative books-container">
 
 
               {/* Book 1 – far left (Engineering Physics, red) */}
@@ -704,7 +627,7 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
           {[
             {
               y: 1,
@@ -740,7 +663,7 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
           cursor-pointer
           rounded-2xl
           border border-slate-200
-          p-6
+          p-3 sm:p-6
           flex flex-col
           items-center
           transition-all
@@ -751,7 +674,7 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
             >
               {/* Book */}
               <div
-                className="relative w-52 h-72 transition-all duration-300 group-hover:scale-105"
+                className="relative w-28 h-40 sm:w-52 sm:h-72 transition-all duration-300 group-hover:scale-105"
                 style={{ perspective: "900px" }}
               >
                 <div
@@ -763,12 +686,12 @@ shadow-[0_18px_50px_rgba(93,95,239,0.08)]
               </div>
 
               {/* Label */}
-              <div className="mt-6 text-center">
-                <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+              <div className="mt-4 sm:mt-6 text-center">
+                <span className="text-[8px] sm:text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
                   Year {item.y}
                 </span>
 
-                <h3 className="mt-1 font-display font-extrabold text-xl uppercase text-[#1E1E1E]">
+                <h3 className="mt-1 font-display font-extrabold text-sm sm:text-xl uppercase text-[#1E1E1E]">
                   {item.title}
                 </h3>
               </div>

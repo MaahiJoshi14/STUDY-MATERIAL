@@ -182,16 +182,16 @@ export default function Explore() {
       'cse': '/bookcovers/cse.png',
       'aiml': '/bookcovers/aiml.png',
       'it': '/bookcovers/it.png',
-      'data-science': '/bookcovers/data-science.png',
-      'mechanical-engineering': '/bookcovers/mechanical-engineering.png',
-      'mechanical': '/bookcovers/mechanical-engineering.png',
+      'mechanical': '/bookcovers/mechanical.png',
+      'mechanical-engineering': '/bookcovers/mechanical.png',
       'civil-engineering': '/bookcovers/civil-engineering.png',
       'chemical-engineering': '/bookcovers/chemical-engineering.png',
       'electronics-communication-engineering': '/bookcovers/electronics-communication-engineering.png',
       'ece': '/bookcovers/electronics-communication-engineering.png',
-      'electronics-engineering': '/bookcovers/electronics-engineering.png',
-      'iot': '/bookcovers/iot.png',
-      'dse': '/bookcovers/data-science.png',
+      'electronics-engineering': '/bookcovers/electronics-communication-engineering.png',
+      'iot': '/bookcovers/iot.jpeg',
+      'dse': '/bookcovers/dse.png',
+      'data-science': '/bookcovers/dse.png',
       'cyber-security': '/bookcovers/cyber-security.png',
       'cce': '/bookcovers/cce.png',
       'mechatronics': '/bookcovers/mechatronics.png',
@@ -219,34 +219,31 @@ export default function Explore() {
   const showSidebar = selectedYear > 0;
 
   return (
-    <div className="min-h-screen bg-[#F8F9FB] text-[#1E1E1E] font-sans antialiased pb-28">
+    <div className="min-h-screen bg-[#F8F9FB] text-[#1E1E1E] font-sans antialiased pb-28 overflow-x-hidden">
 
-      {/* ── HEADER NAVIGATION ── */}
-      <header className="w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 bg-[#FF5252] rounded-xl flex items-center justify-center shadow-sm">
-            <BookOpen className="w-4 h-4 text-white" />
+      {/* ── HEADER NAVIGATION (Single line row, no notification bell) ── */}
+      <header className="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-5 flex items-center justify-between gap-1.5 sm:gap-4 flex-nowrap overflow-hidden">
+        <Link to="/" className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <div className="w-6.5 h-6.5 sm:w-8 sm:h-8 bg-[#FF5252] rounded-xl flex items-center justify-center shadow-sm">
+            <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
           </div>
-          <span className="font-display font-black text-[#1E1E1E] text-lg tracking-tight uppercase">MUJ SPACE</span>
+          <span className="font-display font-black text-[#1E1E1E] text-xs xs:text-sm sm:text-lg tracking-tight uppercase">MUJ SPACE</span>
         </Link>
 
         {/* Navigation Middle Pill Bar */}
-        <div className="flex items-center gap-1 bg-white border border-slate-200/80 px-1.5 py-1 rounded-full shadow-sm">
-          <Link to="/" className="px-5 py-1.5 rounded-full text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all">Home</Link>
-          <Link to="/explore" className="px-5 py-1.5 rounded-full text-xs font-black bg-[#1E1E1E] text-white shadow-sm transition-all">Library</Link>
-          <Link to="/quiz" className="px-5 py-1.5 rounded-full text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all">Practice Arena</Link>
+        <div className="flex items-center gap-0.5 sm:gap-1 bg-white border border-slate-200/80 px-1 sm:px-1.5 py-0.5 sm:py-1 rounded-full shadow-sm shrink-0">
+          <Link to="/" className="px-2 xs:px-3 sm:px-5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all">Home</Link>
+          <Link to="/explore" className="px-2 xs:px-3 sm:px-5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-black bg-[#1E1E1E] text-white shadow-sm transition-all">Library</Link>
+          <Link to="/?arena=true" className="hidden sm:block px-2 xs:px-3 sm:px-5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-500 hover:text-[#1E1E1E] transition-all cursor-pointer">Practice Arena</Link>
         </div>
 
-        {/* Profile / Notification Bar */}
-        <div className="flex items-center gap-3">
-          <button className="w-9 h-9 bg-white border border-slate-200 rounded-xl flex items-center justify-center shadow-sm hover:bg-slate-50 transition-all">
-            <Bell className="w-4 h-4 text-[#1E1E1E]" />
-          </button>
-          <div className="flex items-center gap-2">
+        {/* Profile Avatar Bar (No Bell) */}
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             <img
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120&h=120"
-              alt="Maahi"
-              className="w-9 h-9 rounded-full border border-slate-200 object-cover shadow-sm"
+              alt="Profile"
+              className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border border-slate-200 object-cover shadow-sm shrink-0"
             />
             <span className="hidden lg:inline text-xs font-black text-[#1E1E1E] tracking-tight">Hi, {displayName} 👋</span>
           </div>
@@ -254,7 +251,7 @@ export default function Explore() {
       </header>
 
       {/* ── MAIN LAYOUT ── */}
-      <div className={`w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 ${showSidebar ? 'flex flex-col-reverse lg:flex-row gap-6' : ''}`}>
+      <div className={`w-full px-3 sm:px-6 lg:px-8 py-4 sm:py-6 overflow-x-hidden ${showSidebar ? 'flex flex-col-reverse lg:flex-row gap-6' : ''}`}>
 
         {/* ── LEFT SIDEBAR (only on branch/subjects steps) ── */}
         {showSidebar && (
@@ -317,7 +314,7 @@ export default function Explore() {
                   </h1>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                   {[
                     { y: 1, label: 'First Year', subtitle: 'Foundation', color: 'bg-[#EDE7F6]', cover: '/bookcovers/first-year.png' },
                     { y: 2, label: 'Second Year', subtitle: 'Core Concepts', color: 'bg-[#FFF3E0]', cover: '/bookcovers/second-year.png' },
@@ -340,16 +337,21 @@ export default function Explore() {
                       }}
                       className="text-left w-full cursor-pointer focus:outline-none group"
                     >
-                      <div className={`relative rounded-[24px] border border-slate-200 pt-6 px-6 shadow-[0_8px_20px_rgba(0,0,0,0.03)] hover:translate-y-[-4px] hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)] transition-all flex flex-col items-center h-[340px] overflow-hidden ${color}`}>
-                        <div className="w-full space-y-1 text-left z-10">
-                          <span className="text-[9px] font-extrabold uppercase bg-white/60 backdrop-blur-md border border-slate-200/50 px-2 py-0.5 rounded-full shadow-sm">Year 0{y}</span>
-                          <h3 className="font-display font-extrabold text-xl text-[#1E1E1E] uppercase leading-tight pt-1">{label}</h3>
-                          <p className="text-[10px] font-bold text-slate-500">{subtitle}</p>
+                      <div className={`relative rounded-[20px] sm:rounded-[24px] border border-slate-200 pt-4 sm:pt-6 px-3 sm:px-6 shadow-[0_8px_20px_rgba(0,0,0,0.03)] hover:translate-y-[-4px] hover:shadow-[0_12px_24px_rgba(0,0,0,0.08)] transition-all flex flex-col items-center h-[220px] sm:h-[340px] overflow-hidden ${color}`}>
+                        <div className="w-full space-y-0.5 sm:space-y-1 text-left z-10">
+                          <span className="text-[8px] sm:text-[9px] font-extrabold uppercase bg-white/60 backdrop-blur-md border border-slate-200/50 px-1.5 sm:px-2 py-0.5 rounded-full shadow-sm">Year 0{y}</span>
+                          <h3 className="font-display font-extrabold text-sm sm:text-xl text-[#1E1E1E] uppercase leading-tight pt-0.5 sm:pt-1">{label}</h3>
+                          <p className="text-[9px] sm:text-[10px] font-bold text-slate-500">{subtitle}</p>
                         </div>
                         <div
-                          className="absolute bottom-[-20px] w-48 h-64 rounded-xl bg-cover bg-center shadow-[0_8px_20px_rgba(0,0,0,0.12)] group-hover:scale-[1.03] transition-transform duration-500 z-0"
-                          style={{ backgroundImage: `url(${cover})` }}
-                        />
+                          className="absolute bottom-0 flex justify-center w-full translate-y-4 group-hover:translate-y-0 transition-transform duration-500 z-0"
+                        >
+                          <img 
+                            src={cover} 
+                            alt={label} 
+                            className="w-28 h-40 sm:w-56 sm:h-72 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
                       </div>
                     </button>
                   ))}
@@ -357,124 +359,80 @@ export default function Explore() {
               </motion.div>
             )}
           {/* ── STEP: BRANCH / CYCLE ── */}
-{step === "branch" && (
+{step === 'branch' && (
   <motion.div
     key="branch"
-    initial={{ opacity: 0, y: 15 }}
+    initial={{ opacity: 0, y: 16 }}
     animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: -15 }}
-    className="space-y-8"
+    exit={{ opacity: 0, y: -16 }}
+    transition={{ duration: 0.3 }}
+    className="w-full max-w-full overflow-x-hidden"
   >
-    {/* Header */}
-    <div className="space-y-2">
-      <span className="text-[10px] font-extrabold uppercase bg-white border border-slate-200 px-3 py-1 rounded-full shadow-sm inline-block">
-        YEAR 0{selectedYear}
+    {/* Header — just year badge + title, no subheading */}
+    <div className="mb-6 sm:mb-8">
+      <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 bg-white border border-slate-200 px-2.5 py-1 rounded-full inline-block mb-3 sm:mb-4">
+        Year 0{selectedYear}
       </span>
-
-      <h1 className="font-display font-black text-3xl md:text-4xl text-[#1E1E1E] uppercase">
-        {selectedYear === 1 ? "Select Your Cycle" : "Select Branch"}
+      <h1 className="font-display font-black text-2xl sm:text-3xl md:text-4xl text-[#0d0d0d] tracking-tight">
+        {selectedYear === 1 ? 'Select Your Cycle' : 'Select Branch'}
       </h1>
-
-      <p className="text-slate-400 font-bold text-xs leading-relaxed max-w-sm">
-        Select the appropriate stream cover to access notes and sessional study
-        cards.
-      </p>
     </div>
 
-    {/* Books Grid */}
-    <div
-      className={`grid justify-center gap-x-16 gap-y-24 mx-auto mt-12 ${
-        selectedYear === 1
-          ? "grid-cols-2 max-w-3xl"
-          : "grid-cols-2 md:grid-cols-3 xl:grid-cols-4 max-w-6xl"
-      }`}
-    >
-      {(selectedYear === 1 ? year1Cycles : branches).map((item) => (
-        <button
-          key={item.id}
-          onClick={() => {
-            if (selectedYear === 1) {
-              logRecentActivity({
-                id: item.id,
-                type: 'cycle',
-                title: (item as Cycle).name,
-                year: 'BTech 1st Year',
-                cover: getBookCoverPath(item.id),
-                explorePath: `/explore?year=${selectedYear}&cycle=${item.id}`
-              });
-              setSelectedCycle(item as Cycle);
-              setStep("subjects");
-            } else {
-              logRecentActivity({
-                id: item.id,
-                type: 'branch',
-                title: (item as Branch).shortName,
-                year: `BTech ${selectedYear === 2 ? '2nd' : selectedYear === 3 ? '3rd' : '4th'} Year`,
-                cover: getBookCoverPath(item.id),
-                explorePath: `/explore?year=${selectedYear}&branch=${item.id}`
-              });
-              setSelectedBranch(item as Branch);
-              setStep("subjects");
-            }
-          }}
-          className="group flex flex-col items-center justify-start h-[430px] cursor-pointer bg-transparent border-none outline-none"
-        >
-          {/* Book Area */}
-          <div className="h-72 w-full flex items-end justify-center">
-            <img
-              src={getBookCoverPath(item.id)}
-              alt={"name" in item ? item.name : (item as Branch).shortName}
-              draggable={false}
-              className={`
-                max-h-full
-                max-w-full
-                object-contain
-                transition-all
-                duration-300
-                ease-out
-                group-hover:scale-105
-                group-hover:-translate-y-2
-                drop-shadow-2xl
-                ${
-                  selectedYear === 1
-                    ? "w-64"
-                    : "w-56"
-                }
-              `}
-            />
-          </div>
+    {/* Clean uniform grid — like the bookstore inspiration */}
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-5 w-full max-w-full">
+      {(selectedYear === 1 ? year1Cycles : branches).map((item) => {
+        const label = 'shortName' in item
+          ? (item as Branch).shortName
+          : (item as Cycle).name;
+        const coverPath = getBookCoverPath(item.id);
 
-          {/* Title Area */}
-          <div className="mt-6 h-28 flex flex-col items-center justify-start text-center px-3">
-            <h3
-              className={`
-                font-display
-                font-extrabold
-                uppercase
-                leading-tight
-                tracking-tight
-                text-[#1E1E1E]
-                transition-colors
-                duration-300
-                group-hover:text-[#5D5FEF]
-                ${
-                  selectedYear === 1
-                    ? "text-xl"
-                    : "text-[19px]"
-                }
-              `}
-            >
-              {"name" in item ? item.name : (item as Branch).shortName}
-            </h3>
-
-            <p className="mt-2 text-xs font-medium text-slate-400">
-              {selectedYear === 1
-                ? "Foundation Cycle"
-                : "Sessional Syllabus"}
-            </p>
-          </div>
-        </button>
-      ))}
+        return (
+          <button
+            key={item.id}
+            onClick={() => {
+              if (selectedYear === 1) {
+                logRecentActivity({
+                  id: item.id,
+                  type: 'cycle',
+                  title: (item as Cycle).name,
+                  year: 'BTech 1st Year',
+                  cover: coverPath,
+                  explorePath: `/explore?year=${selectedYear}&cycle=${item.id}`
+                });
+                setSelectedCycle(item as Cycle);
+                setStep('subjects');
+              } else {
+                logRecentActivity({
+                  id: item.id,
+                  type: 'branch',
+                  title: (item as Branch).shortName,
+                  year: `BTech ${selectedYear === 2 ? '2nd' : selectedYear === 3 ? '3rd' : '4th'} Year`,
+                  cover: coverPath,
+                  explorePath: `/explore?year=${selectedYear}&branch=${item.id}`
+                });
+                setSelectedBranch(item as Branch);
+                setStep('subjects');
+              }
+            }}
+            className="group text-left cursor-pointer bg-transparent border-none outline-none focus:outline-none w-full min-w-0"
+          >
+            {/* Cover */}
+            <div className="aspect-[3/4] w-full max-w-full rounded-lg overflow-hidden bg-slate-100 shadow-sm">
+              <img
+                src={coverPath}
+                alt={label}
+                draggable={false}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = '/bookcovers/cse.png';
+                }}
+              />
+            </div>
+            {/* Name */}
+            <p className="mt-1.5 sm:mt-2 text-[11px] sm:text-xs font-bold text-[#1E1E1E] truncate">{label}</p>
+          </button>
+        );
+      })}
     </div>
   </motion.div>
 )}

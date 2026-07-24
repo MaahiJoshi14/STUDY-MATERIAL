@@ -136,7 +136,6 @@ async function processPDF(pdfPath) {
         font: font,
         color: rgb(0.6, 0.6, 0.6),
         opacity: 0.08,
-        rotate: { angle: 45 },
       });
 
       // Position 4: Right middle (optional)
@@ -147,7 +146,6 @@ async function processPDF(pdfPath) {
         font: font,
         color: rgb(0.6, 0.6, 0.6),
         opacity: 0.08,
-        rotate: { angle: -45 },
       });
 
       modified = true;
