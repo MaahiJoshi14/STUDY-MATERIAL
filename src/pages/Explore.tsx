@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  ArrowLeft, BookOpen, FileText, ExternalLink,
+  ArrowLeft, BookOpen, FileText,
   ChevronRight, Search, Download, Folder,
   Calendar, Plus, X
 } from 'lucide-react';
 import { year1Cycles, branches, type Subject, type Cycle, type Branch } from '@/data/studyMaterial';
 import { logRecentActivity } from '@/lib/recentActivity';
 
-type Step = 'year' | 'branch' | 'subjects' | 'resources';
+type Step = 'year' | 'branch' | 'subjects' | 'resources' | 'pdf-viewer';
 type ResourceTab = 'notes' | 'pyqs';
 
 // ── MUJ Academic Calendar (hardcoded MTE / ETE windows) ──
@@ -169,7 +169,11 @@ export default function Explore() {
     s.code.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const [selectedPdfUrl, setSelectedPdfUrl] = useState<string>('');
+  const [selectedPdfTitle, setSelectedPdfTitle] = useState<string>('');
+
   const goBack = () => {
+    if (step === 'pdf-viewer') { setStep('resources'); return; }
     if (step === 'resources') { setSelectedSubject(null); setStep('subjects'); return; }
     if (step === 'subjects') { setSelectedCycle(null); setSelectedBranch(null); setStep('branch'); return; }
     if (step === 'branch') { setSelectedYear(0); setStep('year'); navigate('/explore'); return; }
@@ -565,21 +569,23 @@ export default function Explore() {
                         NO STUDY MATERIALS LINKED YET.
                       </div>
                     ) : (
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
                         {selectedSubject.studyMaterials.map((m, i) => (
-                          <a key={i} href={m.url} target="_blank" rel="noreferrer"
-                            className="group bg-white border border-slate-200 rounded-2xl p-5 shadow-lg hover:shadow-xl hover:translate-y-[-4px] transition-all flex flex-col justify-between h-44"
+                          <button
+                            key={i}
+                            onClick={() => { setSelectedPdfUrl(m.url); setSelectedPdfTitle(m.title); setStep('pdf-viewer'); }}
+                            className="group bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-lg hover:shadow-xl hover:translate-y-[-4px] transition-all flex flex-col justify-between h-40 sm:h-44 text-left cursor-pointer w-full"
                           >
                             <div>
-                              <div className="w-9 h-9 bg-[#4FA3F7]/10 border border-slate-200 rounded-xl flex items-center justify-center mb-3">
-                                <FileText className="w-4.5 h-4.5 text-[#4FA3F7]" />
+                              <div className="w-8 h-8 sm:w-9 sm:h-9 bg-[#4FA3F7]/10 border border-slate-200 rounded-xl flex items-center justify-center mb-2 sm:mb-3">
+                                <FileText className="w-4 h-4 text-[#4FA3F7]" />
                               </div>
-                              <h4 className="font-display font-bold text-[#1E1E1E] text-xs line-clamp-2 leading-tight uppercase">{m.title}</h4>
+                              <h4 className="font-display font-bold text-[#1E1E1E] text-[10px] sm:text-xs line-clamp-2 leading-tight uppercase">{m.title}</h4>
                             </div>
-                            <span className="text-[10px] font-extrabold uppercase text-[#1E1E1E] flex items-center gap-1.5">
-                              Open Paper <ExternalLink className="w-3.5 h-3.5" />
+                            <span className="text-[9px] sm:text-[10px] font-extrabold uppercase text-[#4FA3F7] flex items-center gap-1.5">
+                              Open PDF <FileText className="w-3 h-3" />
                             </span>
-                          </a>
+                          </button>
                         ))}
                       </div>
                     )}
@@ -594,21 +600,23 @@ export default function Explore() {
                         NO PYQS UPLOADED YET.
                       </div>
                     ) : (
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
                         {selectedSubject.pyqs.map((p, i) => (
-                          <a key={i} href={p.url} target="_blank" rel="noreferrer"
-                            className="group bg-white border border-slate-200 rounded-2xl p-5 shadow-lg hover:shadow-xl hover:translate-y-[-4px] transition-all flex flex-col justify-between h-44"
+                          <button
+                            key={i}
+                            onClick={() => { setSelectedPdfUrl(p.url); setSelectedPdfTitle(p.title); setStep('pdf-viewer'); }}
+                            className="group bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-lg hover:shadow-xl hover:translate-y-[-4px] transition-all flex flex-col justify-between h-40 sm:h-44 text-left cursor-pointer w-full"
                           >
                             <div>
-                              <div className="w-9 h-9 bg-[#FF7EB9]/10 border border-slate-200 rounded-xl flex items-center justify-center mb-3">
-                                <Download className="w-4.5 h-4.5 text-[#FF7EB9]" />
+                              <div className="w-8 h-8 sm:w-9 sm:h-9 bg-[#FF7EB9]/10 border border-slate-200 rounded-xl flex items-center justify-center mb-2 sm:mb-3">
+                                <Download className="w-4 h-4 text-[#FF7EB9]" />
                               </div>
-                              <h4 className="font-display font-bold text-[#1E1E1E] text-xs line-clamp-2 leading-tight uppercase">{p.title}</h4>
+                              <h4 className="font-display font-bold text-[#1E1E1E] text-[10px] sm:text-xs line-clamp-2 leading-tight uppercase">{p.title}</h4>
                             </div>
-                            <span className="text-[10px] font-extrabold uppercase text-[#1E1E1E] flex items-center gap-1.5">
-                              Download PDF <ExternalLink className="w-3.5 h-3.5" />
+                            <span className="text-[9px] sm:text-[10px] font-extrabold uppercase text-[#FF7EB9] flex items-center gap-1.5">
+                              Open PYQ <FileText className="w-3 h-3" />
                             </span>
-                          </a>
+                          </button>
                         ))}
                       </div>
                     )}
@@ -616,6 +624,41 @@ export default function Explore() {
                 )}
 
 
+              </motion.div>
+            )}
+
+            {/* ── STEP: PDF VIEWER ── */}
+            {step === 'pdf-viewer' && (
+              <motion.div
+                key="pdf-viewer"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                className="flex flex-col h-full"
+              >
+                {/* PDF header bar */}
+                <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+                  <h2 className="font-display font-extrabold text-sm sm:text-xl text-[#1E1E1E] uppercase tracking-tight line-clamp-1 flex-1">
+                    {selectedPdfTitle}
+                  </h2>
+                  <a
+                    href={selectedPdfUrl}
+                    download
+                    className="flex items-center gap-1.5 text-[10px] font-black uppercase text-white bg-[#1E1E1E] px-3 py-2 rounded-xl hover:bg-black transition-all shrink-0"
+                  >
+                    <Download className="w-3.5 h-3.5" /> Download
+                  </a>
+                </div>
+
+                {/* Iframe PDF embed */}
+                <div className="w-full rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-slate-100" style={{ height: 'calc(100vh - 220px)', minHeight: '500px' }}>
+                  <iframe
+                    src={selectedPdfUrl}
+                    title={selectedPdfTitle}
+                    className="w-full h-full border-0"
+                    allow="fullscreen"
+                  />
+                </div>
               </motion.div>
             )}
 
